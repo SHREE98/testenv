@@ -1,0 +1,147 @@
+StatusBarComponent As CanvasComponent:
+    CurrentStatus: =2
+    Fill: =White
+    Height: =StatusBarComponent.StylingProperty.Height
+    NavItems: |-
+        =Table(
+            {
+                Title: "Draft",
+                ID: 1
+            },
+            {
+                Title: "Allocated",
+                ID: 2
+            },
+            {
+                Title: "Booked",
+                ID: 3
+            },
+            {
+                Title: "Write up",
+                ID: 4
+            },
+            {
+                Title: "Submitted",
+                ID: 5
+            },
+            {
+                Title: "Completed",
+                ID: 6
+            }
+        )
+    StylingProperty: =gblControlStyles.StatusBar
+    TabIndex: =0
+    Width: =StatusBarComponent.StylingProperty.Width
+    X: =0
+    Y: =0
+    ZIndex: =3
+
+    galStatusSB As gallery.galleryHorizontal:
+        Default: |-
+            =LookUp(
+                StatusBarComponent.NavItems,
+                ID = StatusBarComponent.CurrentStatus - 1
+            )
+        Height: =Parent.Height
+        Items: =StatusBarComponent.NavItems
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =97
+        Width: =Parent.Width
+        ZIndex: =1
+
+        rctFrontSB As rectangle:
+            Fill: =StatusBarComponent.StylingProperty.BarLine.Fill
+            Height: =StatusBarComponent.StylingProperty.BarLine.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.ID <>1
+            Width: =Parent.TemplateWidth /2
+            X: =Parent.X
+            Y: =cirGreyCircleSB.Y + cirGreyCircleSB.Height/2 - Self.Height/2
+            ZIndex: =1
+
+        rctBackSB As rectangle:
+            Fill: =StatusBarComponent.StylingProperty.BarLine.Fill
+            Height: =StatusBarComponent.StylingProperty.BarLine.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.ID <>6
+            Width: =Parent.TemplateWidth - Self.X
+            X: =cirGreyCircleSB.X 
+            Y: =cirGreyCircleSB.Y + cirGreyCircleSB.Height/2 - Self.Height/2
+            ZIndex: =2
+
+        cirGreyCircleSB As circle:
+            BorderColor: =If(StatusBarComponent.CurrentStatus = ThisItem.ID,StatusBarComponent.StylingProperty.OuterCircle.SelectedBorderColor,StatusBarComponent.StylingProperty.OuterCircle.NotSelectedBorderColor)
+            BorderStyle: =StatusBarComponent.StylingProperty.OuterCircle.BorderStyle
+            BorderThickness: =StatusBarComponent.StylingProperty.OuterCircle.BorderThickness
+            Fill: =If(StatusBarComponent.CurrentStatus = ThisItem.ID,StatusBarComponent.StylingProperty.OuterCircle.SelectedFill,StatusBarComponent.StylingProperty.OuterCircle.NotSelectedFill)
+            FocusedBorderThickness: =StatusBarComponent.StylingProperty.OuterCircle.BorderThickness
+            Height: =StatusBarComponent.StylingProperty.OuterCircle.Height
+            Visible: =StatusBarComponent.CurrentStatus <= ThisItem.ID
+            Width: =StatusBarComponent.StylingProperty.OuterCircle.Width
+            X: =Parent.TemplateHeight/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =3
+
+        cirYellowCircleSB As circle:
+            BorderColor: =StatusBarComponent.StylingProperty.InnerCircle.BorderColor
+            BorderStyle: =StatusBarComponent.StylingProperty.InnerCircle.BorderStyle
+            BorderThickness: =StatusBarComponent.StylingProperty.InnerCircle.BorderThickness
+            Fill: =StatusBarComponent.StylingProperty.InnerCircle.Fill
+            Height: =StatusBarComponent.StylingProperty.InnerCircle.Height
+            Visible: =ThisItem.ID = StatusBarComponent.CurrentStatus
+            Width: =StatusBarComponent.StylingProperty.InnerCircle.Width
+            X: =Parent.TemplateHeight/2 + cirGreyCircleSB.Width/2 - Self.Width/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =4
+
+        lblStatusNameSB As label:
+            Align: =StatusBarComponent.StylingProperty.Label.Align
+            AutoHeight: =StatusBarComponent.StylingProperty.Label.AutoHeight
+            BorderColor: =StatusBarComponent.StylingProperty.Label.BorderColor
+            BorderStyle: =StatusBarComponent.StylingProperty.Label.BorderStyle
+            BorderThickness: =StatusBarComponent.StylingProperty.Label.BorderThickness
+            Color: =StatusBarComponent.StylingProperty.Label.Color
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =StatusBarComponent.StylingProperty.Label.DisplayMode
+            Fill: =StatusBarComponent.StylingProperty.Label.Fill
+            FocusedBorderThickness: =StatusBarComponent.StylingProperty.Label.BorderThickness
+            Font: =StatusBarComponent.StylingProperty.Label.Font
+            FontWeight: =StatusBarComponent.StylingProperty.Label.FontWeight
+            Height: =cirGreyCircleSB.Y
+            Italic: =StatusBarComponent.StylingProperty.Label.Italic
+            LineHeight: =StatusBarComponent.StylingProperty.Label.LineHeight
+            OnSelect: =Select(Parent)
+            Overflow: =StatusBarComponent.StylingProperty.Label.Overflow
+            PaddingBottom: =StatusBarComponent.StylingProperty.Label.PaddingBottom
+            PaddingLeft: =StatusBarComponent.StylingProperty.Label.PaddingLeft
+            PaddingRight: =StatusBarComponent.StylingProperty.Label.PaddingRight
+            PaddingTop: =StatusBarComponent.StylingProperty.Label.PaddingTop
+            Size: =StatusBarComponent.StylingProperty.Label.Size
+            Strikethrough: =StatusBarComponent.StylingProperty.Label.Strikethrough
+            Text: =ThisItem.Title
+            Underline: =StatusBarComponent.StylingProperty.Label.Underline
+            VerticalAlign: =StatusBarComponent.StylingProperty.Label.VerticalAlign
+            Width: =Parent.TemplateWidth
+            Wrap: =StatusBarComponent.StylingProperty.Label.Wrap
+            X: =Parent.X
+            Y: =Parent.Y
+            ZIndex: =5
+
+        imgCheckIconSB As image:
+            Height: =StatusBarComponent.StylingProperty.CheckIcon.Height
+            Image: |-
+                ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z' fill='" & StatusBarComponent.StylingProperty.CheckIcon.CheckFill &"'/>
+                <path d='M9.05247 18.41L3 12.0189L4.16186 10.792L9.05247 15.9563L19.4281 5L20.59 6.22687L9.05247 18.41Z' fill='"& StatusBarComponent.StylingProperty.CheckIcon.CheckColor &"'/>
+                </svg>
+                ")
+            OnSelect: =Select(Parent)
+            Visible: =StatusBarComponent.CurrentStatus > ThisItem.ID
+            Width: =StatusBarComponent.StylingProperty.CheckIcon.Width
+            X: =Parent.TemplateHeight/2
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =6
+

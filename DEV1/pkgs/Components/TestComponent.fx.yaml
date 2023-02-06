@@ -1,0 +1,26 @@
+TestComponent As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Label_Test As label:
+        Height: =17
+        Size: =12
+        Text: ="Text"
+        Width: =125
+        X: =40
+        Y: =48
+        ZIndex: =1
+
+    TextInput_Test As text:
+        Default: ="Text input"
+        Height: =35
+        Size: =21
+        Width: =198
+        X: =40
+        Y: =66
+        ZIndex: =2
+

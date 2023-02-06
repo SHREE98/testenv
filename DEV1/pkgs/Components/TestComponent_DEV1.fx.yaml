@@ -1,0 +1,25 @@
+TestComponent_DEV1 As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =640
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Label_TestDEV1 As label:
+        Height: =17
+        Size: =8
+        Text: ="Text"
+        Width: =90
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+    DatePicker_TestDEV1 As datepicker:
+        Height: =22
+        Size: =10
+        Width: =180
+        X: =40
+        Y: =57
+        ZIndex: =2
+

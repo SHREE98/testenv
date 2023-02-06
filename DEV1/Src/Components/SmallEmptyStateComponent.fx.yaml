@@ -1,0 +1,85 @@
+SmallEmptyStateComponent As CanvasComponent:
+    ErrorImage: =SampleImage
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =SmallEmptyStateComponent.StylingProperty.SmallErrorDialogueBoxHeight
+    ResetComponents: =gblResetComponents
+    StylingProperty: =gblControlStyles.SmallEmptyState
+    TitleSummaryText: ="Text"
+    TitleText: ="Text"
+    Width: =SmallEmptyStateComponent.StylingProperty.SmallErrorDialogueBoxWidth
+    X: =0
+    Y: =0
+    ZIndex: =10
+
+    btnBackgroundSESC As button:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.View
+        Fill: =SmallEmptyStateComponent.StylingProperty.SmallErrorDialogueBoxBgColor
+        FocusedBorderThickness: =0
+        Height: =272
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Text: ="Button"
+        Width: =Parent.Width 
+        ZIndex: =1
+
+    rctResetSESC As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        OnSelect: |-
+            =Set(
+                gblResetComponents,
+                true
+            );
+            Set(
+                gblResetComponents,
+                false
+            )
+        Width: =Parent.Width
+        ZIndex: =2
+
+    imgSearchResultSESC As image:
+        DisplayMode: =SmallEmptyStateComponent.StylingProperty.DisplayMode
+        Height: =SmallEmptyStateComponent.StylingProperty.SmallErrorImageHeight
+        Image: =SmallEmptyStateComponent.ErrorImage
+        ImagePosition: =SmallEmptyStateComponent.StylingProperty.SmallErrorImagePosition
+        OnSelect: =Select(rctResetSESC)
+        TabIndex: =
+        Width: =SmallEmptyStateComponent.StylingProperty.SmallErrorImageWidth
+        X: =(Parent.Width-Self.Width)/2
+        Y: =SmallEmptyStateComponent.StylingProperty.Y
+        ZIndex: =3
+
+    lblTextSESC As label:
+        Align: =SmallEmptyStateComponent.StylingProperty.AlignCenter
+        Color: =SmallEmptyStateComponent.StylingProperty.TitleFontColor
+        DisplayMode: =SmallEmptyStateComponent.StylingProperty.DisplayMode
+        Font: =SmallEmptyStateComponent.StylingProperty.Font
+        FontWeight: =SmallEmptyStateComponent.StylingProperty.TitleFontWeight
+        Height: =SmallEmptyStateComponent.StylingProperty.SmallTitleFontHeight
+        OnSelect: =Select(rctResetSESC)
+        Size: =SmallEmptyStateComponent.StylingProperty.TitleFontSize
+        TabIndex: =
+        Text: =SmallEmptyStateComponent.TitleText
+        Width: =SmallEmptyStateComponent.StylingProperty.SmallTitleFontWidth
+        X: =(Parent.Width-Self.Width)/2
+        Y: =imgSearchResultSESC.Height + imgSearchResultSESC.Y + SmallEmptyStateComponent.StylingProperty.Y
+        ZIndex: =4
+

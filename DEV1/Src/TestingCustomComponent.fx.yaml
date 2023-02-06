@@ -1,0 +1,7 @@
+TestingCustomComponent As screen:
+
+    TestComponent_1 As TestComponent:
+        X: =28
+        Y: =4
+        ZIndex: =2
+

@@ -1,0 +1,64 @@
+DashboardScreen As screen:
+
+    cntDashboardMain As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        cntDashboardHeader As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =EntityManagementHeaderComponent_1.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            EntityManagementHeaderComponent_1 As EntityManagementHeaderComponent:
+                Fill: =EntityManagementHeaderComponent_1.StylingProperty.Fill
+                Height: =EntityManagementHeaderComponent_1.StylingProperty.Height
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                NextIconVisible: =true
+                Width: =EntityManagementHeaderComponent_1.TempWidth
+                X: =EntityManagementHeaderComponent_1.StylingProperty.Icon.HomeIconMargin
+                ZIndex: =1
+
+        cntDashboardBody As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            cntDashboardNavigation As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =gblLayout.LeftNavigationWidth
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+            cntDashboardScreen As groupContainer.manualLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =Parent.Width - cntDashboardNavigation.Width
+                ZIndex: =2
+
+        cntDashboardFooter As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =false
+            ZIndex: =4
+

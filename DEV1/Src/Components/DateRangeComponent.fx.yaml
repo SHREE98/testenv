@@ -1,0 +1,1308 @@
+DateRangeComponent As CanvasComponent:
+    DisplayMode: ="Enabled"
+    ErrorExtension: =imgTriangleErrorIconDR.Height + txtErrorMessageDR.Height
+    ErrorMessage: ="Error Message"
+    ErrorOpened: =gblErrorShow
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =If(DateRangeComponent.Opened,If(DateRangeComponent.ErrorOpened,DateRangeComponent.StylingProperty.DatePicker.Height+ 40,DateRangeComponent.StylingProperty.DatePicker.Height),If(DateRangeComponent.ErrorOpened,102,62))
+    LabelText: ="DateRange"
+    OnReset: |-
+        =If(IsBlank(gblStartDate),
+        Set(gblFirstDayOfMonth,Date(Year(Today()),Month(Today()),1));Set(gblCalendarShow,false);Set(gblErrorShow,false);
+        Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));
+        Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days)),Set(gblCalendarShow,false);Set(gblErrorShow,false))
+    Opened: =gblCalendarShow
+    Reset: =true
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    SelectedDates: =AddColumns(Sequence(DateDiff(gblStartDate,gblEndDate,Days)+1,0),"DateValue",DateAdd(gblStartDate,Value,Days))
+    StylingProperty: |-
+        ={
+        
+            HeadingLabel: gblControlStyles.ControlLabel,
+            DatePicker: gblControlStyles.DateRange,
+            CloseIcon: gblControlStyles.CloseIcon,
+            ErrorIcon: gblControlStyles.ErrorIcon,
+            ErrorMessagePopup: gblControlStyles.ErrorMessagePopup
+        }
+    TabIndex: =0
+    Width: =DateRangeComponent.StylingProperty.DatePicker.Width
+    X: =0
+    Y: =0
+    ZIndex: =6
+
+    rctResetDR As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        OnSelect: =Set(gblResetComponents,true);Set(gblResetComponents,false)
+        Width: =Parent.Width
+        ZIndex: =1
+
+    txtWhiteCardDR As text:
+        BorderColor: =Transparent
+        BorderStyle: =btnStartDateDatePickerBoxDR.BorderStyle
+        BorderThickness: =btnStartDateDatePickerBoxDR.BorderThickness
+        Color: =RGBA(0, 0, 0, 0)
+        Default: =""
+        DisabledBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+        DisabledFill: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =If(CountRows(Filter(galMonthDaysDR.AllItems,Text(DateAdd(gblFirstDayInView,Value,Days),"dddd") = "Sunday",Text(DateAdd(gblFirstDayInView,Value,Days),"mmmm") = Text(gblFirstDayOfMonth, "mmmm"))) > 4,If(Text(gblFirstDayOfMonth,"dddd") = "Sunday",250,280),250)
+        PaddingBottom: =btnStartDateDatePickerBoxDR.PaddingBottom
+        PaddingLeft: =btnStartDateDatePickerBoxDR.PaddingLeft
+        PaddingRight: =btnStartDateDatePickerBoxDR.PaddingRight
+        PaddingTop: =btnStartDateDatePickerBoxDR.PaddingTop
+        RadiusBottomLeft: =btnStartDateDatePickerBoxDR.RadiusBottomLeft
+        RadiusBottomRight: =btnStartDateDatePickerBoxDR.RadiusBottomRight
+        RadiusTopLeft: =btnStartDateDatePickerBoxDR.RadiusTopLeft
+        RadiusTopRight: =btnStartDateDatePickerBoxDR.RadiusTopRight
+        Size: =0
+        TabIndex: =-1
+        Visible: =gblCalendarShow
+        Width: =Parent.Width - DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Margin * 2
+        X: =btnStartDateDatePickerBoxDR.X
+        Y: =btnStartDateDatePickerBoxDR.Y + btnStartDateDatePickerBoxDR.Height + 5
+        ZIndex: =2
+
+    txtWhiteDateCardDR As text:
+        BorderColor: =btnStartDateDatePickerBoxDR.BorderColor
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =btnStartDateDatePickerBoxDR.BorderThickness
+        Color: =RGBA(0, 0, 0, 0)
+        Default: =""
+        DisabledBorderColor: =btnStartDateDatePickerBoxDR.BorderColor
+        DisabledFill: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Height: =btnStartDateDatePickerBoxDR.Height
+        PaddingBottom: =btnStartDateDatePickerBoxDR.PaddingBottom
+        PaddingLeft: =btnStartDateDatePickerBoxDR.PaddingLeft
+        PaddingRight: =btnStartDateDatePickerBoxDR.PaddingRight
+        PaddingTop: =btnStartDateDatePickerBoxDR.PaddingTop
+        RadiusBottomLeft: =btnStartDateDatePickerBoxDR.RadiusBottomLeft
+        RadiusBottomRight: =btnStartDateDatePickerBoxDR.RadiusBottomRight
+        RadiusTopLeft: =btnStartDateDatePickerBoxDR.RadiusTopLeft
+        RadiusTopRight: =btnStartDateDatePickerBoxDR.RadiusTopRight
+        Size: =0
+        TabIndex: =-1
+        Width: =btnStartDateDatePickerBoxDR.Width
+        X: =btnStartDateDatePickerBoxDR.X
+        Y: =btnStartDateDatePickerBoxDR.Y 
+        ZIndex: =9
+
+    lblHintTextDR As label:
+        Align: =btnStartDateDatePickerBoxDR.Align
+        AutoHeight: =DateRangeComponent.StylingProperty.HeadingLabel.AutoHeight
+        BorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.BorderColor
+        BorderStyle: =DateRangeComponent.StylingProperty.HeadingLabel.BorderStyle
+        BorderThickness: =DateRangeComponent.StylingProperty.HeadingLabel.BorderThickness
+        Color: =If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.ErrorColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HintTextColor)
+        DisabledBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.BorderColor
+        DisabledColor: =btnStartDateDatePickerBoxDR.Fill
+        DisabledFill: =Self.Fill
+        Fill: =btnStartDateDatePickerBoxDR.Fill
+        FocusedBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.FocusedBorderColor
+        FocusedBorderThickness: =DateRangeComponent.StylingProperty.HeadingLabel.FocusedBorderThickness
+        Font: =btnStartDateDatePickerBoxDR.Font
+        FontWeight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HintTextFontWeight
+        Height: =btnStartDateDatePickerBoxDR.Height - btnStartDateDatePickerBoxDR.BorderThickness
+        Italic: =btnStartDateDatePickerBoxDR.Italic
+        LineHeight: =DateRangeComponent.StylingProperty.HeadingLabel.LineHeight
+        Overflow: =DateRangeComponent.StylingProperty.HeadingLabel.Overflow
+        PaddingBottom: =btnStartDateDatePickerBoxDR.PaddingBottom
+        PaddingLeft: =btnStartDateDatePickerBoxDR.PaddingLeft
+        PaddingRight: =btnStartDateDatePickerBoxDR.PaddingRight
+        PaddingTop: =btnStartDateDatePickerBoxDR.PaddingTop
+        Size: =btnStartDateDatePickerBoxDR.Size
+        Strikethrough: =btnStartDateDatePickerBoxDR.Strikethrough
+        Text: ="dd/mm/yyyy"
+        Underline: =btnStartDateDatePickerBoxDR.Underline
+        VerticalAlign: =DateRangeComponent.StylingProperty.HeadingLabel.VerticalAlign
+        Visible: =IsBlank(gblStartDate)
+        Width: =btnStartDateDatePickerBoxDR.Width- imgStartDateDatePickerIconDR.Width
+        Wrap: =DateRangeComponent.StylingProperty.HeadingLabel.Wrap
+        X: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HintTextMargin
+        Y: =btnStartDateDatePickerBoxDR.Y + btnStartDateDatePickerBoxDR.BorderThickness
+        ZIndex: =10
+
+    imgStartDateDatePickerIconDR As image:
+        AutoDisableOnSelect: =false
+        Fill: =btnStartDateDatePickerBoxDR.Fill
+        Height: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.Height - btnStartDateDatePickerBoxDR.BorderThickness
+        Image: |-
+            ="data:image/svg+xml,"
+            &
+            EncodeUrl("<svg width='36' height='40' viewBox='0 0 36 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M3 40C2.2 40 1.5 39.7 0.9 39.1C0.3 38.5 0 37.8 0 37V6C0 5.2 0.3 4.5 0.9 3.9C1.5 3.3 2.2 3 3 3H6.25V0H9.5V3H26.5V0H29.75V3H33C33.8 3 34.5 3.3 35.1 3.9C35.7 4.5 36 5.2 36 6V37C36 37.8 35.7 38.5 35.1 39.1C34.5 39.7 33.8 40 33 40H3ZM3 37H33V15.5H3V37ZM3 12.5H33V6H3V12.5ZM3 12.5V6V12.5ZM18 24C17.4333 24 16.9583 23.8083 16.575 23.425C16.1917 23.0417 16 22.5667 16 22C16 21.4333 16.1917 20.9583 16.575 20.575C16.9583 20.1917 17.4333 20 18 20C18.5667 20 19.0417 20.1917 19.425 20.575C19.8083 20.9583 20 21.4333 20 22C20 22.5667 19.8083 23.0417 19.425 23.425C19.0417 23.8083 18.5667 24 18 24ZM10 24C9.43333 24 8.95833 23.8083 8.575 23.425C8.19167 23.0417 8 22.5667 8 22C8 21.4333 8.19167 20.9583 8.575 20.575C8.95833 20.1917 9.43333 20 10 20C10.5667 20 11.0417 20.1917 11.425 20.575C11.8083 20.9583 12 21.4333 12 22C12 22.5667 11.8083 23.0417 11.425 23.425C11.0417 23.8083 10.5667 24 10 24ZM26 24C25.4333 24 24.9583 23.8083 24.575 23.425C24.1917 23.0417 24 22.5667 24 22C24 21.4333 24.1917 20.9583 24.575 20.575C24.9583 20.1917 25.4333 20 26 20C26.5667 20 27.0417 20.1917 27.425 20.575C27.8083 20.9583 28 21.4333 28 22C28 22.5667 27.8083 23.0417 27.425 23.425C27.0417 23.8083 26.5667 24 26 24ZM18 32C17.4333 32 16.9583 31.8083 16.575 31.425C16.1917 31.0417 16 30.5667 16 30C16 29.4333 16.1917 28.9583 16.575 28.575C16.9583 28.1917 17.4333 28 18 28C18.5667 28 19.0417 28.1917 19.425 28.575C19.8083 28.9583 20 29.4333 20 30C20 30.5667 19.8083 31.0417 19.425 31.425C19.0417 31.8083 18.5667 32 18 32ZM10 32C9.43333 32 8.95833 31.8083 8.575 31.425C8.19167 31.0417 8 30.5667 8 30C8 29.4333 8.19167 28.9583 8.575 28.575C8.95833 28.1917 9.43333 28 10 28C10.5667 28 11.0417 28.1917 11.425 28.575C11.8083 28.9583 12 29.4333 12 30C12 30.5667 11.8083 31.0417 11.425 31.425C11.0417 31.8083 10.5667 32 10 32ZM26 32C25.4333 32 24.9583 31.8083 24.575 31.425C24.1917 31.0417 24 30.5667 24 30C24 29.4333 24.1917 28.9583 24.575 28.575C24.9583 28.1917 25.4333 28 26 28C26.5667 28 27.0417 28.1917 27.425 28.575C27.8083 28.9583 28 29.4333 28 30C28 30.5667 27.8083 31.0417 27.425 31.425C27.0417 31.8083 26.5667 32 26 32Z' fill= '"& If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.CloseIcon.ErrorColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.Fill) &"'/>
+            </svg>
+            ")
+        PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingBottom
+        PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingLeft
+        PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingRight
+        PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingTop
+        RadiusBottomLeft: =btnStartDateDatePickerBoxDR.RadiusBottomLeft
+        RadiusBottomRight: =btnStartDateDatePickerBoxDR.RadiusBottomRight
+        RadiusTopLeft: =btnStartDateDatePickerBoxDR.RadiusTopLeft
+        RadiusTopRight: =btnStartDateDatePickerBoxDR.RadiusTopRight
+        Visible: =If(gblCalendarShow && gblStartDateSelection && gblStartDate <> Blank(),false,true)
+        Width: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.Width - btnStartDateDatePickerBoxDR.BorderThickness
+        X: =btnStartDateDatePickerBoxDR.Width - Self.Width - btnStartDateDatePickerBoxDR.X
+        Y: =btnStartDateDatePickerBoxDR.Y + btnStartDateDatePickerBoxDR.BorderThickness
+        ZIndex: =11
+
+    grpBackButtonDR As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =11
+
+        imgBackIconDR As image:
+            AutoDisableOnSelect: =false
+            Fill: =txtWhiteCardDR.DisabledFill
+            Height: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Height
+            Image: |
+                ="data:image/svg+xml,"
+                &
+                EncodeUrl("<svg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M7.5 14L0.5 7L7.5 0L7.5 14Z' fill='"& DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Fill &"'/>
+                </svg>
+                ")
+            OnSelect: |
+                =/*changes month view to previous month*/
+                Set(gblFirstDayOfMonth, DateAdd(gblFirstDayOfMonth, -1, Months));
+                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));
+                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days));
+            PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingBottom
+            PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingLeft
+            PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingRight
+            PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingTop
+            Visible: =gblCalendarShow
+            Width: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Width
+            X: =txtWhiteCardDR.X + DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Margin
+            Y: =lblMonthNameDR.Y + Self.Height/2 - lblMonthNameDR.PaddingBottom*2
+            ZIndex: =3
+
+        icnBackTransparentDR As icon.Add:
+            AutoDisableOnSelect: =false
+            Height: =imgBackIconDR.Height
+            Icon: =Blank()
+            OnSelect: |
+                =/*changes month view to previous month*/
+                Set(gblFirstDayOfMonth, DateAdd(gblFirstDayOfMonth, -1, Months));
+                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));
+                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days));
+            Visible: =gblCalendarShow
+            Width: =imgBackIconDR.Width
+            X: =imgBackIconDR.X
+            Y: =imgBackIconDR.Y
+            ZIndex: =4
+
+    grpNextButtonDR As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =11
+
+        imgNextIconDR As image:
+            AutoDisableOnSelect: =false
+            Fill: =txtWhiteCardDR.DisabledFill
+            Height: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Height
+            Image: |+
+                ="data:image/svg+xml,"
+                &
+                EncodeUrl("<svg width='8' height='14' viewBox='0 0 8 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M0.5 0L7.5 7L0.5 14L0.5 0Z' fill='"& DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Fill &"'/>
+                </svg>
+                
+                ")
+                
+                
+            OnSelect: |
+                =/*changes month view to next month*/
+                Set(gblFirstDayOfMonth, DateAdd(gblFirstDayOfMonth, 1, Months));
+                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));
+                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days));
+            PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingBottom
+            PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingLeft
+            PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingRight
+            PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.PaddingTop  
+            Visible: =gblCalendarShow
+            Width: =DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Width
+            X: =txtWhiteCardDR.X + txtWhiteCardDR.Width - Self.Width - DateRangeComponent.StylingProperty.DatePicker.BackNextIcon.Margin
+            Y: =lblMonthNameDR.Y + Self.Height/2 - lblMonthNameDR.PaddingBottom*2
+            ZIndex: =5
+
+        icnNextTransparentDR As icon.Add:
+            AutoDisableOnSelect: =false
+            Height: =imgNextIconDR.Height
+            Icon: =Blank()
+            OnSelect: |
+                =/*changes month view to next month*/
+                Set(gblFirstDayOfMonth, DateAdd(gblFirstDayOfMonth, 1, Months));
+                Set(gblFirstDayInView, DateAdd(gblFirstDayOfMonth, -(Weekday(gblFirstDayOfMonth) - 2 + 1), Days));
+                Set(gblLastDayOfMonth, DateAdd(DateAdd(gblFirstDayOfMonth, 1, Months), -1, Days));
+            Visible: =gblCalendarShow
+            Width: =imgNextIconDR.Width
+            X: =imgNextIconDR.X
+            Y: =imgNextIconDR.Y
+            ZIndex: =6
+
+    btnStartDateDatePickerBoxDR As button:
+        Align: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Align
+        AutoDisableOnSelect: =false
+        BorderColor: =If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.ErrorColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderColor)
+        BorderStyle: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderStyle
+        BorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderThickness
+        Color: =If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.ErrorColor ,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Color)
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+        FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+        Font: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Font
+        FontWeight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FontWeight
+        Height: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Height
+        HoverBorderColor: =If(DateRangeComponent.DisplayMode = "View",Self.BorderColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HoverBorderColor)
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Italic: =
+        OnSelect: =If(DateRangeComponent.DisplayMode = "View",false,Select(rctResetDR);Set(gblStartDateSelection,true);Set(gblEndDateSelection,false);Set(gblCalendarShow,!gblCalendarShow))
+        PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingBottom
+        PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingLeft
+        PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingRight
+        PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingTop 
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        RadiusBottomRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        RadiusTopLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        RadiusTopRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        Size: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Size
+        TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+        Text: =""
+        Width: =Parent.Width/2 - DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Margin * 2
+        X: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Margin
+        Y: =lblHeadingDR.Y + lblHeadingDR.Height
+        ZIndex: =12
+
+    lblHeadingDR As label:
+        Align: =DateRangeComponent.StylingProperty.HeadingLabel.Align
+        AutoHeight: =DateRangeComponent.StylingProperty.HeadingLabel.AutoHeight
+        BorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.BorderColor
+        BorderStyle: =DateRangeComponent.StylingProperty.HeadingLabel.BorderStyle
+        BorderThickness: =DateRangeComponent.StylingProperty.HeadingLabel.BorderThickness
+        Color: =DateRangeComponent.StylingProperty.HeadingLabel.Color
+        DisabledBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.DisabledBorderColor
+        DisabledColor: =DateRangeComponent.StylingProperty.HeadingLabel.DisabledColor
+        DisabledFill: =DateRangeComponent.StylingProperty.HeadingLabel.DisabledFill
+        Fill: =DateRangeComponent.StylingProperty.HeadingLabel.Fill
+        FocusedBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.FocusedBorderColor
+        FocusedBorderThickness: =DateRangeComponent.StylingProperty.HeadingLabel.FocusedBorderThickness
+        Font: =DateRangeComponent.StylingProperty.HeadingLabel.Font
+        FontWeight: =DateRangeComponent.StylingProperty.HeadingLabel.FontWeight
+        Height: =DateRangeComponent.StylingProperty.HeadingLabel.Height
+        HoverBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.HoverBorderColor
+        HoverColor: =DateRangeComponent.StylingProperty.HeadingLabel.HoverColor
+        HoverFill: =DateRangeComponent.StylingProperty.HeadingLabel.HoverFill
+        Italic: =DateRangeComponent.StylingProperty.HeadingLabel.Italic
+        LineHeight: =DateRangeComponent.StylingProperty.HeadingLabel.LineHeight
+        OnSelect: =Select(rctResetDR)
+        Overflow: =DateRangeComponent.StylingProperty.HeadingLabel.Overflow
+        PaddingBottom: =DateRangeComponent.StylingProperty.HeadingLabel.PaddingBottom
+        PaddingLeft: =DateRangeComponent.StylingProperty.HeadingLabel.PaddingLeft
+        PaddingRight: =DateRangeComponent.StylingProperty.HeadingLabel.PaddingRight
+        PaddingTop: =DateRangeComponent.StylingProperty.HeadingLabel.PaddingTop
+        PressedBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.PressedBorderColor
+        PressedColor: =DateRangeComponent.StylingProperty.HeadingLabel.PressedColor
+        PressedFill: =DateRangeComponent.StylingProperty.HeadingLabel.PressedFill
+        Size: =DateRangeComponent.StylingProperty.HeadingLabel.Size
+        Strikethrough: =DateRangeComponent.StylingProperty.HeadingLabel.Strikethrough
+        Text: =DateRangeComponent.LabelText
+        Underline: =DateRangeComponent.StylingProperty.HeadingLabel.Underline
+        VerticalAlign: =DateRangeComponent.StylingProperty.HeadingLabel.VerticalAlign
+        Width: =(Len(Self.Text) * 8) + Self.PaddingLeft
+        Wrap: =DateRangeComponent.StylingProperty.HeadingLabel.Wrap
+        X: =btnStartDateDatePickerBoxDR.X + btnStartDateDatePickerBoxDR.BorderThickness
+        Y: =If(gblErrorShow,txtErrorMessageDR.Height + imgTriangleErrorIconDR.Height,0)
+        ZIndex: =13
+
+    lblMonthNameDR As label:
+        Align: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Align
+        AutoHeight: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.AutoHeight
+        BorderColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.BorderColor
+        BorderStyle: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.BorderStyle
+        BorderThickness: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.BorderThickness
+        Color: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Color
+        DisabledBorderColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.BorderColor
+        DisabledColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Color
+        DisabledFill: =txtWhiteCardDR.DisabledFill
+        Fill: =txtWhiteCardDR.DisabledFill
+        FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.FocusedBorderColor
+        FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.FocusedBorderThickness
+        Font: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Font
+        FontWeight: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.FontWeight
+        Height: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Height
+        HoverBorderColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.BorderColor
+        HoverColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Color
+        HoverFill: =txtWhiteCardDR.DisabledFill
+        Italic: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Italic
+        LineHeight: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.LineHeight
+        Overflow: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Overflow
+        PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.PaddingBottom
+        PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.PaddingLeft
+        PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.PaddingRight
+        PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.PaddingTop
+        PressedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.BorderColor
+        PressedColor: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Color
+        PressedFill: =txtWhiteCardDR.DisabledFill
+        Size: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Size
+        Strikethrough: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Strikethrough
+        Text: =Text(gblFirstDayOfMonth, "mmmm")
+        Underline: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Underline
+        VerticalAlign: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.VerticalAlign
+        Visible: =gblCalendarShow
+        Width: =(Len(Self.Text) * Self.Size)
+        Wrap: =DateRangeComponent.StylingProperty.DatePicker.MonthLabel.Wrap
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =txtWhiteCardDR.Y + (18 - Self.PaddingTop)
+        ZIndex: =14
+
+    grpStartDateManualDateInputDR As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =18
+
+        txtStartDateDayInputDR As text:
+            Align: =btnStartDateDatePickerBoxDR.Align
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =btnStartDateDatePickerBoxDR.Color
+            Default: =Text(gblStartDate,"dd")
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =If(DateRangeComponent.DisplayMode = "View",DisplayMode.View,DisplayMode.Edit)
+            Fill: =btnStartDateDatePickerBoxDR.Fill
+            FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+            FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+            Font: =btnStartDateDatePickerBoxDR.Font
+            FontWeight: =btnStartDateDatePickerBoxDR.FontWeight
+            Format: =TextFormat.Number
+            Height: =btnStartDateDatePickerBoxDR.Height - btnStartDateDatePickerBoxDR.BorderThickness
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            MaxLength: =2
+            OnChange: |-
+                =If(
+                    Value(Self.Text) > 31,
+                    Reset(Self),
+                    Set(
+                        gblStartDate,
+                        DateValue(
+                            Text(
+                                Concatenate(
+                                    txtStartDateDayInputDR.Text,
+                                    "/",
+                                    txtStartDateMonthInputDR.Text,
+                                    "/",
+                                    txtStartDateYearInputDR.Text
+                                ),
+                                "dd/mm/yyyy"
+                            ),"en-GB"
+                            )
+                        )
+                    );
+                If(
+                    IsBlank(gblEndDate),
+                    Set(
+                        gblStartDateSelection,
+                        false
+                    );
+                    Set(
+                        gblCalendarShow,
+                        false
+                    ),
+                    gblStartDate > gblEndDate,
+                    Reset(Self);
+                    Set(
+                        gblStartDate,
+                        Blank()
+                    ),
+                    Set(
+                        gblStartDateSelection,
+                        false
+                    );
+                    Set(
+                        gblCalendarShow,
+                        false
+                    )
+                )
+            PaddingBottom: =btnStartDateDatePickerBoxDR.PaddingBottom
+            PaddingLeft: =btnStartDateDatePickerBoxDR.PaddingLeft
+            PaddingRight: =btnStartDateDatePickerBoxDR.PaddingRight
+            PaddingTop: =btnStartDateDatePickerBoxDR.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =btnStartDateDatePickerBoxDR.Size
+            TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+            Visible: =!IsBlank(gblStartDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =lblHintTextDR.X
+            Y: =btnStartDateDatePickerBoxDR.Y + btnStartDateDatePickerBoxDR.BorderThickness
+            ZIndex: =16
+
+        lblStartDateSepratorDayMonthDR As label:
+            Align: =txtStartDateDayInputDR.Align
+            Color: =txtStartDateDayInputDR.Color
+            Fill: =txtStartDateDayInputDR.Fill
+            Font: =txtStartDateDayInputDR.Font
+            FontWeight: =txtStartDateDayInputDR.FontWeight
+            Height: =txtStartDateDayInputDR.Height
+            PaddingBottom: =txtStartDateDayInputDR.PaddingBottom
+            PaddingLeft: =txtStartDateDayInputDR.PaddingLeft
+            PaddingRight: =txtStartDateDayInputDR.PaddingRight
+            PaddingTop: =txtStartDateDayInputDR.PaddingTop
+            Size: =txtStartDateDayInputDR.Size
+            Text: ="/"
+            Visible: =!IsBlank(gblStartDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =txtStartDateDayInputDR.Width + txtStartDateDayInputDR.X + 1
+            Y: =txtStartDateDayInputDR.Y
+            ZIndex: =17
+
+        txtStartDateMonthInputDR As text:
+            Align: =btnStartDateDatePickerBoxDR.Align
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =btnStartDateDatePickerBoxDR.Color
+            Default: =Text(gblStartDate,"mm")
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =If(DateRangeComponent.DisplayMode = "View",DisplayMode.View,DisplayMode.Edit)
+            Fill: =btnStartDateDatePickerBoxDR.Fill
+            FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+            FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+            Font: =btnStartDateDatePickerBoxDR.Font
+            FontWeight: =btnStartDateDatePickerBoxDR.FontWeight
+            Format: =TextFormat.Number
+            Height: =btnStartDateDatePickerBoxDR.Height - btnStartDateDatePickerBoxDR.BorderThickness
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            MaxLength: =2
+            OnChange: |-
+                =If(
+                    Value(Self.Text) > 12,
+                    Reset(Self),
+                    Set(
+                        gblFirstDayOfMonth,
+                        DateValue(
+                            Text(
+                                Concatenate(
+                                    1,
+                                    "/",
+                                    txtStartDateMonthInputDR.Text,
+                                    "/",
+                                    txtStartDateYearInputDR.Text
+                                ),
+                                "dd/mm/yyyy"
+                            ),"en-GB"
+                        )
+                    );
+                    Set(
+                        gblFirstDayInView,
+                        DateAdd(
+                            gblFirstDayOfMonth,
+                            -(Weekday(gblFirstDayOfMonth) - 2 + 1),
+                            Days
+                        )
+                    );
+                    Set(
+                        gblLastDayOfMonth,
+                        DateAdd(
+                            DateAdd(
+                                gblFirstDayOfMonth,
+                                1,
+                                Months
+                            ),
+                            -1,
+                            Days
+                        )
+                    );
+                    Set(
+                        gblStartDate,
+                        DateValue(
+                            Text(
+                                Concatenate(
+                                    Value(txtStartDateDayInputDR.Text),
+                                    "/",
+                                    Self.Text,
+                                    "/",
+                                    txtStartDateYearInputDR.Text
+                                ),
+                               "dd/mm/yyyy"
+                            ),"en-GB"
+                        )
+                    )
+                );
+                If(
+                    IsBlank(gblEndDate),
+                    Set(
+                        gblStartDateSelection,
+                        false
+                    );
+                    Set(
+                        gblCalendarShow,
+                        false
+                    ),
+                    gblStartDate > gblEndDate,
+                    Reset(Self);
+                    Set(
+                        gblStartDate,
+                        Blank()
+                    ),
+                    Set(
+                        gblStartDateSelection,
+                        false
+                    );
+                    Set(
+                        gblCalendarShow,
+                        false
+                    )
+                )
+            PaddingBottom: =btnStartDateDatePickerBoxDR.PaddingBottom
+            PaddingLeft: =btnStartDateDatePickerBoxDR.PaddingLeft
+            PaddingRight: =btnStartDateDatePickerBoxDR.PaddingRight
+            PaddingTop: =btnStartDateDatePickerBoxDR.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =btnStartDateDatePickerBoxDR.Size
+            TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+            Visible: =!IsBlank(gblStartDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =lblStartDateSepratorDayMonthDR.X + lblStartDateSepratorDayMonthDR.Width
+            Y: =btnStartDateDatePickerBoxDR.Y + btnStartDateDatePickerBoxDR.BorderThickness
+            ZIndex: =18
+
+        lblStartDateSepratorMonthYearDR As label:
+            Align: =txtStartDateDayInputDR.Align
+            Color: =txtStartDateDayInputDR.Color
+            Fill: =txtStartDateDayInputDR.Fill
+            Font: =txtStartDateDayInputDR.Font
+            FontWeight: =txtStartDateDayInputDR.FontWeight
+            Height: =txtStartDateDayInputDR.Height
+            PaddingBottom: =txtStartDateDayInputDR.PaddingBottom
+            PaddingLeft: =txtStartDateDayInputDR.PaddingLeft
+            PaddingRight: =txtStartDateDayInputDR.PaddingRight
+            PaddingTop: =txtStartDateDayInputDR.PaddingTop
+            Size: =txtStartDateDayInputDR.Size
+            Text: ="/"
+            Visible: =!IsBlank(gblStartDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =txtStartDateMonthInputDR.Width + txtStartDateMonthInputDR.X + 1
+            Y: =txtStartDateDayInputDR.Y
+            ZIndex: =19
+
+        txtStartDateYearInputDR As text:
+            Align: =btnStartDateDatePickerBoxDR.Align
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =btnStartDateDatePickerBoxDR.Color
+            Default: =Text(gblStartDate,"yyyy")
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =If(DateRangeComponent.DisplayMode = "View",DisplayMode.View,DisplayMode.Edit)
+            Fill: =btnStartDateDatePickerBoxDR.Fill
+            FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+            FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+            Font: =btnStartDateDatePickerBoxDR.Font
+            FontWeight: =btnStartDateDatePickerBoxDR.FontWeight
+            Format: =TextFormat.Number
+            Height: =btnStartDateDatePickerBoxDR.Height - btnStartDateDatePickerBoxDR.BorderThickness
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            MaxLength: =4
+            OnChange: |-
+                =If(Value(Self.Text) < 2000,Reset(Self),
+                Set(gblFirstDayOfMonth,DateValue(Text(Concatenate(1,"/",txtStartDateMonthInputDR.Text,"/",Self.Text),"dd/mm/yyyy"),"en-GB"));
+                Set(gblFirstDayInView,DateAdd(gblFirstDayOfMonth,-(Weekday(gblFirstDayOfMonth)-2+1),Days));
+                Set(gblLastDayOfMonth,DateAdd(DateAdd(gblFirstDayOfMonth,1,Months),-1,Days));
+                Set(gblStartDate,DateValue(Text(Concatenate(Value(txtStartDateDayInputDR.Text),"/",txtStartDateMonthInputDR.Text,"/",Self.Text),"dd/mm/yyyy"),"en-GB")));
+                If(IsBlank(gblEndDate),Set(gblStartDateSelection,false);Set(gblCalendarShow,false),gblStartDate > gblEndDate,Reset(Self);Set(gblStartDate,Blank()),Set(gblStartDateSelection,false);Set(gblCalendarShow,false))
+            PaddingBottom: =btnStartDateDatePickerBoxDR.PaddingBottom
+            PaddingLeft: =btnStartDateDatePickerBoxDR.PaddingLeft
+            PaddingRight: =btnStartDateDatePickerBoxDR.PaddingRight
+            PaddingTop: =btnStartDateDatePickerBoxDR.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =btnStartDateDatePickerBoxDR.Size
+            TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+            Visible: =!IsBlank(gblStartDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =lblStartDateSepratorMonthYearDR.X + lblStartDateSepratorMonthYearDR.Width
+            Y: =btnStartDateDatePickerBoxDR.Y + btnStartDateDatePickerBoxDR.BorderThickness
+            ZIndex: =20
+
+    grpStartDateCloseIconDR As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =21
+
+        imgStartDateCloseIconDR As image:
+            Fill: =txtWhiteDateCardDR.DisabledFill
+            Height: =DateRangeComponent.StylingProperty.CloseIcon.Height
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+                  <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='"& If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.CloseIcon.ErrorColor,DateRangeComponent.StylingProperty.CloseIcon.Color) &"'/>
+                </svg>
+                "
+                )
+            OnSelect: =Set(gblStartDate,Blank());Set(gblStartDateSelection,true);Set(gblEndDateSelection,false);SetFocus(btnStartDateDatePickerBoxDR)
+            PaddingLeft: =0       
+            RadiusBottomLeft: =btnStartDateDatePickerBoxDR.RadiusBottomLeft
+            RadiusBottomRight: =btnStartDateDatePickerBoxDR.RadiusBottomRight
+            RadiusTopLeft: =btnStartDateDatePickerBoxDR.RadiusTopLeft
+            RadiusTopRight: =btnStartDateDatePickerBoxDR.RadiusTopRight
+            Visible: =gblCalendarShow && !IsBlank(gblStartDate) && gblStartDateSelection
+            Width: =DateRangeComponent.StylingProperty.CloseIcon.Width
+            X: =btnStartDateDatePickerBoxDR.X + btnStartDateDatePickerBoxDR.Width -  32
+            Y: =(btnStartDateDatePickerBoxDR.Y ) + btnStartDateDatePickerBoxDR.Height/2 - Self.Height/2
+            ZIndex: =15
+
+        icnStartDateCloseTransparentDR As icon.Add:
+            AutoDisableOnSelect: =false
+            Height: =imgStartDateCloseIconDR.Height
+            Icon: =Blank()
+            OnSelect: =Set(gblStartDate,Blank());Set(gblStartDateSelection,true);Set(gblEndDateSelection,false);SetFocus(btnStartDateDatePickerBoxDR)
+            TabIndex: =DateRangeComponent.TabIndex
+            Visible: =gblCalendarShow && !IsBlank(gblStartDate) && gblStartDateSelection
+            Width: =imgStartDateCloseIconDR.Width
+            X: =imgStartDateCloseIconDR.X
+            Y: =imgStartDateCloseIconDR.Y
+            ZIndex: =21
+
+    grpErrorIconDR As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =23
+
+        imgErrorIconDR As image:
+            Height: =DateRangeComponent.StylingProperty.ErrorIcon.Height
+            Image: |-
+                ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M9 13H11V15H9V13ZM9 5H11V11H9V5ZM9.99 5.00045e-06C8.01262 0.00198239 6.0802 0.590152 4.43703 1.69017C2.79385 2.79018 1.51369 4.35266 0.758342 6.18009C0.00299907 8.00753 -0.193608 10.0179 0.193372 11.957C0.580353 13.8962 1.53355 15.6771 2.93247 17.0746C4.33139 18.4721 6.11324 19.4235 8.05278 19.8086C9.99231 20.1936 12.0025 19.995 13.8291 19.2378C15.6558 18.4807 17.217 17.1989 18.3154 15.5547C19.4138 13.9104 20 11.9774 20 10C20 8.68594 19.741 7.38477 19.2378 6.17086C18.7347 4.95695 17.9972 3.85412 17.0675 2.9254C16.1379 1.99668 15.0343 1.2603 13.8199 0.758338C12.6055 0.256379 11.3041 -0.00130906 9.99 5.00045e-06Z' fill='"& DateRangeComponent.StylingProperty.ErrorIcon.Color &"'/>
+                </svg>
+                ")
+            OnSelect: =Set(gblErrorShow,!gblErrorShow)
+            Visible: =DateRangeComponent.DisplayMode = "Error"
+            Width: =DateRangeComponent.StylingProperty.ErrorIcon.Width
+            X: =lblHeadingDR.Width + 1
+            Y: =lblHeadingDR.Y + (lblHeadingDR.Height)/2 - Self.Height/2
+            ZIndex: =22
+
+        icnErrorTransparentDR As icon.Add:
+            AutoDisableOnSelect: =false
+            Height: =imgErrorIconDR.Height
+            Icon: =Blank()
+            OnSelect: =Set(gblErrorShow,!gblErrorShow)
+            TabIndex: =DateRangeComponent.TabIndex
+            Visible: =DateRangeComponent.DisplayMode = "Error"
+            Width: =imgErrorIconDR.Width
+            X: =imgErrorIconDR.X
+            Y: =imgErrorIconDR.Y
+            ZIndex: =23
+
+    grpErrorMessageDR As group:
+        Height: =5
+        Width: =5
+        X: =-528
+        Y: =-65
+        ZIndex: =25
+
+        imgTriangleErrorIconDR As image:
+            Height: =DateRangeComponent.StylingProperty.ErrorMessagePopup.TriangleIconHeight
+            Image: |-
+                ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='46' height='39' viewBox='0 0 46 39' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M23 39L0.483337 0L45.5167 0L23 39Z' fill='"& DateRangeComponent.StylingProperty.ErrorIcon.Color &"'/>
+                </svg>
+                ")
+            Visible: =gblErrorShow
+            Width: =DateRangeComponent.StylingProperty.ErrorMessagePopup.TriangleIconWidth
+            X: =imgErrorIconDR.X + imgErrorIconDR.Width/2 - Self.Width/2
+            Y: =txtErrorMessageDR.Height - 1
+            ZIndex: =24
+
+        txtErrorMessageDR As text:
+            Align: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Align
+            BorderStyle: =BorderStyle.None
+            Default: =DateRangeComponent.ErrorMessage
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Color
+            DisabledFill: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Fill
+            DisplayMode: =DisplayMode.Disabled
+            Font: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Font
+            FontWeight: =DateRangeComponent.StylingProperty.ErrorMessagePopup.FontWeight
+            Height: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Height
+            PaddingBottom: =DateRangeComponent.StylingProperty.ErrorMessagePopup.PaddingBottom
+            PaddingLeft: =DateRangeComponent.StylingProperty.ErrorMessagePopup.PaddingLeft
+            PaddingRight: =DateRangeComponent.StylingProperty.ErrorMessagePopup.PaddingRight
+            PaddingTop: =DateRangeComponent.StylingProperty.ErrorMessagePopup.PaddingTop
+            RadiusBottomLeft: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Radius
+            RadiusBottomRight: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Radius
+            RadiusTopLeft: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Radius
+            RadiusTopRight: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Radius
+            Size: =DateRangeComponent.StylingProperty.ErrorMessagePopup.Size
+            Visible: =gblErrorShow
+            Width: =(Len(Self.Text) * 8) + (Self.PaddingLeft * 2)
+            X: =imgTriangleErrorIconDR.X - imgTriangleErrorIconDR.Width
+            ZIndex: =25
+
+    grpCalendarDR As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =25
+
+        galWeekdaysDR As gallery.galleryHorizontal:
+            Height: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Height
+            Items: =Calendar.WeekdaysShort()
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =Self.Width/7
+            Visible: =gblCalendarShow
+            Width: =txtWhiteCardDR.Width - txtWhiteCardDR.BorderThickness* 2
+            X: =txtWhiteCardDR.X + txtWhiteCardDR.BorderThickness
+            Y: =lblMonthNameDR.Y + lblMonthNameDR.Height + 12
+            ZIndex: =7
+
+            lblWeekdayDR As label:
+                Align: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Align
+                AutoHeight: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.AutoHeight
+                BorderColor: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.BorderColor
+                BorderStyle: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.BorderStyle
+                BorderThickness: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.BorderThickness
+                Color: =If(ThisItem.Value = "Sun",DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.SundayColor,DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.OtherDaysColor)
+                DisabledBorderColor: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.BorderColor
+                DisabledColor: =Self.Color
+                Fill: =txtWhiteCardDR.DisabledFill
+                FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.FocusedBorderColor
+                FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.FocusedBorderThickness
+                Font: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Font
+                FontWeight: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.FontWeight
+                Height: =galWeekdaysDR.TemplateHeight
+                HoverBorderColor: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.BorderColor
+                Italic: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Italic
+                LineHeight: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.LineHeight
+                OnSelect: =Select(Parent)
+                Overflow: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Overflow
+                PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.PaddingBottom
+                PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.PaddingLeft
+                PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.PaddingRight
+                PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.PaddingTop
+                PressedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.BorderColor
+                Size: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Size
+                Strikethrough: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Strikethrough
+                Text: =Left(ThisItem.Value,1)
+                Underline: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Underline
+                VerticalAlign: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.VerticalAlign
+                Width: =Parent.TemplateWidth
+                Wrap: =DateRangeComponent.StylingProperty.DatePicker.WeekDayLabel.Wrap
+                Y: =galWeekdaysDR.TemplateHeight / 2 - Self.Height / 2
+                ZIndex: =1
+
+        galMonthDaysDR As gallery.galleryVertical:
+            BorderStyle: =BorderStyle.None
+            Height: =If(CountRows(Filter(galMonthDaysDR.AllItems,Text(DateAdd(gblFirstDayInView,Value,Days),"dddd") = "Sunday",Text(DateAdd(gblFirstDayInView,Value,Days),"mmmm") = Text(gblFirstDayOfMonth, "mmmm"))) > 4,If(Text(gblFirstDayOfMonth,"dddd") = "Sunday",154,187),154)
+            Items: =[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19, 20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41]
+            Layout: =Layout.Vertical
+            OnSelect: =
+            ShowScrollbar: =false
+            TemplatePadding: =0
+            TemplateSize: =31
+            Visible: =gblCalendarShow
+            Width: =galWeekdaysDR.Width
+            WrapCount: =7
+            X: =galWeekdaysDR.X
+            Y: =galWeekdaysDR.Y + galWeekdaysDR.Height
+            ZIndex: =8
+
+            lblDaysDR As label:
+                Align: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Align
+                AutoHeight: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.AutoHeight
+                BorderColor: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.BorderColor
+                BorderStyle: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.BorderStyle
+                BorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.BorderThickness
+                Color: |-
+                    =If(
+                        DateAdd(
+                            gblFirstDayInView,
+                            ThisItem.Value
+                        ) = gblStartDate || DateAdd(
+                            gblFirstDayInView,
+                            ThisItem.Value
+                        ) = gblEndDate,
+                        DateRangeComponent.StylingProperty.DatePicker.DaysLabel.SelectedColor,
+                        Text(
+                            DateAdd(
+                                gblFirstDayInView,
+                                ThisItem.Value
+                            ),
+                            "dddd"
+                        ) = "Sunday",
+                        DateRangeComponent.StylingProperty.DatePicker.DaysLabel.SundayColor,
+                        DateRangeComponent.StylingProperty.DatePicker.DaysLabel.OtherDaysColor
+                    )
+                DisabledBorderColor: =Self.BorderColor
+                DisabledColor: =Self.Color
+                DisabledFill: =Self.Fill
+                Fill: |-
+                    =If(
+                        Text(
+                            DateAdd(
+                                gblFirstDayInView,
+                                ThisItem.Value,
+                                Days
+                            ),
+                            "mmmm"
+                        ) <> Text(
+                            gblFirstDayOfMonth,
+                            "mmmm"
+                        ),
+                        Transparent,
+                        DateAdd(
+                            gblFirstDayInView,
+                            ThisItem.Value
+                        ) = gblStartDate || DateAdd(
+                            gblFirstDayInView,
+                            ThisItem.Value
+                        ) = gblEndDate,
+                        DateRangeComponent.StylingProperty.DatePicker.DaysLabel.SelectedFill,
+                        DateAdd(
+                            gblFirstDayInView,
+                            ThisItem.Value
+                        ) in DateRangeComponent.SelectedDates.DateValue,
+                       DateRangeComponent.StylingProperty.DatePicker.DaysLabel.RangesFill,
+                        DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Fill
+                    )
+                FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.FocusedBorderColor
+                FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.FocusedBorderThickness
+                Font: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Font
+                FontWeight: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.FontWeight
+                Height: =Parent.TemplateHeight
+                HoverColor: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.HoverColor
+                HoverFill: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.HoverFill
+                Italic: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Italic
+                LineHeight: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.LineHeight
+                OnSelect: |+
+                    =If(
+                        gblStartDateSelection,
+                        Set(
+                            gblStartDate,
+                            DateAdd(
+                                gblFirstDayInView,
+                                ThisItem.Value,
+                                Days
+                            )
+                        );
+                        If(IsBlank(gblEndDate),Set(gblStartDateSelection,false);Set(gblCalendarShow,false);SetFocus(btnEndDateDatePickerBoxDR);Select(btnEndDateDatePickerBoxDR),gblStartDate > gblEndDate,Set(gblStartDate,Blank()),Set(gblStartDateSelection,false);Set(gblCalendarShow,false);SetFocus(btnEndDateDatePickerBoxDR);Select(btnEndDateDatePickerBoxDR)),
+                    
+                        //EndDateCode
+                        gblEndDateSelection,
+                        Set(
+                            gblEndDate,
+                            DateAdd(
+                                gblFirstDayInView,
+                                ThisItem.Value,
+                                Days
+                            )
+                        );
+                        If(IsBlank(gblStartDate),Set(gblEndDateSelection,false);Set(gblCalendarShow,false),gblStartDate > gblEndDate,Set(gblEndDate,Blank()),Set(gblEndDateSelection,false);Set(gblCalendarShow,false))
+                        );
+                    
+                Overflow: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Overflow
+                PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.PaddingBottom
+                PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.PaddingLeft
+                PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.PaddingRight
+                PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.PaddingTop
+                Size: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Size
+                Strikethrough: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Strikethrough
+                Text: |-
+                    =Text(Day(DateAdd(gblFirstDayInView,ThisItem.Value,Days)),"0#")
+                Underline: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Underline
+                VerticalAlign: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.VerticalAlign
+                Visible: =Text(DateAdd(gblFirstDayInView,ThisItem.Value,Days),"mmmm") = Text(gblFirstDayOfMonth, "mmmm")
+                Width: =Parent.TemplateWidth
+                Wrap: =DateRangeComponent.StylingProperty.DatePicker.DaysLabel.Wrap
+                ZIndex: =1
+
+    txtEndDateWhiteDateCardDR As text:
+        BorderColor: =btnEndDateDatePickerBoxDR.BorderColor
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =btnEndDateDatePickerBoxDR.BorderThickness
+        Color: =RGBA(0, 0, 0, 0)
+        Default: =""
+        DisabledBorderColor: =btnEndDateDatePickerBoxDR.BorderColor
+        DisabledFill: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Height: =btnEndDateDatePickerBoxDR.Height
+        PaddingBottom: =btnEndDateDatePickerBoxDR.PaddingBottom
+        PaddingLeft: =btnEndDateDatePickerBoxDR.PaddingLeft
+        PaddingRight: =btnEndDateDatePickerBoxDR.PaddingRight
+        PaddingTop: =btnEndDateDatePickerBoxDR.PaddingTop
+        RadiusBottomLeft: =btnEndDateDatePickerBoxDR.RadiusBottomLeft
+        RadiusBottomRight: =btnEndDateDatePickerBoxDR.RadiusBottomRight
+        RadiusTopLeft: =btnEndDateDatePickerBoxDR.RadiusTopLeft
+        RadiusTopRight: =btnEndDateDatePickerBoxDR.RadiusTopRight
+        Size: =0
+        TabIndex: =-1
+        Width: =btnEndDateDatePickerBoxDR.Width
+        X: =btnEndDateDatePickerBoxDR.X
+        Y: =btnEndDateDatePickerBoxDR.Y 
+        ZIndex: =26
+
+    lblEndDateHintTextDR As label:
+        Align: =btnEndDateDatePickerBoxDR.Align
+        AutoHeight: =DateRangeComponent.StylingProperty.HeadingLabel.AutoHeight
+        BorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.BorderColor
+        BorderStyle: =DateRangeComponent.StylingProperty.HeadingLabel.BorderStyle
+        BorderThickness: =DateRangeComponent.StylingProperty.HeadingLabel.BorderThickness
+        Color: =If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.ErrorColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HintTextColor)
+        DisabledBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.BorderColor
+        DisabledColor: =btnEndDateDatePickerBoxDR.Fill
+        DisabledFill: =Self.Fill
+        Fill: =btnEndDateDatePickerBoxDR.Fill
+        FocusedBorderColor: =DateRangeComponent.StylingProperty.HeadingLabel.FocusedBorderColor
+        FocusedBorderThickness: =DateRangeComponent.StylingProperty.HeadingLabel.FocusedBorderThickness
+        Font: =btnEndDateDatePickerBoxDR.Font
+        FontWeight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HintTextFontWeight
+        Height: =btnEndDateDatePickerBoxDR.Height - btnEndDateDatePickerBoxDR.BorderThickness
+        Italic: =btnEndDateDatePickerBoxDR.Italic
+        LineHeight: =DateRangeComponent.StylingProperty.HeadingLabel.LineHeight
+        Overflow: =DateRangeComponent.StylingProperty.HeadingLabel.Overflow
+        PaddingBottom: =btnEndDateDatePickerBoxDR.PaddingBottom
+        PaddingLeft: =btnEndDateDatePickerBoxDR.PaddingLeft
+        PaddingRight: =btnEndDateDatePickerBoxDR.PaddingRight
+        PaddingTop: =btnEndDateDatePickerBoxDR.PaddingTop
+        Size: =btnEndDateDatePickerBoxDR.Size
+        Strikethrough: =btnEndDateDatePickerBoxDR.Strikethrough
+        Text: ="dd/mm/yyyy"
+        Underline: =btnEndDateDatePickerBoxDR.Underline
+        VerticalAlign: =DateRangeComponent.StylingProperty.HeadingLabel.VerticalAlign
+        Visible: =IsBlank(gblEndDate)
+        Width: =btnEndDateDatePickerBoxDR.Width - imgEndDateDatePickerIconDR.Width
+        Wrap: =DateRangeComponent.StylingProperty.HeadingLabel.Wrap
+        X: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HintTextMargin + btnEndDateDatePickerBoxDR.X
+        Y: =btnEndDateDatePickerBoxDR.Y + btnEndDateDatePickerBoxDR.BorderThickness
+        ZIndex: =27
+
+    imgEndDateDatePickerIconDR As image:
+        AutoDisableOnSelect: =false
+        Fill: =btnEndDateDatePickerBoxDR.Fill
+        Height: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.Height - btnEndDateDatePickerBoxDR.BorderThickness
+        Image: |-
+            ="data:image/svg+xml,"
+            &
+            EncodeUrl("<svg width='36' height='40' viewBox='0 0 36 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M3 40C2.2 40 1.5 39.7 0.9 39.1C0.3 38.5 0 37.8 0 37V6C0 5.2 0.3 4.5 0.9 3.9C1.5 3.3 2.2 3 3 3H6.25V0H9.5V3H26.5V0H29.75V3H33C33.8 3 34.5 3.3 35.1 3.9C35.7 4.5 36 5.2 36 6V37C36 37.8 35.7 38.5 35.1 39.1C34.5 39.7 33.8 40 33 40H3ZM3 37H33V15.5H3V37ZM3 12.5H33V6H3V12.5ZM3 12.5V6V12.5ZM18 24C17.4333 24 16.9583 23.8083 16.575 23.425C16.1917 23.0417 16 22.5667 16 22C16 21.4333 16.1917 20.9583 16.575 20.575C16.9583 20.1917 17.4333 20 18 20C18.5667 20 19.0417 20.1917 19.425 20.575C19.8083 20.9583 20 21.4333 20 22C20 22.5667 19.8083 23.0417 19.425 23.425C19.0417 23.8083 18.5667 24 18 24ZM10 24C9.43333 24 8.95833 23.8083 8.575 23.425C8.19167 23.0417 8 22.5667 8 22C8 21.4333 8.19167 20.9583 8.575 20.575C8.95833 20.1917 9.43333 20 10 20C10.5667 20 11.0417 20.1917 11.425 20.575C11.8083 20.9583 12 21.4333 12 22C12 22.5667 11.8083 23.0417 11.425 23.425C11.0417 23.8083 10.5667 24 10 24ZM26 24C25.4333 24 24.9583 23.8083 24.575 23.425C24.1917 23.0417 24 22.5667 24 22C24 21.4333 24.1917 20.9583 24.575 20.575C24.9583 20.1917 25.4333 20 26 20C26.5667 20 27.0417 20.1917 27.425 20.575C27.8083 20.9583 28 21.4333 28 22C28 22.5667 27.8083 23.0417 27.425 23.425C27.0417 23.8083 26.5667 24 26 24ZM18 32C17.4333 32 16.9583 31.8083 16.575 31.425C16.1917 31.0417 16 30.5667 16 30C16 29.4333 16.1917 28.9583 16.575 28.575C16.9583 28.1917 17.4333 28 18 28C18.5667 28 19.0417 28.1917 19.425 28.575C19.8083 28.9583 20 29.4333 20 30C20 30.5667 19.8083 31.0417 19.425 31.425C19.0417 31.8083 18.5667 32 18 32ZM10 32C9.43333 32 8.95833 31.8083 8.575 31.425C8.19167 31.0417 8 30.5667 8 30C8 29.4333 8.19167 28.9583 8.575 28.575C8.95833 28.1917 9.43333 28 10 28C10.5667 28 11.0417 28.1917 11.425 28.575C11.8083 28.9583 12 29.4333 12 30C12 30.5667 11.8083 31.0417 11.425 31.425C11.0417 31.8083 10.5667 32 10 32ZM26 32C25.4333 32 24.9583 31.8083 24.575 31.425C24.1917 31.0417 24 30.5667 24 30C24 29.4333 24.1917 28.9583 24.575 28.575C24.9583 28.1917 25.4333 28 26 28C26.5667 28 27.0417 28.1917 27.425 28.575C27.8083 28.9583 28 29.4333 28 30C28 30.5667 27.8083 31.0417 27.425 31.425C27.0417 31.8083 26.5667 32 26 32Z' fill= '"& If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.CloseIcon.ErrorColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.Fill) &"'/>
+            </svg>
+            ")
+        PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingBottom
+        PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingLeft
+        PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingRight
+        PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.PaddingTop
+        RadiusBottomLeft: =btnEndDateDatePickerBoxDR.RadiusBottomLeft
+        RadiusBottomRight: =btnEndDateDatePickerBoxDR.RadiusBottomRight
+        RadiusTopLeft: =btnEndDateDatePickerBoxDR.RadiusTopLeft
+        RadiusTopRight: =btnEndDateDatePickerBoxDR.RadiusTopRight
+        Visible: =If(gblCalendarShow && gblEndDateSelection && gblEndDate <> Blank(),false,true)
+        Width: =DateRangeComponent.StylingProperty.DatePicker.DatePickerIcon.Width - btnEndDateDatePickerBoxDR.BorderThickness
+        X: =btnEndDateDatePickerBoxDR.Width - Self.Width + btnEndDateDatePickerBoxDR.X
+        Y: =btnEndDateDatePickerBoxDR.Y + btnEndDateDatePickerBoxDR.BorderThickness
+        ZIndex: =28
+
+    btnEndDateDatePickerBoxDR As button:
+        Align: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Align
+        AutoDisableOnSelect: =false
+        BorderColor: =If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.ErrorColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderColor)
+        BorderStyle: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderStyle
+        BorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderThickness
+        Color: =If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.ErrorColor ,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Color)
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+        FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+        Font: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Font
+        FontWeight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FontWeight
+        Height: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Height
+        HoverBorderColor: =If(DateRangeComponent.DisplayMode = "View",Self.BorderColor,DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.HoverBorderColor)
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Italic: =
+        OnSelect: =If(DateRangeComponent.DisplayMode = "View",false,Select(rctResetDR);Set(gblStartDateSelection,false);Set(gblEndDateSelection,true);Set(gblCalendarShow,!gblCalendarShow))
+        PaddingBottom: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingBottom
+        PaddingLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingLeft
+        PaddingRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingRight
+        PaddingTop: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.PaddingTop 
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        RadiusBottomRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        RadiusTopLeft: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        RadiusTopRight: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.BorderRadius
+        Size: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Size
+        TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+        Text: =""
+        Width: =Parent.Width/2 - DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Margin * 2
+        X: =btnStartDateDatePickerBoxDR.X + btnStartDateDatePickerBoxDR.Width + DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.Margin*2
+        Y: =lblHeadingDR.Y + lblHeadingDR.Height
+        ZIndex: =29
+
+    grpEndDateManualDateInputDR As group:
+        Height: =5
+        Width: =5
+        X: =22
+        Y: =40
+        ZIndex: =33
+
+        txtEndDateDayInputDR As text:
+            Align: =btnEndDateDatePickerBoxDR.Align
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =btnEndDateDatePickerBoxDR.Color
+            Default: =Text(gblEndDate,"dd")
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =If(DateRangeComponent.DisplayMode = "View",DisplayMode.View,DisplayMode.Edit)
+            Fill: =btnEndDateDatePickerBoxDR.Fill
+            FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+            FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+            Font: =btnEndDateDatePickerBoxDR.Font
+            FontWeight: =btnEndDateDatePickerBoxDR.FontWeight
+            Format: =TextFormat.Number
+            Height: =btnEndDateDatePickerBoxDR.Height - btnEndDateDatePickerBoxDR.BorderThickness
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            MaxLength: =2
+            OnChange: |-
+                =If(Value(Self.Text) > 31,Reset(Self),
+                
+                Set(gblEndDate,DateValue(Text(Concatenate(Value(Self.Text),"/",txtEndDateMonthInputDR.Text,"/",txtEndDateYearInputDR.Text),"dd/mm/yyyy"),"en-GB"))
+                );
+                If(IsBlank(gblStartDate),Set(gblEndDateSelection,false);Set(gblCalendarShow,false),gblStartDate > gblEndDate,Reset(Self);Set(gblEndDate,Blank()),Set(gblEndDateSelection,false);Set(gblCalendarShow,false))
+            PaddingBottom: =btnEndDateDatePickerBoxDR.PaddingBottom
+            PaddingLeft: =btnEndDateDatePickerBoxDR.PaddingLeft
+            PaddingRight: =btnEndDateDatePickerBoxDR.PaddingRight
+            PaddingTop: =btnEndDateDatePickerBoxDR.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =btnEndDateDatePickerBoxDR.Size
+            TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+            Visible: =!IsBlank(gblEndDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =lblEndDateHintTextDR.X
+            Y: =btnEndDateDatePickerBoxDR.Y + btnEndDateDatePickerBoxDR.BorderThickness
+            ZIndex: =30
+
+        lblEndDateSepratorDayMonthDR As label:
+            Align: =txtEndDateDayInputDR.Align
+            Color: =txtEndDateDayInputDR.Color
+            Fill: =txtEndDateDayInputDR.Fill
+            Font: =txtEndDateDayInputDR.Font
+            FontWeight: =txtEndDateDayInputDR.FontWeight
+            Height: =txtEndDateDayInputDR.Height
+            PaddingBottom: =txtEndDateDayInputDR.PaddingBottom
+            PaddingLeft: =txtEndDateDayInputDR.PaddingLeft
+            PaddingRight: =txtEndDateDayInputDR.PaddingRight
+            PaddingTop: =txtEndDateDayInputDR.PaddingTop
+            Size: =txtEndDateDayInputDR.Size
+            Text: ="/"
+            Visible: =!IsBlank(gblEndDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =txtEndDateDayInputDR.Width + txtEndDateDayInputDR.X + 1
+            Y: =txtEndDateDayInputDR.Y
+            ZIndex: =31
+
+        txtEndDateMonthInputDR As text:
+            Align: =btnEndDateDatePickerBoxDR.Align
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =btnEndDateDatePickerBoxDR.Color
+            Default: =Text(gblEndDate,"mm")
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =If(DateRangeComponent.DisplayMode = "View",DisplayMode.View,DisplayMode.Edit)
+            Fill: =btnEndDateDatePickerBoxDR.Fill
+            FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+            FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+            Font: =btnEndDateDatePickerBoxDR.Font
+            FontWeight: =btnEndDateDatePickerBoxDR.FontWeight
+            Format: =TextFormat.Number
+            Height: =btnEndDateDatePickerBoxDR.Height - btnEndDateDatePickerBoxDR.BorderThickness
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            MaxLength: =2
+            OnChange: |-
+                =If(Value(Self.Text)>12,Reset(Self),
+                Set(gblFirstDayOfMonth,DateValue(Text(Concatenate(1,"/",Self.Text,"/",txtEndDateYearInputDR.Text),"dd/mm/yyyy"),"en-GB"));
+                Set(gblFirstDayInView,DateAdd(gblFirstDayOfMonth,-(Weekday(gblFirstDayOfMonth)-2+1),Days));
+                Set(gblLastDayOfMonth,DateAdd(DateAdd(gblFirstDayOfMonth,1,Months),-1,Days));
+                Set(gblEndDate,DateValue(Text(Concatenate(Value(txtEndDateDayInputDR.Text),"/",Self.Text,"/",txtEndDateYearInputDR.Text),"dd/mm/yyyy"),"en-GB"))
+                );
+                If(IsBlank(gblStartDate),Set(gblEndDateSelection,false);Set(gblCalendarShow,false),gblStartDate > gblEndDate,Reset(Self);Set(gblEndDate,Blank()),Set(gblEndDateSelection,false);Set(gblCalendarShow,false))
+            PaddingBottom: =btnEndDateDatePickerBoxDR.PaddingBottom
+            PaddingLeft: =btnEndDateDatePickerBoxDR.PaddingLeft
+            PaddingRight: =btnEndDateDatePickerBoxDR.PaddingRight
+            PaddingTop: =btnEndDateDatePickerBoxDR.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =btnEndDateDatePickerBoxDR.Size
+            TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+            Visible: =!IsBlank(gblEndDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =lblEndDateSepratorDayMonthDR.X + lblEndDateSepratorDayMonthDR.Width
+            Y: =btnEndDateDatePickerBoxDR.Y + btnEndDateDatePickerBoxDR.BorderThickness
+            ZIndex: =32
+
+        lblEndDateSepratorMonthYearDR As label:
+            Align: =txtEndDateDayInputDR.Align
+            Color: =txtEndDateDayInputDR.Color
+            Fill: =txtEndDateDayInputDR.Fill
+            Font: =txtEndDateDayInputDR.Font
+            FontWeight: =txtEndDateDayInputDR.FontWeight
+            Height: =txtEndDateDayInputDR.Height
+            PaddingBottom: =txtEndDateDayInputDR.PaddingBottom
+            PaddingLeft: =txtEndDateDayInputDR.PaddingLeft
+            PaddingRight: =txtEndDateDayInputDR.PaddingRight
+            PaddingTop: =txtEndDateDayInputDR.PaddingTop
+            Size: =txtEndDateDayInputDR.Size
+            Text: ="/"
+            Visible: =!IsBlank(gblEndDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =txtEndDateMonthInputDR.Width + txtEndDateMonthInputDR.X + 1
+            Y: =txtEndDateDayInputDR.Y
+            ZIndex: =34
+
+        txtEndDateYearInputDR As text:
+            Align: =btnEndDateDatePickerBoxDR.Align
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderThickness: =0
+            Color: =btnEndDateDatePickerBoxDR.Color
+            Default: =Text(gblEndDate,"yyyy")
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =If(DateRangeComponent.DisplayMode = "View",DisplayMode.View,DisplayMode.Edit)
+            Fill: =btnEndDateDatePickerBoxDR.Fill
+            FocusedBorderColor: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderColor
+            FocusedBorderThickness: =DateRangeComponent.StylingProperty.DatePicker.DatePickerBox.FocusedBorderThickness
+            Font: =btnEndDateDatePickerBoxDR.Font
+            FontWeight: =btnEndDateDatePickerBoxDR.FontWeight
+            Format: =TextFormat.Number
+            Height: =btnEndDateDatePickerBoxDR.Height - btnEndDateDatePickerBoxDR.BorderThickness
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            MaxLength: =4
+            OnChange: |-
+                =If(Value(Self.Text) < 2000,Reset(Self),
+                Set(gblFirstDayOfMonth,DateValue(Text(Concatenate(1,"/",txtEndDateMonthInputDR.Text,"/",Self.Text),"dd/mm/yyyy"),"en-GB"));
+                Set(gblFirstDayInView,DateAdd(gblFirstDayOfMonth,-(Weekday(gblFirstDayOfMonth)-2+1),Days));
+                Set(gblLastDayOfMonth,DateAdd(DateAdd(gblFirstDayOfMonth,1,Months),-1,Days));
+                Set(gblEndDate,DateValue(Text(Concatenate(Value(txtEndDateDayInputDR.Text),"/",txtEndDateMonthInputDR.Text,"/",Self.Text),"dd/mm/yyyy"),"en-GB")));
+                If(IsBlank(gblStartDate),Set(gblEndDateSelection,false);Set(gblCalendarShow,false),gblStartDate > gblEndDate,Reset(Self);Set(gblEndDate,Blank()),Set(gblEndDateSelection,false);Set(gblCalendarShow,false))
+            PaddingBottom: =btnEndDateDatePickerBoxDR.PaddingBottom
+            PaddingLeft: =btnEndDateDatePickerBoxDR.PaddingLeft
+            PaddingRight: =btnEndDateDatePickerBoxDR.PaddingRight
+            PaddingTop: =btnEndDateDatePickerBoxDR.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =btnEndDateDatePickerBoxDR.Size
+            TabIndex: =If(DateRangeComponent.DisplayMode = "View",-1,DateRangeComponent.TabIndex)
+            Visible: =!IsBlank(gblEndDate)
+            Width: =Len(Self.Text)*Self.Size - 6
+            X: =lblEndDateSepratorMonthYearDR.X + lblEndDateSepratorMonthYearDR.Width
+            Y: =btnEndDateDatePickerBoxDR.Y + btnEndDateDatePickerBoxDR.BorderThickness
+            ZIndex: =35
+
+    grpEndDateCloseIconDR As group:
+        Height: =5
+        Width: =5
+        X: =170
+        Y: =48
+        ZIndex: =38
+
+        imgEndDateCloseIconDR As image:
+            Fill: =txtWhiteDateCardDR.DisabledFill
+            Height: =DateRangeComponent.StylingProperty.CloseIcon.Height
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+                  <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='"& If(DateRangeComponent.DisplayMode = "Error",DateRangeComponent.StylingProperty.CloseIcon.ErrorColor,DateRangeComponent.StylingProperty.CloseIcon.Color) &"'/>
+                </svg>
+                "
+                )
+            OnSelect: =Set(gblEndDate,Blank());Set(gblStartDateSelection,false);Set(gblEndDateSelection,true);SetFocus(btnEndDateDatePickerBoxDR)
+            PaddingLeft: =0       
+            RadiusBottomLeft: =btnStartDateDatePickerBoxDR.RadiusBottomLeft
+            RadiusBottomRight: =btnStartDateDatePickerBoxDR.RadiusBottomRight
+            RadiusTopLeft: =btnStartDateDatePickerBoxDR.RadiusTopLeft
+            RadiusTopRight: =btnStartDateDatePickerBoxDR.RadiusTopRight
+            Visible: =gblCalendarShow && !IsBlank(gblEndDate) && gblEndDateSelection
+            Width: =DateRangeComponent.StylingProperty.CloseIcon.Width
+            X: =btnEndDateDatePickerBoxDR.X + btnEndDateDatePickerBoxDR.Width -  32
+            Y: =(btnStartDateDatePickerBoxDR.Y ) + btnStartDateDatePickerBoxDR.Height/2 - Self.Height/2
+            ZIndex: =36
+
+        icnEndDateCloseTransparentDR As icon.Add:
+            AutoDisableOnSelect: =false
+            Height: =imgEndDateCloseIconDR.Height
+            Icon: =Blank()
+            OnSelect: =Set(gblEndDate,Blank());Set(gblStartDateSelection,false);Set(gblEndDateSelection,true);SetFocus(btnEndDateDatePickerBoxDR)
+            TabIndex: =DateRangeComponent.TabIndex
+            Visible: =gblCalendarShow && !IsBlank(gblEndDate) && gblEndDateSelection
+            Width: =imgEndDateCloseIconDR.Width
+            X: =imgEndDateCloseIconDR.X
+            Y: =imgEndDateCloseIconDR.Y
+            ZIndex: =37
+

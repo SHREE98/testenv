@@ -1,0 +1,68 @@
+"Screen1_1 As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    Fill: |+
+        =gblColors.GrayLight
+        
+    Width: =
+
+    ScreenContainer1_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+        MainSectionContainer1_1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Container7 As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.Center
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =MainSectionContainer1.Width
+                ZIndex: =1
+
+                Label4 As label:
+                    Align: =Align.Center
+                    Font: =gblFonts.Heading
+                    FontWeight: =gblFonts.Weight.Headline1
+                    Height: =80
+                    Size: =32
+                    Text: ="Welcome to Touchstone"
+                    Width: =600
+                    X: =(Timer2.Value/6 - Label4.Width)
+                    Y: =348
+                    ZIndex: =1
+
+                Timer2 As timer:
+                    AutoStart: =true
+                    Duration: =(Screen1.Width+ Label4.Width) * 6
+                    Repeat: =true
+                    X: =1646
+                    Y: =671
+                    ZIndex: =2
+
+        FooterContainer1_1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
+    ToggleComponent_2 As ToggleComponent:
+        TitleAtTop: =false
+        ZIndex: =2
+

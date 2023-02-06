@@ -1,0 +1,301 @@
+ScreenNavigationComponent As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =ScreenNavigationComponent.StylingProperties.Height
+    NavItems: =colNavigationBar
+    OnReset: =
+    ScaleFactor: =1
+    StylingProperties: =gblControlStyles.ScreenNavigation
+    TabIndex: =0
+    Width: =ScreenNavigationComponent.StylingProperties.Width
+    X: =0
+    Y: =0
+    ZIndex: =17
+
+    galParentGallerySN As gallery.variableTemplateHeightGallery:
+        Fill: =Transparent
+        Height: =Parent.Height * ScreenNavigationComponent.ScaleFactor
+        Items: =colNavigationBar
+        Layout: =Layout.Vertical
+        OnSelect: |-
+            =ForAll(
+                Filter(
+                    colNavigationBar,
+                    Opened = true,
+                    !(Title = galParentGallerySN.Selected.Title)
+                ) As toModify,
+                Patch(
+                    colNavigationBar,
+                    toModify,
+                    {Opened: false}
+                )
+            );
+            If(
+                !IsBlank(ThisItem.ScreenName),
+                Navigate(ThisItem.ScreenName)
+            );
+            Patch(
+                colNavigationBar,
+                ThisItem,
+                {Opened: !ThisItem.Opened}
+            );
+        ShowScrollbar: =false
+        TemplateFill: =If(ThisItem.ScreenName = App.ActiveScreen || App.ActiveScreen in ThisItem.SubItems.ScreenName,ScreenNavigationComponent.StylingProperties.MainLabel.SelectedFill,ScreenNavigationComponent.StylingProperties.MainLabel.NotSelectedFill)
+        TemplatePadding: =0
+        TemplateSize: =44 * ScreenNavigationComponent.ScaleFactor
+        Width: =Parent.Width
+        ZIndex: =1
+
+        lblParentSN As label:
+            Align: =ScreenNavigationComponent.StylingProperties.MainLabel.Align
+            AutoHeight: =ScreenNavigationComponent.StylingProperties.MainLabel.AutoHeight
+            BorderColor: =ScreenNavigationComponent.StylingProperties.MainLabel.BorderColor
+            BorderStyle: =ScreenNavigationComponent.StylingProperties.MainLabel.BorderStyle
+            BorderThickness: =ScreenNavigationComponent.StylingProperties.MainLabel.BorderThickness
+            Color: =ScreenNavigationComponent.StylingProperties.MainLabel.Color
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Fill
+            DisabledFill: =Self.Fill
+            DisplayMode: =ScreenNavigationComponent.StylingProperties.MainLabel.DisplayMode
+            Fill: |-
+                =If(
+                    ThisItem.ScreenName = App.ActiveScreen || App.ActiveScreen in ThisItem.SubItems.ScreenName,
+                    ScreenNavigationComponent.StylingProperties.MainLabel.SelectedFill,
+                    ScreenNavigationComponent.StylingProperties.MainLabel.NotSelectedFill
+                )
+            FocusedBorderColor: =ScreenNavigationComponent.StylingProperties.MainLabel.FocusedBorderColor
+            FocusedBorderThickness: =ScreenNavigationComponent.StylingProperties.MainLabel.FocusedBorderThickness
+            Font: =ScreenNavigationComponent.StylingProperties.MainLabel.Font
+            FontWeight: =ScreenNavigationComponent.StylingProperties.MainLabel.FontWeight
+            Height: =Parent.TemplateHeight * ScreenNavigationComponent.ScaleFactor
+            Italic: =ScreenNavigationComponent.StylingProperties.MainLabel.Italic
+            LineHeight: =ScreenNavigationComponent.StylingProperties.MainLabel.LineHeight
+            OnSelect: =Select(Parent)
+            Overflow: =ScreenNavigationComponent.StylingProperties.MainLabel.Overflow
+            PaddingBottom: =ScreenNavigationComponent.StylingProperties.MainLabel.PaddingBottom
+            PaddingLeft: =ScreenNavigationComponent.StylingProperties.MainLabel.PaddingLeft
+            PaddingRight: =ScreenNavigationComponent.StylingProperties.MainLabel.PaddingRight
+            PaddingTop: =ScreenNavigationComponent.StylingProperties.MainLabel.PaddingTop
+            Size: =ScreenNavigationComponent.StylingProperties.MainLabel.Size * ScreenNavigationComponent.ScaleFactor
+            Strikethrough: =ScreenNavigationComponent.StylingProperties.ChildLabel.Strikethrough
+            TabIndex: =ScreenNavigationComponent.TabIndex
+            Text: =ThisItem.Title
+            Underline: =ScreenNavigationComponent.StylingProperties.ChildLabel.Underline
+            VerticalAlign: =ScreenNavigationComponent.StylingProperties.MainLabel.VerticalAlign
+            Width: =Parent.TemplateWidth - ScreenNavigationComponent.StylingProperties.MainLabel.Margin* 2
+            Wrap: =ScreenNavigationComponent.StylingProperties.MainLabel.Wrap
+            X: =ScreenNavigationComponent.StylingProperties.MainLabel.Margin
+            Y: =ScreenNavigationComponent.StylingProperties.MainLabel.Margin
+            ZIndex: =1
+
+        imgArrowSN As image:
+            AutoDisableOnSelect: =ScreenNavigationComponent.StylingProperties.Image.AutoDisableOnSelect
+            BorderColor: =ScreenNavigationComponent.StylingProperties.Image.BorderColor
+            BorderStyle: =ScreenNavigationComponent.StylingProperties.Image.BorderStyle
+            BorderThickness: =ScreenNavigationComponent.StylingProperties.Image.BorderThickness
+            DisabledBorderColor: =Self.BorderColor
+            DisabledFill: =Self.Fill
+            DisplayMode: =ScreenNavigationComponent.StylingProperties.Image.DisplayMode
+            Fill: =ScreenNavigationComponent.StylingProperties.Image.Color
+            FocusedBorderThickness: =ScreenNavigationComponent.StylingProperties.Image.BorderThickness
+            Height: =ScreenNavigationComponent.StylingProperties.Image.OpenCloseIconHeight * ScreenNavigationComponent.ScaleFactor
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            Image: |-
+                ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='24' height='15' viewBox='0 0 24 15' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M2.15 14.7501L0 12.6001L12 0.600098L24 12.5501L21.85 14.7001L12 4.8501L2.15 14.7501Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.OpenCloseIconFill &"'/>
+                </svg>
+                ")
+            ImagePosition: =ScreenNavigationComponent.StylingProperties.Image.ImagePosition
+            ImageRotation: =If(ThisItem.Opened,ImageRotation.None,ImageRotation.Rotate180)
+            OnSelect: =Select(Parent)
+            PaddingBottom: =ScreenNavigationComponent.StylingProperties.Image.PaddingBottom
+            PaddingLeft: =ScreenNavigationComponent.StylingProperties.Image.PaddingLeft
+            PaddingRight: =ScreenNavigationComponent.StylingProperties.Image.PaddingRight
+            PaddingTop: =ScreenNavigationComponent.StylingProperties.Image.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            PressedFill: =Self.Fill
+            RadiusBottomLeft: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+            RadiusBottomRight: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+            RadiusTopLeft: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+            RadiusTopRight: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+            Transparency: =ScreenNavigationComponent.StylingProperties.Image.Trasnparency
+            Visible: =ThisItem.SubItemsContains
+            Width: =ScreenNavigationComponent.StylingProperties.Image.OpenCloseIconWidth * ScreenNavigationComponent.ScaleFactor
+            X: =lblParentSN.X + lblParentSN.Width - Self.Width - ScreenNavigationComponent.StylingProperties.Image.OpenCloseRightMargin
+            Y: =Parent.TemplateHeight/2 - Self.Height/2
+            ZIndex: =2
+
+        galSubGallerySN As gallery.galleryVertical:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =((CountRows(ThisItem.SubItems) * Self.TemplateHeight )* ScreenNavigationComponent.ScaleFactor) + ScreenNavigationComponent.StylingProperties.ChildLabel.Margin 
+            Items: =ThisItem.SubItems
+            Layout: =Layout.Vertical
+            OnSelect: =
+            ShowScrollbar: =false
+            TemplateFill: =If(ThisItem.ScreenName = App.ActiveScreen, ScreenNavigationComponent.StylingProperties.ChildLabel.SelectedFill,ScreenNavigationComponent.StylingProperties.ChildLabel.NotSelectedFill)
+            TemplatePadding: =0
+            TemplateSize: =44 * ScreenNavigationComponent.ScaleFactor
+            Visible: =ThisItem.Opened //gblShow && ThisItem.SubItemsContains && gblSelectedID = ThisItem.ID
+            Width: =Parent.Width
+            X: =Parent.X
+            Y: =lblParentSN.Y + lblParentSN.Height
+            ZIndex: =3
+
+            lblChildSN As label:
+                Align: =ScreenNavigationComponent.StylingProperties.ChildLabel.Align
+                AutoHeight: =ScreenNavigationComponent.StylingProperties.ChildLabel.AutoHeight
+                BorderColor: =ScreenNavigationComponent.StylingProperties.ChildLabel.BorderColor
+                BorderStyle: =ScreenNavigationComponent.StylingProperties.ChildLabel.BorderStyle
+                BorderThickness: =ScreenNavigationComponent.StylingProperties.ChildLabel.BorderThickness
+                Color: =If(ThisItem.ScreenName = App.ActiveScreen,ScreenNavigationComponent.StylingProperties.ChildLabel.SelectedColor,ScreenNavigationComponent.StylingProperties.ChildLabel.NotSelectedColor)
+                DisabledBorderColor: =Self.BorderColor
+                DisabledColor: =Self.Color
+                DisabledFill: =Self.Fill
+                DisplayMode: =ScreenNavigationComponent.StylingProperties.ChildLabel.DisplayMode
+                Fill: =If(ThisItem.ScreenName = App.ActiveScreen, ScreenNavigationComponent.StylingProperties.ChildLabel.SelectedFill,ScreenNavigationComponent.StylingProperties.ChildLabel.NotSelectedFill)
+                FocusedBorderColor: =ScreenNavigationComponent.StylingProperties.ChildLabel.FocusedBorderColor
+                FocusedBorderThickness: =ScreenNavigationComponent.StylingProperties.ChildLabel.FocusedBorderThickness
+                Font: =ScreenNavigationComponent.StylingProperties.ChildLabel.Font
+                FontWeight: =ScreenNavigationComponent.StylingProperties.ChildLabel.FontWeight
+                Height: =(Parent.TemplateHeight - ScreenNavigationComponent.StylingProperties.ChildLabel.Margin ) * ScreenNavigationComponent.ScaleFactor
+                HoverColor: =ScreenNavigationComponent.StylingProperties.ChildLabel.HoverColor
+                HoverFill: =ScreenNavigationComponent.StylingProperties.ChildLabel.HoverFill
+                Italic: =ScreenNavigationComponent.StylingProperties.ChildLabel.Italic
+                LineHeight: =ScreenNavigationComponent.StylingProperties.ChildLabel.LineHeight
+                OnSelect: |-
+                    =ForAll(
+                        Filter(
+                            colNavigationBar,
+                            Opened = true,
+                            !(Title = galParentGallerySN.Selected.Title)
+                        ) As toModify,
+                        Patch(
+                            colNavigationBar,
+                            toModify,
+                            {Opened: false}
+                        )
+                    );
+                    Navigate(ThisItem.ScreenName);
+                Overflow: =ScreenNavigationComponent.StylingProperties.ChildLabel.Overflow
+                PaddingBottom: =ScreenNavigationComponent.StylingProperties.ChildLabel.PaddingBottom
+                PaddingLeft: =ScreenNavigationComponent.StylingProperties.ChildLabel.PaddingLeft
+                PaddingRight: =ScreenNavigationComponent.StylingProperties.ChildLabel.PaddingRight
+                PaddingTop: =ScreenNavigationComponent.StylingProperties.ChildLabel.PaddingTop
+                Size: =ScreenNavigationComponent.StylingProperties.ChildLabel.Size * ScreenNavigationComponent.ScaleFactor
+                Strikethrough: =ScreenNavigationComponent.StylingProperties.ChildLabel.Strikethrough
+                TabIndex: =ScreenNavigationComponent.TabIndex
+                Text: =ThisItem.Title
+                Underline: =ScreenNavigationComponent.StylingProperties.ChildLabel.Underline
+                VerticalAlign: =ScreenNavigationComponent.StylingProperties.ChildLabel.VerticalAlign
+                Width: =Parent.TemplateWidth - ScreenNavigationComponent.StylingProperties.ChildLabel.Margin * 2
+                Wrap: =ScreenNavigationComponent.StylingProperties.ChildLabel.Wrap
+                X: =ScreenNavigationComponent.StylingProperties.ChildLabel.Margin
+                Y: =Parent.Y - (lblParentSN.Y + lblParentSN.Height) + ScreenNavigationComponent.StylingProperties.ChildLabel.Margin
+                ZIndex: =1
+
+            imgProgressSN As image:
+                AutoDisableOnSelect: =ScreenNavigationComponent.StylingProperties.Image.AutoDisableOnSelect
+                BorderColor: =ScreenNavigationComponent.StylingProperties.Image.BorderColor
+                BorderStyle: =ScreenNavigationComponent.StylingProperties.Image.BorderStyle
+                BorderThickness: =ScreenNavigationComponent.StylingProperties.Image.BorderThickness
+                DisabledBorderColor: =Self.BorderColor
+                DisabledFill: =Self.Fill
+                DisplayMode: =ScreenNavigationComponent.StylingProperties.Image.DisplayMode
+                Fill: =ScreenNavigationComponent.StylingProperties.Image.Color
+                FocusedBorderThickness: =Self.BorderThickness
+                Height: =ScreenNavigationComponent.StylingProperties.Image.ProgressImageHeight * ScreenNavigationComponent.ScaleFactor
+                HoverBorderColor: =Self.BorderColor
+                HoverFill: =Self.Fill
+                Image: |-
+                    =Switch(ThisItem.CompletePercent,0,
+                    "data:image/svg+xml,"
+                    &
+                    EncodeUrl("<svg width='230' height='230' viewBox='0 0 230 230' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    </svg>
+                    
+                    ")
+                    
+                    ,25,
+                    
+                    
+                    //25 percent Image
+                    
+                    "data:image/svg+xml,"
+                    &
+                    EncodeUrl("<svg width='230' height='230' viewBox='0 0 230 230' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M230 115C230 99.898 227.025 84.9438 221.246 70.9914C215.467 57.039 206.996 44.3615 196.317 33.6827C185.639 23.004 172.961 14.5331 159.009 8.75385C145.056 2.97456 130.102 -6.6013e-07 115 0L115 18.5625C127.664 18.5625 140.205 21.0569 151.905 25.9034C163.605 30.7498 174.237 37.8533 183.192 46.8084C192.147 55.7634 199.25 66.3946 204.097 78.095C208.943 89.7953 211.438 102.336 211.438 115H230Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImageBarFill &"'/>
+                    <ellipse cx='115' cy='114.5' rx='97' ry='96.5' fill='white'/>
+                    </svg>
+                    "),50,
+                    
+                    //50 percent Image
+                    
+                    "data:image/svg+xml,"
+                    &
+                    EncodeUrl("<svg width='230' height='230' viewBox='0 0 230 230' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M115 0C145.5 3.63708e-07 174.751 12.116 196.317 33.6827C217.884 55.2494 230 84.5001 230 115C230 145.5 217.884 174.751 196.317 196.317C174.751 217.884 145.5 230 115 230L115 211.437C140.577 211.437 165.106 201.277 183.192 183.192C201.277 165.106 211.438 140.577 211.437 115C211.437 89.4232 201.277 64.8939 183.192 46.8084C165.106 28.7228 140.577 18.5625 115 18.5625L115 0Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImageBarFill &"'/>
+                    <ellipse cx='115' cy='114.5' rx='97' ry='96.5' fill='white'/>
+                    </svg>
+                    "),75,
+                    
+                    //75 percent Image
+                    "data:image/svg+xml,"
+                    &
+                    EncodeUrl("<svg width='230' height='230' viewBox='0 0 230 230' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M230 115C230 178.513 178.513 230 115 230C51.4873 230 0 178.513 0 115C0 51.4873 51.4873 0 115 0C178.513 0 230 51.4873 230 115ZM18.584 115C18.584 168.249 61.7509 211.416 115 211.416C168.249 211.416 211.416 168.249 211.416 115C211.416 61.7509 168.249 18.584 115 18.584C61.7509 18.584 18.584 61.7509 18.584 115Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImagefill &"'/>
+                    <path d='M115 0C137.745 2.7123e-07 159.979 6.74463 178.891 19.381C197.802 32.0174 212.542 49.9779 221.246 70.9914C229.95 92.0049 232.228 115.128 227.79 137.435C223.353 159.743 212.4 180.234 196.317 196.317C180.234 212.4 159.743 223.353 137.435 227.79C115.128 232.228 92.0049 229.95 70.9914 221.246C49.9779 212.542 32.0174 197.802 19.381 178.891C6.74463 159.979 -5.42459e-07 137.745 0 115L18.5625 115C18.5625 134.074 24.2185 152.719 34.8151 168.578C45.4118 184.437 60.4733 196.798 78.095 204.097C95.7166 211.396 115.107 213.306 133.814 209.584C152.521 205.863 169.705 196.679 183.192 183.192C196.679 169.705 205.863 152.521 209.584 133.814C213.306 115.107 211.396 95.7166 204.097 78.095C196.798 60.4733 184.437 45.4118 168.578 34.8151C152.719 24.2185 134.074 18.5625 115 18.5625L115 0Z' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImageBarFill &"'/>
+                    <ellipse cx='115' cy='114.5' rx='97' ry='96.5' fill='white'/>
+                    </svg>
+                    
+                    "),100,
+                    
+                    
+                    //100 percent Image
+                    "data:image/svg+xml,"
+                    &
+                    EncodeUrl("<svg width='62' height='62' viewBox='0 0 62 62' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <circle cx='31' cy='31' r='31' fill='" & ScreenNavigationComponent.StylingProperties.Image.ProgressImageCheckFill &"'/>
+                    <path d='M15 31.5L26.625 43L46 20' stroke='" & ScreenNavigationComponent.StylingProperties.Image.ProgressIMageCheckmarkFill &"' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/>
+                    </svg>
+                    
+                    
+                    "))
+                ImagePosition: =ScreenNavigationComponent.StylingProperties.Image.ImagePosition
+                OnSelect: |
+                    =ForAll(
+                        Filter(
+                            colNavigationBar,
+                            Opened = true,
+                            !(Title = galParentGallerySN.Selected.Title)
+                        ) As toModify,
+                        Patch(
+                            colNavigationBar,
+                            toModify,
+                            {Opened: false}
+                        )
+                    );
+                    Navigate(ThisItem.ScreenName);
+                PaddingBottom: =ScreenNavigationComponent.StylingProperties.Image.PaddingBottom
+                PaddingLeft: =ScreenNavigationComponent.StylingProperties.Image.PaddingLeft
+                PaddingRight: =ScreenNavigationComponent.StylingProperties.Image.PaddingRight
+                PaddingTop: =ScreenNavigationComponent.StylingProperties.Image.PaddingTop
+                PressedBorderColor: =Self.BorderColor
+                PressedFill: =Self.Fill
+                RadiusBottomLeft: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+                RadiusBottomRight: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+                RadiusTopLeft: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+                RadiusTopRight: =ScreenNavigationComponent.StylingProperties.Image.BorderRadius
+                Transparency: =ScreenNavigationComponent.StylingProperties.Image.Trasnparency
+                Width: =ScreenNavigationComponent.StylingProperties.Image.ProgressImageWidth * ScreenNavigationComponent.ScaleFactor
+                X: =ScreenNavigationComponent.StylingProperties.Image.ProgressImageLeftMargin
+                Y: =Parent.TemplateHeight/2- Self.Height/2
+                ZIndex: =2
+
