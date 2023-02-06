@@ -26,7 +26,7 @@
             "Name": "galleryTemplate5",
             "Parent": "galLeftNavigationElementsLNC",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 572,
+            "PublishOrderIndex": 571,
             "Rules": [
               {
                 "Category": "Design",
@@ -386,7 +386,7 @@
             "Name": "lblTitleLabelLeftNavigationLNC",
             "Parent": "galLeftNavigationElementsLNC",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 573,
+            "PublishOrderIndex": 572,
             "Rules": [
               {
                 "Category": "Data",
@@ -730,7 +730,7 @@
             "Name": "rctSepratorLeftNavigationLNC",
             "Parent": "galLeftNavigationElementsLNC",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 574,
+            "PublishOrderIndex": 573,
             "Rules": [
               {
                 "Category": "Design",
@@ -929,7 +929,7 @@
         "Name": "galLeftNavigationElementsLNC",
         "Parent": "EntityManagementLeftNavigationComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 571,
+        "PublishOrderIndex": 570,
         "Rules": [
           {
             "Category": "Data",
