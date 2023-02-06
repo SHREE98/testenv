@@ -1,0 +1,109 @@
+EmptyStateComponent_1 As CanvasComponent:
+    ErrorImage: =SampleImage
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =EmptyStateComponent_1.StylingProperty.ErrorDialogueBoxHeight
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    StylingProperty: =gblControlStyles.EmptyStateWebpageDetails
+    TitleSummaryText: ="Text"
+    TitleText: ="Text"
+    Width: =EmptyStateComponent_1.StylingProperty.ErrorDialogueBoxWidth
+    X: =0
+    Y: =0
+    ZIndex: =7
+
+    btnBackgroundESC_1 As button:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.View
+        Fill: =EmptyStateComponent_1.StylingProperty.ErrorDialogueBoxBgColor
+        FocusedBorderThickness: =0
+        Height: =Parent.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =15 * EmptyStateComponent_1.ScaleFactor
+        RadiusBottomRight: =15 * EmptyStateComponent_1.ScaleFactor
+        RadiusTopLeft: =15 * EmptyStateComponent_1.ScaleFactor
+        RadiusTopRight: =15 * EmptyStateComponent_1.ScaleFactor
+        Text: ="Button"
+        Width: =Parent.Width
+        ZIndex: =1
+
+    rctResetESC_1 As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        OnSelect: |-
+            =Set(
+                gblResetComponents,
+                true
+            );
+            Set(
+                gblResetComponents,
+                false
+            )
+        Width: =Parent.Width
+        ZIndex: =2
+
+    imgSearchResultESC_1 As image:
+        DisplayMode: =EmptyStateComponent_1.StylingProperty.DisplayMode
+        Height: =EmptyStateComponent_1.StylingProperty.ErrorImageHeight * EmptyStateComponent_1.ScaleFactor
+        Image: =EmptyStateComponent_1.ErrorImage
+        ImagePosition: =EmptyStateComponent_1.StylingProperty.ErrorImagePosition
+        OnSelect: =Select(rctResetESC_1)
+        TabIndex: =
+        Width: =EmptyStateComponent_1.StylingProperty.ErrorImageWidth * EmptyStateComponent_1.ScaleFactor
+        X: =(Parent.Width-Self.Width)/2
+        ZIndex: =3
+
+    lblTitleESC_1 As label:
+        Align: =EmptyStateComponent_1.StylingProperty.AlignCenter
+        Color: =EmptyStateComponent_1.StylingProperty.TitleFontColor
+        DisplayMode: =EmptyStateComponent_1.StylingProperty.DisplayMode
+        Font: =EmptyStateComponent_1.StylingProperty.Font
+        FontWeight: =EmptyStateComponent_1.StylingProperty.TitleFontWeight
+        Height: =EmptyStateComponent_1.StylingProperty.TitleFontHeight * EmptyStateComponent_1.ScaleFactor
+        OnSelect: =Select(rctResetESC_1)
+        PaddingBottom: =5 * EmptyStateComponent_1.ScaleFactor
+        PaddingLeft: =5 * EmptyStateComponent_1.ScaleFactor
+        PaddingRight: =5 * EmptyStateComponent_1.ScaleFactor
+        PaddingTop: =5 * EmptyStateComponent_1.ScaleFactor
+        Size: =EmptyStateComponent_1.StylingProperty.TitleFontSize * EmptyStateComponent_1.ScaleFactor
+        TabIndex: =
+        Text: =EmptyStateComponent_1.TitleText
+        Width: =EmptyStateComponent_1.StylingProperty.TitleFontWidth * EmptyStateComponent_1.ScaleFactor
+        X: =(Parent.Width-Self.Width)/2
+        Y: =imgSearchResultESC_1.Height + imgSearchResultESC_1.Y + (EmptyStateComponent_1.StylingProperty.Y * EmptyStateComponent_1.ScaleFactor)
+        ZIndex: =4
+
+    lblTitleSummaryESC_1 As label:
+        Align: =EmptyStateComponent_1.StylingProperty.AlignCenter
+        Color: =EmptyStateComponent_1.StylingProperty.ContentFontColor
+        DisplayMode: =EmptyStateComponent_1.StylingProperty.DisplayMode
+        Font: =EmptyStateComponent_1.StylingProperty.Font
+        FontWeight: =EmptyStateComponent_1.StylingProperty.ContentFontWeight
+        Height: =EmptyStateComponent_1.StylingProperty.ContentFontHeight * EmptyStateComponent_1.ScaleFactor
+        OnSelect: =Select(rctResetESC_1)
+        PaddingBottom: =5 * EmptyStateComponent_1.ScaleFactor
+        PaddingLeft: =5 * EmptyStateComponent_1.ScaleFactor
+        PaddingRight: =5 * EmptyStateComponent_1.ScaleFactor
+        PaddingTop: =5 * EmptyStateComponent_1.ScaleFactor
+        Size: =EmptyStateComponent_1.StylingProperty.ContentFontSize * EmptyStateComponent_1.ScaleFactor
+        TabIndex: =
+        Text: =EmptyStateComponent_1.TitleSummaryText
+        Width: =EmptyStateComponent_1.StylingProperty.ContentFontWidth * EmptyStateComponent_1.ScaleFactor
+        X: =(Parent.Width-Self.Width)/2
+        Y: =lblTitleESC_1.Height + lblTitleESC_1.Y + (EmptyStateComponent_1.StylingProperty.Y * EmptyStateComponent_1.ScaleFactor)
+        ZIndex: =5
+

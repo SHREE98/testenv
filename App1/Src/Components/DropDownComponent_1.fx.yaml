@@ -1,0 +1,538 @@
+DropDownComponent_1 As CanvasComponent:
+    Clear: =true
+    ComponentHeight: =Self.StylingProperty.TextInput.Margin + If(lblTitleTextDD_1.Visible, lblTitleTextDD_1.Height, Self.StylingProperty.TextInput.Margin) + txtTextInputDD_1.Height + galComboboxVauesDD_1.Height
+    Default: =Blank()
+    DisplayMode: =gblState.Enabled
+    Fill: =RGBA(0, 0, 0, 0)
+    Focus: =false
+    Height: =Self.ComponentHeight
+    HideLabel: =false
+    HintText: ="Authority Status"
+    Items: |-
+        =[
+            "Midlands and South West",
+            "South East",
+            "ERM",
+            "Techinial Team",
+            "Ireland",
+            "Other"
+        ]
+    OnReset: |-
+        =Set(
+            gblComponentGalVisibility,
+            false
+        );
+        Set(
+            gblTabIndex,
+            0
+        );
+        Reset(txtTextInputDD_1);
+        If(
+            Self.Clear,
+            Set(
+                gblDropDownSelected,
+                Blank()
+            )
+        )
+    Reset: =true
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    Selected: =gblDropDownSelected
+    SetFocus: =gblSetFocus
+    StylingProperty: |-
+        =With(
+            {DropDownComponent: gblControlStyles.DropDown},
+            {
+                Label: gblControlStyles.ControlLabel,
+                TextInput: DropDownComponent,
+                CloseIcon: gblControlStyles.CloseIcon,
+                SearchIcon: gblControlStyles.SearchIcon,
+                Items: DropDownComponent.ItemLabel,
+                Separator: DropDownComponent.Separator
+            }
+        )
+    TabIndex: =0
+    TitleText: ="Label"
+    Width: =368
+    X: =0
+    Y: =0
+    ZIndex: =15
+
+    rctResetDD_1 As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        OnSelect: |-
+            =Set(
+                gblResetComponents,
+                true
+            );
+            Set(
+                gblResetComponents,
+                false
+            )
+        Width: =Parent.Width
+        ZIndex: =1
+
+    txtItemsBorderDD_1 As text:
+        BorderColor: =txtTextInputDD_1.BorderColor
+        BorderStyle: =txtTextInputDD_1.BorderStyle
+        BorderThickness: =txtTextInputDD_1.FocusedBorderThickness * DropDownComponent_1.ScaleFactor
+        Color: =Transparent
+        Default: =""
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =btnFocusDD_1.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: |-
+            =With(
+                {Difference: galComboboxVauesDD_1.Y - Self.Y},
+                galComboboxVauesDD_1.Height + Difference
+            )
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =txtTextInputDD_1.RadiusBottomLeft
+        RadiusBottomRight: =txtTextInputDD_1.RadiusBottomRight
+        RadiusTopLeft: =txtTextInputDD_1.RadiusBottomLeft
+        RadiusTopRight: =txtTextInputDD_1.RadiusTopRight
+        Size: =0
+        Visible: =galComboboxVauesDD_1.Visible
+        Width: =txtTextInputDD_1.Width
+        X: =txtTextInputDD_1.X
+        Y: =txtTextInputDD_1.Height - txtTextInputDD_1.BorderThickness
+        ZIndex: =2
+
+    galComboboxVauesDD_1 As gallery.galleryVertical:
+        BorderColor: =DropDownComponent_1.StylingProperty.TextInput.FocusedBorderColor
+        BorderStyle: =txtTextInputDD_1.BorderStyle
+        Default: =LookUp(colDropdownValue, Value = gblDropDownSelected)
+        Fill: =txtTextInputDD_1.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: |-
+            =If(
+                Self.Visible,
+                CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + (Self.TemplatePadding * 2)
+            )
+        Items: |-
+            =Search(
+                colDropdownValue,
+                txtTextInputDD_1.Text,
+                "Value"
+            )
+        Layout: =Layout.Vertical
+        OnSelect: =
+        ShowScrollbar: =false
+        TemplateFill: =txtTextInputDD_1.Fill
+        TemplatePadding: =rctSepratorGalComboboxVauesDD_1.Height
+        TemplateSize: =DropDownComponent_1.StylingProperty.Items.Height * DropDownComponent_1.ScaleFactor
+        Visible: =gblComponentGalVisibility && !IsEmpty(Self.AllItems)
+        Width: =txtTextInputDD_1.Width
+        X: =txtTextInputDD_1.X * DropDownComponent_1.ScaleFactor
+        Y: =62
+        ZIndex: =3
+
+        rctSepratorGalComboboxVauesDD_1 As rectangle:
+            BorderColor: =Transparent
+            Fill: =DropDownComponent_1.StylingProperty.Separator.Fill
+            FocusedBorderThickness: =Self.BorderThickness
+            Height: =DropDownComponent_1.StylingProperty.Separator.Height * DropDownComponent_1.ScaleFactor
+            OnSelect: =Select(Parent)
+            Visible: |-
+                =Not(
+                    ThisItem.Value = Last(
+                        Search(
+                            colDropdownValue,
+                            txtTextInputDD_1.Text,
+                            "Value"
+                        )
+                    ).Value
+                )
+            Width: =Parent.Width - (Self.X * 2)
+            X: =DropDownComponent_1.StylingProperty.Separator.LeftMargin * DropDownComponent_1.ScaleFactor
+            Y: =Parent.TemplateHeight
+            ZIndex: =1
+
+        lblDropdownValueGalComboboxVauesDD_1 As label:
+            Align: =DropDownComponent_1.StylingProperty.Items.Align
+            AutoHeight: =DropDownComponent_1.StylingProperty.Items.AutoHeight
+            BorderColor: =DropDownComponent_1.StylingProperty.Items.DisabledBorderColor
+            BorderStyle: =DropDownComponent_1.StylingProperty.Items.BorderStyle
+            BorderThickness: =DropDownComponent_1.StylingProperty.Items.BorderThickness * DropDownComponent_1.ScaleFactor
+            Color: =If(ThisItem.Value = gblDropDownSelected,DropDownComponent_1.StylingProperty.Items.SelectedColor, DropDownComponent_1.StylingProperty.Items.Color)
+            DisabledBorderColor: =DropDownComponent_1.StylingProperty.Items.DisabledBorderColor
+            DisabledColor: =DropDownComponent_1.StylingProperty.Items.DisabledColor
+            DisabledFill: =DropDownComponent_1.StylingProperty.Items.DisabledFill
+            DisplayMode: =txtTextInputDD_1.DisplayMode
+            Fill: =If(ThisItem.Value = gblDropDownSelected,DropDownComponent_1.StylingProperty.Items.SelectedFill, DropDownComponent_1.StylingProperty.Items.Fill)
+            FocusedBorderColor: =DropDownComponent_1.StylingProperty.Items.FocusedBorderColor
+            FocusedBorderThickness: =DropDownComponent_1.StylingProperty.Items.FocusedBorderThickness * DropDownComponent_1.ScaleFactor
+            Font: =DropDownComponent_1.StylingProperty.Items.Font
+            FontWeight: =DropDownComponent_1.StylingProperty.Items.FontWeight
+            Height: =Parent.TemplateHeight
+            HoverBorderColor: =DropDownComponent_1.StylingProperty.Items.HoverBorderColor
+            HoverColor: =If(ThisItem.Value = gblDropDownSelected,DropDownComponent_1.StylingProperty.Items.SelectedColor, DropDownComponent_1.StylingProperty.Items.HoverColor)
+            HoverFill: =If(ThisItem.Value = gblDropDownSelected,DropDownComponent_1.StylingProperty.Items.SelectedFill, DropDownComponent_1.StylingProperty.Items.HoverFill)
+            Italic: =DropDownComponent_1.StylingProperty.Items.Italic
+            LineHeight: =DropDownComponent_1.StylingProperty.Items.LineHeight
+            OnSelect: |-
+                =Set(
+                    gblDropDownSelected,
+                    ThisItem.Value
+                );
+                Set(
+                    gblComponentGalVisibility,
+                    false
+                );
+                Reset(txtTextInputDD_1);
+                Set(gblSetFocus, true);
+                Set(gblSetFocus, false);
+                Set(
+                    gblTabIndex,
+                    0
+                );
+                SetFocus(imgCloseDD_1)
+            Overflow: =DropDownComponent_1.StylingProperty.Items.Overflow
+            PaddingBottom: =DropDownComponent_1.StylingProperty.Items.PaddingBottom * DropDownComponent_1.ScaleFactor
+            PaddingLeft: =DropDownComponent_1.StylingProperty.Items.PaddingLeft * DropDownComponent_1.ScaleFactor
+            PaddingRight: =DropDownComponent_1.StylingProperty.Items.PaddingRight * DropDownComponent_1.ScaleFactor
+            PaddingTop: =DropDownComponent_1.StylingProperty.Items.PaddingTop * DropDownComponent_1.ScaleFactor
+            PressedBorderColor: =DropDownComponent_1.StylingProperty.Items.Fill
+            PressedColor: =DropDownComponent_1.StylingProperty.Items.PressedColor
+            PressedFill: =DropDownComponent_1.StylingProperty.Items.PressedFill
+            Size: =DropDownComponent_1.StylingProperty.Items.Size * DropDownComponent_1.ScaleFactor
+            Strikethrough: =DropDownComponent_1.StylingProperty.Items.Strikethrough
+            TabIndex: =0
+            Text: =ThisItem.Value
+            Underline: =DropDownComponent_1.StylingProperty.Items.Underline
+            VerticalAlign: =DropDownComponent_1.StylingProperty.Items.VerticalAlign
+            Width: =Parent.TemplateWidth
+            Wrap: =DropDownComponent_1.StylingProperty.Items.Wrap
+            ZIndex: =2
+
+    btnFocusDD_1 As button:
+        BorderColor: =DropDownComponent_1.StylingProperty.TextInput.BorderColor
+        BorderThickness: =txtTextInputDD_1.BorderThickness
+        Color: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        Fill: =DropDownComponent_1.StylingProperty.TextInput.Fill
+        FocusedBorderColor: =DropDownComponent_1.StylingProperty.TextInput.FocusedBorderColor
+        FocusedBorderThickness: =DropDownComponent_1.StylingProperty.TextInput.FocusedBorderThickness
+        Height: =txtTextInputDD_1.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =SetFocus(txtTextInputDD_1);
+            Select(txtTextInputDD_1);
+            Set(
+                gblTabIndex,
+                -1
+            );
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =txtTextInputDD_1.RadiusBottomLeft
+        RadiusBottomRight: =txtTextInputDD_1.RadiusTopRight
+        RadiusTopLeft: =txtTextInputDD_1.RadiusTopLeft
+        RadiusTopRight: =txtTextInputDD_1.RadiusTopRight
+        Size: =0
+        TabIndex: |-
+            =If(
+                gblComponentGalVisibility || DropDownComponent_1.DisplayMode = "View",
+                -1,
+                DropDownComponent_1.TabIndex
+            )
+            //If(DropDownComponent.DisplayMode="View",-1,IsBlank(gblTabIndex),0,gblTabIndex)
+        Text: =""
+        Width: =txtTextInputDD_1.Width
+        X: =txtTextInputDD_1.X
+        Y: =txtTextInputDD_1.Y
+        ZIndex: =4
+
+    txtTextInputDD_1 As text:
+        Align: =DropDownComponent_1.StylingProperty.TextInput.Align
+        BorderColor: |-
+            =If(
+                gblComponentGalVisibility,
+                DropDownComponent_1.StylingProperty.TextInput.FocusedBorderColor,
+                Transparent
+            )
+        BorderStyle: =DropDownComponent_1.StylingProperty.TextInput.BorderStyle
+        BorderThickness: |-
+            =If(
+                galComboboxVauesDD_1.Visible,
+                DropDownComponent_1.StylingProperty.TextInput.FocusedBorderThickness * DropDownComponent_1.ScaleFactor,
+                DropDownComponent_1.StylingProperty.TextInput.BorderThickness * DropDownComponent_1.ScaleFactor
+            )
+        Clear: =DropDownComponent_1.StylingProperty.TextInput.Clear
+        Color: =DropDownComponent_1.StylingProperty.TextInput.Color
+        Default: |-
+            =If(
+                DropDownComponent_1.DisplayMode = "View",
+                DropDownComponent_1.Default,
+                If(
+                    gblComponentGalVisibility,
+                    Blank(),
+                    gblDropDownSelected
+                )
+            )
+        DisabledBorderColor: =DropDownComponent_1.StylingProperty.TextInput.DisabledBorderColor
+        DisabledColor: |-
+            =If(
+                DropDownComponent_1.DisplayMode = "View",
+                DropDownComponent_1.StylingProperty.TextInput.ViewColor,
+                DropDownComponent_1.StylingProperty.TextInput.DisabledColor
+            )
+        DisabledFill: |-
+            =If(
+                DropDownComponent_1.DisplayMode = "View",
+                DropDownComponent_1.StylingProperty.TextInput.ViewFill,
+                DropDownComponent_1.StylingProperty.TextInput.DisabledFill
+            )
+        DisplayMode: =If(DropDownComponent_1.DisplayMode = "Enabled", DropDownComponent_1.StylingProperty.TextInput.DisplayMode, DisplayMode.Disabled)
+        EnableSpellCheck: =DropDownComponent_1.StylingProperty.TextInput.EnableSpellCheck
+        Fill: =Transparent
+        FocusedBorderColor: =DropDownComponent_1.StylingProperty.TextInput.FocusedBorderColor
+        FocusedBorderThickness: =DropDownComponent_1.StylingProperty.TextInput.FocusedBorderThickness * DropDownComponent_1.ScaleFactor
+        FontWeight: =DropDownComponent_1.StylingProperty.TextInput.FontWeight
+        Format: =DropDownComponent_1.StylingProperty.TextInput.TextFormat
+        Height: =DropDownComponent_1.StylingProperty.TextInput.Height * DropDownComponent_1.ScaleFactor
+        HintText: |-
+            =If(
+                DropDownComponent_1.DisplayMode = "View",
+                Blank(),
+                DropDownComponent_1.HintText
+            )
+        HoverBorderColor: =DropDownComponent_1.StylingProperty.TextInput.HoverBorderColor
+        HoverColor: =DropDownComponent_1.StylingProperty.TextInput.HoverColor
+        HoverFill: =DropDownComponent_1.StylingProperty.TextInput.HoverFill
+        Italic: =DropDownComponent_1.StylingProperty.TextInput.Italic
+        LineHeight: =DropDownComponent_1.StylingProperty.TextInput.LineHeight
+        MaxLength: =DropDownComponent_1.StylingProperty.TextInput.MaxLength
+        Mode: =DropDownComponent_1.StylingProperty.TextInput.TextMode
+        OnChange: |-
+            =If(
+                IsEmpty(colDropdownValue),
+                ClearCollect(
+                    colDropdownValue,
+                    DropDownComponent_1.Items
+                )
+            )
+        OnSelect: |
+            =Set(
+                gblComponentGalVisibility,
+                true
+            );
+            If(
+                IsEmpty(colDropdownValue),
+                ClearCollect(
+                    colDropdownValue,
+                    DropDownComponent_1.Items
+                )
+            );
+            Select(rctResetDD_1);
+        PaddingBottom: =DropDownComponent_1.StylingProperty.TextInput.PaddingBottom * DropDownComponent_1.ScaleFactor
+        PaddingLeft: |-
+            =If(
+                imgCloseDD_1.Visible,
+                imgSearchDD_1.Width
+            ) + DropDownComponent_1.StylingProperty.TextInput.PaddingLeft * DropDownComponent_1.ScaleFactor
+        PaddingRight: =imgCloseDD_1.Width + (DropDownComponent_1.StylingProperty.TextInput.PaddingRight * 2)
+        PaddingTop: =DropDownComponent_1.StylingProperty.TextInput.PaddingTop * DropDownComponent_1.ScaleFactor
+        PressedBorderColor: =DropDownComponent_1.StylingProperty.TextInput.PressedBorderColor
+        PressedColor: =DropDownComponent_1.StylingProperty.TextInput.PressedColor
+        PressedFill: =DropDownComponent_1.StylingProperty.TextInput.PressedFill
+        RadiusBottomLeft: =DropDownComponent_1.StylingProperty.TextInput.RadiusBottomLeft * DropDownComponent_1.ScaleFactor
+        RadiusBottomRight: =DropDownComponent_1.StylingProperty.TextInput.RadiusBottomRight * DropDownComponent_1.ScaleFactor
+        RadiusTopLeft: =DropDownComponent_1.StylingProperty.TextInput.RadiusTopLeft * DropDownComponent_1.ScaleFactor
+        RadiusTopRight: =DropDownComponent_1.StylingProperty.TextInput.RadiusTopRight * DropDownComponent_1.ScaleFactor
+        Size: =DropDownComponent_1.StylingProperty.TextInput.Size * DropDownComponent_1.ScaleFactor
+        Strikethrough: =DropDownComponent_1.StylingProperty.TextInput.Strikethrough
+        TabIndex: |-
+            =If(gblComponentGalVisibility, 0, -1)
+            //If(gblTabIndex=-1,0,-1)
+        Underline: =DropDownComponent_1.StylingProperty.TextInput.Underline
+        Width: =Parent.Width - (DropDownComponent_1.StylingProperty.TextInput.Margin * 2) * DropDownComponent_1.ScaleFactor
+        X: =DropDownComponent_1.StylingProperty.TextInput.Margin
+        Y: =If(lblTitleTextDD_1.Visible, lblTitleTextDD_1.Height, DropDownComponent_1.StylingProperty.TextInput.Margin)
+        ZIndex: =5
+
+    imgCloseDD_1 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        BorderThickness: =txtTextInputDD_1.BorderThickness
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextInputDD_1.FocusedBorderColor
+        FocusedBorderThickness: =txtTextInputDD_1.FocusedBorderThickness
+        Height: =DropDownComponent_1.StylingProperty.CloseIcon.Height * DropDownComponent_1.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            =If(
+                Or(
+                    !(gblDropDownSelected = txtTextInputDD_1.Text),
+                    galComboboxVauesDD_1.Visible
+                ),
+                "data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='
+              " & DropDownComponent_1.StylingProperty.CloseIcon.Color & "
+              '/>
+            </svg>
+            "
+                ),
+                "data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Down_Arrow' data-name='Down Arrow' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_18' data-name='Path 18' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_19' data-name='Path 19' d='M7,10l7,7,7-7Z' transform='translate(-2 -1.5)' fill='
+              " & DropDownComponent_1.StylingProperty.SearchIcon.Color & "'/>
+            </svg>
+            "
+                )
+            )
+        OnSelect: |-
+            =If(
+                !gblComponentGalVisibility,
+                //DropDown Icon Functionality
+                Set(
+                    gblComponentGalVisibility,
+                    true
+                );
+                SetFocus(txtTextInputDD_1);
+                Select(txtTextInputDD_1);
+                ,
+                //Close Icon Functionality
+                If(
+                    IsBlank(gblDropDownSelected),
+                    If(
+                        IsBlank(txtTextInputDD_1.Text),
+                        Reset(DropDownComponent_1);
+                        SetFocus(btnFocusDD_1),
+                        Reset(txtTextInputDD_1);
+                        SetFocus(txtTextInputDD_1)
+                    ),
+                    Set(
+                        gblDropDownSelected,
+                        Blank()
+                    );
+                    Reset(txtTextInputDD_1);
+                    SetFocus(txtTextInputDD_1)
+                )
+            )
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =DropDownComponent_1.TabIndex
+        Visible: =DropDownComponent_1.DisplayMode = "Enabled"
+        Width: =DropDownComponent_1.StylingProperty.CloseIcon.Width * DropDownComponent_1.ScaleFactor
+        X: =(txtTextInputDD_1.X + txtTextInputDD_1.Width - Self.Width) - (DropDownComponent_1.StylingProperty.CloseIcon.RightMargin * DropDownComponent_1.ScaleFactor)
+        Y: =txtTextInputDD_1.Y + txtTextInputDD_1.Height / 2 - Self.Height / 2
+        ZIndex: =8
+
+    imgSearchDD_1 As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =DropDownComponent_1.StylingProperty.SearchIcon.Height * DropDownComponent_1.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg id='Search' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_223' data-name='Path 223' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_224' data-name='Path 224' d='M15.5,14h-.79l-.28-.27a6.51,6.51,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z' fill='" & If(
+                    galComboboxVauesDD_1.Visible,
+                    DropDownComponent_1.StylingProperty.SearchIcon.FocusColor,
+                    DropDownComponent_1.StylingProperty.SearchIcon.Color
+                ) & "'/>
+            </svg>
+            "
+            )
+        OnSelect: |-
+            =SetFocus(txtTextInputDD_1);
+            Select(txtTextInputDD_1);
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        Visible: =DropDownComponent_1.DisplayMode = "Enabled"
+        Width: =DropDownComponent_1.StylingProperty.SearchIcon.Width * DropDownComponent_1.ScaleFactor
+        X: =txtTextInputDD_1.X + (DropDownComponent_1.StylingProperty.SearchIcon.LeftMargin * DropDownComponent_1.ScaleFactor)
+        Y: =txtTextInputDD_1.Y + (txtTextInputDD_1.Height / 2 - Self.Height / 2)
+        ZIndex: =9
+
+    lblTitleTextDD_1 As label:
+        Align: =DropDownComponent_1.StylingProperty.Label.Align
+        AutoHeight: =DropDownComponent_1.StylingProperty.Label.AutoHeight
+        BorderColor: =DropDownComponent_1.StylingProperty.Label.BorderColor
+        BorderStyle: =DropDownComponent_1.StylingProperty.Label.BorderStyle
+        BorderThickness: =DropDownComponent_1.StylingProperty.Label.BorderThickness
+        Color: =DropDownComponent_1.StylingProperty.Label.Color
+        DisabledBorderColor: =DropDownComponent_1.StylingProperty.Label.DisabledBorderColor
+        DisabledColor: =DropDownComponent_1.StylingProperty.Label.DisabledColor
+        DisabledFill: =DropDownComponent_1.StylingProperty.Label.DisabledFill
+        DisplayMode: |-
+            =If(
+                DropDownComponent_1.DisplayMode = "Disabled",
+                DisplayMode.Disabled,
+                DropDownComponent_1.StylingProperty.Label.DisplayMode
+            )
+        Fill: =DropDownComponent_1.StylingProperty.Label.Fill
+        FocusedBorderColor: =DropDownComponent_1.StylingProperty.Label.FocusedBorderColor
+        FocusedBorderThickness: =DropDownComponent_1.StylingProperty.Label.FocusedBorderThickness
+        Font: =DropDownComponent_1.StylingProperty.Label.Font
+        FontWeight: =DropDownComponent_1.StylingProperty.Label.FontWeight
+        Height: =DropDownComponent_1.StylingProperty.Label.Height * DropDownComponent_1.ScaleFactor
+        HoverBorderColor: =DropDownComponent_1.StylingProperty.Label.HoverBorderColor
+        HoverColor: =DropDownComponent_1.StylingProperty.Label.HoverColor
+        HoverFill: =DropDownComponent_1.StylingProperty.Label.HoverFill
+        Italic: =DropDownComponent_1.StylingProperty.Label.Italic
+        LineHeight: =DropDownComponent_1.StylingProperty.Label.LineHeight
+        OnSelect: |-
+            =Select(rctResetDD_1);
+            Reset(DropDownComponent_1);
+        Overflow: =DropDownComponent_1.StylingProperty.Label.Overflow
+        PaddingBottom: =DropDownComponent_1.StylingProperty.Label.PaddingBottom
+        PaddingLeft: =DropDownComponent_1.StylingProperty.Label.PaddingLeft
+        PaddingRight: =DropDownComponent_1.StylingProperty.Label.PaddingRight
+        PaddingTop: =DropDownComponent_1.StylingProperty.Label.PaddingTop
+        PressedBorderColor: =DropDownComponent_1.StylingProperty.Label.PressedBorderColor
+        PressedColor: =DropDownComponent_1.StylingProperty.Label.PressedColor
+        PressedFill: =DropDownComponent_1.StylingProperty.Label.PressedFill
+        Size: =DropDownComponent_1.StylingProperty.Label.Size * DropDownComponent_1.ScaleFactor
+        Strikethrough: =DropDownComponent_1.StylingProperty.Label.Strikethrough
+        Text: =DropDownComponent_1.TitleText
+        Underline: =DropDownComponent_1.StylingProperty.Label.Underline
+        VerticalAlign: =DropDownComponent_1.StylingProperty.Label.VerticalAlign
+        Visible: =!DropDownComponent_1.HideLabel
+        Width: =Len(Self.Text) * (8 * DropDownComponent_1.ScaleFactor)
+        Wrap: =DropDownComponent_1.StylingProperty.Label.Wrap
+        X: =txtTextInputDD_1.X
+        ZIndex: =10
+
+    tmrSetFocusDD_1 As timer:
+        Duration: =0
+        Height: =0
+        OnTimerStart: |-
+            =SetFocus(btnFocusDD_1);
+            Reset(Self);
+        Start: =DropDownComponent_1.Focus
+        Strikethrough: =true
+        Visible: =false
+        Width: =0
+        ZIndex: =11
+

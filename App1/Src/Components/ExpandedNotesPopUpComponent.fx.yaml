@@ -1,0 +1,465 @@
+ExpandedNotesPopUpComponent As CanvasComponent:
+    CharacterCount: =1000
+    Default: =""
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =App.Height //712 * Self.Width / 1000
+    OnReset: |
+        =Set(
+            gblText,
+            ExpandedNotesPopUpComponent.Default
+        );
+        Reset(txtNotesEN);
+    Reset: =true
+    ResetComponents: =gblResetComponent
+    ScaleFactor: =1
+    SetFocus: =gblSetFocus
+    StylingProperty: |-
+        =With(
+            {ExpandedNotes: gblControlStyles.ExpandedNotes},
+            {
+                BackgroudImage: ExpandedNotes.BackgroudImage,
+                ErrorLabel: ExpandedNotes.ErrorLabel,
+                Fill: ExpandedNotes.Fill,
+                TextInput: ExpandedNotes.TextInput,
+                TitleLabel: ExpandedNotes.TitleLabel,
+                ErrorIcon: gblControlStyles.ErrorIcon,
+                CloseIcon: gblControlStyles.CloseIcon,
+                ExpandIcon : gblControlStyles.ExpandIcon,
+                Layout: gblLayout
+            }
+        )
+    Text: =txtNotesEN.Text
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =18
+
+    rctBackgroundCloseEN As rectangle:
+        BorderColor: =Transparent
+        Fill: =ExpandedNotesPopUpComponent.StylingProperty.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =App.Height
+        OnSelect: |-
+            =If(
+                Len(txtNotesEN.Text) <= ExpandedNotesPopUpComponent.CharacterCount,
+                Set(
+                    gblResetComponent,
+                    true
+                );
+                Set(
+                    gblResetComponent,
+                    false
+                )
+            );
+            Set(gblSetFocus, true);
+            Set(gblSetFocus, false);
+        Width: =App.Width
+        ZIndex: =1
+
+    imgBackgroundEN As image:
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =(ExpandedNotesPopUpComponent.StylingProperty.BackgroudImage.Height * Self.Width) / ExpandedNotesPopUpComponent.StylingProperty.BackgroudImage.Width
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl("<svg width='1026' height='726' viewBox='0 0 1026 726' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <g filter='url(#filter0_d_367_3)'>
+            <rect x='13' y='8' width='1000' height='700' rx='8' fill='white'/>
+            </g>
+            <defs>
+            <filter id='filter0_d_367_3' x='0' y='0' width='1026' height='726' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+            <feOffset dy='5'/>
+            <feGaussianBlur stdDeviation='6.5'/>
+            <feComposite in2='hardAlpha' operator='out'/>
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.26 0'/>
+            <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_367_3'/>
+            <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_367_3' result='shape'/>
+            </filter>
+            </defs>
+            </svg>
+            ")
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        Width: =ExpandedNotesPopUpComponent.StylingProperty.BackgroudImage.Width * ExpandedNotesPopUpComponent.ScaleFactor
+        X: =Parent.Width / 2 - Self.Width / 2
+        Y: =Parent.Height / 2 - Self.Height / 2
+        ZIndex: =2
+
+    cntMainEN As groupContainer.manualLayoutContainer:
+        BorderColor: =Transparent
+        Fill: =Transparent
+        Height: =imgBackgroundEN.Height - (Self.Y - imgBackgroundEN.Y) * 2
+        Width: =imgBackgroundEN.Width - (Self.X - imgBackgroundEN.X) * 2
+        X: =imgBackgroundEN.X + (ExpandedNotesPopUpComponent.StylingProperty.BackgroudImage.LeftPadding * ExpandedNotesPopUpComponent.ScaleFactor)
+        Y: =imgBackgroundEN.Y + (ExpandedNotesPopUpComponent.StylingProperty.BackgroudImage.TopPadding * ExpandedNotesPopUpComponent.ScaleFactor)
+        ZIndex: =3
+
+        rctBackgroundEN As rectangle:
+            BorderColor: =Transparent
+            Fill: =ExpandedNotesPopUpComponent.StylingProperty.BackgroudImage.SecondaryFill
+            FocusedBorderThickness: =Self.BorderThickness
+            Height: =Parent.Height - (Self.Y * 2)
+            Width: =Parent.Width
+            Y: =lblHeaderEN.Y + lblHeaderEN.Height + (ExpandedNotesPopUpComponent.StylingProperty.Layout.Controlspacer * ExpandedNotesPopUpComponent.ScaleFactor)
+            ZIndex: =1
+
+        txtNotesEN As text:
+            Align: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Align
+            BorderColor: |-
+                =If(
+                    Len(Self.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.ErrorBorderColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.BorderColor
+                )
+            BorderStyle: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.BorderStyle
+            BorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.BorderThickness * ExpandedNotesPopUpComponent.ScaleFactor
+            Clear: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Clear
+            Color: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Color
+            Default: =gblText
+            DisabledBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.DisabledBorderColor
+            DisabledColor: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.DisabledColor
+            DisabledFill: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.DisabledFill
+            DisplayMode: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.DisplayMode
+            EnableSpellCheck: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.EnableSpellCheck
+            Fill: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Fill
+            FocusedBorderColor: |-
+                =If(
+                    Len(Self.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.ErrorBorderColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.FocusedBorderColor
+                )
+            FocusedBorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.FocusedBorderThickness
+            Font: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Font
+            FontWeight: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.FontWeight
+            Format: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.TextFormat
+            Height: =rctBackgroundEN.Height - rctBackgroundEN.Y - Self.X
+            HintText: =""
+            HoverBorderColor: |-
+                =If(
+                    Len(Self.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.ErrorBorderColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.HoverBorderColor
+                )
+            HoverColor: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.HoverColor
+            HoverFill: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.HoverFill
+            Italic: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Italic
+            LineHeight: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.LineHeight
+            Mode: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.TextMode
+            PaddingBottom: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.PaddingBottom * ExpandedNotesPopUpComponent.ScaleFactor
+            PaddingLeft: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.PaddingLeft * ExpandedNotesPopUpComponent.ScaleFactor
+            PaddingRight: =(ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.Width + ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.RightMargin) * ExpandedNotesPopUpComponent.ScaleFactor
+            PaddingTop: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.PaddingTop * ExpandedNotesPopUpComponent.ScaleFactor
+            PressedBorderColor: |-
+                =If(
+                    Len(Self.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.ErrorBorderColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.TextInput.PressedBorderColor
+                )
+            PressedColor: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.PressedColor
+            PressedFill: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.PressedFill
+            RadiusBottomLeft: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.RadiusBottomLeft * ExpandedNotesPopUpComponent.ScaleFactor
+            RadiusBottomRight: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.RadiusBottomRight * ExpandedNotesPopUpComponent.ScaleFactor
+            RadiusTopLeft: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.RadiusTopLeft * ExpandedNotesPopUpComponent.ScaleFactor
+            RadiusTopRight: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.RadiusTopRight * ExpandedNotesPopUpComponent.ScaleFactor
+            Size: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Size * ExpandedNotesPopUpComponent.ScaleFactor
+            Strikethrough: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Strikethrough
+            Underline: =ExpandedNotesPopUpComponent.StylingProperty.TextInput.Underline
+            Width: =Parent.Width - Self.X * 2
+            X: =rctBackgroundEN.X + (ExpandedNotesPopUpComponent.StylingProperty.Layout.BoarderSpacer * ExpandedNotesPopUpComponent.ScaleFactor)
+            Y: =rctBackgroundEN.Y + Self.X * 2
+            ZIndex: =2
+
+        lblCharacterCountEN As label:
+            Align: =Align.Right
+            AutoHeight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.AutoHeight
+            BorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderColor
+            BorderStyle: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderStyle
+            BorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderThickness
+            Color: |-
+                =If(
+                    Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Color
+                )
+            DisabledBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisabledBorderColor
+            DisabledColor: |-
+                =If(
+                    Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisabledColor
+                )
+            DisabledFill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisabledFill
+            DisplayMode: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisplayMode
+            Fill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Fill
+            FocusedBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.FocusedBorderColor
+            FocusedBorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderThickness
+            Font: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Font
+            FontWeight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.FontWeight
+            Height: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Height
+            HoverBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.HoverBorderColor
+            HoverColor: |-
+                =If(
+                    Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.HoverColor
+                )
+            HoverFill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.HoverFill
+            Italic: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Italic
+            LineHeight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.LineHeight
+            Overflow: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Overflow
+            PaddingBottom: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingBottom
+            PaddingLeft: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingLeft
+            PaddingRight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingRight
+            PaddingTop: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingTop
+            PressedBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PressedBorderColor
+            PressedColor: |-
+                =If(
+                    Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor,
+                    ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PressedColor
+                )
+            PressedFill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PressedFill
+            Size: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Size * ExpandedNotesPopUpComponent.ScaleFactor
+            Strikethrough: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Strikethrough
+            Text: =ExpandedNotesPopUpComponent.CharacterCount - Len(txtNotesEN.Text) & " characters left"
+            Underline: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Underline
+            VerticalAlign: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.VerticalAlign
+            Width: =txtNotesEN.Width
+            Wrap: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Wrap
+            X: =(txtNotesEN.X + txtNotesEN.Width) - Self.Width
+            Y: =txtNotesEN.Y - Self.Height - (ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BottomMargin * ExpandedNotesPopUpComponent.ScaleFactor)
+            ZIndex: =3
+
+        lblWarningEN As label:
+            AutoHeight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.AutoHeight
+            BorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderColor
+            BorderStyle: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderStyle
+            BorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderThickness
+            Color: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor
+            DisabledBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisabledBorderColor
+            DisabledColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor
+            DisabledFill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisabledFill
+            DisplayMode: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.DisplayMode
+            Fill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Fill
+            FocusedBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.FocusedBorderColor
+            FocusedBorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.BorderThickness
+            Font: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Font
+            FontWeight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.FontWeight
+            Height: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Height
+            HoverBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.HoverBorderColor
+            HoverColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor
+            HoverFill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.HoverFill
+            Italic: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Italic
+            LineHeight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.LineHeight
+            Overflow: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Overflow
+            PaddingBottom: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingBottom
+            PaddingLeft: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingLeft
+            PaddingRight: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingRight
+            PaddingTop: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PaddingTop
+            PressedBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PressedBorderColor
+            PressedColor: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.ErrorColor
+            PressedFill: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.PressedFill
+            Size: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Size * ExpandedNotesPopUpComponent.ScaleFactor
+            Strikethrough: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Strikethrough
+            Text: ="You will need to remove " &  -(ExpandedNotesPopUpComponent.CharacterCount - Len(txtNotesEN.Text))  & " characters before you can save your changes"
+            Underline: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Underline
+            VerticalAlign: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.VerticalAlign
+            Visible: =Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount
+            Width: =txtNotesEN.Width
+            Wrap: =ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.Wrap
+            X: =txtNotesEN.X + imgErrorIconEN.Width + (ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.TopMargin * ExpandedNotesPopUpComponent.ScaleFactor)
+            Y: =txtNotesEN.Y + txtNotesEN.Height + (ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.TopMargin * ExpandedNotesPopUpComponent.ScaleFactor)
+            ZIndex: =4
+
+        lblHeaderEN As label:
+            Align: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Align
+            AutoHeight: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.AutoHeight
+            BorderColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.BorderColor
+            BorderStyle: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.BorderStyle
+            BorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.BorderThickness
+            Color: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Color
+            DisabledBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.DisabledBorderColor
+            DisabledColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.DisabledColor
+            DisabledFill: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.DisabledFill
+            DisplayMode: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.DisplayMode
+            Fill: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Fill
+            FocusedBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.FocusedBorderColor
+            FocusedBorderThickness: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.FocusedBorderThickness
+            Font: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Font
+            FontWeight: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.FontWeight
+            Height: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Height * ExpandedNotesPopUpComponent.ScaleFactor
+            HoverBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.HoverBorderColor
+            HoverColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.HoverColor
+            HoverFill: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.HoverFill
+            Italic: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Italic
+            LineHeight: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.LineHeight
+            Overflow: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Overflow
+            PaddingBottom: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PaddingBottom
+            PaddingLeft: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PaddingLeft
+            PaddingRight: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PaddingRight
+            PaddingTop: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PaddingTop
+            PressedBorderColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PressedBorderColor
+            PressedColor: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PressedColor
+            PressedFill: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.PressedFill
+            Size: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Size * ExpandedNotesPopUpComponent.ScaleFactor
+            Strikethrough: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Strikethrough
+            Text: ="Add your notes here"
+            Underline: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Underline
+            VerticalAlign: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.VerticalAlign
+            Width: =txtNotesEN.Width
+            Wrap: =ExpandedNotesPopUpComponent.StylingProperty.TitleLabel.Wrap
+            X: =txtNotesEN.X
+            Y: =ExpandedNotesPopUpComponent.StylingProperty.Layout.Controlspacer * ExpandedNotesPopUpComponent.ScaleFactor
+            ZIndex: =5
+
+        imgErrorIconEN As image:
+            ApplyEXIFOrientation: =false
+            BorderColor: =Transparent
+            DisabledBorderColor: =Self.BorderColor
+            DisabledFill: =Self.Fill
+            Fill: =Transparent
+            FocusedBorderColor: =txtNotesEN.FocusedBorderColor
+            FocusedBorderThickness: =txtNotesEN.FocusedBorderThickness
+            Height: =ExpandedNotesPopUpComponent.StylingProperty.ErrorIcon.Height * ExpandedNotesPopUpComponent.ScaleFactor
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Error' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <rect id='Rectangle_3831' data-name='Rectangle 3831' width='24' height='24' fill='none'/>
+                  <path id='error_outline_black_24dp' d='M11,15h2v2H11Zm0-8h2v6H11Zm.99-5A10,10,0,1,0,22,12,10,10,0,0,0,11.99,2Z' fill='" & ExpandedNotesPopUpComponent.StylingProperty.ErrorIcon.Color & "'/>
+                  <path id='error_outline_black_24dp-2' data-name='error_outline_black_24dp' d='M11,15h2v2H11Zm0-8h2v6H11Z' fill='#fff'/>
+                </svg>
+                
+                "
+                )
+            OnSelect: |-
+                =Set(gblShowErrorPopup, !gblShowErrorPopup);
+                SetFocus(imgErrorIconEN);
+            PressedBorderColor: =Self.BorderColor
+            PressedFill: =Self.Fill
+            Visible: =lblWarningEN.Visible
+            Width: =ExpandedNotesPopUpComponent.StylingProperty.ErrorIcon.Width * ExpandedNotesPopUpComponent.ScaleFactor
+            X: =txtNotesEN.X
+            Y: =txtNotesEN.Y + txtNotesEN.Height + (ExpandedNotesPopUpComponent.StylingProperty.ErrorLabel.TopMargin * ExpandedNotesPopUpComponent.ScaleFactor)
+            ZIndex: =6
+
+        txtHideScrollNCEN As text:
+            BorderColor: =Transparent
+            BorderThickness: =0
+            Color: =Transparent
+            Default: ="Text input"
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =txtNotesEN.Fill
+            FocusedBorderThickness: =0
+            Height: =txtNotesEN.Height - (txtNotesEN.BorderThickness * 2)
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =txtNotesEN.RadiusBottomRight
+            RadiusTopLeft: =0
+            RadiusTopRight: =txtNotesEN.RadiusBottomRight
+            Size: =0
+            Width: =imgCloseIconEN.Width
+            X: =txtNotesEN.X + txtNotesEN.Width - Self.Width - txtNotesEN.BorderThickness
+            Y: =txtNotesEN.Y + txtNotesEN.BorderThickness
+            ZIndex: =7
+
+        imgCloseIconEN As image:
+            ApplyEXIFOrientation: =false
+            BorderColor: =Transparent
+            BorderThickness: =txtNotesEN.BorderThickness
+            DisabledBorderColor: =Self.BorderColor
+            DisabledFill: =Self.Fill
+            Fill: =Transparent
+            FocusedBorderColor: =txtNotesEN.FocusedBorderColor
+            FocusedBorderThickness: =txtNotesEN.FocusedBorderThickness
+            Height: =ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.Height * ExpandedNotesPopUpComponent.ScaleFactor
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+                  <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='
+                  " & If(
+                        Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                        ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.ErrorColor,
+                        ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.Color
+                    ) & "  
+                  '/>
+                </svg>
+                "
+                )
+            OnSelect: |-
+                =Set(gblText, Blank());
+                SetFocus(txtNotesEN);
+                Reset(txtNotesEN);
+            PressedBorderColor: =Self.BorderColor
+            PressedFill: =Self.Fill
+            TabIndex: =0
+            Visible: =!IsBlank(txtNotesEN.Text)
+            Width: =ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.Width * ExpandedNotesPopUpComponent.ScaleFactor
+            X: =(txtNotesEN.X + txtNotesEN.Width - Self.Width) - (ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.RightMargin * ExpandedNotesPopUpComponent.ScaleFactor)
+            Y: =txtNotesEN.Y + (ExpandedNotesPopUpComponent.StylingProperty.CloseIcon.RightMargin * ExpandedNotesPopUpComponent.ScaleFactor)
+            ZIndex: =8
+
+        imgExpandIconEN As image:
+            ApplyEXIFOrientation: =false
+            BorderColor: =Transparent
+            DisabledBorderColor: =Self.BorderColor
+            DisabledFill: =Self.Fill
+            Fill: =Transparent
+            FocusedBorderColor: =txtNotesEN.FocusedBorderColor
+            FocusedBorderThickness: =txtNotesEN.FocusedBorderThickness
+            Height: =ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.Height * ExpandedNotesPopUpComponent.ScaleFactor
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='open_in_full_black_24dp' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <rect id='Rectangle_4656' data-name='Rectangle 4656' width='24' height='24' fill='none'/>
+                  <path id='Path_37054' data-name='Path 37054' d='M16,2.987l-3.7,3.7L14.6,9H9V3.4l2.3,2.3L15.013,2ZM2.987,16l3.7-3.7L9,14.6V9H3.4l2.3,2.3L2,15.013Z' transform='translate(3 3)' fill='" & If(
+                        Len(txtNotesEN.Text) > ExpandedNotesPopUpComponent.CharacterCount,
+                        ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.ErrorColor,
+                        imgCloseIconEN.Visible,
+                        ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.FocusColor,
+                        ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.Color
+                    ) & "'/>
+                </svg>
+                
+                "
+                )
+            OnSelect: =Select(rctBackgroundCloseEN)
+            PressedBorderColor: =Self.BorderColor
+            PressedFill: =Self.Fill
+            TabIndex: =0
+            Width: =ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.Width * ExpandedNotesPopUpComponent.ScaleFactor
+            X: =(txtNotesEN.Width + txtNotesEN.X) - Self.Width - ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.Margin
+            Y: =(txtNotesEN.Y + txtNotesEN.Height - Self.Width) - ExpandedNotesPopUpComponent.StylingProperty.ExpandIcon.Margin * ExpandedNotesPopUpComponent.ScaleFactor
+            ZIndex: =9
+
+    tmrSetFocusEN As timer:
+        Duration: =0
+        OnTimerEnd: |-
+            =SetFocus(txtNotesEN);
+            Reset(Self);
+        Start: =ExpandedNotesPopUpComponent.Visible
+        Visible: =false
+        ZIndex: =4
+
