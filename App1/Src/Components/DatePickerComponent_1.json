@@ -80,7 +80,7 @@
         "Name": "rctReset_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 766,
+        "PublishOrderIndex": 767,
         "Rules": [
           {
             "Category": "Design",
@@ -521,7 +521,7 @@
         "Name": "lblHeadingDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 767,
+        "PublishOrderIndex": 768,
         "Rules": [
           {
             "Category": "Data",
@@ -1022,7 +1022,7 @@
         "Name": "txtErrorMessageDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 768,
+        "PublishOrderIndex": 769,
         "Rules": [
           {
             "Category": "Data",
@@ -1403,7 +1403,7 @@
         "Name": "imgErrorIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 769,
+        "PublishOrderIndex": 770,
         "Rules": [
           {
             "Category": "Data",
@@ -1731,7 +1731,7 @@
         "Name": "icnErrorTransparentDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 770,
+        "PublishOrderIndex": 771,
         "Rules": [
           {
             "Category": "Design",
@@ -2148,7 +2148,7 @@
         "Name": "txtWhiteDateCardDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 771,
+        "PublishOrderIndex": 772,
         "Rules": [
           {
             "Category": "Data",
@@ -2750,7 +2750,7 @@
         "Name": "btnDatePickerBoxDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 772,
+        "PublishOrderIndex": 773,
         "Rules": [
           {
             "Category": "Data",
@@ -3305,7 +3305,7 @@
         "Name": "lblHintTextDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 773,
+        "PublishOrderIndex": 774,
         "Rules": [
           {
             "Category": "Data",
@@ -3907,7 +3907,7 @@
         "Name": "txtDayInputDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 774,
+        "PublishOrderIndex": 775,
         "Rules": [
           {
             "Category": "Data",
@@ -4378,7 +4378,7 @@
         "Name": "lblSepratorMonthYearDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 775,
+        "PublishOrderIndex": 776,
         "Rules": [
           {
             "Category": "Data",
@@ -4968,7 +4968,7 @@
         "Name": "txtYearInputDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 776,
+        "PublishOrderIndex": 777,
         "Rules": [
           {
             "Category": "Data",
@@ -5439,7 +5439,7 @@
         "Name": "lblSepratorDayMonthDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 777,
+        "PublishOrderIndex": 778,
         "Rules": [
           {
             "Category": "Data",
@@ -6029,7 +6029,7 @@
         "Name": "txtMonthInputDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 778,
+        "PublishOrderIndex": 779,
         "Rules": [
           {
             "Category": "Data",
@@ -6491,7 +6491,7 @@
         "Name": "imgDatePickerIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 779,
+        "PublishOrderIndex": 780,
         "Rules": [
           {
             "Category": "Data",
@@ -6836,7 +6836,7 @@
         "Name": "imgCloseIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 780,
+        "PublishOrderIndex": 781,
         "Rules": [
           {
             "Category": "Data",
@@ -7164,7 +7164,7 @@
         "Name": "icnCloseTransparentDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 781,
+        "PublishOrderIndex": 782,
         "Rules": [
           {
             "Category": "Design",
@@ -7441,7 +7441,7 @@
         "Name": "imgTriangleErrorIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 782,
+        "PublishOrderIndex": 783,
         "Rules": [
           {
             "Category": "Data",
@@ -7877,7 +7877,7 @@
         "Name": "txtWhiteCard_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 789,
+        "PublishOrderIndex": 790,
         "Rules": [
           {
             "Category": "Data",
@@ -8486,7 +8486,7 @@
         "Name": "lblMonthNameDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 790,
+        "PublishOrderIndex": 791,
         "Rules": [
           {
             "Category": "Data",
@@ -8898,7 +8898,7 @@
         "Name": "imgBackIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 791,
+        "PublishOrderIndex": 792,
         "Rules": [
           {
             "Category": "Data",
@@ -9210,7 +9210,7 @@
         "Name": "icnBackTransparentDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 792,
+        "PublishOrderIndex": 793,
         "Rules": [
           {
             "Category": "Design",
@@ -9532,7 +9532,7 @@
         "Name": "imgNextIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 793,
+        "PublishOrderIndex": 794,
         "Rules": [
           {
             "Category": "Data",
@@ -9844,7 +9844,7 @@
         "Name": "icnNextTransparentDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 794,
+        "PublishOrderIndex": 795,
         "Rules": [
           {
             "Category": "Design",
@@ -10047,7 +10047,7 @@
             "Name": "galleryTemplate1_5",
             "Parent": "galWeekdaysDP_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 796,
+            "PublishOrderIndex": 797,
             "Rules": [
               {
                 "Category": "Design",
@@ -10356,7 +10356,7 @@
             "Name": "lblWeekdayDP_1",
             "Parent": "galWeekdaysDP_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 797,
+            "PublishOrderIndex": 798,
             "Rules": [
               {
                 "Category": "Data",
@@ -10731,7 +10731,7 @@
         "Name": "galWeekdaysDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 795,
+        "PublishOrderIndex": 796,
         "Rules": [
           {
             "Category": "Data",
@@ -10930,7 +10930,7 @@
             "Name": "galleryTemplate2_2",
             "Parent": "galMonthDaysDP_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 799,
+            "PublishOrderIndex": 800,
             "Rules": [
               {
                 "Category": "Design",
@@ -11253,7 +11253,7 @@
             "Name": "lblDaysDP_1",
             "Parent": "galMonthDaysDP_1",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 800,
+            "PublishOrderIndex": 801,
             "Rules": [
               {
                 "Category": "Data",
@@ -11649,7 +11649,7 @@
         "Name": "galMonthDaysDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 798,
+        "PublishOrderIndex": 799,
         "Rules": [
           {
             "Category": "Data",
@@ -11851,7 +11851,7 @@
         "Name": "grpBackButtonDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 783,
+        "PublishOrderIndex": 784,
         "Rules": [
           {
             "Category": "Design",
@@ -11927,7 +11927,7 @@
         "Name": "grpNextButtonDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 784,
+        "PublishOrderIndex": 785,
         "Rules": [
           {
             "Category": "Design",
@@ -12006,7 +12006,7 @@
         "Name": "grpManualDateInputDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 785,
+        "PublishOrderIndex": 786,
         "Rules": [
           {
             "Category": "Design",
@@ -12082,7 +12082,7 @@
         "Name": "grpCloseIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 786,
+        "PublishOrderIndex": 787,
         "Rules": [
           {
             "Category": "Design",
@@ -12158,7 +12158,7 @@
         "Name": "grpErrorIconDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 787,
+        "PublishOrderIndex": 788,
         "Rules": [
           {
             "Category": "Design",
@@ -12234,7 +12234,7 @@
         "Name": "grpErrorMessageDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 765,
+        "PublishOrderIndex": 766,
         "Rules": [
           {
             "Category": "Design",
@@ -12310,7 +12310,7 @@
         "Name": "grpCalendarDP_1",
         "Parent": "DatePickerComponent_1",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 788,
+        "PublishOrderIndex": 789,
         "Rules": [
           {
             "Category": "Design",
