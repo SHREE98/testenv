@@ -617,7 +617,6 @@ TemplateScreen As screen:
 
     txtGrayGreenSize12 As label:
         Align: =gblControlStyles.ControlLabel.Align
-        AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
         BorderColor: =gblControlStyles.ControlLabel.BorderColor
         BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
         BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
@@ -631,7 +630,6 @@ TemplateScreen As screen:
         FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
         Font: =gblControlStyles.ControlLabel.Font
         FontWeight: =gblControlStyles.ControlLabel.FontWeight
-        Height: =gblControlStyles.ControlLabel.Height
         HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
         HoverColor: =gblControlStyles.ControlLabel.HoverColor
         HoverFill: =gblControlStyles.ControlLabel.HoverFill
@@ -738,6 +736,41 @@ TemplateScreen As screen:
         Y: =366
         ZIndex: =20
 
+    TextInput1_3 As text:
+        Align: =Align.Center
+        BorderColor: =If(Self.Text = "Live",  gblColors.Primary1, gblColors.Error)
+        BorderThickness: =1
+        Color: |-
+            =If(
+                Self.Text = "Live",
+                gblColors.Primary1Dark,
+                gblColors.Error
+            )
+        Default: ="Void"
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: |-
+            =If(Self.Text = "Live", gblColors.Primary5, ColorValue("#EB5E501F"))
+        FocusedBorderThickness: =0
+        Font: =gblDefaults.Font
+        Height: =20
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingLeft: =5
+        PressedBorderColor: =Self.BorderColor
+        RadiusBottomLeft: =15
+        RadiusBottomRight: =15
+        RadiusTopLeft: =15
+        RadiusTopRight: =15
+        Size: =gblFonts.Size.Subtitle2
+        Width: =80
+        X: =1330
+        Y: =290
+        ZIndex: =21
+
     txtPrimaryInputSize19_1 As label:
         Align: =gblControlStyles.ControlLabel.Align
         AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
@@ -777,40 +810,5 @@ TemplateScreen As screen:
         Wrap: =gblControlStyles.ControlLabel.Wrap
         X: =387
         Y: =318
-        ZIndex: =21
-
-    TextInput1_3 As text:
-        Align: =Align.Center
-        BorderColor: =If(Self.Text = "Live",  gblColors.Primary1, gblColors.Error)
-        BorderThickness: =1
-        Color: |-
-            =If(
-                Self.Text = "Live",
-                gblColors.Primary1Dark,
-                gblColors.Error
-            )
-        Default: ="Void"
-        DisabledBorderColor: =Self.BorderColor
-        DisabledColor: =Self.Color
-        DisabledFill: =Self.Fill
-        DisplayMode: =DisplayMode.Disabled
-        Fill: |-
-            =If(Self.Text = "Live", gblColors.Primary5, ColorValue("#EB5E501F"))
-        FocusedBorderThickness: =0
-        Font: =gblDefaults.Font
-        Height: =20
-        HoverBorderColor: =Self.BorderColor
-        HoverColor: =Self.Color
-        HoverFill: =Self.Fill
-        PaddingLeft: =5
-        PressedBorderColor: =Self.BorderColor
-        RadiusBottomLeft: =15
-        RadiusBottomRight: =15
-        RadiusTopLeft: =15
-        RadiusTopRight: =15
-        Size: =gblFonts.Size.Subtitle2
-        Width: =80
-        X: =1330
-        Y: =290
         ZIndex: =21
 

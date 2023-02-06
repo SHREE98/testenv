@@ -265,7 +265,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnFocusDD_2",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1349,7 +1349,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCloseDD_2",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1774,7 +1774,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgSearchDD_2",
-      "ParentIndex": 5,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3497,7 +3497,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "tmrSetFocusDD_2",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3922,7 +3922,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtItemsBorderDD_2",
-      "ParentIndex": 7,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4537,7 +4537,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtTextInputDD_2",
-      "ParentIndex": 4,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

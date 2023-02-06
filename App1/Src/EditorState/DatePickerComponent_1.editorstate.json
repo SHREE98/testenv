@@ -315,7 +315,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnDatePickerBoxDP_1",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2041,7 +2041,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icnCloseTransparentDP_1",
-      "ParentIndex": 15,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2307,7 +2307,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "icnErrorTransparentDP_1",
-      "ParentIndex": 4,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3133,7 +3133,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCloseIconDP_1",
-      "ParentIndex": 14,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3452,7 +3452,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgDatePickerIconDP_1",
-      "ParentIndex": 13,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3708,7 +3708,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgErrorIconDP_1",
-      "ParentIndex": 3,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4260,7 +4260,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgTriangleErrorIconDP_1",
-      "ParentIndex": 16,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5249,7 +5249,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblHeadingDP_1",
-      "ParentIndex": 1,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5746,7 +5746,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblHintTextDP_1",
-      "ParentIndex": 7,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6668,7 +6668,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSepratorDayMonthDP_1",
-      "ParentIndex": 11,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7041,7 +7041,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSepratorMonthYearDP_1",
-      "ParentIndex": 9,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7817,7 +7817,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rctReset_1",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8699,7 +8699,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtErrorMessageDP_1",
-      "ParentIndex": 2,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9253,7 +9253,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtMonthInputDP_1",
-      "ParentIndex": 12,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10181,7 +10181,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtWhiteDateCardDP_1",
-      "ParentIndex": 5,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10735,7 +10735,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtYearInputDP_1",
-      "ParentIndex": 10,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
