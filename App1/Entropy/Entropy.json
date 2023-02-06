@@ -670,6 +670,7 @@
     "imgWhiteShadowCardHM": 142,
     "InfoIconComponent": 63,
     "InsuredScreen": 381,
+    "Label1": 853,
     "Label2": 551,
     "Label4": 664,
     "lblAppNameDH": 107,
@@ -950,7 +951,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "02/06/2023 11:50:21",
+  "HeaderLastSavedDateTimeUTC": "02/06/2023 11:51:34",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "1d729715-7239-453e-a6b2-bcd663510374": "\"/providers/microsoft.powerapps/apis/shared_microsoftspatialservices/connections/e4433c5526964dbb9c2b98aaca1aa3c1\""
@@ -2060,6 +2061,7 @@
     "imgWhiteShadowCardHM": {},
     "InfoIconComponent": {},
     "InsuredScreen": {},
+    "Label1": {},
     "Label2": {},
     "Label4": {},
     "lblAppNameDH": {},
@@ -2914,6 +2916,7 @@
     "imgWhiteShadowCardHM": 561,
     "InfoIconComponent": 0,
     "InsuredScreen": 0,
+    "Label1": 0,
     "Label2": 303,
     "Label4": 448,
     "lblAppNameDH": 558,

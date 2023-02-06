@@ -726,3 +726,9 @@ TemplateScreen As screen:
         Y: =190
         ZIndex: =18
 
+    Label1 As label:
+        Text: ="TestApp1"
+        X: =40
+        Y: =40
+        ZIndex: =19
+
