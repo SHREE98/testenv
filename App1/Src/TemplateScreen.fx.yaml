@@ -738,3 +738,44 @@ TemplateScreen As screen:
         Y: =366
         ZIndex: =20
 
+    txtPrimaryInputSize19_1 As label:
+        Align: =gblControlStyles.ControlLabel.Align
+        AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+        BorderColor: =gblControlStyles.ControlLabel.BorderColor
+        BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+        BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+        Color: =gblControlStyles.ControlLabel.Color
+        DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+        DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+        DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+        DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+        Fill: =gblControlStyles.ControlLabel.Fill
+        FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+        FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+        Font: =gblControlStyles.ControlLabel.Font
+        FontWeight: =gblControlStyles.ControlLabel.FontWeight
+        Height: =gblControlStyles.ControlLabel.Height
+        HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+        HoverColor: =gblControlStyles.ControlLabel.HoverColor
+        HoverFill: =gblControlStyles.ControlLabel.HoverFill
+        Italic: =gblControlStyles.ControlLabel.Italic
+        LineHeight: =gblControlStyles.ControlLabel.LineHeight
+        Overflow: =gblControlStyles.ControlLabel.Overflow
+        PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+        PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+        PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+        PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+        PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+        PressedColor: =gblControlStyles.ControlLabel.PressedColor
+        PressedFill: =gblControlStyles.ControlLabel.PressedFill
+        Size: =gblFonts.Size.Headline3
+        Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+        Text: ="Text"
+        Underline: =gblControlStyles.ControlLabel.Underline
+        VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+        Width: =300
+        Wrap: =gblControlStyles.ControlLabel.Wrap
+        X: =387
+        Y: =318
+        ZIndex: =21
+
