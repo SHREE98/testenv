@@ -122,7 +122,7 @@
         "Name": "imgLogoL",
         "Parent": "LogoComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 602,
+        "PublishOrderIndex": 603,
         "Rules": [
           {
             "Category": "Data",
