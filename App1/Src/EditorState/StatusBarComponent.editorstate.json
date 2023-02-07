@@ -100,7 +100,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cirGreyCircleSB",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -279,7 +279,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "cirYellowCircleSB",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -689,7 +689,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCheckIconSB",
-      "ParentIndex": 6,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1407,7 +1407,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rctBackSB",
-      "ParentIndex": 3,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1572,7 +1572,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rctFrontSB",
-      "ParentIndex": 2,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
