@@ -137,7 +137,7 @@
         "Name": "imgInfoIconImageIC",
         "Parent": "InfoIconComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 599,
+        "PublishOrderIndex": 224,
         "Rules": [
           {
             "Category": "Data",
@@ -531,7 +531,7 @@
         "Name": "icnInfoIconOnSelectIC",
         "Parent": "InfoIconComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 600,
+        "PublishOrderIndex": 225,
         "Rules": [
           {
             "Category": "Data",
@@ -776,7 +776,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638112828251661814",
+    "LastModifiedTimestamp": "638113497360089331",
     "Name": "InfoIconComponent",
     "Rules": [
       {
@@ -881,7 +881,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638112828251661814",
+  "LastModifiedTimestamp": "638113497360089331",
   "Name": "adcbed59fd7a4147b0940a41587a71ac",
   "OverridableProperties": {},
   "TemplateOriginalName": "fded5a07e18142d2bf867ec82a85a454",
