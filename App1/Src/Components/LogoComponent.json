@@ -353,7 +353,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638113506419756920",
+    "LastModifiedTimestamp": "638113512549540591",
     "Name": "LogoComponent",
     "Rules": [
       {
@@ -443,7 +443,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113506419756920",
+  "LastModifiedTimestamp": "638113512549540591",
   "Name": "1e49582b07bf46c0a78460edb962f17a",
   "OverridableProperties": {},
   "TemplateOriginalName": "e23c379deec04ed7ada29059597cb9b3",
