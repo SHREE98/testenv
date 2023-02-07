@@ -1,0 +1,8 @@
+Screen4 As screen:
+
+    DashboardHeaderComponent_2 As DashboardHeaderComponent:
+        Fill: =DashboardHeaderComponent_2.StylingProperty.Fill
+        Height: =DashboardHeaderComponent_2.StylingProperty.Height
+        Width: =DashboardHeaderComponent_2.StylingProperty.Width
+        ZIndex: =1
+
