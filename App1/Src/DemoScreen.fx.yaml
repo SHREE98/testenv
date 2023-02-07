@@ -280,6 +280,12 @@ DemoScreen As screen:
                 Y: =240
                 ZIndex: =28
 
+            Button2 As button:
+                Text: ="Button"
+                X: =60
+                Y: =60
+                ZIndex: =29
+
     lblScaleFactorIS_1 As label:
         Color: =RGBA(255, 255, 255, 1)
         Height: =36

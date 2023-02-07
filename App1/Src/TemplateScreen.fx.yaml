@@ -818,9 +818,3 @@ TemplateScreen As screen:
         Y: =516
         ZIndex: =22
 
-    Button2 As button:
-        Text: ="Button"
-        X: =658
-        Y: =393
-        ZIndex: =23
-

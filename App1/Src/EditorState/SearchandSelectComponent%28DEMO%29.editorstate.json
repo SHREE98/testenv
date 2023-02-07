@@ -257,7 +257,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnCheckBoxBackgroundGalComboboxVauesSS_1",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -793,7 +793,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnDropdownValueGalComboboxVauesSS_1",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1282,7 +1282,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnFocusSS_1",
-      "ParentIndex": 3,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1759,7 +1759,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnNextIconHoverSS_1",
-      "ParentIndex": 14,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2314,7 +2314,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnNextSS_1",
-      "ParentIndex": 8,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2796,7 +2796,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnPrevIconHoverSS_1",
-      "ParentIndex": 12,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3343,7 +3343,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnPreviousSS_1",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3844,7 +3844,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "chkCheckBoxGalComboboxVauesSS_1",
-      "ParentIndex": 2,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4381,7 +4381,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galleryTemplate2_7",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4640,7 +4640,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCloseSS_1",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4982,7 +4982,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgNextIconSS_1",
-      "ParentIndex": 13,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5294,7 +5294,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgPrevIconSS_1",
-      "ParentIndex": 11,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5620,7 +5620,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgSearchSS_1",
-      "ParentIndex": 5,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6111,7 +6111,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblTitleTextSS_1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6989,7 +6989,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "tmrSetFocusSS_1",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8011,7 +8011,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtTextInputSS_1",
-      "ParentIndex": 4,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
