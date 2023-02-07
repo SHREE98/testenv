@@ -241,7 +241,7 @@
         {
           "AFDDataSourceName": "",
           "AutoRuleBindingEnabled": false,
-          "AutoRuleBindingString": "",
+          "AutoRuleBindingString": "\"Text\"",
           "InvariantPropertyName": "LabelText",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
@@ -340,7 +340,7 @@
         {
           "Category": "Data",
           "PropertyName": "LabelText",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Data",
