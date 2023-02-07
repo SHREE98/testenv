@@ -135,7 +135,7 @@
         "Name": "tmrRippleSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 686,
+        "PublishOrderIndex": 687,
         "Rules": [
           {
             "Category": "Data",
@@ -702,7 +702,7 @@
         "Name": "btnMainSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 687,
+        "PublishOrderIndex": 688,
         "Rules": [
           {
             "Category": "Data",
@@ -1202,7 +1202,7 @@
         "Name": "lblPressedLabelSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 688,
+        "PublishOrderIndex": 689,
         "Rules": [
           {
             "Category": "Data",
@@ -1739,7 +1739,7 @@
         "Name": "btnRippleEffectSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 689,
+        "PublishOrderIndex": 690,
         "Rules": [
           {
             "Category": "Data",
@@ -2139,7 +2139,7 @@
         "Name": "imgMainSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 690,
+        "PublishOrderIndex": 691,
         "Rules": [
           {
             "Category": "Data",
@@ -2434,7 +2434,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638113523388986703",
+    "LastModifiedTimestamp": "638113530283767564",
     "Name": "SecondaryButtonComponent",
     "Rules": [
       {
@@ -2635,7 +2635,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113523388986703",
+  "LastModifiedTimestamp": "638113530283767564",
   "Name": "5f568bbf3dd54a609ceb390aeaee7413",
   "OverridableProperties": {},
   "TemplateOriginalName": "776efb22cd8f4051b1065c183165d9b2",
