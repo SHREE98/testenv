@@ -45,3 +45,20 @@ Screen4 As screen:
         Y: =449
         ZIndex: =4
 
+    NotesComponentwithExpandButton_2 As NotesComponentwithExpandButton:
+        CustomHeight: |-
+            =With(
+                {Height: txtTextInputNC.Height + lblTitleTextNC.Height + Self.StylingProperty.TextInput.Margin},
+                If(
+                    gblShowErrorPopup,
+                    Height + NotesComponentwithExpandButton_2.ErrorExtention,
+                    Height
+                )
+            )
+        OnReset: |-
+            =Set(gblExpanded, false);
+            Set(gblText, NotesComponentwithExpandButton_2.Default);
+            Reset(txtTextInputNC);
+        Y: =625
+        ZIndex: =5
+
