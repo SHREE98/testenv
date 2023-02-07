@@ -1872,11 +1872,6 @@ InsuredScreen As screen:
 
                 ToggleComponent_4 As ToggleComponent:
                     Height: =62*lblScaleFactorIS
-                    OnReset: |-
-                        =Set(
-                            gblToggleValue,
-                            ToggleComponent_4.Default
-                        )
                     Width: =300*lblScaleFactorIS
                     X: =GridColumn1ISFIS.X
                     Y: =GridRows8ISFIS.Y
