@@ -24,7 +24,6 @@ InsuredScreen As screen:
         Height: =Parent.Height - Self.Y
         LayoutMode: =LayoutMode.Auto
         LayoutOverflowX: =LayoutOverflow.Scroll
-        Visible: =lclcntInsuredViewVisibility
         Width: =Parent.Width
         Y: =cmpDashboardHeaderComponentIS.Height
         ZIndex: =3
@@ -2032,7 +2031,6 @@ InsuredScreen As screen:
     cntInsuredHeaderIS As groupContainer.horizontalAutoLayoutContainer:
         Height: =50 * lblScaleFactorIS
         LayoutMode: =LayoutMode.Auto
-        Visible: =lclcntInsuredViewVisibility
         Width: =Parent.Width
         ZIndex: =5
 

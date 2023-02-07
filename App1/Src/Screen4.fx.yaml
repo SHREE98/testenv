@@ -33,6 +33,7 @@ Screen4 As screen:
         ZIndex: =3
 
     DropDownComponent_5 As DropDownComponent_3:
+        Height: =40
         Y: =357
         ZIndex: =3
 
