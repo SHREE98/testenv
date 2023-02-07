@@ -304,7 +304,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DatePickerComponent_4",
-      "ParentIndex": 1,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -531,7 +531,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DateRangeComponent_1",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -748,7 +748,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DateRangeComponent_2",
-      "ParentIndex": 5,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1011,7 +1011,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DropDownComponent_5",
-      "ParentIndex": 4,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1122,7 +1122,7 @@
         {
           "Category": "Design",
           "PropertyName": "Height",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "System"
         },
         {
           "Category": "Behavior",
@@ -1185,7 +1185,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "EmptyStateComponent_3",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
