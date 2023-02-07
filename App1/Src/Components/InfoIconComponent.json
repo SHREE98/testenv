@@ -776,7 +776,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638113505275584058",
+    "LastModifiedTimestamp": "638113507797330787",
     "Name": "InfoIconComponent",
     "Rules": [
       {
@@ -881,7 +881,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113505275584058",
+  "LastModifiedTimestamp": "638113507797330787",
   "Name": "adcbed59fd7a4147b0940a41587a71ac",
   "OverridableProperties": {},
   "TemplateOriginalName": "fded5a07e18142d2bf867ec82a85a454",

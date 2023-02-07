@@ -26,3 +26,7 @@ Screen4 As screen:
         Y: =112
         ZIndex: =2
 
+    DropDownComponent_5 As DropDownComponent_3:
+        Y: =357
+        ZIndex: =3
+
