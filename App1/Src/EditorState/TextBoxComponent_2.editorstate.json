@@ -96,7 +96,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Icon1",
-      "ParentIndex": 12,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -470,7 +470,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCloseIconTB_1",
-      "ParentIndex": 11,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -901,7 +901,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgErrorIconTB_1",
-      "ParentIndex": 7,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1237,7 +1237,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgTriangleArrowIconTB_1",
-      "ParentIndex": 9,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1731,7 +1731,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblCountTB_1",
-      "ParentIndex": 10,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2283,7 +2283,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblRequiredAsteriskTB_1",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2835,7 +2835,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblTitleTextTB_1",
-      "ParentIndex": 5,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3129,7 +3129,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "rctResetTB_1",
-      "ParentIndex": 1,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3396,7 +3396,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "sdrMaskingTB_1",
-      "ParentIndex": 2,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3978,7 +3978,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "tmrMaskingTB_1",
-      "ParentIndex": 3,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4248,7 +4248,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "tmrSetFocusTB_1",
-      "ParentIndex": 0,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4704,7 +4704,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtErrorMessageTB_1",
-      "ParentIndex": 8,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5309,7 +5309,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtTextControlTB_1",
-      "ParentIndex": 4,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

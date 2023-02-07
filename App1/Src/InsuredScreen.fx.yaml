@@ -1492,6 +1492,13 @@ InsuredScreen As screen:
                         Y: =GridRows7ISFIS.Y + GridRows7ISFIS.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
                         ZIndex: =11
 
+                NotesComponentwithExpandButton_1 As NotesComponentwithExpandButton:
+                    Height: =60*lblScaleFactorIS
+                    Width: =368*lblScaleFactorIS
+                    X: =GridColumn7ISFIS.X
+                    Y: =GridRows8ISFIS.Y
+                    ZIndex: =40
+
                 grpInsuredSearchFieldWasteIS As group:
                     Height: =5
                     Width: =5

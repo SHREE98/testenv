@@ -308,7 +308,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnEndDateDatePickerBoxDR",
-      "ParentIndex": 15,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5447,7 +5447,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgStartDateDatePickerIconDR",
-      "ParentIndex": 13,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8431,7 +8431,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblHintTextDR",
-      "ParentIndex": 7,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9353,7 +9353,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblStartDateSepratorDayMonthDR",
-      "ParentIndex": 9,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9726,7 +9726,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblStartDateSepratorMonthYearDR",
-      "ParentIndex": 11,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11920,7 +11920,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtEndDateWhiteDateCardDR",
-      "ParentIndex": 14,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13475,7 +13475,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtStartDateDayInputDR",
-      "ParentIndex": 8,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14031,7 +14031,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtStartDateMonthInputDR",
-      "ParentIndex": 10,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14587,7 +14587,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtStartDateYearInputDR",
-      "ParentIndex": 12,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

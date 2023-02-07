@@ -26,26 +26,26 @@ Screen4 As screen:
         Y: =112
         ZIndex: =2
 
-    DropDownComponent_5 As DropDownComponent_3:
-        Y: =357
-        ZIndex: =3
-
     DateRangeComponent_1 As DateRangeComponent:
         Height: =If(DateRangeComponent_1.Opened,If(DateRangeComponent_1.ErrorOpened,DateRangeComponent_1.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_1.StylingProperty.DatePicker.Height),If(DateRangeComponent_1.ErrorOpened,102,62))
         Width: =DateRangeComponent_1.StylingProperty.DatePicker.Width
         Y: =252
         ZIndex: =3
 
-    DateRangeComponent_2 As DateRangeComponent:
-        Height: =If(DateRangeComponent_2.Opened,If(DateRangeComponent_2.ErrorOpened,DateRangeComponent_2.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_2.StylingProperty.DatePicker.Height),If(DateRangeComponent_2.ErrorOpened,102,62))
-        Width: =DateRangeComponent_2.StylingProperty.DatePicker.Width
-        Y: =449
-        ZIndex: =4
+    DropDownComponent_5 As DropDownComponent_3:
+        Y: =357
+        ZIndex: =3
 
     EmptyStateComponent_3 As EmptyStateComponent:
         Height: =EmptyStateComponent_3.StylingProperty.ErrorDialogueBoxHeight
         Width: =EmptyStateComponent_3.StylingProperty.ErrorDialogueBoxWidth
         X: =996
         Y: =112
+        ZIndex: =4
+
+    DateRangeComponent_2 As DateRangeComponent:
+        Height: =If(DateRangeComponent_2.Opened,If(DateRangeComponent_2.ErrorOpened,DateRangeComponent_2.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_2.StylingProperty.DatePicker.Height),If(DateRangeComponent_2.ErrorOpened,102,62))
+        Width: =DateRangeComponent_2.StylingProperty.DatePicker.Width
+        Y: =449
         ZIndex: =4
 
