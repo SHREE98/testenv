@@ -1863,6 +1863,13 @@ InsuredScreen As screen:
                         Y: =GridRows1ISFIS.Y + (gblLayout.GutterWidth * lblScaleFactorIS) - lblComponentMargin
                         ZIndex: =39
 
+                DateRangeComponent_3 As DateRangeComponent:
+                    Height: =If(DateRangeComponent_3.Opened,If(DateRangeComponent_3.ErrorOpened,DateRangeComponent_3.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_3.StylingProperty.DatePicker.Height),If(DateRangeComponent_3.ErrorOpened,102,62))
+                    Width: =DateRangeComponent_3.StylingProperty.DatePicker.Width
+                    X: =GridColumn3ISFIS.X
+                    Y: =GridRows8ISFIS.Y
+                    ZIndex: =41
+
             cntInsuredSearchPopupFooterIS As groupContainer.manualLayoutContainer:
                 Fill: =Transparent
                 Height: =60 * lblScaleFactorIS
