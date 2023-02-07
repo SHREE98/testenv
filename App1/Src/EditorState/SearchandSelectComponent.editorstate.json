@@ -1282,7 +1282,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnFocusSS",
-      "ParentIndex": 7,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1837,7 +1837,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnNavigationBackgoundSS",
-      "ParentIndex": 4,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2319,7 +2319,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnNextIconHoverSS",
-      "ParentIndex": 15,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2874,7 +2874,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnNextSS",
-      "ParentIndex": 13,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3356,7 +3356,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnPrevIconHoverSS",
-      "ParentIndex": 10,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3911,7 +3911,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "btnPreviousSS",
-      "ParentIndex": 6,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4785,7 +4785,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "galComboboxVauesSS",
-      "ParentIndex": 11,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5213,7 +5213,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgCloseSS",
-      "ParentIndex": 3,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5555,7 +5555,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgNextIconSS",
-      "ParentIndex": 14,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5867,7 +5867,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgPrevIconSS",
-      "ParentIndex": 9,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6193,7 +6193,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "imgSearchSS",
-      "ParentIndex": 12,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8028,7 +8028,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtItemsBorderSS",
-      "ParentIndex": 5,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8635,7 +8635,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtTextInputSS",
-      "ParentIndex": 8,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

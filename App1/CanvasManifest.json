@@ -98,11 +98,11 @@
     "Id": "b63a99d0-1ea9-4566-a9b4-b4e1ad7d99e2",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "Name": "TESTDEV1",
+    "Name": "TESTDEV2",
     "OriginatingVersion": "1.326"
   },
   "PublishInfo": {
-    "AppName": "TESTDEV1",
+    "AppName": "TESTDEV2",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",

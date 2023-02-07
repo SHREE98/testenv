@@ -26,3 +26,9 @@ Screen4 As screen:
         Y: =112
         ZIndex: =2
 
+    DateRangeComponent_1 As DateRangeComponent:
+        Height: =If(DateRangeComponent_1.Opened,If(DateRangeComponent_1.ErrorOpened,DateRangeComponent_1.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_1.StylingProperty.DatePicker.Height),If(DateRangeComponent_1.ErrorOpened,102,62))
+        Width: =DateRangeComponent_1.StylingProperty.DatePicker.Width
+        Y: =252
+        ZIndex: =3
+

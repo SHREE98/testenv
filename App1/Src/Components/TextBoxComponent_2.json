@@ -96,7 +96,7 @@
         "Name": "tmrSetFocusTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 342,
+        "PublishOrderIndex": 712,
         "Rules": [
           {
             "Category": "Data",
@@ -383,7 +383,7 @@
         "Name": "rctResetTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 343,
+        "PublishOrderIndex": 713,
         "Rules": [
           {
             "Category": "Design",
@@ -682,7 +682,7 @@
         "Name": "sdrMaskingTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 344,
+        "PublishOrderIndex": 714,
         "Rules": [
           {
             "Category": "Data",
@@ -959,7 +959,7 @@
         "Name": "tmrMaskingTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 345,
+        "PublishOrderIndex": 715,
         "Rules": [
           {
             "Category": "Data",
@@ -1570,7 +1570,7 @@
         "Name": "txtTextControlTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 346,
+        "PublishOrderIndex": 716,
         "Rules": [
           {
             "Category": "Data",
@@ -2217,7 +2217,7 @@
         "Name": "lblTitleTextTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 347,
+        "PublishOrderIndex": 717,
         "Rules": [
           {
             "Category": "Data",
@@ -2828,7 +2828,7 @@
         "Name": "lblRequiredAsteriskTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 348,
+        "PublishOrderIndex": 718,
         "Rules": [
           {
             "Category": "Data",
@@ -3348,7 +3348,7 @@
         "Name": "imgErrorIconTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 349,
+        "PublishOrderIndex": 719,
         "Rules": [
           {
             "Category": "Data",
@@ -3876,7 +3876,7 @@
         "Name": "txtErrorMessageTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 350,
+        "PublishOrderIndex": 720,
         "Rules": [
           {
             "Category": "Data",
@@ -4312,7 +4312,7 @@
         "Name": "imgTriangleArrowIconTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 351,
+        "PublishOrderIndex": 721,
         "Rules": [
           {
             "Category": "Data",
@@ -4852,7 +4852,7 @@
         "Name": "lblCountTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 352,
+        "PublishOrderIndex": 722,
         "Rules": [
           {
             "Category": "Data",
@@ -5380,7 +5380,7 @@
         "Name": "imgCloseIconTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 353,
+        "PublishOrderIndex": 723,
         "Rules": [
           {
             "Category": "Data",
@@ -5670,7 +5670,7 @@
         "Name": "Icon1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 354,
+        "PublishOrderIndex": 724,
         "Rules": [
           {
             "Category": "Design",
@@ -5860,7 +5860,7 @@
         "Name": "grpErrorMessagePopupTB_1",
         "Parent": "TextBoxComponent_2",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 355,
+        "PublishOrderIndex": 711,
         "Rules": [
           {
             "Category": "Design",
@@ -6089,7 +6089,7 @@
       },
       "Clear"
     ],
-    "LastModifiedTimestamp": "638113506419835590",
+    "LastModifiedTimestamp": "638113508461494666",
     "Name": "TextBoxComponent_2",
     "Rules": [
       {
@@ -6501,7 +6501,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113506419835590",
+  "LastModifiedTimestamp": "638113508461494666",
   "Name": "8474ae5912d44fd584f2f5ef5878e1f0",
   "OverridableProperties": {},
   "TemplateOriginalName": "8ddf548e66c34915847d004f174af9ba",
