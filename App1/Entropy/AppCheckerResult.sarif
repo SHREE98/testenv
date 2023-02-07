@@ -284,6 +284,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DateRangeComponent",
+                "type": "DateRangeComponent.txtEndDateWhiteDateCardDR"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DateRangeComponent",
+                "type": "DateRangeComponent.txtEndDateWhiteDateCardDR"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "DateRangeComponent.txtStartDateDayInputDR.AccessibleLabel"
                 }
               ],
@@ -368,66 +428,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DateRangeComponent",
-                "type": "DateRangeComponent.txtEndDateWhiteDateCardDR"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DateRangeComponent.txtEndDateWhiteDateCardDR.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DateRangeComponent",
-                "type": "DateRangeComponent.txtEndDateWhiteDateCardDR"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
         },
         {
           "locations": [
@@ -1214,36 +1214,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DropDownComponent.txtItemsBorderDD.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DropDownComponent.txtItemsBorderDD.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DropDownComponent",
-                "type": "DropDownComponent.txtItemsBorderDD"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DropDownComponent.lblTitleTextDD.TabIndex"
                 }
               ],
@@ -1268,36 +1238,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DropDownComponent.imgCloseDD.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DropDownComponent.imgCloseDD.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DropDownComponent",
-                "type": "DropDownComponent.imgCloseDD"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1418,6 +1358,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DropDownComponent.imgCloseDD.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DropDownComponent.imgCloseDD.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DropDownComponent",
+                "type": "DropDownComponent.imgCloseDD"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DropDownComponent.txtItemsBorderDD.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DropDownComponent.txtItemsBorderDD.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DropDownComponent",
+                "type": "DropDownComponent.txtItemsBorderDD"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1574,36 +1574,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DropDownComponent_1.txtItemsBorderDD_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DropDownComponent_1.txtItemsBorderDD_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DropDownComponent_1",
-                "type": "DropDownComponent_1.txtItemsBorderDD_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DropDownComponent_1.lblTitleTextDD_1.TabIndex"
                 }
               ],
@@ -1628,36 +1598,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DropDownComponent_1.imgCloseDD_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DropDownComponent_1.imgCloseDD_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DropDownComponent_1",
-                "type": "DropDownComponent_1.imgCloseDD_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1778,6 +1718,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DropDownComponent_1.imgCloseDD_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DropDownComponent_1.imgCloseDD_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DropDownComponent_1",
+                "type": "DropDownComponent_1.imgCloseDD_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DropDownComponent_1.txtItemsBorderDD_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DropDownComponent_1.txtItemsBorderDD_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DropDownComponent_1",
+                "type": "DropDownComponent_1.txtItemsBorderDD_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -1934,36 +1934,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DropDownComponent_3.txtItemsBorderDD_2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DropDownComponent_3.txtItemsBorderDD_2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DropDownComponent_3",
-                "type": "DropDownComponent_3.txtItemsBorderDD_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DropDownComponent_3.lblTitleTextDD_2.TabIndex"
                 }
               ],
@@ -1988,36 +1958,6 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DropDownComponent_3.imgCloseDD_2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DropDownComponent_3.imgCloseDD_2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DropDownComponent_3",
-                "type": "DropDownComponent_3.imgCloseDD_2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
         },
         {
           "locations": [
@@ -2138,6 +2078,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DropDownComponent_3.imgCloseDD_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DropDownComponent_3.imgCloseDD_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DropDownComponent_3",
+                "type": "DropDownComponent_3.imgCloseDD_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DropDownComponent_3.txtItemsBorderDD_2.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DropDownComponent_3.txtItemsBorderDD_2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DropDownComponent_3",
+                "type": "DropDownComponent_3.txtItemsBorderDD_2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -3914,66 +3914,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "NotesComponentwithExpandButton",
-                "type": "NotesComponentwithExpandButton.txtErrorMessageNC"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "NotesComponentwithExpandButton",
-                "type": "NotesComponentwithExpandButton.txtErrorMessageNC"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "NotesComponentwithExpandButton.rctResetNC.AccessibleLabel"
                 }
               ],
@@ -4058,6 +3998,66 @@
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
           "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "NotesComponentwithExpandButton",
+                "type": "NotesComponentwithExpandButton.txtErrorMessageNC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "NotesComponentwithExpandButton.txtErrorMessageNC.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "NotesComponentwithExpandButton",
+                "type": "NotesComponentwithExpandButton.txtErrorMessageNC"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
@@ -4994,19 +4994,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.FocusedBorderThickness"
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.txtTextInputSS_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.txtTextInputSS_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "SearchandSelectComponent(DEMO)",
+                "type": "'SearchandSelectComponent(DEMO)'.txtTextInputSS_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "SearchandSelectComponent(DEMO)",
+                "type": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1"
+                "type": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1"
               }
             }
           ],
@@ -5024,79 +5084,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.TabIndex"
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.TabIndex",
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1"
+                "type": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1"
               }
             }
           ],
@@ -5264,6 +5264,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.btnDropdownValueGalComboboxVauesSS_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.btnDropdownValueGalComboboxVauesSS_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "SearchandSelectComponent(DEMO)",
+                "type": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.btnDropdownValueGalComboboxVauesSS_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.chkCheckBoxGalComboboxVauesSS_1.FocusedBorderThickness"
                 }
               ],
@@ -5324,109 +5354,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.btnDropdownValueGalComboboxVauesSS_1.TabIndex"
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.btnDropdownValueGalComboboxVauesSS_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.galComboboxVauesSS_1.btnDropdownValueGalComboboxVauesSS_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.txtTextInputSS_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.txtTextInputSS_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.txtTextInputSS_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.FocusedBorderThickness",
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1"
+                "type": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1"
               }
             }
           ],
@@ -5444,19 +5384,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.TabIndex"
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1.TabIndex",
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "SearchandSelectComponent(DEMO)",
-                "type": "'SearchandSelectComponent(DEMO)'.imgSearchSS_1"
+                "type": "'SearchandSelectComponent(DEMO)'.btnPrevIconHoverSS_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "SearchandSelectComponent(DEMO)",
+                "type": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "SearchandSelectComponent(DEMO)",
+                "type": "'SearchandSelectComponent(DEMO)'.btnNextIconHoverSS_1"
               }
             }
           ],
@@ -5594,6 +5594,126 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "SearchandSelectComponent.txtTextInputSS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SearchandSelectComponent.txtTextInputSS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "SearchandSelectComponent",
+                "type": "SearchandSelectComponent.txtTextInputSS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "SearchandSelectComponent",
+                "type": "SearchandSelectComponent.imgSearchSS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "SearchandSelectComponent",
+                "type": "SearchandSelectComponent.imgSearchSS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "SearchandSelectComponent",
+                "type": "SearchandSelectComponent.imgSearchSS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "SearchandSelectComponent.imgCloseSS.AccessibleLabel"
                 }
               ],
@@ -5678,96 +5798,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SearchandSelectComponent.txtTextInputSS.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.txtTextInputSS.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.txtTextInputSS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.btnPrevIconHoverSS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.btnPrevIconHoverSS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
         },
         {
           "locations": [
@@ -5864,6 +5894,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "SearchandSelectComponent.galComboboxVauesSS.btnDropdownValueGalComboboxVauesSS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "SearchandSelectComponent.galComboboxVauesSS.btnDropdownValueGalComboboxVauesSS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "SearchandSelectComponent",
+                "type": "SearchandSelectComponent.galComboboxVauesSS.btnDropdownValueGalComboboxVauesSS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "SearchandSelectComponent.galComboboxVauesSS.chkCheckBoxGalComboboxVauesSS.FocusedBorderThickness"
                 }
               ],
@@ -5924,79 +5984,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SearchandSelectComponent.galComboboxVauesSS.btnDropdownValueGalComboboxVauesSS.TabIndex"
+                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.galComboboxVauesSS.btnDropdownValueGalComboboxVauesSS.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.galComboboxVauesSS.btnDropdownValueGalComboboxVauesSS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.imgSearchSS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.FocusedBorderThickness",
+                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
                 "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.imgSearchSS"
+                "type": "SearchandSelectComponent.btnPrevIconHoverSS"
               }
             }
           ],
@@ -6014,19 +6014,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.TabIndex"
+                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "SearchandSelectComponent.imgSearchSS.TabIndex",
+                  "fullyQualifiedName": "SearchandSelectComponent.btnPrevIconHoverSS.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "SearchandSelectComponent",
-                "type": "SearchandSelectComponent.imgSearchSS"
+                "type": "SearchandSelectComponent.btnPrevIconHoverSS"
               }
             }
           ],
@@ -6734,6 +6734,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "TextBoxComponent.txtTextControlTB.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TextBoxComponent.txtTextControlTB.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TextBoxComponent",
+                "type": "TextBoxComponent.txtTextControlTB"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "TextBoxComponent.imgCloseIconTB.AccessibleLabel"
                 }
               ],
@@ -6764,19 +6794,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TextBoxComponent.txtTextControlTB.AccessibleLabel"
+                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TextBoxComponent.txtTextControlTB.AccessibleLabel",
+                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "TextBoxComponent",
-                "type": "TextBoxComponent.txtTextControlTB"
+                "module": "TextBoxComponent_2",
+                "type": "TextBoxComponent_2.txtErrorMessageTB_1"
               }
             }
           ],
@@ -6788,6 +6818,66 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.FocusedBorderThickness"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.FocusedBorderThickness",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "FocusedBorderThickness",
+                "module": "TextBoxComponent_2",
+                "type": "TextBoxComponent_2.txtErrorMessageTB_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "TextBoxComponent_2",
+                "type": "TextBoxComponent_2.txtErrorMessageTB_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -6914,36 +7004,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtTextControlTB_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtTextControlTB_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "TextBoxComponent_2",
-                "type": "TextBoxComponent_2.txtTextControlTB_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "TextBoxComponent_2.lblTitleTextTB_1.TabIndex"
                 }
               ],
@@ -7004,126 +7064,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TextBoxComponent_2.imgErrorIconTB_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TextBoxComponent_2.imgErrorIconTB_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "TextBoxComponent_2",
-                "type": "TextBoxComponent_2.imgErrorIconTB_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "TextBoxComponent_2",
-                "type": "TextBoxComponent_2.txtErrorMessageTB_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "TextBoxComponent_2",
-                "type": "TextBoxComponent_2.txtErrorMessageTB_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "TextBoxComponent_2.txtErrorMessageTB_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "TextBoxComponent_2",
-                "type": "TextBoxComponent_2.txtErrorMessageTB_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "TextBoxComponent_2.lblCountTB_1.TabIndex"
                 }
               ],
@@ -7154,19 +7094,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TextBoxComponent_2.imgCloseIconTB_1.AccessibleLabel"
+                  "fullyQualifiedName": "TextBoxComponent_2.imgErrorIconTB_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TextBoxComponent_2.imgCloseIconTB_1.AccessibleLabel",
+                  "fullyQualifiedName": "TextBoxComponent_2.imgErrorIconTB_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "TextBoxComponent_2",
-                "type": "TextBoxComponent_2.imgCloseIconTB_1"
+                "type": "TextBoxComponent_2.imgErrorIconTB_1"
               }
             }
           ],
@@ -7244,6 +7184,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "TextBoxComponent_2.txtTextControlTB_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TextBoxComponent_2.txtTextControlTB_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TextBoxComponent_2",
+                "type": "TextBoxComponent_2.txtTextControlTB_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "TextBoxComponent_2.imgCloseIconTB_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "TextBoxComponent_2.imgCloseIconTB_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "TextBoxComponent_2",
+                "type": "TextBoxComponent_2.imgCloseIconTB_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ToggleComponent.cirHoverEffectTC.AccessibleLabel"
                 }
               ],
@@ -7304,19 +7304,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ToggleComponent.lblTextYesTC.TabIndex"
+                  "fullyQualifiedName": "ToggleComponent.lblTextNoTC.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ToggleComponent.lblTextYesTC.TabIndex",
+                  "fullyQualifiedName": "ToggleComponent.lblTextNoTC.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "ToggleComponent",
-                "type": "ToggleComponent.lblTextYesTC"
+                "type": "ToggleComponent.lblTextNoTC"
               }
             }
           ],
@@ -7334,19 +7334,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ToggleComponent.lblTextNoTC.TabIndex"
+                  "fullyQualifiedName": "ToggleComponent.lblTextYesTC.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ToggleComponent.lblTextNoTC.TabIndex",
+                  "fullyQualifiedName": "ToggleComponent.lblTextYesTC.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "ToggleComponent",
-                "type": "ToggleComponent.lblTextNoTC"
+                "type": "ToggleComponent.lblTextYesTC"
               }
             }
           ],
@@ -7544,6 +7544,66 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ToggleSwitchComponent",
+                "type": "ToggleSwitchComponent.cirHoverEffectTS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ToggleSwitchComponent",
+                "type": "ToggleSwitchComponent.cirHoverEffectTS"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ToggleSwitchComponent.txtTextInputTS.AccessibleLabel"
                 }
               ],
@@ -7568,66 +7628,6 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.FocusedBorderThickness"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.FocusedBorderThickness",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "FocusedBorderThickness",
-                "module": "ToggleSwitchComponent",
-                "type": "ToggleSwitchComponent.btnRippleEffectTS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-FocusBorderShouldBeVisible",
-          "ruleIndex": 2
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "ToggleSwitchComponent",
-                "type": "ToggleSwitchComponent.btnRippleEffectTS"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
         },
         {
           "locations": [
@@ -7724,19 +7724,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.AccessibleLabel"
+                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.AccessibleLabel",
+                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "member": "AccessibleLabel",
+                "member": "FocusedBorderThickness",
                 "module": "ToggleSwitchComponent",
-                "type": "ToggleSwitchComponent.cirHoverEffectTS"
+                "type": "ToggleSwitchComponent.btnRippleEffectTS"
               }
             }
           ],
@@ -7746,27 +7746,27 @@
           "properties": {
             "level": "Medium"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
+          "ruleId": "acc-FocusBorderShouldBeVisible",
+          "ruleIndex": 2
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.TabIndex"
+                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ToggleSwitchComponent.cirHoverEffectTS.TabIndex",
+                  "fullyQualifiedName": "ToggleSwitchComponent.btnRippleEffectTS.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "ToggleSwitchComponent",
-                "type": "ToggleSwitchComponent.cirHoverEffectTS"
+                "type": "ToggleSwitchComponent.btnRippleEffectTS"
               }
             }
           ],
@@ -7844,66 +7844,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent",
-                "type": "DatePickerComponent.txtWhiteDateCardDP"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DatePickerComponent",
-                "type": "DatePickerComponent.txtWhiteDateCardDP"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DatePickerComponent.lblHeadingDP.TabIndex"
                 }
               ],
@@ -7934,139 +7874,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.AccessibleLabel"
+                  "fullyQualifiedName": "DatePickerComponent.txtErrorMessageDP.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.AccessibleLabel",
+                  "fullyQualifiedName": "DatePickerComponent.txtErrorMessageDP.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DatePickerComponent",
-                "type": "DatePickerComponent.imgCloseIconDP"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DatePickerComponent",
-                "type": "DatePickerComponent.imgCloseIconDP"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent.txtDayInputDP.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent.txtDayInputDP.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent",
-                "type": "DatePickerComponent.txtDayInputDP"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent.icnCloseTransparentDP.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent.icnCloseTransparentDP.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent",
-                "type": "DatePickerComponent.icnCloseTransparentDP"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent.txtMonthInputDP.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent.txtMonthInputDP.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent",
-                "type": "DatePickerComponent.txtMonthInputDP"
+                "type": "DatePickerComponent.txtErrorMessageDP"
               }
             }
           ],
@@ -8174,19 +7994,79 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DatePickerComponent.txtErrorMessageDP.AccessibleLabel"
+                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DatePickerComponent.txtErrorMessageDP.AccessibleLabel",
+                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DatePickerComponent",
-                "type": "DatePickerComponent.txtErrorMessageDP"
+                "type": "DatePickerComponent.txtWhiteDateCardDP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent.txtWhiteDateCardDP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DatePickerComponent",
+                "type": "DatePickerComponent.txtWhiteDateCardDP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent.txtDayInputDP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent.txtDayInputDP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent",
+                "type": "DatePickerComponent.txtDayInputDP"
               }
             }
           ],
@@ -8217,6 +8097,126 @@
                 "member": "AccessibleLabel",
                 "module": "DatePickerComponent",
                 "type": "DatePickerComponent.txtYearInputDP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent.txtMonthInputDP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent.txtMonthInputDP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent",
+                "type": "DatePickerComponent.txtMonthInputDP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent",
+                "type": "DatePickerComponent.imgCloseIconDP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent.imgCloseIconDP.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DatePickerComponent",
+                "type": "DatePickerComponent.imgCloseIconDP"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent.icnCloseTransparentDP.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent.icnCloseTransparentDP.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent",
+                "type": "DatePickerComponent.icnCloseTransparentDP"
               }
             }
           ],
@@ -8714,66 +8714,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.txtWhiteDateCardDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.txtWhiteDateCardDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DatePickerComponent_1.lblHeadingDP_1.TabIndex"
                 }
               ],
@@ -8804,169 +8744,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.AccessibleLabel"
+                  "fullyQualifiedName": "DatePickerComponent_1.txtErrorMessageDP_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.AccessibleLabel",
+                  "fullyQualifiedName": "DatePickerComponent_1.txtErrorMessageDP_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.imgCloseIconDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.TabIndex"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.TabIndex",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "TabIndex",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.imgCloseIconDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 1
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtDayInputDP_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtDayInputDP_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.txtDayInputDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent_1.icnCloseTransparentDP_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.icnCloseTransparentDP_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.icnCloseTransparentDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtMonthInputDP_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtMonthInputDP_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.txtMonthInputDP_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtYearInputDP_1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtYearInputDP_1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.txtYearInputDP_1"
+                "type": "DatePickerComponent_1.txtErrorMessageDP_1"
               }
             }
           ],
@@ -9074,19 +8864,229 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtErrorMessageDP_1.AccessibleLabel"
+                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "DatePickerComponent_1.txtErrorMessageDP_1.AccessibleLabel",
+                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "DatePickerComponent_1",
-                "type": "DatePickerComponent_1.txtErrorMessageDP_1"
+                "type": "DatePickerComponent_1.txtWhiteDateCardDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtWhiteDateCardDP_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.txtWhiteDateCardDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtDayInputDP_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtDayInputDP_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.txtDayInputDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtYearInputDP_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtYearInputDP_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.txtYearInputDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtMonthInputDP_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.txtMonthInputDP_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.txtMonthInputDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.imgCloseIconDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.imgCloseIconDP_1.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.imgCloseIconDP_1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DatePickerComponent_1.icnCloseTransparentDP_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DatePickerComponent_1.icnCloseTransparentDP_1.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DatePickerComponent_1",
+                "type": "DatePickerComponent_1.icnCloseTransparentDP_1"
               }
             }
           ],
@@ -9973,36 +9973,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "DemoScreen.TextInput3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "DemoScreen.TextInput3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "DemoScreen",
-                "type": "DemoScreen.TextInput3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "DemoScreen.Container1.main2.btnInsuredViewBackgroundIS_1.FocusedBorderThickness"
                 }
               ],
@@ -10027,6 +9997,36 @@
           },
           "ruleId": "acc-FocusBorderShouldBeVisible",
           "ruleIndex": 2
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "DemoScreen.TextInput3.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "DemoScreen.TextInput3.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "DemoScreen",
+                "type": "DemoScreen.TextInput3"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
         },
         {
           "locations": [
@@ -14570,6 +14570,36 @@
               },
               "properties": {
                 "member": "lclcntInsuredSearchPopupVisibility",
+                "module": "InsuredScreen",
+                "type": "InsuredScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "InsuredScreen.lclcntInsuredViewVisibility"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InsuredScreen.lclcntInsuredViewVisibility",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "lclcntInsuredViewVisibility",
                 "module": "InsuredScreen",
                 "type": "InsuredScreen"
               }
