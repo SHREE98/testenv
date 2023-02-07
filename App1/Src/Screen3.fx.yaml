@@ -1,39 +1,5 @@
 Screen3 As screen:
 
-    DropDownComponent_4 As DropDownComponent_3:
-        TitleText: ="Country"
-        X: =38
-        Y: =70
-        ZIndex: =1
-
-    DatePickerComponent_3 As DatePickerComponent_1:
-        Height: |-
-            =If(
-                DatePickerComponent_3.Opened,
-                If(
-                    DatePickerComponent_3.ErrorOpened,
-                    DatePickerComponent_3.StylingProperty.DatePicker.Height + 40,
-                    DatePickerComponent_3.StylingProperty.DatePicker.Height
-                ),
-                If(
-                    DatePickerComponent_3.ErrorOpened,
-                    102,
-                    62
-                )
-            )
-        LabelText: ="Date"
-        Width: =DatePickerComponent_3.StylingProperty.DatePicker.Width
-        X: =38
-        Y: =210
-        ZIndex: =2
-
-    EmptyStateComponent_2 As EmptyStateComponent_1:
-        Height: =EmptyStateComponent_2.StylingProperty.ErrorDialogueBoxHeight
-        Width: =EmptyStateComponent_2.StylingProperty.ErrorDialogueBoxWidth
-        X: =8
-        Y: =362
-        ZIndex: =3
-
     SearchandSelectComponent_2 As SearchandSelectComponent:
         X: =613
         Y: =70

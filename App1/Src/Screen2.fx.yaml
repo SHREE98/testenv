@@ -1,29 +1,2 @@
 Screen2 As screen:
 
-    DropDownComponent_2 As DropDownComponent_3:
-        TitleText: ="Country"
-        X: =38
-        Y: =70
-        ZIndex: =1
-
-    DatePickerComponent_2 As DatePickerComponent_1:
-        Height: |-
-            =If(
-                DatePickerComponent_2.Opened,
-                If(
-                    DatePickerComponent_2.ErrorOpened,
-                    DatePickerComponent_2.StylingProperty.DatePicker.Height + 40,
-                    DatePickerComponent_2.StylingProperty.DatePicker.Height
-                ),
-                If(
-                    DatePickerComponent_2.ErrorOpened,
-                    102,
-                    62
-                )
-            )
-        LabelText: ="Date"
-        Width: =DatePickerComponent_2.StylingProperty.DatePicker.Width
-        X: =38
-        Y: =210
-        ZIndex: =2
-
