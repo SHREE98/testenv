@@ -301,3 +301,9 @@ DemoScreen As screen:
         Width: =196
         ZIndex: =3
 
+    TextInput3 As text:
+        Default: ="Text input"
+        X: =408
+        Y: =488
+        ZIndex: =4
+
