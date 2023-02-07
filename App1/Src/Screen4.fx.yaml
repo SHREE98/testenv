@@ -21,7 +21,7 @@ Screen4 As screen:
                     62
                 )
             )
-        LabelText: ="Title"
+        LabelText: ="Title1"
         Width: =DatePickerComponent_4.StylingProperty.DatePicker.Width
         Y: =112
         ZIndex: =2
