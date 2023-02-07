@@ -26,7 +26,7 @@
             "Name": "galleryTemplate5",
             "Parent": "galLeftNavigationElementsLNC",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 199,
+            "PublishOrderIndex": 582,
             "Rules": [
               {
                 "Category": "Design",
@@ -386,7 +386,7 @@
             "Name": "lblTitleLabelLeftNavigationLNC",
             "Parent": "galLeftNavigationElementsLNC",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 200,
+            "PublishOrderIndex": 583,
             "Rules": [
               {
                 "Category": "Data",
@@ -730,7 +730,7 @@
             "Name": "rctSepratorLeftNavigationLNC",
             "Parent": "galLeftNavigationElementsLNC",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 201,
+            "PublishOrderIndex": 584,
             "Rules": [
               {
                 "Category": "Design",
@@ -929,7 +929,7 @@
         "Name": "galLeftNavigationElementsLNC",
         "Parent": "EntityManagementLeftNavigationComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 198,
+        "PublishOrderIndex": 581,
         "Rules": [
           {
             "Category": "Data",
@@ -1139,7 +1139,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638113512549528908",
+    "LastModifiedTimestamp": "638113517511213024",
     "Name": "EntityManagementLeftNavigationComponent",
     "Rules": [
       {
@@ -1259,7 +1259,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113512549528908",
+  "LastModifiedTimestamp": "638113517511213024",
   "Name": "4fde0cdf25c54523848a4a61562d7b35",
   "OverridableProperties": {},
   "Version": "638049594595243018"

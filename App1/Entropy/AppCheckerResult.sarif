@@ -14589,6 +14589,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "InsuredScreen.lclcntInsuredViewVisibility"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "InsuredScreen.lclcntInsuredViewVisibility",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "lclcntInsuredViewVisibility",
+                "module": "InsuredScreen",
+                "type": "InsuredScreen"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 5
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Screen1_1.ScreenContainer1_1.MainSectionContainer1_1.Container7.Width"
                 }
               ],

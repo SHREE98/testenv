@@ -513,7 +513,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Button2",
-      "ParentIndex": 1,
+      "ParentIndex": 14,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -755,7 +755,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Container1",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -948,7 +948,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "DashboardHeaderComponent_1",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1158,7 +1158,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn10IVIS_1",
-      "ParentIndex": 12,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1310,7 +1310,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn11IVIS_1",
-      "ParentIndex": 13,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1462,7 +1462,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn12IVIS_1",
-      "ParentIndex": 14,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1614,7 +1614,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn1IVIS_1",
-      "ParentIndex": 3,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1766,7 +1766,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn2IVIS_1",
-      "ParentIndex": 4,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1918,7 +1918,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn3IVIS_1",
-      "ParentIndex": 5,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2070,7 +2070,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn4IVIS_1",
-      "ParentIndex": 6,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2222,7 +2222,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn5IVIS_1",
-      "ParentIndex": 7,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2374,7 +2374,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn6IVIS_1",
-      "ParentIndex": 8,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2526,7 +2526,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn7IVIS_1",
-      "ParentIndex": 9,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2678,7 +2678,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn8IVIS_1",
-      "ParentIndex": 10,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -2830,7 +2830,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridColumn9IVIS_1",
-      "ParentIndex": 11,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3134,7 +3134,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridRows1IVIS_1",
-      "ParentIndex": 15,
+      "ParentIndex": 13,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3286,7 +3286,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridRows2IVIS_1",
-      "ParentIndex": 16,
+      "ParentIndex": 15,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3438,7 +3438,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridRows3IVIS_1",
-      "ParentIndex": 20,
+      "ParentIndex": 18,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3590,7 +3590,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridRows4IVIS_1",
-      "ParentIndex": 21,
+      "ParentIndex": 20,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -3742,7 +3742,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "GridRows5IVIS_1",
-      "ParentIndex": 22,
+      "ParentIndex": 21,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4592,7 +4592,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "Label3",
-      "ParentIndex": 2,
+      "ParentIndex": 19,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -4876,7 +4876,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblScaleFactorIS_1",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5752,7 +5752,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "TextBoxComponent_1",
-      "ParentIndex": 17,
+      "ParentIndex": 16,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5961,7 +5961,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "TextInput3",
-      "ParentIndex": 0,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6264,7 +6264,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "ToggleComponent_1",
-      "ParentIndex": 18,
+      "ParentIndex": 17,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -6462,7 +6462,7 @@
       },
       "MetaDataIDKey": "",
       "Name": "ToggleComponent_3",
-      "ParentIndex": 19,
+      "ParentIndex": 22,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {

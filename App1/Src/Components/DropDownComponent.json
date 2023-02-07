@@ -66,7 +66,7 @@
         "Name": "rctResetDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 133,
+        "PublishOrderIndex": 522,
         "Rules": [
           {
             "Category": "Design",
@@ -438,7 +438,7 @@
         "Name": "txtItemsBorderDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 134,
+        "PublishOrderIndex": 523,
         "Rules": [
           {
             "Category": "Data",
@@ -1056,7 +1056,7 @@
         "Name": "lblTitleTextDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 135,
+        "PublishOrderIndex": 524,
         "Rules": [
           {
             "Category": "Data",
@@ -1433,7 +1433,7 @@
         "Name": "tmrSetFocusDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 136,
+        "PublishOrderIndex": 525,
         "Rules": [
           {
             "Category": "Data",
@@ -1901,7 +1901,7 @@
         "Name": "imgCloseDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 137,
+        "PublishOrderIndex": 526,
         "Rules": [
           {
             "Category": "Data",
@@ -2411,7 +2411,7 @@
         "Name": "btnFocusDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 138,
+        "PublishOrderIndex": 527,
         "Rules": [
           {
             "Category": "Data",
@@ -3073,7 +3073,7 @@
         "Name": "txtTextInputDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 139,
+        "PublishOrderIndex": 528,
         "Rules": [
           {
             "Category": "Data",
@@ -3629,7 +3629,7 @@
         "Name": "imgSearchDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 140,
+        "PublishOrderIndex": 529,
         "Rules": [
           {
             "Category": "Data",
@@ -3907,7 +3907,7 @@
             "Name": "galleryTemplate2_6",
             "Parent": "galComboboxVauesDD",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 142,
+            "PublishOrderIndex": 531,
             "Rules": [
               {
                 "Category": "Design",
@@ -4272,7 +4272,7 @@
             "Name": "lblDropdownValueGalComboboxVauesDD",
             "Parent": "galComboboxVauesDD",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 143,
+            "PublishOrderIndex": 532,
             "Rules": [
               {
                 "Category": "Data",
@@ -4640,7 +4640,7 @@
             "Name": "rctSepratorGalComboboxVauesDD",
             "Parent": "galComboboxVauesDD",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 144,
+            "PublishOrderIndex": 533,
             "Rules": [
               {
                 "Category": "Design",
@@ -4911,7 +4911,7 @@
         "Name": "galComboboxVauesDD",
         "Parent": "DropDownComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 141,
+        "PublishOrderIndex": 530,
         "Rules": [
           {
             "Category": "Data",
@@ -5249,7 +5249,7 @@
       },
       "Clear"
     ],
-    "LastModifiedTimestamp": "638113512549486218",
+    "LastModifiedTimestamp": "638113517511188692",
     "Name": "DropDownComponent",
     "Rules": [
       {
@@ -5556,7 +5556,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113512549486218",
+  "LastModifiedTimestamp": "638113517511188692",
   "Name": "fafeca185b574cdaa696272c2a33ddf1",
   "OverridableProperties": {},
   "TemplateOriginalName": "47606f1e21844e4db6ab1968ae4e757e",

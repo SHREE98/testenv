@@ -134,7 +134,7 @@
         "Name": "tmrRippleEffectTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 357,
+        "PublishOrderIndex": 729,
         "Rules": [
           {
             "Category": "Data",
@@ -460,7 +460,7 @@
         "Name": "cirHoverEffectTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 358,
+        "PublishOrderIndex": 730,
         "Rules": [
           {
             "Category": "Design",
@@ -866,7 +866,7 @@
         "Name": "btnHandIconTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 359,
+        "PublishOrderIndex": 731,
         "Rules": [
           {
             "Category": "Data",
@@ -1318,7 +1318,7 @@
         "Name": "imgToggleCircleTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 360,
+        "PublishOrderIndex": 732,
         "Rules": [
           {
             "Category": "Data",
@@ -1843,7 +1843,7 @@
         "Name": "lblTextYesTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 361,
+        "PublishOrderIndex": 733,
         "Rules": [
           {
             "Category": "Data",
@@ -2440,7 +2440,7 @@
         "Name": "lblTextNoTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 362,
+        "PublishOrderIndex": 734,
         "Rules": [
           {
             "Category": "Data",
@@ -3037,7 +3037,7 @@
         "Name": "lblTitleTextTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 363,
+        "PublishOrderIndex": 735,
         "Rules": [
           {
             "Category": "Data",
@@ -3573,7 +3573,7 @@
         "Name": "txtToggleBarTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 364,
+        "PublishOrderIndex": 736,
         "Rules": [
           {
             "Category": "Data",
@@ -4139,7 +4139,7 @@
         "Name": "btnRippleEffectTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 365,
+        "PublishOrderIndex": 737,
         "Rules": [
           {
             "Category": "Data",
@@ -4494,7 +4494,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638113512549586807",
+    "LastModifiedTimestamp": "638113517511260753",
     "Name": "ToggleComponent",
     "Rules": [
       {
@@ -4711,7 +4711,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638113512549586807",
+  "LastModifiedTimestamp": "638113517511260753",
   "Name": "aed7e0c09d6a4ce1a56ca45743129769",
   "OverridableProperties": {},
   "TemplateOriginalName": "aef415c9ce3640eb87ce7ef9b310d09b",
