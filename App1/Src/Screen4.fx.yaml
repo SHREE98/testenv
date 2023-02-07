@@ -32,11 +32,6 @@ Screen4 As screen:
         Y: =252
         ZIndex: =3
 
-    DropDownComponent_5 As DropDownComponent_3:
-        Height: =40
-        Y: =357
-        ZIndex: =3
-
     EmptyStateComponent_3 As EmptyStateComponent:
         Height: =EmptyStateComponent_3.StylingProperty.ErrorDialogueBoxHeight
         Width: =EmptyStateComponent_3.StylingProperty.ErrorDialogueBoxWidth

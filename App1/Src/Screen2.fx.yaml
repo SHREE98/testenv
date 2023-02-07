@@ -1,11 +1,5 @@
 Screen2 As screen:
 
-    DropDownComponent_2 As DropDownComponent_3:
-        TitleText: ="Country"
-        X: =38
-        Y: =70
-        ZIndex: =1
-
     DatePickerComponent_2 As DatePickerComponent_1:
         Height: |-
             =If(
