@@ -21,6 +21,7 @@ Screen4 As screen:
                     62
                 )
             )
+        LabelText: ="Title1"
         OnReset: |-
             =If(
                 IsBlank(gblDateSelected),
