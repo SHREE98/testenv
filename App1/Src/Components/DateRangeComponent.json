@@ -80,7 +80,7 @@
         "Name": "rctResetDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 475,
+        "PublishOrderIndex": 46,
         "Rules": [
           {
             "Category": "Design",
@@ -521,7 +521,7 @@
         "Name": "lblHeadingDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 476,
+        "PublishOrderIndex": 47,
         "Rules": [
           {
             "Category": "Data",
@@ -1022,7 +1022,7 @@
         "Name": "txtErrorMessageDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 477,
+        "PublishOrderIndex": 48,
         "Rules": [
           {
             "Category": "Data",
@@ -1403,7 +1403,7 @@
         "Name": "imgErrorIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 479,
+        "PublishOrderIndex": 49,
         "Rules": [
           {
             "Category": "Data",
@@ -1717,7 +1717,7 @@
         "Name": "icnErrorTransparentDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 480,
+        "PublishOrderIndex": 50,
         "Rules": [
           {
             "Category": "Design",
@@ -2127,7 +2127,7 @@
         "Name": "txtWhiteDateCardDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 481,
+        "PublishOrderIndex": 51,
         "Rules": [
           {
             "Category": "Data",
@@ -2722,7 +2722,7 @@
         "Name": "btnStartDateDatePickerBoxDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 482,
+        "PublishOrderIndex": 52,
         "Rules": [
           {
             "Category": "Data",
@@ -3216,7 +3216,7 @@
         "Name": "txtEndDateWhiteDateCardDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 483,
+        "PublishOrderIndex": 53,
         "Rules": [
           {
             "Category": "Data",
@@ -3811,7 +3811,7 @@
         "Name": "btnEndDateDatePickerBoxDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 484,
+        "PublishOrderIndex": 54,
         "Rules": [
           {
             "Category": "Data",
@@ -4366,7 +4366,7 @@
         "Name": "lblHintTextDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 485,
+        "PublishOrderIndex": 55,
         "Rules": [
           {
             "Category": "Data",
@@ -4960,7 +4960,7 @@
         "Name": "txtStartDateDayInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 486,
+        "PublishOrderIndex": 56,
         "Rules": [
           {
             "Category": "Data",
@@ -5425,7 +5425,7 @@
         "Name": "lblStartDateSepratorDayMonthDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 488,
+        "PublishOrderIndex": 57,
         "Rules": [
           {
             "Category": "Data",
@@ -6007,7 +6007,7 @@
         "Name": "txtStartDateMonthInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 489,
+        "PublishOrderIndex": 58,
         "Rules": [
           {
             "Category": "Data",
@@ -6472,7 +6472,7 @@
         "Name": "lblStartDateSepratorMonthYearDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 490,
+        "PublishOrderIndex": 59,
         "Rules": [
           {
             "Category": "Data",
@@ -7054,7 +7054,7 @@
         "Name": "txtStartDateYearInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 491,
+        "PublishOrderIndex": 60,
         "Rules": [
           {
             "Category": "Data",
@@ -7510,7 +7510,7 @@
         "Name": "imgStartDateDatePickerIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 492,
+        "PublishOrderIndex": 61,
         "Rules": [
           {
             "Category": "Data",
@@ -7999,7 +7999,7 @@
         "Name": "lblEndDateHintTextDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 493,
+        "PublishOrderIndex": 62,
         "Rules": [
           {
             "Category": "Data",
@@ -8593,7 +8593,7 @@
         "Name": "txtEndDateDayInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 494,
+        "PublishOrderIndex": 63,
         "Rules": [
           {
             "Category": "Data",
@@ -9058,7 +9058,7 @@
         "Name": "lblEndDateSepratorDayMonthDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 496,
+        "PublishOrderIndex": 64,
         "Rules": [
           {
             "Category": "Data",
@@ -9640,7 +9640,7 @@
         "Name": "txtEndDateMonthInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 497,
+        "PublishOrderIndex": 65,
         "Rules": [
           {
             "Category": "Data",
@@ -10105,7 +10105,7 @@
         "Name": "lblEndDateSepratorMonthYearDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 498,
+        "PublishOrderIndex": 66,
         "Rules": [
           {
             "Category": "Data",
@@ -10687,7 +10687,7 @@
         "Name": "txtEndDateYearInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 499,
+        "PublishOrderIndex": 67,
         "Rules": [
           {
             "Category": "Data",
@@ -11143,7 +11143,7 @@
         "Name": "imgEndDateDatePickerIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 500,
+        "PublishOrderIndex": 68,
         "Rules": [
           {
             "Category": "Data",
@@ -11488,7 +11488,7 @@
         "Name": "imgStartDateCloseIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 501,
+        "PublishOrderIndex": 69,
         "Rules": [
           {
             "Category": "Data",
@@ -11802,7 +11802,7 @@
         "Name": "icnStartDateCloseTransparentDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 502,
+        "PublishOrderIndex": 70,
         "Rules": [
           {
             "Category": "Design",
@@ -12129,7 +12129,7 @@
         "Name": "imgEndDateCloseIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 504,
+        "PublishOrderIndex": 71,
         "Rules": [
           {
             "Category": "Data",
@@ -12443,7 +12443,7 @@
         "Name": "icnEndDateCloseTransparentDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 505,
+        "PublishOrderIndex": 72,
         "Rules": [
           {
             "Category": "Design",
@@ -12720,7 +12720,7 @@
         "Name": "imgTriangleErrorIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 507,
+        "PublishOrderIndex": 73,
         "Rules": [
           {
             "Category": "Data",
@@ -13156,7 +13156,7 @@
         "Name": "txtWhiteCardDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 509,
+        "PublishOrderIndex": 74,
         "Rules": [
           {
             "Category": "Data",
@@ -13765,7 +13765,7 @@
         "Name": "lblMonthNameDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 510,
+        "PublishOrderIndex": 75,
         "Rules": [
           {
             "Category": "Data",
@@ -14177,7 +14177,7 @@
         "Name": "imgBackIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 511,
+        "PublishOrderIndex": 76,
         "Rules": [
           {
             "Category": "Data",
@@ -14489,7 +14489,7 @@
         "Name": "icnBackTransparentDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 512,
+        "PublishOrderIndex": 77,
         "Rules": [
           {
             "Category": "Design",
@@ -14811,7 +14811,7 @@
         "Name": "imgNextIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 514,
+        "PublishOrderIndex": 78,
         "Rules": [
           {
             "Category": "Data",
@@ -15123,7 +15123,7 @@
         "Name": "icnNextTransparentDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 515,
+        "PublishOrderIndex": 79,
         "Rules": [
           {
             "Category": "Design",
@@ -15326,7 +15326,7 @@
             "Name": "galleryTemplate1_4",
             "Parent": "galWeekdaysDR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 518,
+            "PublishOrderIndex": 91,
             "Rules": [
               {
                 "Category": "Design",
@@ -15635,7 +15635,7 @@
             "Name": "lblWeekdayDR",
             "Parent": "galWeekdaysDR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 519,
+            "PublishOrderIndex": 92,
             "Rules": [
               {
                 "Category": "Data",
@@ -16010,7 +16010,7 @@
         "Name": "galWeekdaysDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 517,
+        "PublishOrderIndex": 80,
         "Rules": [
           {
             "Category": "Data",
@@ -16209,7 +16209,7 @@
             "Name": "galleryTemplate2_1",
             "Parent": "galMonthDaysDR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 522,
+            "PublishOrderIndex": 93,
             "Rules": [
               {
                 "Category": "Design",
@@ -16539,7 +16539,7 @@
             "Name": "lblDaysDR",
             "Parent": "galMonthDaysDR",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 523,
+            "PublishOrderIndex": 94,
             "Rules": [
               {
                 "Category": "Data",
@@ -16935,7 +16935,7 @@
         "Name": "galMonthDaysDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 521,
+        "PublishOrderIndex": 81,
         "Rules": [
           {
             "Category": "Data",
@@ -17137,7 +17137,7 @@
         "Name": "grpBackButtonDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 513,
+        "PublishOrderIndex": 82,
         "Rules": [
           {
             "Category": "Design",
@@ -17213,7 +17213,7 @@
         "Name": "grpNextButtonDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 516,
+        "PublishOrderIndex": 83,
         "Rules": [
           {
             "Category": "Design",
@@ -17292,7 +17292,7 @@
         "Name": "grpStartDateManualDateInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 487,
+        "PublishOrderIndex": 84,
         "Rules": [
           {
             "Category": "Design",
@@ -17368,7 +17368,7 @@
         "Name": "grpStartDateCloseIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 503,
+        "PublishOrderIndex": 85,
         "Rules": [
           {
             "Category": "Design",
@@ -17444,7 +17444,7 @@
         "Name": "grpErrorIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 478,
+        "PublishOrderIndex": 86,
         "Rules": [
           {
             "Category": "Design",
@@ -17520,7 +17520,7 @@
         "Name": "grpErrorMessageDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 508,
+        "PublishOrderIndex": 87,
         "Rules": [
           {
             "Category": "Design",
@@ -17596,7 +17596,7 @@
         "Name": "grpCalendarDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 520,
+        "PublishOrderIndex": 88,
         "Rules": [
           {
             "Category": "Design",
@@ -17675,7 +17675,7 @@
         "Name": "grpEndDateManualDateInputDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 495,
+        "PublishOrderIndex": 89,
         "Rules": [
           {
             "Category": "Design",
@@ -17751,7 +17751,7 @@
         "Name": "grpEndDateCloseIconDR",
         "Parent": "DateRangeComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 506,
+        "PublishOrderIndex": 90,
         "Rules": [
           {
             "Category": "Design",

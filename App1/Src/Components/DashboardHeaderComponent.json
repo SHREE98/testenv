@@ -52,7 +52,7 @@
         "Name": "rctResetDH",
         "Parent": "DashboardHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 631,
+        "PublishOrderIndex": 2,
         "Rules": [
           {
             "Category": "Design",
@@ -405,7 +405,7 @@
         "Name": "imgLoginUserDH",
         "Parent": "DashboardHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 632,
+        "PublishOrderIndex": 3,
         "Rules": [
           {
             "Category": "Data",
@@ -894,7 +894,7 @@
         "Name": "lblUsernameDH",
         "Parent": "DashboardHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 633,
+        "PublishOrderIndex": 4,
         "Rules": [
           {
             "Category": "Data",
@@ -1449,7 +1449,7 @@
         "Name": "lblAppNameDH",
         "Parent": "DashboardHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 634,
+        "PublishOrderIndex": 5,
         "Rules": [
           {
             "Category": "Data",
@@ -1845,7 +1845,7 @@
         "Name": "MoreVertIconDH",
         "Parent": "DashboardHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 635,
+        "PublishOrderIndex": 6,
         "Rules": [
           {
             "Category": "Data",
@@ -2197,7 +2197,7 @@
         "Name": "icnMoreVertTransparentIconDH",
         "Parent": "DashboardHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 636,
+        "PublishOrderIndex": 7,
         "Rules": [
           {
             "Category": "Design",

@@ -66,7 +66,7 @@
         "Name": "rctResetNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 581,
+        "PublishOrderIndex": 162,
         "Rules": [
           {
             "Category": "Design",
@@ -273,7 +273,7 @@
         "Name": "tmrSetFocusNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 582,
+        "PublishOrderIndex": 163,
         "Rules": [
           {
             "Category": "Data",
@@ -817,7 +817,7 @@
         "Name": "lblTitleTextNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 583,
+        "PublishOrderIndex": 164,
         "Rules": [
           {
             "Category": "Data",
@@ -1381,7 +1381,7 @@
         "Name": "txtErrorMessageNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 584,
+        "PublishOrderIndex": 165,
         "Rules": [
           {
             "Category": "Data",
@@ -1983,7 +1983,7 @@
         "Name": "lblCharacterCountNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 585,
+        "PublishOrderIndex": 166,
         "Rules": [
           {
             "Category": "Data",
@@ -2497,7 +2497,7 @@
         "Name": "imgErrorIconNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 586,
+        "PublishOrderIndex": 167,
         "Rules": [
           {
             "Category": "Data",
@@ -3129,7 +3129,7 @@
         "Name": "txtTextInputNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 587,
+        "PublishOrderIndex": 168,
         "Rules": [
           {
             "Category": "Data",
@@ -3690,7 +3690,7 @@
         "Name": "txtHideScrollNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 588,
+        "PublishOrderIndex": 169,
         "Rules": [
           {
             "Category": "Data",
@@ -4212,7 +4212,7 @@
         "Name": "imgCloseIconNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 589,
+        "PublishOrderIndex": 170,
         "Rules": [
           {
             "Category": "Data",
@@ -4614,7 +4614,7 @@
         "Name": "imgTriangleArrowIconNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 590,
+        "PublishOrderIndex": 171,
         "Rules": [
           {
             "Category": "Data",
@@ -5062,7 +5062,7 @@
         "Name": "imgExpandIconNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 592,
+        "PublishOrderIndex": 172,
         "Rules": [
           {
             "Category": "Data",
@@ -5324,7 +5324,7 @@
         "Name": "grpErrorMessagePopupNC",
         "Parent": "NotesComponentwithExpandButton",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 591,
+        "PublishOrderIndex": 173,
         "Rules": [
           {
             "Category": "Design",

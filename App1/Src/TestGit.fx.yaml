@@ -38,3 +38,9 @@ TestGit As screen:
         Y: =449
         ZIndex: =4
 
+    DashboardHeaderComponent_3 As DashboardHeaderComponent:
+        Fill: =DashboardHeaderComponent_3.StylingProperty.Fill
+        Height: =DashboardHeaderComponent_3.StylingProperty.Height
+        Width: =DashboardHeaderComponent_3.StylingProperty.Width
+        ZIndex: =5
+

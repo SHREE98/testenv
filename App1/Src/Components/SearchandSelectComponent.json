@@ -80,7 +80,7 @@
         "Name": "rctResetSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 637,
+        "PublishOrderIndex": 217,
         "Rules": [
           {
             "Category": "Design",
@@ -287,7 +287,7 @@
         "Name": "tmrSetFocusSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 638,
+        "PublishOrderIndex": 218,
         "Rules": [
           {
             "Category": "Data",
@@ -839,7 +839,7 @@
         "Name": "lblTitleTextSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 639,
+        "PublishOrderIndex": 219,
         "Rules": [
           {
             "Category": "Data",
@@ -1392,7 +1392,7 @@
         "Name": "btnFocusSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 640,
+        "PublishOrderIndex": 220,
         "Rules": [
           {
             "Category": "Data",
@@ -2046,7 +2046,7 @@
         "Name": "txtTextInputSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 641,
+        "PublishOrderIndex": 221,
         "Rules": [
           {
             "Category": "Data",
@@ -2527,7 +2527,7 @@
         "Name": "imgSearchSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 642,
+        "PublishOrderIndex": 222,
         "Rules": [
           {
             "Category": "Data",
@@ -2983,7 +2983,7 @@
         "Name": "imgCloseSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 643,
+        "PublishOrderIndex": 223,
         "Rules": [
           {
             "Category": "Data",
@@ -3571,7 +3571,7 @@
         "Name": "btnNavigationBackgoundSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 644,
+        "PublishOrderIndex": 224,
         "Rules": [
           {
             "Category": "Data",
@@ -4099,7 +4099,7 @@
         "Name": "txtItemsBorderSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 645,
+        "PublishOrderIndex": 225,
         "Rules": [
           {
             "Category": "Data",
@@ -4405,7 +4405,7 @@
             "Name": "galleryTemplate2_5",
             "Parent": "galComboboxVauesSS",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 647,
+            "PublishOrderIndex": 233,
             "Rules": [
               {
                 "Category": "Design",
@@ -4763,7 +4763,7 @@
             "Name": "btnDropdownValueGalComboboxVauesSS",
             "Parent": "galComboboxVauesSS",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 648,
+            "PublishOrderIndex": 234,
             "Rules": [
               {
                 "Category": "Data",
@@ -5327,7 +5327,7 @@
             "Name": "chkCheckBoxGalComboboxVauesSS",
             "Parent": "galComboboxVauesSS",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 649,
+            "PublishOrderIndex": 235,
             "Rules": [
               {
                 "Category": "Data",
@@ -5871,7 +5871,7 @@
             "Name": "btnCheckBoxBackgroundGalComboboxVauesSS",
             "Parent": "galComboboxVauesSS",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 650,
+            "PublishOrderIndex": 236,
             "Rules": [
               {
                 "Category": "Data",
@@ -6229,7 +6229,7 @@
             "Name": "rctSepratorGalComboboxVauesSS",
             "Parent": "galComboboxVauesSS",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 651,
+            "PublishOrderIndex": 237,
             "Rules": [
               {
                 "Category": "Design",
@@ -6498,7 +6498,7 @@
         "Name": "galComboboxVauesSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 646,
+        "PublishOrderIndex": 226,
         "Rules": [
           {
             "Category": "Data",
@@ -7032,7 +7032,7 @@
         "Name": "btnPreviousSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 652,
+        "PublishOrderIndex": 227,
         "Rules": [
           {
             "Category": "Data",
@@ -7650,7 +7650,7 @@
         "Name": "btnNextSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 653,
+        "PublishOrderIndex": 228,
         "Rules": [
           {
             "Category": "Data",
@@ -8075,7 +8075,7 @@
         "Name": "imgPrevIconSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 654,
+        "PublishOrderIndex": 229,
         "Rules": [
           {
             "Category": "Data",
@@ -8549,7 +8549,7 @@
         "Name": "btnPrevIconHoverSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 655,
+        "PublishOrderIndex": 230,
         "Rules": [
           {
             "Category": "Data",
@@ -8968,7 +8968,7 @@
         "Name": "imgNextIconSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 656,
+        "PublishOrderIndex": 231,
         "Rules": [
           {
             "Category": "Data",
@@ -9442,7 +9442,7 @@
         "Name": "btnNextIconHoverSS",
         "Parent": "SearchandSelectComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 657,
+        "PublishOrderIndex": 232,
         "Rules": [
           {
             "Category": "Data",
