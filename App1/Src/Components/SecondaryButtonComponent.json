@@ -135,7 +135,7 @@
         "Name": "tmrRippleSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 239,
+        "PublishOrderIndex": 658,
         "Rules": [
           {
             "Category": "Data",
@@ -702,7 +702,7 @@
         "Name": "btnMainSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 240,
+        "PublishOrderIndex": 659,
         "Rules": [
           {
             "Category": "Data",
@@ -1202,7 +1202,7 @@
         "Name": "lblPressedLabelSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 241,
+        "PublishOrderIndex": 660,
         "Rules": [
           {
             "Category": "Data",
@@ -1739,7 +1739,7 @@
         "Name": "btnRippleEffectSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 242,
+        "PublishOrderIndex": 661,
         "Rules": [
           {
             "Category": "Data",
@@ -2139,7 +2139,7 @@
         "Name": "imgMainSB",
         "Parent": "SecondaryButtonComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 243,
+        "PublishOrderIndex": 662,
         "Rules": [
           {
             "Category": "Data",
