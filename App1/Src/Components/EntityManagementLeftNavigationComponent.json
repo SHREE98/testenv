@@ -1139,7 +1139,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638114270588092917",
+    "LastModifiedTimestamp": "638113543480060001",
     "Name": "EntityManagementLeftNavigationComponent",
     "Rules": [
       {
@@ -1259,7 +1259,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638114270588092917",
+  "LastModifiedTimestamp": "638113543480060001",
   "Name": "4fde0cdf25c54523848a4a61562d7b35",
   "OverridableProperties": {},
   "Version": "638049594595243018"

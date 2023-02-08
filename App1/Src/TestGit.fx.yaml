@@ -1,0 +1,40 @@
+TestGit As screen:
+
+    DatePickerComponent_5 As DatePickerComponent:
+        Height: |-
+            =If(
+                DatePickerComponent_5.Opened,
+                If(
+                    DatePickerComponent_5.ErrorOpened,
+                    DatePickerComponent_5.StylingProperty.DatePicker.Height + 40,
+                    DatePickerComponent_5.StylingProperty.DatePicker.Height
+                ),
+                If(
+                    DatePickerComponent_5.ErrorOpened,
+                    102,
+                    62
+                )
+            )
+        LabelText: ="Title1"
+        Width: =DatePickerComponent_5.StylingProperty.DatePicker.Width
+        Y: =112
+
+    DateRangeComponent_4 As DateRangeComponent:
+        Height: =If(DateRangeComponent_4.Opened,If(DateRangeComponent_4.ErrorOpened,DateRangeComponent_4.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_4.StylingProperty.DatePicker.Height),If(DateRangeComponent_4.ErrorOpened,102,62))
+        Width: =DateRangeComponent_4.StylingProperty.DatePicker.Width
+        Y: =252
+        ZIndex: =2
+
+    EmptyStateComponent_4 As EmptyStateComponent:
+        Height: =EmptyStateComponent_4.StylingProperty.ErrorDialogueBoxHeight
+        Width: =EmptyStateComponent_4.StylingProperty.ErrorDialogueBoxWidth
+        X: =996
+        Y: =112
+        ZIndex: =3
+
+    DateRangeComponent_5 As DateRangeComponent:
+        Height: =If(DateRangeComponent_5.Opened,If(DateRangeComponent_5.ErrorOpened,DateRangeComponent_5.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_5.StylingProperty.DatePicker.Height),If(DateRangeComponent_5.ErrorOpened,102,62))
+        Width: =DateRangeComponent_5.StylingProperty.DatePicker.Width
+        Y: =449
+        ZIndex: =4
+
