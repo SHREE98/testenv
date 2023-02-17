@@ -9825,7 +9825,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638114279743355447",
+    "LastModifiedTimestamp": "638122314273293100",
     "Name": "SearchandSelectComponent",
     "Rules": [
       {
@@ -10149,7 +10149,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638114279743355447",
+  "LastModifiedTimestamp": "638122314273293100",
   "Name": "99ca64f297a545508d746ab73808a954",
   "OverridableProperties": {},
   "TemplateOriginalName": "cde9a4a9c82a49f39abbdb14a9753e98",
