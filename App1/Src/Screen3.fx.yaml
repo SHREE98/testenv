@@ -1,7 +1,0 @@
-Screen3 As screen:
-
-    SearchandSelectComponent_2 As SearchandSelectComponent:
-        X: =613
-        Y: =70
-        ZIndex: =4
-
