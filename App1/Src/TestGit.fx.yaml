@@ -44,3 +44,7 @@ TestGit As screen:
         Width: =DashboardHeaderComponent_3.StylingProperty.Width
         ZIndex: =5
 
+    DropDownComponent_1 As DropDownComponent:
+        Y: =597
+        ZIndex: =6
+
