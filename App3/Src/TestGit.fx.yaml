@@ -48,6 +48,3 @@ TestGit As screen:
         Y: =597
         ZIndex: =6
 
-    ExpandedNotesPopUpComponent_1 As ExpandedNotesPopUpComponent:
-        ZIndex: =7
-
