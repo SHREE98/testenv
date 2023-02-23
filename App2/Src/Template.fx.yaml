@@ -1,4 +1,4 @@
-TemplateScreen_1 As screen:
+Template As screen:
 
     txtPrimaryInputSizeDefault_1 As label:
         Align: =gblControlStyles.ControlLabel.Align

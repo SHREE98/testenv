@@ -8863,19 +8863,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_4.AccessibleLabel"
+                  "fullyQualifiedName": "Template.TextInput1_4.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_4.AccessibleLabel",
+                  "fullyQualifiedName": "Template.TextInput1_4.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "TemplateScreen_1",
-                "type": "TemplateScreen_1.TextInput1_4"
+                "module": "Template",
+                "type": "Template.TextInput1_4"
               }
             }
           ],
@@ -8893,19 +8893,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_4.FocusedBorderThickness"
+                  "fullyQualifiedName": "Template.TextInput1_4.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_4.FocusedBorderThickness",
+                  "fullyQualifiedName": "Template.TextInput1_4.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "TemplateScreen_1",
-                "type": "TemplateScreen_1.TextInput1_4"
+                "module": "Template",
+                "type": "Template.TextInput1_4"
               }
             }
           ],
@@ -8923,19 +8923,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_5.AccessibleLabel"
+                  "fullyQualifiedName": "Template.TextInput1_5.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_5.AccessibleLabel",
+                  "fullyQualifiedName": "Template.TextInput1_5.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "TemplateScreen_1",
-                "type": "TemplateScreen_1.TextInput1_5"
+                "module": "Template",
+                "type": "Template.TextInput1_5"
               }
             }
           ],
@@ -8953,19 +8953,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_5.FocusedBorderThickness"
+                  "fullyQualifiedName": "Template.TextInput1_5.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_5.FocusedBorderThickness",
+                  "fullyQualifiedName": "Template.TextInput1_5.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "TemplateScreen_1",
-                "type": "TemplateScreen_1.TextInput1_5"
+                "module": "Template",
+                "type": "Template.TextInput1_5"
               }
             }
           ],
@@ -8983,19 +8983,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_6.AccessibleLabel"
+                  "fullyQualifiedName": "Template.TextInput1_6.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_6.AccessibleLabel",
+                  "fullyQualifiedName": "Template.TextInput1_6.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "TemplateScreen_1",
-                "type": "TemplateScreen_1.TextInput1_6"
+                "module": "Template",
+                "type": "Template.TextInput1_6"
               }
             }
           ],
@@ -9013,19 +9013,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_6.FocusedBorderThickness"
+                  "fullyQualifiedName": "Template.TextInput1_6.FocusedBorderThickness"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "TemplateScreen_1.TextInput1_6.FocusedBorderThickness",
+                  "fullyQualifiedName": "Template.TextInput1_6.FocusedBorderThickness",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "FocusedBorderThickness",
-                "module": "TemplateScreen_1",
-                "type": "TemplateScreen_1.TextInput1_6"
+                "module": "Template",
+                "type": "Template.TextInput1_6"
               }
             }
           ],
