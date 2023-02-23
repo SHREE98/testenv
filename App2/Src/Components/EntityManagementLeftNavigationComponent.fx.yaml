@@ -1,0 +1,94 @@
+EntityManagementLeftNavigationComponent As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =860
+    ID: =1
+    NavigationItems: =colLeftNavigationItems
+    ScaleFactor: =1
+    StylingProperty: =gblControlStyles.LeftNavigationEntityMangement
+    Width: =324
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    galLeftNavigationElementsLNC As gallery.galleryVertical:
+        Height: =Parent.Height
+        Items: =EntityManagementLeftNavigationComponent.NavigationItems
+        Layout: =Layout.Vertical
+        TemplatePadding: =lblTitleLabelLeftNavigationLNC.BorderThickness
+        TemplateSize: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Height * EntityManagementLeftNavigationComponent.ScaleFactor
+        Width: =Parent.Width
+        ZIndex: =1
+
+        rctSepratorLeftNavigationLNC As rectangle:
+            Fill: =EntityManagementLeftNavigationComponent.StylingProperty.Separator.Fill
+            Height: =lblTitleLabelLeftNavigationLNC.BorderThickness
+            Width: =Parent.Width
+            Y: =lblTitleLabelLeftNavigationLNC.Height
+            ZIndex: =1
+
+        lblTitleLabelLeftNavigationLNC As label:
+            Align: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Align
+            AutoHeight: =EntityManagementLeftNavigationComponent.StylingProperty.Label.AutoHeight
+            BorderColor: =EntityManagementLeftNavigationComponent.StylingProperty.Label.BorderColor
+            BorderStyle: =EntityManagementLeftNavigationComponent.StylingProperty.Label.BorderStyle
+            BorderThickness: =EntityManagementLeftNavigationComponent.StylingProperty.Label.BorderThickness * EntityManagementLeftNavigationComponent.ScaleFactor
+            Color: |-
+                =If(
+                    ThisItem.ID = EntityManagementLeftNavigationComponent.ID,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedColor,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.Color
+                )
+            DisabledBorderColor: =EntityManagementLeftNavigationComponent.StylingProperty.Label.DisabledBorderColor
+            DisabledColor: =EntityManagementLeftNavigationComponent.StylingProperty.Label.DisabledColor
+            DisabledFill: =EntityManagementLeftNavigationComponent.StylingProperty.Label.DisabledFill
+            DisplayMode: =EntityManagementLeftNavigationComponent.StylingProperty.Label.DisplayMode
+            Fill: |-
+                =If(
+                    ThisItem.ID = EntityManagementLeftNavigationComponent.ID,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedFill,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.Fill
+                )
+            FocusedBorderColor: |-
+                =If(
+                    ThisItem.ID = EntityManagementLeftNavigationComponent.ID,
+                    Self.Color,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.FocusedBorderColor
+                )
+            FocusedBorderThickness: =EntityManagementLeftNavigationComponent.StylingProperty.Label.FocusedBorderThickness * EntityManagementLeftNavigationComponent.ScaleFactor
+            Font: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Font 
+            FontWeight: =EntityManagementLeftNavigationComponent.StylingProperty.Label.FontWeight
+            Height: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Height * EntityManagementLeftNavigationComponent.ScaleFactor
+            HoverBorderColor: =EntityManagementLeftNavigationComponent.StylingProperty.Label.HoverBorderColor
+            HoverColor: |-
+                =If(
+                    ThisItem.ID = EntityManagementLeftNavigationComponent.ID,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedColor,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.HoverColor
+                )
+            HoverFill: |-
+                =If(
+                    ThisItem.ID = EntityManagementLeftNavigationComponent.ID,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedFill,
+                    EntityManagementLeftNavigationComponent.StylingProperty.Label.HoverFill
+                )
+            Italic: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Italic
+            LineHeight: =EntityManagementLeftNavigationComponent.StylingProperty.Label.LineHeight
+            OnSelect: =Navigate(ThisItem.Screen)
+            Overflow: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Overflow
+            PaddingBottom: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PaddingBottom
+            PaddingLeft: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PaddingLeft * EntityManagementLeftNavigationComponent.ScaleFactor
+            PaddingRight: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PaddingRight
+            PaddingTop: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PaddingTop
+            PressedBorderColor: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedBorderColor
+            PressedColor: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedColor
+            PressedFill: =EntityManagementLeftNavigationComponent.StylingProperty.Label.PressedFill
+            Size: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Size * EntityManagementLeftNavigationComponent.ScaleFactor
+            Strikethrough: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Strikethrough
+            TabIndex: =0
+            Text: =ThisItem.Title
+            Underline: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Underline
+            VerticalAlign: =EntityManagementLeftNavigationComponent.StylingProperty.Label.VerticalAlign
+            Width: =Parent.TemplateWidth
+            Wrap: =EntityManagementLeftNavigationComponent.StylingProperty.Label.Wrap
+            ZIndex: =2
+

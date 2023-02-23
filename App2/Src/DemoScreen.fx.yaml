@@ -1,0 +1,309 @@
+DemoScreen As screen:
+
+    DashboardHeaderComponent_1 As DashboardHeaderComponent:
+        Fill: =DashboardHeaderComponent_1.StylingProperty.Fill
+        Height: =DashboardHeaderComponent_1.StylingProperty.Height
+        Width: =DashboardHeaderComponent_1.StylingProperty.Width
+        ZIndex: =1
+
+    Container1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height - Self.Y
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        Y: =DashboardHeaderComponent_1.Height
+        ZIndex: =2
+
+        Nav As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =gblLayout.LeftNavigationWidth
+            ZIndex: =1
+
+            LogoComponent_1 As LogoComponent:
+                Height: =LogoComponent_1.StylingProperty.Height * lblScaleFactorIS_1
+                Width: =LogoComponent_1.StylingProperty.Width * lblScaleFactorIS_1
+                X: =84 * lblScaleFactorIS_1
+                Y: =18 * lblScaleFactorIS_1
+                ZIndex: =1
+
+        main2 As groupContainer.manualLayoutContainer:
+            Fill: =gblColors.GrayLight
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            X: =40
+            Y: =40
+            ZIndex: =2
+
+            btnInsuredViewBackgroundIS_1 As button:
+                BorderColor: =Transparent
+                BorderThickness: =0
+                Color: =Transparent
+                DisabledBorderColor: =Transparent
+                DisabledColor: =Self.Color
+                DisabledFill: =Self.Fill
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =Transparent
+                FocusedBorderThickness: =0
+                Height: =GridRows10IVIS.Y + GridRows10IVIS.Height
+                HoverBorderColor: =Transparent
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Transparent
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Text: ="Button"
+                Width: =Parent.Width - (Self.X * 2)
+                X: =gblLayout.Controlspacer * lblScaleFactorIS_1
+                Y: =gblLayout.Controlspacer * lblScaleFactorIS_1
+                ZIndex: =1
+
+            grpGridColumnsIVIS_1 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =14
+
+                GridColumn1IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =btnInsuredViewBackgroundIS.X + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =2
+
+                GridColumn2IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn1IVIS_1.X + GridColumn1IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =3
+
+                GridColumn3IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn2IVIS_1.X + GridColumn2IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =4
+
+                GridColumn4IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn3IVIS_1.X + GridColumn3IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =5
+
+                GridColumn5IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn4IVIS_1.X + GridColumn4IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =6
+
+                GridColumn6IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn5IVIS_1.X + GridColumn5IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =7
+
+                GridColumn7IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =8
+
+                GridColumn8IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn7IVIS_1.X + GridColumn7IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =9
+
+                GridColumn9IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn8IVIS_1.X + GridColumn8IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =10
+
+                GridColumn10IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn9IVIS_1.X + GridColumn9IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =11
+
+                GridColumn11IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn10IVIS_1.X + GridColumn10IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =12
+
+                GridColumn12IVIS_1 As rectangle:
+                    Height: =btnInsuredViewBackgroundIS.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS) * 15)) / 12
+                    X: =GridColumn11IVIS_1.X + GridColumn11IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    Y: =btnInsuredViewBackgroundIS.Y
+                    ZIndex: =13
+
+            TextBoxComponent_1 As TextBoxComponent:
+                Width: =GridColumn3IVIS_1.X + GridColumn3IVIS_1.Width - Self.X
+                X: =GridColumn1IVIS_1.X
+                Y: =Self.CustomY
+                YAxis: =GridRows2IVIS_1.Y
+                ZIndex: =25
+
+            grpGridRowsIVIS_1 As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =25
+
+                GridRows1IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =btnInsuredViewBackgroundIS.Y + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =15
+
+                GridRows2IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows1IVIS_1.Y + GridRows1IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =16
+
+                GridRows3IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows2IVIS_1.Y + GridRows2IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =17
+
+                GridRows4IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows3IVIS_1.Y + GridRows3IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =18
+
+                GridRows5IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows4IVIS_1.Y + GridRows4IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =19
+
+                GridRows6IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows5IVIS_1.Y + GridRows5IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =20
+
+                GridRows7IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows6IVIS_1.Y + GridRows6IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =21
+
+                GridRows8IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows7IVIS_1.Y + GridRows7IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =22
+
+                GridRows9IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows8IVIS_1.Y + GridRows8IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =23
+
+                GridRows10IVIS_1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorIS
+                    Visible: =false
+                    Width: =btnInsuredViewBackgroundIS.Width
+                    X: =btnInsuredViewBackgroundIS.X
+                    Y: =GridRows9IVIS_1.Y + GridRows9IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS)
+                    ZIndex: =24
+
+            ToggleComponent_1 As ToggleComponent:
+                X: =404
+                Y: =120
+                ZIndex: =26
+
+            ToggleComponent_3 As ToggleComponent:
+                X: =404
+                Y: =378
+                ZIndex: =27
+
+            Label3 As label:
+                Text: ="Text"
+                X: =402
+                Y: =240
+                ZIndex: =28
+
+            Button2 As button:
+                Text: ="Button"
+                X: =60
+                Y: =60
+                ZIndex: =29
+
+    lblScaleFactorIS_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =36
+        Text: |-
+            =With(
+                {ScaleFactor: DemoScreen.Height / 910},
+                If(
+                    ScaleFactor <= 0,
+                    1,
+                    ScaleFactor
+                )
+            )
+        Width: =196
+        ZIndex: =3
+
+    TextInput3 As text:
+        Default: ="Text input"
+        X: =408
+        Y: =488
+        ZIndex: =4
+

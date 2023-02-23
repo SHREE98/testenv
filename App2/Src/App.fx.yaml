@@ -1,0 +1,2904 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =ClearCollect(
+            colNavigationBar,
+            Table(
+                {
+                    Title: "Create & View work request",
+                    SubItemsContains: true,
+                    SubItems: Table(
+                        {
+                            Title: "Insured Details",
+                            ID: 1,
+                            CompletePercent: 50,
+                            CurrentScreen: true,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Policy Details",
+                            ID: 2,
+                            CompletePercent: 25,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Location Details",
+                            ID: 3,
+                            CompletePercent: 75,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Peril Details",
+                            ID: 4,
+                            CompletePercent: 100,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Building Details",
+                            ID: 5,
+                            CompletePercent: 0,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Sum Insured Values",
+                            ID: 6,
+                            CompletePercent: 0,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Survey Instructions",
+                            ID: 7,
+                            CompletePercent: 0,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        },
+                        {
+                            Title: "Billing Details",
+                            ID: 8,
+                            CompletePercent: 0,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        }
+                    ),
+                    Opened: true
+                },
+                {
+                    Title: "Manage appointment",
+                    ScreenName: InsuredScreen
+                },
+                {
+                    Title: "Manage welcome email",
+                    ScreenName: InsuredScreen
+                },
+                {
+                    Title: "Communications log",
+                    ScreenName: InsuredScreen
+                },
+                {
+                    Title: "Manage work request",
+                    ID: 5,
+                    SubItemsContains: true,
+                    SubItems: Table(
+                        {
+                            Title: "Manage Work Request Child",
+                            ID: 1,
+                            CompletePercent: 0,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        }
+                    ),
+                    Opened: false
+                },
+                {
+                    Title: "Manage QA process",
+                    SubItemsContains: true,
+                    Opened: false,
+                    SubItems: Table(
+                        {
+                            Title: "Manage QA Process Child",
+                            ID: 1,
+                            CompletePercent: 0,
+                            CurrentScreen: false,
+                            ScreenName: InsuredScreen
+                        }
+                    )
+                }
+            )
+        );
+        ClearCollect(
+            colLeftNavigationItems,
+            Table(
+                {
+                    ID: 1,
+                    Title: "Insured details",
+                    Screen: InsuredScreen
+                },
+                {
+                    ID: 2,
+                    Title: "Policy details",
+                    Screen: InsuredScreen
+                },
+                {
+                    ID: 3,
+                    Title: "Location details",
+                    Screen: InsuredScreen
+                },
+                {
+                    ID: 4,
+                    Title: "Documents",
+                    Screen: InsuredScreen
+                }
+            )
+        );
+        Set(
+            gblState,
+            {
+                Enabled: "Enabled",
+                Disabled: "Disabled",
+                View: "View",
+                Error: "Error",
+                Calculated: "Calculated"
+            }
+        );
+        Set(
+            gblMasking,
+            {
+                Currency: {
+                    Masking: "Currency",
+                    Format: "",
+                    FormatMultiple: Table(
+                        {
+                            Prefix: "",
+                            Format: ""
+                        }
+                    )
+                },
+                PhoneNumber: {
+                    Masking: "PhoneNumber",
+                    Format: "",
+                    FormatMultiple: Table(
+                        {
+                            Prefix: "01",
+                            Format: "##### ######"
+                        },
+                        {
+                            Prefix: "02",
+                            Format: "### #### ####"
+                        },
+                        {
+                            Prefix: "03",
+                            Format: "#### ### ####"
+                        },
+                        {
+                            Prefix: "07",
+                            Format: "##### ######"
+                        },
+                        {
+                            Prefix: "08",
+                            Format: "#### ### ####"
+                        },
+                        {
+                            Prefix: "",
+                            Format: "##### ######"
+                        }
+                    )
+                },
+                AplhaNumeric: {
+                    Masking: "AlphaNumeric",
+                    Format: "",
+                    FormatMultiple: Table(
+                        {
+                            Prefix: "",
+                            Format: ""
+                        }
+                    )
+                },
+                PostCode: {
+                    Masking: "PostCode",
+                    Format: "",
+                    FormatMultiple: Table(
+                        {
+                            Prefix: "",
+                            Format: ""
+                        }
+                    )
+                },
+                PolicyNumber: {
+                    Masking: "PolicyNumber",
+                    Format: "",
+                    FormatMultiple: Table(
+                        {
+                            Prefix: "",
+                            Format: ""
+                        }
+                    )
+                }
+            }
+        );
+        //Colors
+        Set(
+            gblColors,
+            {
+                Primary1: ColorValue("#19446a"),
+                Primary2: ColorValue("#476988"),
+                Primary3: ColorValue("#758fa6"),
+                Primary4: ColorValue("#a3b4c3"),
+                Primary5: ColorValue("#d1dae1"),
+                //Black shade added to primary1
+                Primary1b10: ColorValue("#173d5f"),
+                Primary1b20: ColorValue("#143655"),
+                Primary1b30: ColorValue("#12304a"),
+                Primary1b40: ColorValue("#0f2940"),
+                Primary1b50: ColorValue("#0d2235"),
+                Primary1b60: ColorValue("#0a1b2a"),
+                Primary1b70: ColorValue("#071420"),
+                Primary1b80: ColorValue("#050e15"),
+                Primary1b90: ColorValue("#02070b"),
+                Primary1b00: ColorValue("#000000"),
+                //White tint added to primary1
+                Primary1w10: ColorValue("#305779"),
+                Primary1w20: ColorValue("#476988"),
+                Primary1w30: ColorValue("#5e7c97"),
+                Primary1w40: ColorValue("#758fa6"),
+                Primary1w50: ColorValue("#8ca2b5"),
+                Primary1w60: ColorValue("#a3b4c3"),
+                Primary1w70: ColorValue("#bac7d2"),
+                Primary1w80: ColorValue("#d1dae1"),
+                Primary1w90: ColorValue("#e8ecf0"),
+                Primary1w00: ColorValue("#ffffff"),
+                //Alpha Added to Primary1
+                Primary1a1A: ColorValue("#19446A1A"),
+                Primary1a60: ColorValue("#19446A60"),
+                Primary1a1F: ColorValue("#19446A1F"),
+                Primary1a61: ColorValue("#19446A61"),
+                Primary1a61Light: ColorValue("#DDE3E9"),
+                //More Primary 1
+                Primary1Light: ColorValue("#8BA0B3"),
+                Primary1Dark: ColorValue("#0F2E49"),
+                //Accent Colors
+                Black: ColorValue("#000000"),
+                Blacka0B: ColorValue("#0000000B"),
+                BlackaA8: ColorValue("#000000A8"),
+                White: ColorValue("#FFFFFF"),
+                //Secondary Colors
+                Secondary1: ColorValue("#266d6f"),
+                Secondary2: ColorValue("#518a8c"),
+                Secondary3: ColorValue("#7da7a9"),
+                Secondary4: ColorValue("#a8c5c5"),
+                Secondary5: ColorValue("#e9f0f1"),
+                //Semantic Alerts
+                Error: ColorValue("#BA2D32"),
+                Warning: ColorValue("#ffa23a"),
+                Links: ColorValue("#3eaeff"),
+                Info: ColorValue("#3eaeff"),
+                Success: ColorValue("#38c976"),
+                //EIG Digital colours
+                Digital_Red: ColorValue("#fe5050"),
+                Digital_Orange: ColorValue("#ffa23a"),
+                Digital_Yellow: ColorValue("#f7d21e"),
+                Digital_Turquise: ColorValue("#4ec4c4"),
+                //Grey Colors
+                GrayDark: ColorValue("#666666"),
+                GrayMediumDark: ColorValue("#949494"),
+                GrayMediumDarkLight: ColorValue("#D6D6D6"),
+                GrayMedium: ColorValue("#b3b3b3"),
+                GrayMediumLight: ColorValue("#D1D1D1"),
+                GrayLight: ColorValue("#F0F0F0"),
+                GrayMidLight: ColorValue("#E0E0E0"),
+                GrayLightDark: ColorValue("#A5A6A8"),
+                GrayThinLight: ColorValue("#ECECF0"),
+                GrayLighter: ColorValue("#F7F7F7"),
+                //Alpha added to Grey
+                Gray1a99: ColorValue("#00000099"),
+                //Extras
+                Transparent: ColorValue("#00000000"),
+                NavyBlue: ColorValue("#19446ADE")
+            }
+        );
+        //FONTS & SIZES
+        Set(
+            gblFonts,
+            {
+                Heading: "Roboto",
+                Subtitle1: "Roboto",
+                Body: "Roboto",
+                Size: {
+                    Headline1: 22,
+                    Headline2: 20,
+                    Headline3: 19,
+                    Headline4: 18,
+                    Headline5: 16,
+                    Headline6: 15,
+                    Subtitle1: 8,
+                    Subtitle2: 10,
+                    Body1: 12,
+                    Body2: 14,
+                    Heading: 15,
+                    Tiny: 6
+                },
+                Weight: {
+                    Headline1: Normal,
+                    Headline2: Normal,
+                    Headline3: Normal,
+                    Headline4: Normal,
+                    Headline5: Normal,
+                    Headline6: Normal,
+                    Subtitle1: Normal,
+                    Subtitle2: Normal,
+                    Body1: Normal,
+                    Body2: Normal,
+                    Heading: Normal,
+                    Caption: Normal,
+                    Overline: Normal,
+                    Button: Normal,
+                    Bold: FontWeight.Bold
+                }
+            }
+        );
+        //Layout
+        Set(
+            gblLayout,
+            {
+                ScreenWidth: 1920,
+                ScreenHeight: 910,
+                LeftNavigationWidth: 324,
+                MainScreenWidth : 1596,
+                GutterWidth: 20,
+                GridRowHeight: 60,
+                GridColumnWidth: 108,
+                Controlspacer: 20,
+                BoarderSpacer: 24,
+                LabelSpacer: 8,
+                TitleLabel: {
+                    FontWeight: Normal,
+                    Color: gblColors.Primary1Dark,
+                    Font: gblDefaults.Font,
+                    Size: gblFonts.Size.Heading,
+                    Height: 20
+                },
+                Pagetitle: {
+                    FontWeight: Normal,
+                    Color: gblColors.Black,
+                    Size: gblFonts.Size.Headline5,
+                    Font: gblFonts.Heading,
+                    Y: 73,
+                    X: 48,
+                    Height: 22,
+                    VerigalAlign: Bottom,
+                    PaddingBottom: 0,
+                    PaddingLeft: 0,
+                    PaddingRight: 0,
+                    PaddingTop: 0
+                },
+                LargeBackGround: {
+                    Y: 24,
+                    X: 24,
+                    DisplayMode: View,
+                    Fill: gblColors.White
+                }
+            }
+        );
+        //DefaultProperty Settings for Controls
+        Set(
+            gblDefaults,
+            {
+                Align: Center,
+                AutoDisableOnSelect: false,
+                BorderColor: gblColors.GrayMediumLight,
+                ErrorBorderColor: gblColors.Error,
+                BorderStyle: BorderStyle.Solid,
+                BorderStyleNone: BorderStyle.None,
+                BorderThickness: 1,
+                CalendarHeaderFill: ColorFade(
+                    gblColors.Primary1,
+                    -30%
+                ),
+                CheckboxBorderColor: gblColors.GrayMediumLight,
+                CheckboxBackgroundFill: gblColors.White,
+                CheckedboxBackgroundFill: gblColors.White,
+                CheckboxSize: 30,
+                CheckmarkFill: gblColors.Primary1,
+                PressedCheckmarkFill: gblColors.Primary1,
+                ChevronBackground: gblColors.Primary1,
+                ChevronDisabledBackground: gblColors.GrayLight,
+                ChevronDisabledFill: gblColors.GrayMedium,
+                ChevronFill: gblColors.White,
+                ChevronHoverBackground: gblColors.GrayMediumLight,
+                ChevronHoverFill: gblColors.GrayDark,
+                Color: gblColors.Primary1,
+                ErrorColor: gblColors.Error,
+                ViewColor: gblColors.Primary1,
+                Fill: gblColors.White,
+                ViewFill: gblColors.GrayLighter,
+                FalseFill: gblColors.GrayMediumDark,
+                DisplayMode: Edit,
+                DisabledBorderColor: gblColors.GrayMediumLight,
+                DisabledColor: gblColors.GrayMediumLight,
+                DisabledFill: gblColors.GrayLight,
+                DisabledSelectionColor: gblColors.GrayMedium,
+                DisabledSelectionFill: gblColors.GrayMedium,
+                FocusedBorderColor: gblColors.Primary1,
+                FocusedBorderThickness: 2,
+                FalseHoverFill: gblColors.GrayDark,
+                Font: gblFonts.Body,
+                FontWeight: FontWeight.Normal,
+                Size: gblFonts.Size.Body1,
+                HandleActiveFill: gblColors.White,
+                HandleFill: gblColors.White,
+                HandleHoverFill: gblColors.White,
+                RailFill: gblColors.GrayMedium,
+                RailHoverFill: ColorFade(
+                    gblColors.Primary1,
+                    80%
+                ),
+                Height: 40,
+                HoverBorderColor: gblColors.Primary1,
+                HoverColor: gblColors.White,
+                HoverDateFill: gblColors.GrayMedium,
+                HoverFill: ColorFade(
+                    gblColors.Primary1,
+                    -10%
+                ),
+                IconBackground: gblColors.Primary1,
+                IconFill: gblColors.White,
+                MaxLength: Blank(),
+                LineHeight: 1.2,
+                TextMode: TextMode.SingleLine,
+                TextFormat: TextFormat.Text,
+                Italic: false,
+                Underline: false,
+                Strikethrough: false,
+                EnableSpellCheck: false,
+                Clear: false,
+                Overflow: Overflow.Hidden,
+                Wrap: true,
+                AutoHeight: false,
+                PaddingBottom: 5,
+                PaddingLeft: 5,
+                PaddingRight: 5,
+                PaddingTop: 5,
+                PressedBorderColor: gblColors.Primary1,
+                PressedColor: gblColors.White,
+                PressedFill: gblColors.Primary1w90,
+                RadioBorderColor: gblColors.Primary1,
+                RadioSelectionFill: gblColors.Primary1,
+                RadiusBottomLeft: 4,
+                RadiusBottomRight: 4,
+                RadiusTopLeft: 4,
+                RadiusTopRight: 4,
+                RatingFill: gblColors.Primary2,
+                SelectedDateFill: gblColors.Primary1,
+                SelectionFill: gblColors.Primary1,
+                TrueFill: gblColors.Primary1,
+                TrueHoverFill: ColorFade(
+                    gblColors.Primary1,
+                    -30%
+                ),
+                ValueFill: gblColors.GrayMediumDark,
+                ValueHoverFill: gblColors.Primary1,
+                VerticalAlign: VerticalAlign.Middle,
+                DropdownSelectionFill: ColorValue("#EBEFF2"),
+                Margin: 2,
+                RippleFill: gblColors.Primary1Dark,
+                SepratorFill: ColorValue("#E9E9E9"),
+                HeaderFill: ColorValue("#0F2E49"),
+                CharacterCount: 270,
+                NavigationComponentSelectedFill: ColorValue("#315779"),
+                NavigationComponentNotSelectedFill: ColorValue("#808080"),
+                SelectedCheckboxBorderColor: gblColors.Primary1,
+                ItemLabelHeight: 44,
+                ItemHoverFill: gblColors.Primary1w90,
+                ItemPressedFill: gblColors.Primary1Dark,
+                ItemSelectedFill: gblColors.Primary1Dark,
+                IconColor: Left(
+                    Substitute(
+                        JSON(
+                            gblColors.GrayDark,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        """",
+                        ""
+                    ),
+                    7
+                ),
+                IconFocusColor: Left(
+                    Substitute(
+                        JSON(
+                            gblColors.Primary1,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        """",
+                        ""
+                    ),
+                    7
+                ),
+                IconErrorColor: Left(
+                    Substitute(
+                        JSON(
+                            gblColors.Error,
+                            JSONFormat.IgnoreUnsupportedTypes
+                        ),
+                        """",
+                        ""
+                    ),
+                    7
+                ),
+                IconHeight: 24,
+                IconWidth: 24,
+                ScrollWith: 24
+            }
+        );
+        //Container Defualts
+        Set(
+            gblContainerDefaults,
+            {
+                BorderColor: gblColors.GrayMediumLight,
+                BorderStyle: BorderStyle.None,
+                BorderThickness: 0,
+                Fill: gblColors.GrayLight,
+                NavFill: gblColors.White,
+                NavWidth: 315,
+                HeaderHeight: 48,
+                EnableChildFocus: true,
+                LayoutDirection: LayoutDirection.Vertical,
+                LayoutAlignItems: LayoutAlignItems.Start,
+                LayoutJustifyContent: LayoutJustifyContent.Start,
+                LayoutGap: 0,
+                LayoutOverFlowX: Hide,
+                LayoutOverFlowY: Hide,
+                LayoutWrap: false,
+                PaddingBottom: 0,
+                PaddingLeft: 0,
+                PaddingRight: 0,
+                PaddingTop: 0,
+                AlignInContainer: AlignInContainer.SetByContainer,
+                LayoutMinWidth: 158
+            }
+        );
+        //CONTROL STYLES
+        Set(
+            gblControlStyles,
+            {
+                TransparentButton: {
+                    BorderColor: Transparent,
+                    Radius: 6,
+                    BorderThickness: 3,
+                    Color: Transparent,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    Fill: Transparent,
+                    Size: 0,
+                    Padding: 0,
+                    FocusedBorderColor: gblColors.Links
+                },
+                //TextBox Properties
+                TextBox: {
+                    Align: Left,
+                    BorderColor: gblDefaults.BorderColor,
+                    ErrorBorderColor: gblDefaults.ErrorBorderColor,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                    DisabledColor: gblDefaults.DisabledColor,
+                    DisabledFill: gblDefaults.DisabledFill,
+                    DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                    DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                    FocusedBorderColor: gblColors.Primary1,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Fill: gblDefaults.Fill,
+                    ViewFill: gblDefaults.ViewFill,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    Font: gblDefaults.Font,
+                    Color: gblColors.Primary1,
+                    ErrorColor: gblDefaults.ErrorColor,
+                    ViewColor: gblDefaults.ViewColor,
+                    MaxLength: Blank(),
+                    PostCodeMaxLength: 7,
+                    PhoneNumberMaxLength: 12,
+                    CurrencyMaxLength: 11,
+                    PolicyNumberMaxLength: {
+                        'I+': 12,
+                        'ANSVAR I90': 10,
+                        Halo: 13
+                    },
+                    LineHeight: gblDefaults.LineHeight,
+                    TextMode: gblDefaults.TextMode,
+                    TextFormat: gblDefaults.TextFormat,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    EnableSpellCheck: gblDefaults.EnableSpellCheck,
+                    Clear: gblDefaults.Clear,
+                    Height: gblDefaults.Height,
+                    Size: gblDefaults.Size,
+                    FontWeight: gblDefaults.FontWeight,
+                    Italic: gblDefaults.Italic,
+                    HoverBorderColor: gblColors.Primary1,
+                    HoverColor: gblDefaults.Color,
+                    HoverFill: gblDefaults.Fill,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: 16,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop,
+                    PressedBorderColor: gblColors.Primary1,
+                    PressedColor: gblDefaults.Color,
+                    PressedFill: gblDefaults.Fill,
+                    RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                    RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                    RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                    RadiusTopRight: gblDefaults.RadiusTopRight,
+                    Margin: gblDefaults.Margin,
+                    VerticalAlign: gblDefaults.VerticalAlign
+                },
+                //Dropdown Properties
+                DropDown: {
+                    Align: Left,
+                    BorderColor: gblDefaults.BorderColor,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    Color: gblDefaults.Color,
+                    ViewColor: gblDefaults.ViewColor,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                    DisabledColor: gblDefaults.DisabledColor,
+                    DisabledFill: gblDefaults.DisabledFill,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    Fill: gblDefaults.Fill,
+                    ViewFill: gblDefaults.ViewFill,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Height: gblDefaults.Height,
+                    HoverBorderColor: gblDefaults.HoverBorderColor,
+                    HoverColor: gblDefaults.Color,
+                    HoverFill: gblDefaults.Fill,
+                    MaxLength: Blank(),
+                    LineHeight: gblDefaults.LineHeight,
+                    TextMode: gblDefaults.TextMode,
+                    TextFormat: gblDefaults.TextFormat,
+                    Wrap: gblDefaults.Wrap,
+                    Overflow: gblDefaults.Overflow,
+                    AutoHeight: gblDefaults.AutoHeight,
+                    Italic: gblDefaults.Italic,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    EnableSpellCheck: gblDefaults.EnableSpellCheck,
+                    Clear: gblDefaults.Clear,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: 16,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop,
+                    PressedBorderColor: gblDefaults.PressedBorderColor,
+                    PressedColor: gblDefaults.Color,
+                    PressedFill: gblDefaults.Fill,
+                    RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                    RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                    RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                    RadiusTopRight: gblDefaults.RadiusTopRight,
+                    SelectionFill: gblDefaults.SelectionFill,
+                    Size: gblDefaults.Size,
+                    ItemColor: gblColors.Primary1,
+                    ItemCheckedFill: gblDefaults.DropdownSelectionFill,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    Margin: gblDefaults.Margin,
+                    Separator: {
+                        LeftMargin: 7,
+                        Fill: gblDefaults.SepratorFill,
+                        Height: 1
+                    },
+                    ItemLabel: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: gblDefaults.BorderStyle,
+                        BorderThickness: 0,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblColors.GrayMediumLight,
+                        DisabledFill: Transparent,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        ErrorColor: gblColors.Error,
+                        Height: gblDefaults.ItemLabelHeight,
+                        Size: gblDefaults.Size,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblDefaults.BorderColor,
+                        HoverColor: gblColors.Primary1,
+                        HoverFill: gblDefaults.ItemHoverFill,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 16,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        PressedBorderColor: gblDefaults.BorderColor,
+                        PressedColor: gblDefaults.PressedColor,
+                        PressedFill: gblDefaults.ItemPressedFill,
+                        RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                        RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                        RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                        RadiusTopRight: gblDefaults.RadiusTopRight,
+                        SelectedColor: gblDefaults.PressedColor,
+                        SelectedFill: gblDefaults.ItemSelectedFill
+                    }
+                },
+                SearchIcon: {
+                    Color: gblDefaults.IconColor,
+                    FocusColor: gblDefaults.IconFocusColor,
+                    ErrorColor: gblDefaults.IconErrorColor,
+                    LeftMargin: 10,
+                    Width: gblDefaults.IconWidth,
+                    Height: gblDefaults.IconHeight
+                },
+                //Search and Select Properties
+                SearchandSelect: {
+                    Align: Left,
+                    BorderColor: gblDefaults.BorderColor,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    Color: gblDefaults.Color,
+                    ViewColor: gblDefaults.ViewColor,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                    DisabledColor: gblDefaults.DisabledColor,
+                    DisabledFill: gblDefaults.DisabledFill,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    Fill: gblDefaults.Fill,
+                    ViewFill: gblDefaults.ViewFill,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Height: gblDefaults.Height,
+                    HoverBorderColor: gblDefaults.HoverBorderColor,
+                    HoverColor: gblDefaults.Color,
+                    HoverFill: gblDefaults.Fill,
+                    MaxLength: Blank(),
+                    LineHeight: gblDefaults.LineHeight,
+                    TextMode: gblDefaults.TextMode,
+                    TextFormat: gblDefaults.TextFormat,
+                    Wrap: gblDefaults.Wrap,
+                    Overflow: gblDefaults.Overflow,
+                    AutoHeight: gblDefaults.AutoHeight,
+                    Italic: gblDefaults.Italic,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    EnableSpellCheck: gblDefaults.EnableSpellCheck,
+                    Clear: gblDefaults.Clear,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: 16,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop,
+                    PressedBorderColor: gblDefaults.PressedBorderColor,
+                    PressedColor: gblDefaults.Color,
+                    PressedFill: gblDefaults.Fill,
+                    RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                    RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                    RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                    RadiusTopRight: gblDefaults.RadiusTopRight,
+                    SelectionFill: gblDefaults.SelectionFill,
+                    Size: gblDefaults.Size,
+                    ItemColor: gblColors.Primary1,
+                    ItemCheckedFill: gblDefaults.DropdownSelectionFill,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    Margin: gblDefaults.Margin,
+                    ScrollWith: gblDefaults.ScrollWith,
+                    Separator: {
+                        LeftMargin: 7,
+                        Fill: gblDefaults.SepratorFill,
+                        Height: 1
+                    },
+                    ItemLabel: {
+                        Align: Align.Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: gblDefaults.BorderStyle,
+                        BorderThickness: 0,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblColors.GrayMediumLight,
+                        DisabledFill: Transparent,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        ErrorColor: gblColors.Error,
+                        Height: gblDefaults.ItemLabelHeight,
+                        Size: gblDefaults.Size,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblDefaults.ItemHoverFill,
+                        HoverColor: gblColors.Primary1,
+                        HoverFill: gblDefaults.ItemHoverFill,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 16,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        PressedBorderColor: gblDefaults.ItemPressedFill,
+                        PressedColor: gblDefaults.PressedColor,
+                        PressedFill: gblDefaults.ItemPressedFill,
+                        RadiusBottomLeft: 0,
+                        RadiusBottomRight: 0,
+                        RadiusTopLeft: 0,
+                        RadiusTopRight: 0,
+                        SelectedColor: gblDefaults.PressedColor,
+                        SelectedFill: gblDefaults.ItemSelectedFill
+                    },
+                    Checkbox: {
+                        CheckboxBorderThickness: gblDefaults.FocusedBorderThickness,
+                        CheckboxSize: gblDefaults.CheckboxSize,
+                        CheckboxBorderColor: gblDefaults.CheckboxBorderColor,
+                        SelectedCheckboxBorderColor: gblDefaults.SelectedCheckboxBorderColor,
+                        CheckboxFill: gblDefaults.CheckboxBackgroundFill,
+                        PressedCheckboxFill: gblDefaults.CheckedboxBackgroundFill,
+                        SelectedCheckboxFill: gblDefaults.CheckedboxBackgroundFill,
+                        CheckmarkFill: gblDefaults.CheckmarkFill,
+                        CheckBoxHeight: 28,
+                        CheckBoxWidth: 28,
+                        Marign: 6,
+                        BoxHeight: 18,
+                        BoxWidth: 18,
+                        RightMargin: 30,
+                        RadiusBottomLeft: 3,
+                        RadiusBottomRight: 3,
+                        RadiusTopLeft: 3,
+                        RadiusTopRight: 3,
+                        PressedColor: gblDefaults.PressedFill,
+                        PressedFill: gblDefaults.PressedColor
+                    },
+                    NavigationButton: {
+                        Align: Align.Left,
+                        AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                        BorderColor: gblColors.Primary1,
+                        BorderStyle: gblDefaults.BorderStyle,
+                        BorderThickness: gblDefaults.FocusedBorderThickness,
+                        Color: gblColors.White,
+                        Fill: gblColors.Primary1,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblDefaults.DisabledColor,
+                        DisabledFill: gblDefaults.DisabledFill,
+                        FocusedBorderColor: gblColors.Links,
+                        FocusedBorderThickness: 3,
+                        Font: gblDefaults.Font,
+                        FontWeight: gblDefaults.FontWeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        Size: gblDefaults.Size,
+                        Height: gblDefaults.Height,
+                        HoverBorderColor: gblDefaults.HoverBorderColor,
+                        HoverColor: gblDefaults.HoverColor,
+                        HoverFill: gblDefaults.HoverFill,
+                        Italic: gblDefaults.Italic,
+                        PaddingBottom: 5,
+                        PaddingLeft: 5,
+                        PaddingRight: 5,
+                        PaddingTop: 5,
+                        PressedBorderColor: gblColors.Primary1Dark,
+                        PressedColor: gblColors.White,
+                        PressedFill: gblColors.Primary1Dark,
+                        RadiusBottomLeft: 10,
+                        RadiusBottomRight: 10,
+                        RadiusTopLeft: 0,
+                        RadiusTopRight: 0,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        RippleFill: gblDefaults.RippleFill
+                    },
+                    NavigationIcon: {
+                        IconColor: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        Margin: 10,
+                        Width: 24,
+                        Height: 24
+                    }
+                },
+                //PrimaryButton Properties
+                PrimaryButton: {
+                    Align: Align.Center,
+                    AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                    BorderColor: gblDefaults.BorderColor,
+                    BorderStyle: gblDefaults.BorderStyleNone,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    Color: White,
+                    Fill: gblColors.Primary1,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                    DisabledColor: gblDefaults.DisabledColor,
+                    DisabledFill: gblDefaults.DisabledFill,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    Size: gblDefaults.Size,
+                    Height: gblDefaults.Height,
+                    HoverBorderColor: gblDefaults.HoverBorderColor,
+                    HoverColor: gblDefaults.HoverColor,
+                    HoverFill: gblDefaults.HoverFill,
+                    Italic: gblDefaults.Italic,
+                    PaddingBottom: 5,
+                    PaddingLeft: 5,
+                    PaddingRight: 5,
+                    PaddingTop: 5,
+                    PressedBorderColor: gblDefaults.PressedBorderColor,
+                    PressedColor: gblDefaults.PressedColor,
+                    PressedFill: gblDefaults.PressedFill,
+                    RadiusBottomLeft: 6,
+                    RadiusBottomRight: 6,
+                    RadiusTopLeft: 6,
+                    RadiusTopRight: 6,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    RippleFill: gblDefaults.RippleFill
+                },
+                //SecondaryButton Properties
+                SecondaryButton: {
+                    Align: Align.Center,
+                    AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                    BorderColor: gblColors.Primary1,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    Color: gblColors.Primary1,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                    DisabledColor: gblDefaults.DisabledColor,
+                    DisabledFill: gblDefaults.DisabledFill,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    Fill: gblColors.White,
+                    FocusedBorderThickness: gblDefaults.BorderThickness,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Height: gblDefaults.Height,
+                    HoverBorderColor: gblDefaults.HoverBorderColor,
+                    HoverColor: gblDefaults.HoverColor,
+                    HoverDateFill: gblDefaults.HoverDateFill,
+                    HoverFill: gblDefaults.HoverFill,
+                    IconBackground: gblDefaults.IconBackground,
+                    Italic: gblDefaults.Italic,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    PaddingBottom: 5,
+                    PaddingLeft: 5,
+                    PaddingRight: 30,
+                    PaddingTop: 5,
+                    PressedBorderColor: gblDefaults.PressedBorderColor,
+                    PressedColor: gblDefaults.PressedColor,
+                    PressedFill: gblDefaults.PressedFill,
+                    RadioBorderColor: gblDefaults.RadioBorderColor,
+                    RadioSelectionFill: gblDefaults.RadioSelectionFill,
+                    RadiusBottomLeft: 6,
+                    RadiusBottomRight: 6,
+                    RadiusTopLeft: 6,
+                    RadiusTopRight: 6,
+                    Size: gblDefaults.Size,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    Margin: gblDefaults.Margin,
+                    RippleFill: gblDefaults.RippleFill,
+                    Image: {
+                        RightMargin: 16,
+                        Height: 24,
+                        Width: 24,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Primary1,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        PressedFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        DisabledFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblDefaults.DisabledColor,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    }
+                },
+                //Toggle Properties
+                Toggle: {
+                    Bar: {
+                        Height: 14,
+                        Width: 34,
+                        TrueFill: gblColors.Primary1a60,
+                        FalseFill: gblColors.GrayMediumDark,
+                        DisableTrueFill: gblColors.Primary1a61Light,
+                        DisableFalseFill: gblColors.GrayMediumDarkLight,
+                        MarginTop: 12,
+                        MarginLeft: 10
+                    },
+                    Handle: {
+                        Height: 20,
+                        Width: 20,
+                        TrueFill: "data:image/svg+xml;utf8," & EncodeUrl(
+                            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g style='mix-blend-mode:multiply'>
+        <g filter='url(#filter0_d_505_14)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        <g filter='url(#filter1_d_505_14)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        <g filter='url(#filter2_d_505_14)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        </g>
+        <path d='M13 22C18.5228 22 23 17.5228 23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22Z' fill='#19446A'/>
+        <defs>
+        <filter id='filter0_d_505_14' x='0' y='0' width='26' height='26' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='1.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_505_14'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_505_14' result='shape'/>
+        </filter>
+        <filter id='filter1_d_505_14' x='2' y='2' width='22' height='23' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='2'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.122 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_505_14'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_505_14' result='shape'/>
+        </filter>
+        <filter id='filter2_d_505_14' x='2' y='2' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.141 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_505_14'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_505_14' result='shape'/>
+        </filter>
+        </defs>
+        </svg>
+        "
+                        ),
+                        FalseFill: "data:image/svg+xml;utf8, " & EncodeUrl(
+                            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g style='mix-blend-mode:multiply' opacity='0.19'>
+        <g filter='url(#filter0_d_505_4)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        <g filter='url(#filter1_d_505_4)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        <g filter='url(#filter2_d_505_4)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        </g>
+        <path d='M13 2C14.9778 2 16.9112 2.58649 18.5557 3.6853C20.2002 4.78412 21.4819 6.3459 22.2388 8.17317C22.9957 10.0004 23.1937 12.0111 22.8079 13.9509C22.422 15.8907 21.4696 17.6725 20.0711 19.0711C18.6725 20.4696 16.8907 21.422 14.9509 21.8079C13.0111 22.1937 11.0004 21.9957 9.17317 21.2388C7.3459 20.4819 5.78412 19.2002 4.6853 17.5557C3.58649 15.9112 3 13.9778 3 12C3 9.34784 4.05357 6.8043 5.92893 4.92893C7.8043 3.05357 10.3478 2 13 2Z' fill='white' stroke='#E4E4E4'/>
+        <defs>
+        <filter id='filter0_d_505_4' x='0' y='0' width='26' height='26' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='1.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_505_4'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_505_4' result='shape'/>
+        </filter>
+        <filter id='filter1_d_505_4' x='2' y='2' width='22' height='23' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='2'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.122 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_505_4'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_505_4' result='shape'/>
+        </filter>
+        <filter id='filter2_d_505_4' x='2' y='2' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.141 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_505_4'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_505_4' result='shape'/>
+        </filter>
+        </defs>
+        </svg>
+        "
+                        ),
+                        DisableTrueFill: "data:image/svg+xml;utf8, " & EncodeUrl(
+                            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g style='mix-blend-mode:multiply'>
+        <g filter='url(#filter0_d_523_77)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='#A6B7C5'/>
+        </g>
+        <g filter='url(#filter1_d_523_77)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='#A6B7C5'/>
+        </g>
+        <g filter='url(#filter2_d_523_77)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='#A6B7C5'/>
+        </g>
+        </g>
+        <defs>
+        <filter id='filter0_d_523_77' x='0' y='0' width='26' height='26' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='1.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_523_77'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_523_77' result='shape'/>
+        </filter>
+        <filter id='filter1_d_523_77' x='2' y='2' width='22' height='23' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='2'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.122 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_523_77'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_523_77' result='shape'/>
+        </filter>
+        <filter id='filter2_d_523_77' x='2' y='2' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.141 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_523_77'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_523_77' result='shape'/>
+        </filter>
+        </defs>
+        </svg>
+        "
+                        ),
+                        DisableFalseFill: "data:image/svg+xml;utf8, " & EncodeUrl(
+                            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <g style='mix-blend-mode:multiply' opacity='0.19'>
+        <g filter='url(#filter0_d_555_55)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        <g filter='url(#filter1_d_555_55)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        <g filter='url(#filter2_d_555_55)'>
+        <path d='M23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22C18.5228 22 23 17.5228 23 12Z' fill='white'/>
+        </g>
+        </g>
+        <path d='M13 22C18.5228 22 23 17.5228 23 12C23 6.47715 18.5228 2 13 2C7.47715 2 3 6.47715 3 12C3 17.5228 7.47715 22 13 22Z' fill='#FBFBFB' stroke='#F4F4F4'/>
+        <defs>
+        <filter id='filter0_d_555_55' x='0' y='0' width='26' height='26' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='1.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_555_55'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_555_55' result='shape'/>
+        </filter>
+        <filter id='filter1_d_555_55' x='2' y='2' width='22' height='23' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='2'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.122 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_555_55'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_555_55' result='shape'/>
+        </filter>
+        <filter id='filter2_d_555_55' x='2' y='2' width='22' height='22' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+        <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+        <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+        <feOffset dy='1'/>
+        <feGaussianBlur stdDeviation='0.5'/>
+        <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.141 0'/>
+        <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_555_55'/>
+        <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_555_55' result='shape'/>
+        </filter>
+        </defs>
+        </svg>
+        "
+                        ),
+                        TrueHoverFill: gblColors.Primary1a1F,
+                        FalseHoverFill: gblColors.Blacka0B,
+                        HoverCircleHeight: 42,
+                        HoverCircleWidth: 42,
+                        RippleTrueFill: gblColors.Primary1a1F,
+                        RippleFalseFill: gblColors.Blacka0B,
+                        ShadowPadding: {
+                            Top: 2,
+                            Left: 3,
+                            Right: 3,
+                            Bottom: 4
+                        }
+                    },
+                    LabelDisableColor: gblColors.Primary1Light,
+                    Margin: 14,
+                    MarginRight: 7,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    FocusedBorderColor: gblColors.Primary1
+                },
+                CloseIcon: {
+                    Color: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Primary1,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    ErrorColor: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Error,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    RightMargin: 8,
+                    Width: 24,
+                    Height: 24
+                },
+                ErrorIcon: {
+                    Color: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Error,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    Width: 14,
+                    Height: 14
+                },
+                ErrorMessagePopup: {
+                    Align: Align.Center,
+                    Color: gblColors.White,
+                    Fill: gblColors.Error,
+                    Radius: 16,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Size: 12,
+                    Height: 32,
+                    TriangleIconHeight: 10,
+                    TriangleIconWidth: 15,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: gblDefaults.PaddingLeft,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop
+                },
+                //Label Properties
+                ControlLabel: {
+                    Align: Left,
+                    BorderColor: gblDefaults.BorderColor,
+                    BorderStyle: BorderStyle.None,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                    DisabledColor: gblColors.GrayMediumLight,
+                    DisabledFill: Transparent,
+                    DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                    DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Fill: Transparent,
+                    DisplayMode: gblDefaults.DisplayMode,
+                    Font: gblDefaults.Font,
+                    Color: gblColors.Primary1,
+                    ErrorColor: gblColors.Error,
+                    Height: 20,
+                    Size: 10,
+                    FontWeight: gblDefaults.FontWeight,
+                    Italic: gblDefaults.Italic,
+                    HoverBorderColor: gblDefaults.BorderColor,
+                    HoverColor: gblColors.Primary1,
+                    HoverFill: gblColors.Transparent,
+                    Overflow: gblDefaults.Overflow,
+                    Wrap: gblDefaults.Wrap,
+                    LineHeight: gblDefaults.LineHeight,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    AutoHeight: gblDefaults.AutoHeight,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    Margin: gblDefaults.Margin,
+                    PaddingBottom: 0,
+                    PaddingLeft: 0,
+                    PaddingRight: 0,
+                    PaddingTop: 0,
+                    PressedBorderColor: gblDefaults.BorderColor,
+                    PressedColor: gblColors.Primary1,
+                    PressedFill: Transparent,
+                    RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                    RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                    RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                    RadiusTopRight: gblDefaults.RadiusTopRight
+                },
+                //ScreenNavigationComponent Properties
+                ScreenNavigation: {
+                    Height: 640,
+                    Width: 320,
+                    MainLabel: {
+                        Align: Left,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.Solid,
+                        BorderThickness: 0,
+                        FocusedBorderColor: gblColors.Links,
+                        FocusedBorderThickness: 2,
+                        SelectedFill: gblColors.Primary1Dark,
+                        NotSelectedFill: gblColors.GrayDark,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.White,
+                        Size: 13,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 15,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        Margin: 4
+                    },
+                    ChildLabel: {
+                        Align: Left,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.Solid,
+                        BorderThickness: 0,
+                        FocusedBorderColor: gblColors.Links,
+                        FocusedBorderThickness: 2,
+                        HoverFill: gblColors.Primary1w90,
+                        HoverColor: gblColors.Primary1,
+                        SelectedFill: gblColors.Primary5,
+                        NotSelectedFill: gblColors.White,
+                        SelectedColor: gblColors.Primary1Dark,
+                        NotSelectedColor: gblDefaults.NavigationComponentNotSelectedFill,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Italic: gblDefaults.Italic,
+                        Size: 12,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 92,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        Margin: 4
+                    },
+                    Image: {
+                        ImagePosition: ImagePosition.Fit,
+                        Trasnparency: 0,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        Color: gblColors.Transparent,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        BorderRadius: 0,
+                        AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                        OpenCloseIconHeight: 24,
+                        OpenCloseIconWidth: 24,
+                        OpenCloseRightMargin: 20,
+                        ProgressImageHeight: 32,
+                        ProgressImageWidth: 32,
+                        ProgressImageLeftMargin: 24,
+                        ProgressImagefill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayDark,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        ProgressImageBarFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Digital_Yellow,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        ProgressImageCheckFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Secondary1,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        ProgressIMageCheckmarkFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        OpenCloseIconFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    },
+                    Gallery: {TemplateSize: 44}
+                },
+                InfoIcon: {
+                    DisplayMode: gblDefaults.DisplayMode,
+                    Height: 26,
+                    Width: 26,
+                    BorderColor: gblColors.Transparent,
+                    BorderStyle: BorderStyle.Solid,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    FocusedBorderColor: gblColors.Primary1,
+                    FocusedBorderThickness: 2,
+                    HoverBorderColor: gblColors.Primary1,
+                    PaddingBottom: 0,
+                    PaddingLeft: 0,
+                    PaddingRight: 0,
+                    PaddingTop: 0,
+                    Fill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Primary1,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    Tooltip: "Info",
+                    Margin: 2
+                },
+                DatePicker: {
+                    MonthLabel: {
+                        Align: Align.Center,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        FocusedBorderColor: Transparent,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        Height: 32,
+                        Size: gblFonts.Size.Headline4,
+                        FontWeight: FontWeight.Bold,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    WeekDayLabel: {
+                        Align: Align.Center,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        FocusedBorderColor: Transparent,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        SundayColor: gblColors.Error,
+                        OtherDaysColor: gblColors.GrayDark,
+                        Height: 32,
+                        Size: gblFonts.Size.Headline4,
+                        FontWeight: FontWeight.Bold,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    DaysLabel: {
+                        Align: Align.Center,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        FocusedBorderColor: Transparent,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        HoverFill: gblColors.Primary5,
+                        SundayColor: gblColors.Error,
+                        OtherDaysColor: gblColors.GrayDark,
+                        HoverColor: ColorValue("#12304B"),
+                        SelectedFill: gblColors.Primary1Dark,
+                        SelectedColor: gblColors.White,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        Size: gblFonts.Size.Headline4,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    BackNextIcon: {
+                        Height: 24,
+                        Width: 24,
+                        PaddingBottom: 5,
+                        PaddingLeft: 8.5,
+                        PaddingRight: 8.5,
+                        PaddingTop: 5,
+                        Margin: 17.5,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayDark,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    },
+                    DatePickerIcon: {
+                        Height: 40,
+                        Width: 40,
+                        PaddingBottom: 10,
+                        PaddingLeft: 11,
+                        PaddingRight: 11,
+                        PaddingTop: 10,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayDark,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    },
+                    DatePickerBox: {
+                        Align: Align.Left,
+                        Color: gblColors.Primary1Dark,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        HintTextColor: gblColors.GrayDark,
+                        HintTextMargin: 16,
+                        HintTextFontWeight: gblDefaults.FontWeight,
+                        Height: 40,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        DisabledColor: gblColors.Primary1Dark,
+                        DisabledFill: gblColors.GrayLight,
+                        DisabledBorderColor: gblColors.GrayLight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        BorderRadius: 4,
+                        HoverBorderColor: gblColors.Primary1,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.Solid,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        Fill: gblColors.White,
+                        ErrorColor: gblColors.Error,
+                        Font: gblDefaults.Font,
+                        Size: gblFonts.Size.Body1,
+                        FontWeight: gblDefaults.FontWeight,
+                        Margin: gblDefaults.Margin,
+                        Radius: 4
+                    },
+                    Height: 361,
+                    Width: 368
+                },
+                DateRange: {
+                    MonthLabel: {
+                        Align: Align.Center,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        FocusedBorderColor: Transparent,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        Height: 32,
+                        Size: gblFonts.Size.Headline4,
+                        FontWeight: FontWeight.Bold,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    WeekDayLabel: {
+                        Align: Align.Center,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        FocusedBorderColor: Transparent,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        SundayColor: gblColors.Error,
+                        OtherDaysColor: gblColors.GrayDark,
+                        Height: 32,
+                        Size: gblFonts.Size.Headline4,
+                        FontWeight: FontWeight.Bold,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    DaysLabel: {
+                        Align: Align.Center,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        FocusedBorderColor: Transparent,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        HoverFill: gblColors.Primary5,
+                        SundayColor: gblColors.Error,
+                        OtherDaysColor: gblColors.GrayDark,
+                        HoverColor: gblColors.Primary1Dark,
+                        SelectedFill: gblColors.Primary1Dark,
+                        SelectedColor: gblColors.White,
+                        RangesFill: gblColors.Primary5,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        Size: gblFonts.Size.Headline4,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    BackNextIcon: {
+                        Height: 24,
+                        Width: 24,
+                        PaddingBottom: 5,
+                        PaddingLeft: 8.5,
+                        PaddingRight: 8.5,
+                        PaddingTop: 5,
+                        Margin: 17.5,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayDark,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    },
+                    DatePickerIcon: {
+                        Height: 40,
+                        Width: 40,
+                        PaddingBottom: 10,
+                        PaddingLeft: 11,
+                        PaddingRight: 11,
+                        PaddingTop: 10,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayDark,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    },
+                    DatePickerBox: {
+                        Align: Align.Left,
+                        Color: gblColors.Primary1Dark,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        HintTextColor: gblColors.GrayDark,
+                        HintTextMargin: 16,
+                        HintTextFontWeight: gblDefaults.FontWeight,
+                        Height: 40,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        BorderRadius: 4,
+                        HoverBorderColor: gblColors.Primary1,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.Solid,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        Fill: gblColors.White,
+                        ErrorColor: gblColors.Error,
+                        Font: gblDefaults.Font,
+                        Size: gblFonts.Size.Body1,
+                        FontWeight: FontWeight.Semibold,
+                        Margin: gblDefaults.Margin,
+                        Radius: 4
+                    },
+                    Height: 361,
+                    Width: 368
+                },
+                DashboardHeader: {
+                    Fill: gblColors.Primary1Dark,
+                    Height: 50,
+                    Width: App.Width,
+                    MainLabel: {
+                        Text: "Touchstone",
+                        Align: Align.Center,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Fill: Transparent,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.White,
+                        Height: 24,
+                        Width: 250,
+                        Size: 14,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign
+                    },
+                    UserNameLabel: {
+                        Align: Align.Right,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Fill: Transparent,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.White,
+                        Height: 25,
+                        Width: 561,
+                        Size: 10,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: 15,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign
+                    },
+                    UserImage: {
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Height: 36,
+                        Width: 36,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0
+                    },
+                    MorevertIcon: {
+                        DisplayMode: gblDefaults.DisplayMode,
+                        FocusedBorderThickness: 2,
+                        FocusedBorderColor: gblColors.Links,
+                        Height: 24,
+                        Width: 24,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0
+                    }
+                },
+                StatusBar: {
+                    Height: 66,
+                    Width: 280,
+                    BarLine: {
+                        Height: 4,
+                        Fill: gblColors.Secondary5
+                    },
+                    OuterCircle: {
+                        Height: 28,
+                        Width: 28,
+                        SelectedFill: gblColors.GrayLight,
+                        NotSelectedFill: gblColors.White,
+                        SelectedBorderColor: gblColors.GrayLight,
+                        NotSelectedBorderColor: gblColors.GrayMidLight,
+                        BorderThickness: 2,
+                        BorderStyle: gblDefaults.BorderStyle
+                    },
+                    InnerCircle: {
+                        Height: 10,
+                        Width: 10,
+                        Fill: gblColors.Digital_Yellow,
+                        BorderThickness: 0,
+                        BorderStyle: BorderStyle.None,
+                        BorderColor: gblColors.Transparent
+                    },
+                    Label: {
+                        Align: Align.Center,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: 0,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Fill: gblColors.Transparent,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.Primary1,
+                        Size: 8,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign
+                    },
+                    CheckIcon: {
+                        Height: 28,
+                        Width: 28,
+                        CheckFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Primary1,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        CheckColor: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    }
+                },
+                HeaderMenu: {
+                    Height: 168.78,
+                    Width: 260.14,
+                    Label: {
+                        Align: Align.Left,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblColors.Transparent,
+                        BorderStyle: BorderStyle.Solid,
+                        BorderThickness: 0,
+                        FocusedBorderThickness: 2,
+                        FocusedBorderColor: gblColors.Primary1,
+                        HoverFill: gblColors.Primary1w90,
+                        HoverColor: gblColors.Primary1,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        NotSelectedColor: gblColors.GrayDark,
+                        SelectedColor: gblColors.Primary1Dark,
+                        SelectedFill: gblColors.Primary5,
+                        Italic: gblDefaults.Italic,
+                        Fill: gblColors.Transparent,
+                        Height: 24,
+                        Width: 191,
+                        Size: 14,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 55,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        MarginFromIcon: 15,
+                        HorizontolMargin: 2,
+                        VerticalMargin: 2
+                    },
+                    Icon: {
+                        Height: 24,
+                        Width: 24,
+                        Fill: gblColors.Transparent,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        NotSelectedColor: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayDark,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        SelectedColor: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Primary1,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        )
+                    }
+                },
+                Logo: {
+                    Height: 143,
+                    Width: 143,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: gblDefaults.PaddingLeft,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop
+                },EntityManagementHeader: {
+                    Fill: gblColors.Primary1Dark,
+                    Height: 50,
+                    MainLabel: {
+                        Align: Align.Center,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: gblDefaults.BorderStyleNone,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Fill: gblColors.Transparent,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.White,
+                        Height: 24,
+                        Size: gblFonts.Size.Body2,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign
+                    },
+        BackLabel: {
+                        Align: Align.Left,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: gblDefaults.BorderStyleNone,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Fill: gblColors.Transparent,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.White,
+                        Height: 24,
+                        Size: gblFonts.Size.Body1,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign
+                    },
+                    UserNameLabel: {
+                        Align: Align.Right,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        LineHeight: gblDefaults.LineHeight,
+                         BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: gblDefaults.BorderStyleNone,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Fill: gblColors.Transparent,
+                        Italic: gblDefaults.Italic,
+                        Color: gblColors.White,
+                        Height: 25,
+                        Size: gblFonts.Size.Subtitle2,
+                        FontWeight: gblDefaults.FontWeight,
+                        Overflow: gblDefaults.Overflow,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: 15,
+                        PaddingTop: gblDefaults.PaddingTop,
+                        Wrap: gblDefaults.Wrap,
+                        VerticalAlign: gblDefaults.VerticalAlign
+                    },
+                    UserImage: {
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Height: 36,
+                        Width: 36,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                         BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: gblDefaults.BorderStyleNone,
+                        BorderThickness: gblDefaults.BorderThickness
+                    },
+                    Icon: {
+                        DisplayMode: gblDefaults.DisplayMode,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        FocusedBorderColor: gblColors.Links,
+                        IconColor: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        HomeIconMargin: 24,
+                        BackIconMargin: 20,
+                        NextIconMargin: 10,
+                        Height: 24,
+                        Width: 24,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0
+                    }
+                },
+                SaveFilter: {
+                    Label: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Primary1,
+                        Height: 20,
+                        Size: gblFonts.Size.Subtitle2,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 0,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    SaveLogo: {
+                        Height: 43.33,
+                        Width: 43.33,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Primary1,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        MarginLeft: 166.33,
+                        MarginTop: 24.33
+                    },
+                    HeadingLabel: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Primary1,
+                        Height: 26,
+                        Size: gblFonts.Size.Headline5,
+                        FontWeight: gblFonts.Weight.Bold,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 14.3,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    PopupCard: {
+                        Height: 300,
+                        Width: 492,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        BottomSepratorFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayLight,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0
+                    }
+                },
+                NotesComponent: {
+                    TextBox: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        ErrorBorderColor: gblDefaults.ErrorBorderColor,
+                        BorderStyle: gblDefaults.BorderStyle,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblDefaults.DisabledColor,
+                        DisabledFill: gblDefaults.DisabledFill,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblColors.Primary1,
+                        FocusedBorderThickness: 2,
+                        Fill: gblDefaults.Fill,
+                        ViewFill: gblDefaults.ViewFill,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Primary1,
+                        ErrorColor: gblDefaults.ErrorColor,
+                        ViewColor: gblDefaults.ViewColor,
+                        MaxLength: Blank(),
+                        LineHeight: gblDefaults.LineHeight,
+                        TextMode: TextMode.MultiLine,
+                        TextFormat: gblDefaults.TextFormat,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        EnableSpellCheck: gblDefaults.EnableSpellCheck,
+                        Clear: gblDefaults.Clear,
+                        Height: gblDefaults.Height,
+                        Size: gblDefaults.Size,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblColors.Primary1,
+                        HoverColor: gblDefaults.Color,
+                        HoverFill: gblDefaults.Fill,
+                        PaddingBottom: 10,
+                        PaddingLeft: 12,
+                        PaddingRight: 12,
+                        PaddingTop: 10,
+                        PressedBorderColor: gblColors.Primary1,
+                        PressedColor: gblDefaults.Color,
+                        PressedFill: gblDefaults.Fill,
+                        RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                        RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                        RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                        RadiusTopRight: gblDefaults.RadiusTopRight,
+                        Margin: gblDefaults.Margin,
+                        VerticalAlign: VerticalAlign.Top
+                    }
+                },
+                WarningDialog: {
+                    Label: {
+                        Align: Align.Center,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayDark,
+                        Size: gblFonts.Size.Body1,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: gblDefaults.PaddingLeft,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    SaveLogo: {
+                        Height: 52,
+                        Width: 52,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.Error,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        MarginLeft: 166.33,
+                        MarginTop: 24.33
+                    },
+                    HeadingLabel: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Error,
+                        Height: 26,
+                        Size: gblFonts.Size.Headline5,
+                        FontWeight: gblFonts.Weight.Bold,
+                        Italic: gblDefaults.Italic,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: gblDefaults.PaddingBottom,
+                        PaddingLeft: 14.3,
+                        PaddingRight: gblDefaults.PaddingRight,
+                        PaddingTop: gblDefaults.PaddingTop
+                    },
+                    PopupCard: {
+                        Height: 300,
+                        Width: 492,
+                        Fill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.White,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        BottomSepratorFill: Left(
+                            Substitute(
+                                JSON(
+                                    gblColors.GrayLight,
+                                    JSONFormat.IgnoreUnsupportedTypes
+                                ),
+                                """",
+                                ""
+                            ),
+                            7
+                        ),
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0
+                    }
+                },
+                ExpandIcon: {
+                    Color: gblDefaults.IconColor,
+                    FocusColor: gblDefaults.IconFocusColor,
+                    ErrorColor: gblDefaults.IconErrorColor,
+                    Margin: 8,
+                    Width: gblDefaults.IconWidth,
+                    Height: gblDefaults.IconHeight
+                },
+                FilterChips: {
+                    Height: 32,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: 12,
+                    PaddingRight: 7,
+                    PaddingTop: gblDefaults.PaddingTop,
+                    Color: gblColors.Primary1Dark,
+                    Fill: gblColors.White,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    BorderColor: gblColors.Primary1Dark,
+                    BorderRadius: 16,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Align: Align.Left,
+                    AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                    DisabledBorderColor: gblColors.GrayLight,
+                    DisabledColor: gblColors.GrayMediumLight,
+                    DisabledFill: gblColors.GrayLight,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    Size: gblFonts.Size.Subtitle2,
+                    HoverBorderColor: gblColors.Primary1,
+                    HoverColor: gblColors.Primary1Dark,
+                    HoverFill: gblColors.Primary1w90,
+                    Italic: gblDefaults.Italic,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    IconHeight: 18,
+                    IconWidth: 18,
+                    IconPaddingBottom: 2,
+                    IconPaddingLeft: 2,
+                    IconPaddingRight: 2,
+                    IconPaddingTop: 2,
+                    IconCheckMarkFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Primary1Dark,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    IconCheckMarkDisabledFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.GrayMediumLight,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    FilterIconHeight: 24,
+                    FilterIconWidth: 24,
+                    FilterIconPaddingBottom: 6,
+                    FilterIconPaddingTop: 6,
+                    FilterIconPaddingLeft: 3,
+                    FilterIconPaddingRight: 3,
+                    FilterIconFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Primary1,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    )
+                },
+                ChoiceChips: {
+                    Height: 32,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: gblDefaults.PaddingLeft,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop,
+                    Color: gblColors.GrayDark,
+                    SelectedColor: gblColors.White,
+                    Fill: gblColors.White,
+                    SelectedFill: gblColors.Primary1Dark,
+                    RippleFill: gblColors.Primary1Dark,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    BorderColor: gblColors.GrayMediumLight,
+                    SelectedBorderColor: gblColors.Primary1Dark,
+                    BorderRadius: 16,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Align: Align.Center,
+                    AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                    DisabledBorderColor: gblColors.GrayThinLight,
+                    DisabledColor: gblColors.GrayLightDark,
+                    DisabledFill: gblColors.GrayThinLight,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    Size: gblFonts.Size.Subtitle2,
+                    HoverBorderColor: gblColors.Primary1Dark,
+                    HoverColor: gblColors.Primary1Dark,
+                    HoverFill: gblColors.Primary1w90,
+                    PressedBorderColor: gblColors.Primary1Dark,
+                    PressedColor: gblColors.White,
+                    PressedFill: gblColors.Primary1w90,
+                    Italic: gblDefaults.Italic,
+                    VerticalAlign: gblDefaults.VerticalAlign
+                },
+                ChoiceChipsWithIcon: {
+                    Height: 32,
+                    PaddingBottom: gblDefaults.PaddingBottom,
+                    PaddingLeft: 12,
+                    PaddingRight: gblDefaults.PaddingRight,
+                    PaddingTop: gblDefaults.PaddingTop,
+                    Color: gblColors.GrayDark,
+                    SelectedColor: gblColors.White,
+                    Fill: gblColors.White,
+                    SelectedFill: gblColors.Primary1Dark,
+                    RippleFill: gblColors.Primary1Dark,
+                    BorderStyle: gblDefaults.BorderStyle,
+                    BorderThickness: gblDefaults.BorderThickness,
+                    BorderColor: gblColors.GrayMediumLight,
+                    SelectedBorderColor: gblColors.Primary1Dark,
+                    BorderRadius: 16,
+                    Font: gblDefaults.Font,
+                    FontWeight: gblDefaults.FontWeight,
+                    Align: Align.Left,
+                    AutoDisableOnSelect: gblDefaults.AutoDisableOnSelect,
+                    DisabledBorderColor: gblColors.GrayThinLight,
+                    DisabledColor: gblColors.GrayLightDark,
+                    DisabledFill: gblColors.GrayThinLight,
+                    FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                    FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                    Underline: gblDefaults.Underline,
+                    Strikethrough: gblDefaults.Strikethrough,
+                    Size: gblFonts.Size.Subtitle2,
+                    HoverBorderColor: gblColors.Primary1Dark,
+                    HoverColor: gblColors.Primary1Dark,
+                    HoverFill: gblColors.Primary1w90,
+                    PressedBorderColor: gblColors.Primary1Dark,
+                    PressedColor: gblColors.White,
+                    PressedFill: gblColors.Primary1w90,
+                    Italic: gblDefaults.Italic,
+                    VerticalAlign: gblDefaults.VerticalAlign,
+                    IconHeight: 14,
+                    IconWidth: 14,
+                    IconFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.GrayDark,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    IconSelectedFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.White,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    IconPressedFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.Primary1Dark,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    ),
+                    IconDisabledFill: Left(
+                        Substitute(
+                            JSON(
+                                gblColors.GrayMediumLight,
+                                JSONFormat.IgnoreUnsupportedTypes
+                            ),
+                            """",
+                            ""
+                        ),
+                        7
+                    )
+                },
+                ExpandedNotes: {
+                    Layout: gblLayout,
+                    Fill: gblColors.BlackaA8,
+                    BackgroudImage: {
+                        Fill: gblColors.White,
+                        SecondaryFill: gblColors.GrayLight,
+                        TopPadding: 12,
+                        LeftPadding: 13.4,
+                        Height: 712,
+                        Width: 1000
+                    },
+                    TextInput: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        ErrorBorderColor: gblDefaults.ErrorBorderColor,
+                        BorderStyle: gblDefaults.BorderStyle,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblDefaults.DisabledColor,
+                        DisabledFill: gblDefaults.DisabledFill,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblColors.Primary1,
+                        FocusedBorderThickness: 2,
+                        Fill: gblDefaults.Fill,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Primary1,
+                        ErrorColor: gblColors.Error,
+                        MaxLength: Blank(),
+                        LineHeight: gblDefaults.LineHeight,
+                        TextMode: TextMode.MultiLine,
+                        TextFormat: gblDefaults.TextFormat,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        EnableSpellCheck: gblDefaults.EnableSpellCheck,
+                        Clear: gblDefaults.Clear,
+                        Height: gblDefaults.Height,
+                        Size: gblDefaults.Size,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblColors.Primary1,
+                        HoverColor: gblDefaults.Color,
+                        HoverFill: gblDefaults.Fill,
+                        PaddingBottom: 20,
+                        PaddingLeft: 20,
+                        PaddingRight: 20,
+                        PaddingTop: 20,
+                        PressedBorderColor: gblColors.Primary1,
+                        PressedColor: gblDefaults.Color,
+                        PressedFill: gblDefaults.Fill,
+                        RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                        RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                        RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                        RadiusTopRight: gblDefaults.RadiusTopRight,
+                        Margin: gblDefaults.Margin,
+                        VerticalAlign: VerticalAlign.Top
+                    },
+                    TitleLabel: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblDefaults.DisabledColor,
+                        DisabledFill: gblColors.White,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Primary1,
+                        Height: 24,
+                        Size: 15,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblDefaults.BorderColor,
+                        HoverColor: gblColors.Primary1,
+                        HoverFill: gblColors.Transparent,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        PressedBorderColor: gblDefaults.BorderColor,
+                        PressedColor: gblColors.Primary1,
+                        PressedFill: Transparent,
+                        RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                        RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                        RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                        RadiusTopRight: gblDefaults.RadiusTopRight
+                    },
+                    ErrorLabel: {
+                        Align: Left,
+                        BorderColor: gblDefaults.BorderColor,
+                        BorderStyle: BorderStyle.None,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblDefaults.DisabledColor,
+                        DisabledFill: gblColors.White,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.GrayMediumDark,
+                        ErrorColor: gblColors.Error,
+                        Height: 16,
+                        Size: 8,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblDefaults.BorderColor,
+                        HoverColor: gblColors.GrayMediumDark,
+                        HoverFill: gblColors.Transparent,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        PaddingBottom: 0,
+                        PaddingLeft: 0,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        PressedBorderColor: gblDefaults.BorderColor,
+                        PressedColor: gblColors.GrayMediumDark,
+                        PressedFill: Transparent,
+                        RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                        RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                        RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                        RadiusTopRight: gblDefaults.RadiusTopRight,
+                        BottomMargin: 8,
+                        TopMargin: 5
+                    }
+                },
+                //Empty State Components
+                EmptyStateWebpageDetails: {
+                    Align: Left,
+                    AlignCenter: Center,
+                    ErrorDialogueBoxHeight: 420,
+                    ErrorDialogueBoxWidth: 924,
+                    ErrorDialogueBoxBgColor: gblColors.GrayLight,
+                    ErrorImageHeight: 256,
+                    ErrorImageWidth: 256,
+                    ErrorImagePosition: ImagePosition.Fit,
+                    Font: gblDefaults.Font,
+                    TitleFontSize: gblFonts.Size.Headline4,
+                    TitleFontWeight: FontWeight.Normal,
+                    TitleFontHeight: 32,
+                    TitleFontWidth: 730,
+                    TitleFontColor: gblColors.GrayDark,
+                    ContentFontSize: gblFonts.Size.Heading,
+                    ContentFontWeight: FontWeight.Normal,
+                    ContentFontHeight: 52,
+                    ContentFontWidth: 668,
+                    ContentFontColor: gblColors.NavyBlue,
+                    FillColor: gblColors.GrayLight,
+                    DisplayMode: gblState.Enabled,
+                    Y: gblLayout.Controlspacer,
+                    Ximage: 334,
+                    Xlabel: 128
+                },
+                SmallEmptyState: {
+                    SmallErrorDialogueBoxHeight: 272,
+                    SmallErrorDialogueBoxWidth: 700,
+                    SmallErrorDialogueBoxBgColor: gblColors.GrayLight,
+                    SmallErrorImageHeight: 180,
+                    SmallErrorImageWidth: 180,
+                    SmallErrorImagePosition: ImagePosition.Fit,
+                    SmallTitleFontHeight: 32,
+                    SmallTitleFontWidth: 650,
+                    DisplayMode: gblState.View,
+                    Font: gblDefaults.Font,
+                    AlignCenter: Center,
+                    TitleFontColor: gblColors.GrayDark,
+                    TitleFontWeight: FontWeight.Normal,
+                    TitleFontSize: gblFonts.Size.Headline4,
+                    Y: gblLayout.Controlspacer
+                },
+                LeftNavigationEntityMangement: {
+                    Label: {
+                        Align: Left,
+                        BorderColor: Transparent,
+                        BorderStyle: BorderStyle.Solid,
+                        BorderThickness: gblDefaults.BorderThickness,
+                        DisabledBorderColor: gblDefaults.DisabledBorderColor,
+                        DisabledColor: gblColors.GrayMediumLight,
+                        DisabledFill: Transparent,
+                        DisabledSelectionColor: gblDefaults.DisabledSelectionColor,
+                        DisabledSelectionFill: gblDefaults.DisabledSelectionFill,
+                        FocusedBorderColor: gblDefaults.FocusedBorderColor,
+                        FocusedBorderThickness: gblDefaults.FocusedBorderThickness,
+                        Fill: Transparent,
+                        DisplayMode: gblDefaults.DisplayMode,
+                        Font: gblDefaults.Font,
+                        Color: gblColors.Primary1,
+                        ErrorColor: gblColors.Error,
+                        Height: 44,
+                        Size: 12,
+                        FontWeight: gblDefaults.FontWeight,
+                        Italic: gblDefaults.Italic,
+                        HoverBorderColor: gblDefaults.BorderColor,
+                        HoverColor: gblColors.Primary1,
+                        HoverFill: gblColors.Transparent,
+                        Overflow: gblDefaults.Overflow,
+                        Wrap: gblDefaults.Wrap,
+                        LineHeight: gblDefaults.LineHeight,
+                        VerticalAlign: gblDefaults.VerticalAlign,
+                        AutoHeight: gblDefaults.AutoHeight,
+                        Underline: gblDefaults.Underline,
+                        Strikethrough: gblDefaults.Strikethrough,
+                        Margin: gblDefaults.Margin,
+                        PaddingBottom: 0,
+                        PaddingLeft: 24,
+                        PaddingRight: 0,
+                        PaddingTop: 0,
+                        PressedBorderColor: gblDefaults.BorderColor,
+                        PressedColor: gblColors.White,
+                        PressedFill: gblColors.Primary1,
+                        RadiusBottomLeft: gblDefaults.RadiusBottomLeft,
+                        RadiusBottomRight: gblDefaults.RadiusBottomRight,
+                        RadiusTopLeft: gblDefaults.RadiusTopLeft,
+                        RadiusTopRight: gblDefaults.RadiusTopRight
+                    },
+                    Separator: {
+                        Fill: gblDefaults.SepratorFill,
+                        Height: 1
+                    }
+                }
+            }
+        );
+    StartScreen: =InsuredScreen
+

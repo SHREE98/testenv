@@ -1,0 +1,899 @@
+TextBoxComponent As CanvasComponent:
+    AsteriskAdjustment: =0
+    CharacterCount: =gblDefaults.CharacterCount
+    Clear: =true
+    ComponentHeight: |-
+        =With(
+            {
+                Height: txtTextControlTB.Height + If(
+                    lblTitleTextTB.Visible,
+                    lblTitleTextTB.Height,
+                    Self.StylingProperty.TextInput.Margin
+                ) + Self.StylingProperty.TextInput.Margin
+            },
+            If(
+                Self.ErrorVisible,
+                Height + TextBoxComponent.ErrorExtention,
+                Height
+            )
+        )
+    CustomY: |-
+        =If(
+            gblShowErrorPopup,
+            Self.YAxis - (txtErrorMessageTB.Height + imgTriangleArrowIconTB.Height - ( lblTitleTextTB.Height / 2 - imgTriangleArrowIconTB.Height/ 2 )),
+            Self.YAxis
+        )
+    Default: =Blank()
+    DisplayMode: =gblState.Enabled
+    ErrorExtention: =txtErrorMessageTB.Height + imgTriangleArrowIconTB.Height - ( lblTitleTextTB.Height / 2 - imgTriangleArrowIconTB.Height/ 2 )
+    ErrorMessage: ="Error Message"
+    ErrorVisible: =gblShowErrorPopup
+    Fill: =RGBA(0, 0, 0, 0)
+    Focus: =false
+    Height: =Self.ComponentHeight
+    HideLabel: =false
+    HintText: ="Text"
+    Masking: =
+    OnReset: |-
+        =Set(
+            gblShowErrorPopup,
+            false
+        );
+        If(
+            Self.Clear,
+            Set(
+                gblText,
+                Blank()
+            )
+        );
+        Reset(txtTextControlTB);
+        Reset(tmrMaskingTB);
+    Required: =true
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    ShowCount: =false
+    StylingProperty: |-
+        ={
+            Layout: gblLayout,
+            Label: gblControlStyles.ControlLabel,
+            TextInput: gblControlStyles.TextBox,
+            CloseIcon: gblControlStyles.CloseIcon,
+            ErrorIcon: gblControlStyles.ErrorIcon,
+            ErrorMessagePopup: gblControlStyles.ErrorMessagePopup
+        }
+    TabIndex: =0
+    Text: =txtTextControlTB.Text
+    TitleText: ="Label"
+    Width: =364
+    X: =0
+    Y: =0
+    YAxis: =100
+    ZIndex: =19
+
+    tmrSetFocusTB As timer:
+        Duration: =0
+        Height: =0
+        OnTimerStart: |-
+            =SetFocus(txtTextControlTB);
+            Reset(Self);
+        Start: =TextBoxComponent.Focus
+        Visible: =false
+        Width: =0
+        ZIndex: =1
+
+    rctResetTB As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        OnSelect: |-
+            =Set(
+                gblResetComponents,
+                true
+            );
+            Set(
+                gblResetComponents,
+                false
+            )
+        Width: =Parent.Width
+        ZIndex: =2
+
+    sdrMaskingTB As slider:
+        BorderColor: =Transparent
+        Default: |-
+            =If(
+                !IsBlank(TextBoxComponent.Masking.Format) || !IsBlank(First(TextBoxComponent.Masking.FormatMultiple).Format),
+                Len(txtTextControlTB.Text)
+            )
+        DisabledBorderColor: =Transparent
+        FocusedBorderThickness: =0
+        HandleFill: =Transparent
+        Height: =Parent.Height
+        HoverBorderColor: =Transparent
+        OnChange: |-
+            =With(
+                {
+                    varTextNumbersOnly: Concat(
+                        MatchAll(
+                            txtTextControlTB.Text,
+                            Match.Digit
+                        ),
+                        FullMatch
+                    )
+                },
+                With(
+                    {
+                        varTextPhoneNumberFormat: If(
+                            IsBlank(TextBoxComponent.Masking.Format),
+                            LookUp(
+                                TextBoxComponent.Masking.FormatMultiple,
+                                StartsWith(
+                                    varTextNumbersOnly,
+                                    Prefix
+                                ),
+                                Format
+                            ),
+                            TextBoxComponent.Masking.Format
+                        )
+                    },
+                    With(
+                        {
+                            varTablePhoneNumberFormat: ForAll(
+                                Sequence(Len(varTextPhoneNumberFormat)),
+                                With(
+                                    {
+                                        varNumberCurrentLength: Left(
+                                            varTextPhoneNumberFormat,
+                                            Value
+                                        )
+                                    },
+                                    {
+                                        NumberFormat: varNumberCurrentLength,
+                                        CountNumbers: CountRows(
+                                            MatchAll(
+                                                varNumberCurrentLength,
+                                                "#"
+                                            )
+                                        )
+                                    }
+                                )
+                            )
+                        },
+                        Set(
+                            gblText,
+                            Text(
+                                Value(varTextNumbersOnly),
+                                Substitute(
+                                    LookUp(
+                                        ForAll(
+                                            Sequence(
+                                                Max(
+                                                    varTablePhoneNumberFormat,
+                                                    CountNumbers
+                                                )
+                                            ),
+                                            LookUp(
+                                                varTablePhoneNumberFormat,
+                                                CountNumbers = Value
+                                            )
+                                        ),
+                                        CountNumbers = Len(varTextNumbersOnly),
+                                        NumberFormat
+                                    ),
+                                    "#",
+                                    "0"
+                                )
+                            )
+                        );
+                        Set(
+                            gblTextMaxLength,
+                            Len(varTextPhoneNumberFormat)
+                        )
+                    )
+                )
+            );
+            Reset(txtTextControlTB);
+            Set(
+                varWasPhoneNumberEdited,
+                true
+            )
+        PressedBorderColor: =Transparent
+        RailFill: =Transparent
+        RailHoverFill: =Transparent
+        RailThickness: =0
+        ValueFill: =Transparent
+        ValueHoverFill: =Transparent
+        Visible: =false
+        Width: =Parent.Width
+        X: =Self.BorderThickness
+        Y: =Self.BorderThickness
+        ZIndex: =3
+
+    tmrMaskingTB As timer:
+        AutoStart: =IsBlank(TextBoxComponent.Masking.Format) && IsBlank(First(TextBoxComponent.Masking.FormatMultiple).Format)
+        Duration: =0
+        Height: =0
+        OnTimerEnd: |-
+            =Switch(
+                TextBoxComponent.Masking.Masking,
+                "AlphaNumeric",
+                If(
+                    !IsMatch(
+                        txtTextControlTB.Text,
+                        "^[a-zA-Z0-9 ]*$"
+                    ) && !IsBlank(txtTextControlTB.Text),
+                    Set(
+                        gblText,
+                        Left(
+                            txtTextControlTB.Text,
+                            Len(txtTextControlTB.Text) - 1
+                        )
+                    );
+                    Reset(txtTextControlTB);
+                ),
+                "PostCode",
+                If(
+                    !IsMatch(
+                        txtTextControlTB.Text,
+                        "^[a-zA-Z0-9 ]*$"
+                    ) && !IsBlank(txtTextControlTB.Text),
+                    Set(
+                        gblText,
+                        Left(
+                            txtTextControlTB.Text,
+                            Len(txtTextControlTB.Text) - 1
+                        )
+                    );
+                    Reset(txtTextControlTB),
+                    !IsMatch(
+                        txtTextControlTB.Text,
+                        "^[A-Z0-9 ]*$"
+                    ) && !IsBlank(txtTextControlTB.Text),
+                    Set(
+                        gblText,
+                        Upper(txtTextControlTB.Text)
+                    );
+                    Reset(txtTextControlTB)
+                ),
+                "PhoneNumber",
+                If(
+                    !IsMatch(
+                        txtTextControlTB.Text,
+                        "^[\d\s]+$"
+                    ) && !IsBlank(txtTextControlTB.Text),
+                    Set(
+                        gblText,
+                        Left(
+                            txtTextControlTB.Text,
+                            Len(txtTextControlTB.Text) - 1
+                        )
+                    );
+                    Reset(txtTextControlTB),
+                    If(
+                        Len(txtTextControlTB.Text) = 5,
+                        Set(
+                            gblText,
+                            txtTextControlTB.Text & " "
+                        );
+                        Reset(txtTextControlTB),
+                        Len(txtTextControlTB.Text) > 5,
+                        Set(
+                            gblText,
+                            Left(
+                                txtTextControlTB.Text,
+                                5
+                            ) & " " & Right(
+                                txtTextControlTB.Text,
+                                Len(txtTextControlTB.Text) - 6
+                            )
+                        );
+                        Reset(txtTextControlTB);
+                    );
+                ),
+                "Currency",
+                Set(
+                    gblText,
+                    Text(
+                        Value(txtTextControlTB.Text),
+                        "#,###"
+                    )
+                );
+                Reset(txtTextControlTB);
+                ,
+                "PolicyNumber",
+                If(
+                //Scenario 1
+                    IsMatch(
+                        Left(
+                            txtTextControlTB.Text,
+                            2
+                        ),
+                        "^[0-9]*$"
+                    ),
+                    Set(
+                        gblPolicyScenario,
+                        "I+"
+                    );
+                    If(
+                        !IsMatch(
+                            Mid(
+                                txtTextControlTB.Text,
+                                3,
+                                3
+                            ),
+                            "^[a-zA-Z]*$"
+                        ),
+                        Set(
+                            gblText,
+                            Left(
+                                txtTextControlTB.Text,
+                                Len(txtTextControlTB.Text) - 1
+                            )
+                        );
+                        Reset(txtTextControlTB),
+                        !IsMatch(
+                            Mid(
+                                txtTextControlTB.Text,
+                                6
+                            ),
+                            "^[0-9]*$"
+                        ),
+                        Set(
+                            gblText,
+                            Left(
+                                txtTextControlTB.Text,
+                                Len(txtTextControlTB.Text) - 1
+                            )
+                        );
+                        Reset(txtTextControlTB),
+                    //Capatlising
+                        If(
+                            !IsMatch(
+                                txtTextControlTB.Text,
+                                "^[A-Z]*$"
+                            ) && !IsBlank(txtTextControlTB.Text),
+                            Set(
+                                gblText,
+                                Upper(txtTextControlTB.Text)
+                            );
+                            Reset(txtTextControlTB)
+                        );
+                //End Cap
+                    ),
+                //Scenario 2
+                    IsMatch(
+                        Left(
+                            txtTextControlTB.Text,
+                            3
+                        ),
+                        "^[a-zA-Z]*$"
+                    ),
+                    Set(
+                        gblPolicyScenario,
+                        "ANSVAR I90"
+                    );
+                //Capatlising
+            If(
+                        !IsMatch(
+                            txtTextControlTB.Text,
+                            "^[A-Z]*$"
+                        ) && !IsBlank(txtTextControlTB.Text),
+                        Set(
+                            gblText,
+                            Upper(txtTextControlTB.Text)
+                        );
+                        Reset(txtTextControlTB)
+                    );
+                //End Cap
+            If(
+                        !IsMatch(
+                            Mid(
+                                txtTextControlTB.Text,
+                                4
+                            ),
+                            "^[0-9]*$"
+                        ),
+                        Set(
+                            gblText,
+                            Left(
+                                txtTextControlTB.Text,
+                                Len(txtTextControlTB.Text) - 1
+                            )
+                        );
+                        Reset(txtTextControlTB)
+                    ),
+                //Scenario 3
+                    IsMatch(
+                        Left(
+                            txtTextControlTB.Text,
+                            2
+                        ),
+                        "^[a-zA-Z-]*$"
+                    ),
+                    Set(
+                        gblPolicyScenario,
+                        "Halo"
+                    );
+                    If(
+                        !IsMatch(
+                            Mid(
+                                txtTextControlTB.Text,
+                                3
+                            ),
+                            "^[0-9]*$"
+                        ),
+                        Set(
+                            gblText,
+                            Left(
+                                txtTextControlTB.Text,
+                                Len(txtTextControlTB.Text) - 1
+                            )
+                        );
+                        Reset(txtTextControlTB)
+                    ),
+                    Set(
+                        gblText,
+                        Left(
+                            txtTextControlTB.Text,
+                            Len(txtTextControlTB.Text) - 1
+                        )
+                    );
+                    Reset(txtTextControlTB)
+                )
+            )
+        Repeat: =true
+        Visible: =false
+        Width: =0
+        ZIndex: =4
+
+    txtTextControlTB As text:
+        Align: =TextBoxComponent.StylingProperty.TextInput.Align
+        BorderColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorBorderColor,
+                TextBoxComponent.StylingProperty.TextInput.BorderColor
+            )
+        BorderStyle: =TextBoxComponent.StylingProperty.TextInput.BorderStyle
+        BorderThickness: =TextBoxComponent.StylingProperty.TextInput.BorderThickness * TextBoxComponent.ScaleFactor
+        Clear: =TextBoxComponent.StylingProperty.TextInput.Clear
+        Color: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorColor,
+                TextBoxComponent.StylingProperty.TextInput.Color
+            )
+        Default: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Disabled",
+                Blank(),
+                Coalesce(
+                    gblText,
+                    TextBoxComponent.Default
+                )
+            )
+        DisabledBorderColor: =TextBoxComponent.StylingProperty.TextInput.DisabledBorderColor
+        DisabledColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "View",
+                TextBoxComponent.StylingProperty.TextInput.ViewColor,
+                TextBoxComponent.StylingProperty.TextInput.DisabledColor
+            )
+        DisabledFill: |-
+            =If(
+                TextBoxComponent.DisplayMode = "View",
+                TextBoxComponent.StylingProperty.TextInput.ViewFill,
+                TextBoxComponent.StylingProperty.TextInput.DisabledFill
+            )
+        DisplayMode: |-
+            =If(
+                Or(
+                    TextBoxComponent.DisplayMode = "Enabled",
+                    TextBoxComponent.DisplayMode = "Error"
+                ),
+                DisplayMode.Edit,
+                DisplayMode.Disabled
+            )
+        EnableSpellCheck: =TextBoxComponent.StylingProperty.TextInput.EnableSpellCheck
+        Fill: =TextBoxComponent.StylingProperty.TextInput.Fill
+        FocusedBorderColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorBorderColor,
+                TextBoxComponent.StylingProperty.TextInput.FocusedBorderColor
+            )
+        FocusedBorderThickness: =TextBoxComponent.StylingProperty.TextInput.FocusedBorderThickness
+        Font: =TextBoxComponent.StylingProperty.TextInput.Font
+        FontWeight: =TextBoxComponent.StylingProperty.TextInput.FontWeight
+        Format: =TextBoxComponent.StylingProperty.TextInput.TextFormat
+        Height: =TextBoxComponent.StylingProperty.TextInput.Height * TextBoxComponent.ScaleFactor
+        HintText: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Enabled",
+                TextBoxComponent.HintText
+            )
+        HoverBorderColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorBorderColor,
+                TextBoxComponent.StylingProperty.TextInput.HoverBorderColor
+            )
+        HoverColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorBorderColor,
+                TextBoxComponent.StylingProperty.TextInput.HoverColor
+            )
+        HoverFill: =TextBoxComponent.StylingProperty.TextInput.HoverFill
+        Italic: =TextBoxComponent.StylingProperty.TextInput.Italic
+        LineHeight: =TextBoxComponent.StylingProperty.TextInput.LineHeight
+        MaxLength: |-
+            =Switch(
+                TextBoxComponent.Masking.Masking,
+                "PostCode",
+                TextBoxComponent.StylingProperty.TextInput.PostCodeMaxLength,
+                "PhoneNumber",
+                TextBoxComponent.StylingProperty.TextInput.PhoneNumberMaxLength,
+                "Currency",
+                TextBoxComponent.StylingProperty.TextInput.CurrencyMaxLength,
+                "PolicyNumber",
+                Switch(
+                    gblPolicyScenario,
+                    "I+",
+                    TextBoxComponent.StylingProperty.TextInput.PolicyNumberMaxLength.'I+',
+                    "ANSVAR I90",
+                    TextBoxComponent.StylingProperty.TextInput.PolicyNumberMaxLength.'ANSVAR I90',
+                    "Halo",
+                    TextBoxComponent.StylingProperty.TextInput.PolicyNumberMaxLength.Halo
+                ),
+                If(
+                    TextBoxComponent.ShowCount,
+                    TextBoxComponent.CharacterCount,
+                    TextBoxComponent.StylingProperty.TextInput.MaxLength
+                )
+            )
+        Mode: =TextBoxComponent.StylingProperty.TextInput.TextMode
+        OnSelect: =Select(rctResetTB)
+        PaddingBottom: =TextBoxComponent.StylingProperty.TextInput.PaddingBottom * TextBoxComponent.ScaleFactor
+        PaddingLeft: =TextBoxComponent.StylingProperty.TextInput.PaddingLeft * TextBoxComponent.ScaleFactor
+        PaddingRight: |-
+            =If(
+                imgCloseIconTB.Visible,
+                imgCloseIconTB.Width + (TextBoxComponent.StylingProperty.TextInput.PaddingRight * TextBoxComponent.ScaleFactor) * 2,
+                TextBoxComponent.StylingProperty.TextInput.PaddingRight * TextBoxComponent.ScaleFactor
+            )
+        PaddingTop: =TextBoxComponent.StylingProperty.TextInput.PaddingTop * TextBoxComponent.ScaleFactor
+        PressedBorderColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorBorderColor,
+                TextBoxComponent.StylingProperty.TextInput.PressedBorderColor
+            )
+        PressedColor: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Error",
+                TextBoxComponent.StylingProperty.TextInput.ErrorBorderColor,
+                TextBoxComponent.StylingProperty.TextInput.PressedColor
+            )
+        PressedFill: =TextBoxComponent.StylingProperty.TextInput.PressedFill
+        RadiusBottomLeft: =TextBoxComponent.StylingProperty.TextInput.RadiusBottomLeft * TextBoxComponent.ScaleFactor
+        RadiusBottomRight: =TextBoxComponent.StylingProperty.TextInput.RadiusBottomRight * TextBoxComponent.ScaleFactor
+        RadiusTopLeft: =TextBoxComponent.StylingProperty.TextInput.RadiusTopLeft * TextBoxComponent.ScaleFactor
+        RadiusTopRight: =TextBoxComponent.StylingProperty.TextInput.RadiusTopRight * TextBoxComponent.ScaleFactor
+        Size: =TextBoxComponent.StylingProperty.TextInput.Size * TextBoxComponent.ScaleFactor
+        Strikethrough: =TextBoxComponent.StylingProperty.TextInput.Strikethrough
+        TabIndex: =TextBoxComponent.TabIndex
+        Underline: =TextBoxComponent.StylingProperty.TextInput.Underline
+        Width: =Parent.Width - TextBoxComponent.StylingProperty.TextInput.Margin * 2
+        X: =TextBoxComponent.StylingProperty.TextInput.Margin
+        Y: |-
+            =If(
+                lblTitleTextTB.Visible,
+                lblTitleTextTB.Y + lblTitleTextTB.Height,
+                TextBoxComponent.StylingProperty.TextInput.Margin
+            )
+        ZIndex: =5
+
+    imgCloseIconTB As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        BorderThickness: =txtTextControlTB.BorderThickness
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextControlTB.FocusedBorderColor
+        FocusedBorderThickness: =txtTextControlTB.FocusedBorderThickness
+        Height: =TextBoxComponent.StylingProperty.CloseIcon.Height * TextBoxComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='
+              " & If(
+                    TextBoxComponent.DisplayMode = "Error",
+                    TextBoxComponent.StylingProperty.CloseIcon.ErrorColor,
+                    TextBoxComponent.StylingProperty.CloseIcon.Color
+                ) & "
+              
+              '/>
+            </svg>
+            "
+            )
+        OnSelect: |-
+            =Set(gblText, Blank());
+            SetFocus(txtTextControlTB);
+            Reset(txtTextControlTB);
+            Select(rctResetTB)
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =TextBoxComponent.TabIndex
+        Visible: |-
+            =And(
+                Or(
+                    TextBoxComponent.DisplayMode = "Enabled",
+                    TextBoxComponent.DisplayMode = "Error"
+                ),
+                !IsBlank(txtTextControlTB.Text)
+            )
+        Width: =TextBoxComponent.StylingProperty.CloseIcon.Width * TextBoxComponent.ScaleFactor
+        X: =(txtTextControlTB.X + txtTextControlTB.Width - Self.Width) - (TextBoxComponent.StylingProperty.CloseIcon.RightMargin * TextBoxComponent.ScaleFactor)
+        Y: =txtTextControlTB.Y + txtTextControlTB.Height / 2 - Self.Height / 2
+        ZIndex: =6
+
+    lblTitleTextTB As label:
+        Align: =TextBoxComponent.StylingProperty.Label.Align
+        AutoHeight: =TextBoxComponent.StylingProperty.Label.AutoHeight
+        BorderColor: =TextBoxComponent.StylingProperty.Label.BorderColor
+        BorderStyle: =TextBoxComponent.StylingProperty.Label.BorderStyle
+        BorderThickness: =TextBoxComponent.StylingProperty.Label.BorderThickness
+        Color: =TextBoxComponent.StylingProperty.Label.Color
+        DisabledBorderColor: =TextBoxComponent.StylingProperty.Label.DisabledBorderColor
+        DisabledColor: =TextBoxComponent.StylingProperty.Label.DisabledColor
+        DisabledFill: =TextBoxComponent.StylingProperty.Label.DisabledFill
+        DisplayMode: |-
+            =If(
+                TextBoxComponent.DisplayMode = "Disabled",
+                DisplayMode.Disabled,
+                TextBoxComponent.StylingProperty.Label.DisplayMode
+            )
+        Fill: =TextBoxComponent.StylingProperty.Label.Fill
+        FocusedBorderColor: =TextBoxComponent.StylingProperty.Label.FocusedBorderColor
+        FocusedBorderThickness: =TextBoxComponent.StylingProperty.Label.FocusedBorderThickness
+        Font: =TextBoxComponent.StylingProperty.Label.Font
+        FontWeight: =TextBoxComponent.StylingProperty.Label.FontWeight
+        Height: =TextBoxComponent.StylingProperty.Label.Height * TextBoxComponent.ScaleFactor
+        HoverBorderColor: =TextBoxComponent.StylingProperty.Label.HoverBorderColor
+        HoverColor: =TextBoxComponent.StylingProperty.Label.HoverColor
+        HoverFill: =TextBoxComponent.StylingProperty.Label.HoverFill
+        Italic: =TextBoxComponent.StylingProperty.Label.Italic
+        LineHeight: =TextBoxComponent.StylingProperty.Label.LineHeight
+        OnSelect: =Select(rctResetTB)
+        Overflow: =TextBoxComponent.StylingProperty.Label.Overflow
+        PaddingBottom: =TextBoxComponent.StylingProperty.Label.PaddingBottom
+        PaddingLeft: =TextBoxComponent.StylingProperty.Label.PaddingLeft
+        PaddingRight: =TextBoxComponent.StylingProperty.Label.PaddingRight
+        PaddingTop: =TextBoxComponent.StylingProperty.Label.PaddingTop
+        PressedBorderColor: =TextBoxComponent.StylingProperty.Label.PressedBorderColor
+        PressedColor: =TextBoxComponent.StylingProperty.Label.PressedColor
+        PressedFill: =TextBoxComponent.StylingProperty.Label.PressedFill
+        Size: =TextBoxComponent.StylingProperty.Label.Size * TextBoxComponent.ScaleFactor
+        Strikethrough: =TextBoxComponent.StylingProperty.Label.Strikethrough
+        Text: =TextBoxComponent.TitleText
+        Underline: =TextBoxComponent.StylingProperty.Label.Underline
+        VerticalAlign: =TextBoxComponent.StylingProperty.Label.VerticalAlign
+        Visible: =!TextBoxComponent.HideLabel
+        Width: =Len(Trim(Self.Text)) * (8 * TextBoxComponent.ScaleFactor)
+        Wrap: =TextBoxComponent.StylingProperty.Label.Wrap
+        X: =txtTextControlTB.X
+        Y: |-
+            =If(
+                gblShowErrorPopup,
+                txtErrorMessageTB.Height + imgTriangleArrowIconTB.Height - ( lblTitleTextTB.Height / 2 - imgTriangleArrowIconTB.Height/ 2 )
+            )
+        ZIndex: =7
+
+    imgErrorIconTB As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextControlTB.FocusedBorderColor
+        FocusedBorderThickness: =txtTextControlTB.FocusedBorderThickness
+        Height: =TextBoxComponent.StylingProperty.ErrorIcon.Height * TextBoxComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg id='Error' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <rect id='Rectangle_3831' data-name='Rectangle 3831' width='24' height='24' fill='none'/>
+              <path id='error_outline_black_24dp' d='M11,15h2v2H11Zm0-8h2v6H11Zm.99-5A10,10,0,1,0,22,12,10,10,0,0,0,11.99,2Z' fill='"& TextBoxComponent.StylingProperty.ErrorIcon.Color &"'/>
+              <path id='error_outline_black_24dp-2' data-name='error_outline_black_24dp' d='M11,15h2v2H11Zm0-8h2v6H11Z' fill='#fff'/>
+            </svg>
+            
+            "
+            )
+        OnSelect: |-
+            =Set(gblShowErrorPopup, !gblShowErrorPopup);
+            SetFocus(imgErrorIconTB);
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =0
+        Visible: =TextBoxComponent.DisplayMode = "Error"
+        Width: =TextBoxComponent.StylingProperty.ErrorIcon.Width * TextBoxComponent.ScaleFactor
+        X: |-
+            =//lblTitleTextTB.Width + lblTitleTextTB.X + If(lblRequiredAsteriskTB.Visible, lblRequiredAsteriskTB.Width)
+            lblRequiredAsteriskTB.X + lblRequiredAsteriskTB.Width
+        Y: =lblTitleTextTB.Y + (lblTitleTextTB.Height / 2 - Self.Height/ 2)
+        ZIndex: =8
+
+    grpErrorMessagePopupTB As group:
+        Height: =5
+        Width: =5
+        X: =-248
+        Y: =-279
+        ZIndex: =8
+
+        txtErrorMessageTB As text:
+            Align: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Align
+            BorderColor: =Transparent
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            Color: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Color
+            Default: =TextBoxComponent.ErrorMessage
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Fill
+            FocusedBorderThickness: =Self.BorderThickness
+            Font: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Font
+            FontWeight: =TextBoxComponent.StylingProperty.ErrorMessagePopup.FontWeight
+            Height: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Height
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            PaddingBottom: =TextBoxComponent.StylingProperty.ErrorMessagePopup.PaddingBottom
+            PaddingLeft: =TextBoxComponent.StylingProperty.ErrorMessagePopup.PaddingLeft
+            PaddingRight: =TextBoxComponent.StylingProperty.ErrorMessagePopup.PaddingRight
+            PaddingTop: =TextBoxComponent.StylingProperty.ErrorMessagePopup.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Radius
+            RadiusBottomRight: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Radius
+            RadiusTopLeft: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Radius
+            RadiusTopRight: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Radius
+            Size: =TextBoxComponent.StylingProperty.ErrorMessagePopup.Size
+            TabIndex: =-1
+            Visible: |-
+                =If(
+                    IsBlank(gblShowErrorPopup),
+                    false,
+                    gblShowErrorPopup
+                )
+            Width: =Len(Self.Text) * 10
+            X: =imgTriangleArrowIconTB.X - imgTriangleArrowIconTB .Width
+            ZIndex: =10
+
+        imgTriangleArrowIconTB As image:
+            BorderColor: =Transparent
+            DisabledBorderColor: =Self.BorderColor
+            DisabledFill: =Self.Fill
+            Fill: =Transparent
+            FocusedBorderThickness: =Self.BorderThickness
+            Height: =TextBoxComponent.StylingProperty.ErrorMessagePopup.TriangleIconHeight
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg width='13' height='9' viewBox='0 0 13 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M6.5 9L0.00480938 0L12.9952 0L6.5 9Z' fill='#BA2D32'/>
+                </svg>
+                "
+                )
+            PressedBorderColor: =Self.BorderColor
+            PressedFill: =Self.Fill
+            Visible: |-
+                =If(
+                    IsBlank(gblShowErrorPopup),
+                    false,
+                    gblShowErrorPopup
+                )
+            Width: =TextBoxComponent.StylingProperty.ErrorMessagePopup.TriangleIconWidth
+            X: =imgErrorIconTB.X + imgErrorIconTB.Width / 2 - Self.Width / 2
+            Y: =txtErrorMessageTB.Y + txtErrorMessageTB.Height - lblTitleTextTB.X
+            ZIndex: =12
+
+    lblCountTB As label:
+        Align: =Align.Right
+        AutoHeight: =TextBoxComponent.StylingProperty.Label.AutoHeight
+        BorderColor: =TextBoxComponent.StylingProperty.Label.BorderColor
+        BorderStyle: =TextBoxComponent.StylingProperty.Label.BorderStyle
+        BorderThickness: =TextBoxComponent.StylingProperty.Label.BorderThickness
+        Color: =TextBoxComponent.StylingProperty.Label.Color
+        DisabledBorderColor: =TextBoxComponent.StylingProperty.Label.DisabledBorderColor
+        DisabledColor: =TextBoxComponent.StylingProperty.Label.DisabledColor
+        DisabledFill: =TextBoxComponent.StylingProperty.Label.DisabledFill
+        DisplayMode: =TextBoxComponent.StylingProperty.Label.DisplayMode
+        Fill: =TextBoxComponent.StylingProperty.Label.Fill
+        FocusedBorderColor: =TextBoxComponent.StylingProperty.Label.FocusedBorderColor
+        FocusedBorderThickness: =TextBoxComponent.StylingProperty.Label.FocusedBorderThickness
+        Font: =TextBoxComponent.StylingProperty.Label.Font
+        FontWeight: =TextBoxComponent.StylingProperty.Label.FontWeight
+        Height: =TextBoxComponent.StylingProperty.Label.Height * TextBoxComponent.ScaleFactor
+        HoverBorderColor: =TextBoxComponent.StylingProperty.Label.HoverBorderColor
+        HoverColor: =TextBoxComponent.StylingProperty.Label.HoverColor
+        HoverFill: =TextBoxComponent.StylingProperty.Label.HoverFill
+        Italic: =TextBoxComponent.StylingProperty.Label.Italic
+        LineHeight: =TextBoxComponent.StylingProperty.Label.LineHeight
+        OnSelect: =Select(rctResetTB)
+        Overflow: =TextBoxComponent.StylingProperty.Label.Overflow
+        PaddingBottom: =TextBoxComponent.StylingProperty.Label.PaddingBottom
+        PaddingLeft: =TextBoxComponent.StylingProperty.Label.PaddingLeft
+        PaddingRight: =TextBoxComponent.StylingProperty.Label.PaddingRight
+        PaddingTop: =TextBoxComponent.StylingProperty.Label.PaddingTop
+        PressedBorderColor: =TextBoxComponent.StylingProperty.Label.PressedBorderColor
+        PressedColor: =TextBoxComponent.StylingProperty.Label.PressedColor
+        PressedFill: =TextBoxComponent.StylingProperty.Label.PressedFill
+        Size: =TextBoxComponent.StylingProperty.Label.Size * TextBoxComponent.ScaleFactor
+        Strikethrough: =TextBoxComponent.StylingProperty.Label.Strikethrough
+        Text: =TextBoxComponent.CharacterCount - Len(txtTextControlTB.Text)  & " characters"
+        Underline: =TextBoxComponent.StylingProperty.Label.Underline
+        VerticalAlign: =TextBoxComponent.StylingProperty.Label.VerticalAlign
+        Visible: =Not(TextBoxComponent.DisplayMode = "Disabled") && TextBoxComponent.ShowCount
+        Width: =Len(Self.Text) * (8 * TextBoxComponent.ScaleFactor)
+        Wrap: =TextBoxComponent.StylingProperty.Label.Wrap
+        X: =(txtTextControlTB.Width + txtTextControlTB.X) - Self.Width
+        Y: |-
+            =If(
+                gblShowErrorPopup,
+                txtErrorMessageTB.Height + imgTriangleArrowIconTB.Height - ( lblTitleTextTB.Height / 2 - imgTriangleArrowIconTB.Height/ 2 )
+            )
+        ZIndex: =9
+
+    lblRequiredAsteriskTB As label:
+        Align: =TextBoxComponent.StylingProperty.Label.Align
+        AutoHeight: =TextBoxComponent.StylingProperty.Label.AutoHeight
+        BorderColor: =TextBoxComponent.StylingProperty.Label.BorderColor
+        BorderStyle: =TextBoxComponent.StylingProperty.Label.BorderStyle
+        BorderThickness: =TextBoxComponent.StylingProperty.Label.BorderThickness
+        Color: =TextBoxComponent.StylingProperty.Label.ErrorColor
+        DisabledBorderColor: =TextBoxComponent.StylingProperty.Label.DisabledBorderColor
+        DisabledColor: =TextBoxComponent.StylingProperty.Label.DisabledColor
+        DisabledFill: =TextBoxComponent.StylingProperty.Label.DisabledFill
+        DisplayMode: =TextBoxComponent.StylingProperty.Label.DisplayMode
+        Fill: =TextBoxComponent.StylingProperty.Label.Fill
+        FocusedBorderColor: =TextBoxComponent.StylingProperty.Label.FocusedBorderColor
+        FocusedBorderThickness: =TextBoxComponent.StylingProperty.Label.FocusedBorderThickness
+        Font: =TextBoxComponent.StylingProperty.Label.Font
+        FontWeight: =TextBoxComponent.StylingProperty.Label.FontWeight
+        Height: =TextBoxComponent.StylingProperty.Label.Height * TextBoxComponent.ScaleFactor
+        HoverBorderColor: =TextBoxComponent.StylingProperty.Label.HoverBorderColor
+        HoverColor: =TextBoxComponent.StylingProperty.Label.HoverColor
+        HoverFill: =TextBoxComponent.StylingProperty.Label.HoverFill
+        Italic: =TextBoxComponent.StylingProperty.Label.Italic
+        LineHeight: =TextBoxComponent.StylingProperty.Label.LineHeight
+        OnSelect: =Select(rctResetTB)
+        Overflow: =TextBoxComponent.StylingProperty.Label.Overflow
+        PaddingBottom: =TextBoxComponent.StylingProperty.Label.PaddingBottom
+        PaddingLeft: =TextBoxComponent.StylingProperty.Label.PaddingLeft
+        PaddingRight: =TextBoxComponent.StylingProperty.Label.PaddingRight
+        PaddingTop: =TextBoxComponent.StylingProperty.Label.PaddingTop
+        PressedBorderColor: =TextBoxComponent.StylingProperty.Label.PressedBorderColor
+        PressedColor: =TextBoxComponent.StylingProperty.Label.PressedColor
+        PressedFill: =TextBoxComponent.StylingProperty.Label.PressedFill
+        Size: =TextBoxComponent.StylingProperty.Label.Size * TextBoxComponent.ScaleFactor
+        Strikethrough: =TextBoxComponent.StylingProperty.Label.Strikethrough
+        Text: ="*"
+        Underline: =TextBoxComponent.StylingProperty.Label.Underline
+        VerticalAlign: =TextBoxComponent.StylingProperty.Label.VerticalAlign
+        Visible: =TextBoxComponent.Required && lblTitleTextTB.Visible
+        Width: =Len(Self.Text) * (8 * TextBoxComponent.ScaleFactor)
+        Wrap: =TextBoxComponent.StylingProperty.Label.Wrap
+        X: =lblTitleTextTB.X + lblTitleTextTB.Width - TextBoxComponent.AsteriskAdjustment
+        Y: |-
+            =If(
+                gblShowErrorPopup,
+                txtErrorMessageTB.Height + imgTriangleArrowIconTB.Height - ( lblTitleTextTB.Height / 2 - imgTriangleArrowIconTB.Height/ 2 )
+            )
+        ZIndex: =11
+

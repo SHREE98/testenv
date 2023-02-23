@@ -1,0 +1,289 @@
+"WelcomeScreen As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    Fill: =gblColors.GrayMidLight
+
+    ScreenContainerWS As groupContainer.verticalAutoLayoutContainer:
+        Fill: =gblColors.GrayLight
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainerWS As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =false
+            ZIndex: =2
+
+        MainSectionContainerWS As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =gblColors.GrayMidLight
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            ContainerWS As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =gblColors.GrayMidLight
+                Height: =MainSectionContainerWS.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                Width: =MainSectionContainerWS.Width
+                ZIndex: =1
+
+                WelcomeLabelWS As label:
+                    Align: =Align.Center
+                    Font: =gblFonts.Heading
+                    FontWeight: =Semibold
+                    Height: =GridRows5WS.Height
+                    Size: =32
+                    Text: ="Welcome to Touchstone"
+                    Width: =GridColumn6WS.Width*4
+                    X: |+
+                        =(TimerLabelWS.Value/10 - WelcomeLabelWS.Width)
+                        
+                        
+                        
+                        
+                        
+                    Y: =323
+                    ZIndex: =23
+
+                SliderWS As rectangle:
+                    Fill: =gblColors.NavyBlue
+                    Height: =ContainerWS.Height
+                    Width: =ContainerWS.Width
+                    X: =TimerSliderWS.Value/10
+                    ZIndex: =24
+
+                grpGridRowsWS As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =24
+
+                    GridRows10WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =700
+                        ZIndex: =1
+
+                    GridRows9WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows8WS.Y + GridRows8WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =2
+
+                    GridRows1WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                    GridRows2WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1WS.X
+                        Y: =GridRows1WS.Y + GridRows1WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =4
+
+                    GridRows3WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows2WS.Y + GridRows2WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =5
+
+                    GridRows4WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows3WS.Y + GridRows3WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =6
+
+                    GridRows5WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows4WS.Y + GridRows4WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =7
+
+                    GridRows6WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows5WS.Y + GridRows5WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =8
+
+                    GridRows7WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows6WS.Y + GridRows6WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =9
+
+                    GridRows8WS As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorWS
+                        Visible: =false
+                        Width: =Parent.Width
+                        Y: =GridRows7WS.Y + GridRows7WS.Height + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =10
+
+                TimerSliderWS As timer:
+                    AutoStart: =true
+                    Duration: =ContainerWS.Width*10
+                    Visible: =false
+                    X: =1760
+                    Y: =856
+                    ZIndex: =25
+
+                TimerLabelWS As timer:
+                    AutoStart: =true
+                    Duration: =(ContainerWS.Width/2+WelcomeLabelWS.Width/2)*10
+                    Visible: =false
+                    X: =1591
+                    Y: =870
+                    ZIndex: =26
+
+                grpGridColumnsWS As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =31
+
+                    GridColumn1WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =(gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =11
+
+                    GridColumn2WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn1WS.X + GridColumn1WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =12
+
+                    GridColumn3WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn2WS.X + GridColumn2WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =13
+
+                    GridColumn4WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn3WS.X + GridColumn3WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =14
+
+                    GridColumn5WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn4WS.X + GridColumn4WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =15
+
+                    GridColumn6WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn5WS.X + GridColumn5WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =16
+
+                    GridColumn7WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn6WS.X + GridColumn6WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =17
+
+                    GridColumn8WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn7WS.X + GridColumn7WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =18
+
+                    GridColumn9WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn8WS.X + GridColumn8WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =19
+
+                    GridColumn10WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn9WS.X + GridColumn9WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =20
+
+                    GridColumn11WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn10WS.X + GridColumn10WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =21
+
+                    GridColumn12WS As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorWS) * 13)) / 12
+                        X: =GridColumn11WS.X + GridColumn11WS.Width + (gblLayout.GutterWidth * lblScaleFactorWS)
+                        ZIndex: =22
+
+        FooterContainerWS As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =false
+            ZIndex: =4
+
+    lblScaleFactorWS As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =36
+        Text: |-
+            =With({ScaleFactor : WelcomeScreen.Height / gblLayout.ScreenHeight}, If(ScaleFactor <= 0, 1, ScaleFactor))
+        Visible: =false
+        Width: =196
+        X: =20
+        Y: =20
+        ZIndex: =2
+
+    lblComponentMarginWS As label:
+        Height: =36
+        Text: =gblDefaults.Margin * lblScaleFactorWS
+        Visible: =false
+        Width: =196
+        X: =40
+        Y: =40
+        ZIndex: =3
+

@@ -1,0 +1,136 @@
+PrimaryButtonComponent As CanvasComponent:
+    DisplayMode: =DisplayMode.Edit
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =PrimaryButtonComponent.StylingProperty.Height
+    OnReset: |-
+        =
+        Set(gblButtonSelected, false)
+    Pressed: =false
+    ScaleFactor: =1
+    StylingProperty: =gblControlStyles.PrimaryButton
+    Text: ="Button"
+    Width: =118
+    X: =0
+    Y: =0
+    ZIndex: =21
+
+    tmrRipplePB As timer:
+        AutoStart: =If(PrimaryButtonComponent.DisplayMode = DisplayMode.Edit,PrimaryButtonComponent.Pressed)
+        Duration: =300 * PrimaryButtonComponent.ScaleFactor
+        Font: =Font.Arial
+        Height: =0
+        OnTimerEnd: |-
+            =Reset(tmrRipplePB);
+            Set(gblRipple, false);
+            Set(gblButtonSelected,true)
+        OnTimerStart: =Set(gblRipple, true);
+        TabIndex: =-1
+        Visible: =false
+        Width: =0
+        ZIndex: =1
+
+    btnButtonPB As button:
+        Align: =PrimaryButtonComponent.StylingProperty.Align
+        AutoDisableOnSelect: =PrimaryButtonComponent.StylingProperty.AutoDisableOnSelect
+        BorderColor: =PrimaryButtonComponent.StylingProperty.BorderColor
+        BorderStyle: =PrimaryButtonComponent.StylingProperty.BorderStyle
+        BorderThickness: =PrimaryButtonComponent.StylingProperty.BorderThickness * PrimaryButtonComponent.ScaleFactor
+        Color: =PrimaryButtonComponent.StylingProperty.Color
+        DisabledBorderColor: =PrimaryButtonComponent.StylingProperty.DisabledBorderColor
+        DisabledColor: =PrimaryButtonComponent.StylingProperty.DisabledColor
+        DisabledFill: =PrimaryButtonComponent.StylingProperty.DisabledFill
+        DisplayMode: =PrimaryButtonComponent.DisplayMode
+        Fill: |-
+            =If(
+                gblRipple,
+                PrimaryButtonComponent.StylingProperty.PressedFill,
+                gblButtonSelected,
+                PrimaryButtonComponent.StylingProperty.RippleFill,
+                PrimaryButtonComponent.StylingProperty.Fill
+            )
+        FocusedBorderColor: =PrimaryButtonComponent.StylingProperty.FocusedBorderColor
+        FocusedBorderThickness: =PrimaryButtonComponent.StylingProperty.FocusedBorderThickness
+        Font: =PrimaryButtonComponent.StylingProperty.Font
+        FontWeight: =PrimaryButtonComponent.StylingProperty.FontWeight
+        Height: =PrimaryButtonComponent.Height
+        HoverBorderColor: =PrimaryButtonComponent.StylingProperty.HoverBorderColor
+        HoverColor: =PrimaryButtonComponent.StylingProperty.HoverColor
+        HoverFill: =PrimaryButtonComponent.StylingProperty.HoverFill
+        Italic: =PrimaryButtonComponent.StylingProperty.Italic
+        PaddingBottom: =PrimaryButtonComponent.StylingProperty.PaddingBottom * PrimaryButtonComponent.ScaleFactor
+        PaddingLeft: =PrimaryButtonComponent.StylingProperty.PaddingLeft * PrimaryButtonComponent.ScaleFactor
+        PaddingRight: =PrimaryButtonComponent.StylingProperty.PaddingRight * PrimaryButtonComponent.ScaleFactor
+        PaddingTop: =PrimaryButtonComponent.StylingProperty.PaddingTop * PrimaryButtonComponent.ScaleFactor
+        PressedBorderColor: =PrimaryButtonComponent.StylingProperty.PressedFill
+        PressedColor: =PrimaryButtonComponent.StylingProperty.PressedColor
+        PressedFill: =PrimaryButtonComponent.StylingProperty.PressedFill
+        RadiusBottomLeft: =PrimaryButtonComponent.StylingProperty.RadiusBottomLeft * PrimaryButtonComponent.ScaleFactor
+        RadiusBottomRight: =PrimaryButtonComponent.StylingProperty.RadiusBottomRight * PrimaryButtonComponent.ScaleFactor
+        RadiusTopLeft: =PrimaryButtonComponent.StylingProperty.RadiusTopLeft * PrimaryButtonComponent.ScaleFactor
+        RadiusTopRight: =PrimaryButtonComponent.StylingProperty.RadiusTopRight * PrimaryButtonComponent.ScaleFactor
+        Size: =PrimaryButtonComponent.StylingProperty.Size * PrimaryButtonComponent.ScaleFactor
+        Strikethrough: =PrimaryButtonComponent.StylingProperty.Strikethrough
+        TabIndex: =-1
+        Text: =PrimaryButtonComponent.Text
+        Underline: =PrimaryButtonComponent.StylingProperty.Underline
+        VerticalAlign: =PrimaryButtonComponent.StylingProperty.VerticalAlign
+        Width: =PrimaryButtonComponent.Width
+        ZIndex: =2
+
+    btnRippleEffectPB As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =Self.Color
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Self.Color
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =PrimaryButtonComponent.StylingProperty.RippleFill
+        FocusedBorderThickness: =0
+        FontWeight: =FontWeight.Normal
+        Height: =btnButtonPB.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PressedBorderColor: =Self.Color
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =1000
+        RadiusBottomRight: =1000
+        RadiusTopLeft: =1000
+        RadiusTopRight: =1000
+        Size: =12
+        TabIndex: =-1
+        Text: =""
+        Visible: =gblRipple
+        Width: =tmrRipplePB.Value / 2
+        X: =(btnButtonPB.X + btnButtonPB.Width / 2) - (Self.Width / 2)
+        Y: =0//(btnButtonPB.Y + btnButtonPB.Height/2) - (Self.Width /2)
+        ZIndex: =3
+
+    lblPressedLabelPB As label:
+        Align: =btnButtonPB.Align
+        AutoHeight: =
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =PrimaryButtonComponent.StylingProperty.PressedColor
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =Self.Color
+        Font: =btnButtonPB.Font
+        FontWeight: =btnButtonPB.FontWeight
+        Height: =btnButtonPB.Height
+        PaddingBottom: =btnButtonPB.PaddingBottom
+        PaddingLeft: =btnButtonPB.PaddingLeft
+        PaddingRight: =btnButtonPB.PaddingRight
+        PaddingTop: =btnButtonPB.PaddingTop
+        Size: =btnButtonPB.Size
+        Text: =btnButtonPB.Text
+        VerticalAlign: =btnButtonPB.VerticalAlign
+        Visible: =gblRipple
+        Width: =btnButtonPB.Width
+        Wrap: =false
+        X: =btnButtonPB.X
+        Y: =btnButtonPB.Y
+        ZIndex: =4
+

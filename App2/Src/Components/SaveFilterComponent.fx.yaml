@@ -1,0 +1,200 @@
+SaveFilterComponent As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    Filtername: =txtFilterNameInputSF.Text
+    Height: =SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.Height * SaveFilterComponent.ScaleFactor
+    OnReset: =Set(gblVisible,!gblVisible)
+    Reset: =true
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    StylingProperty: |-
+        ={
+            
+         SaveFilter: gblControlStyles.SaveFilter,
+         TextInput: gblControlStyles.TextBox
+        
+        
+        }
+    TabIndex: =0
+    Width: =SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.Width * SaveFilterComponent.ScaleFactor
+    X: =0
+    Y: =0
+    ZIndex: =5
+
+    rctResetSF As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =2
+        OnSelect: =Set(gblResetComponents,true);Set(gblResetComponents,false)
+        Width: =4
+        X: =20
+        Y: =20
+        ZIndex: =1
+
+    imgPopupCardSF As image:
+        AutoDisableOnSelect: =false
+        Height: =Parent.Height
+        Image: |-
+            ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='369' height='220' viewBox='0 0 369 220' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <g filter='url(#filter0_d_281_7)'>
+            <path d='M15 8.00001C15 5.79087 16.7909 4 19 4H350C352.209 4 354 5.79086 354 8V194H15V8.00001Z' fill='"&SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.Fill &"'/>
+            </g>
+            <path d='M15 149H354V200C354 202.209 352.209 204 350 204H19C16.7909 204 15 202.209 15 200V149Z' fill='"&SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.BottomSepratorFill &"'/>
+            <defs>
+            <filter id='filter0_d_281_7' x='0' y='0' width='369' height='220' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+            <feOffset dy='11'/>
+            <feGaussianBlur stdDeviation='7.5'/>
+            <feComposite in2='hardAlpha' operator='out'/>
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'/>
+            <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_281_7'/>
+            <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_281_7' result='shape'/>
+            </filter>
+            </defs>
+            </svg>
+            
+            ")
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =Select(rctResetSF)
+        PaddingBottom: =SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.PaddingBottom
+        PaddingLeft: =SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.PaddingLeft
+        PaddingRight: =SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.PaddingRight
+        PaddingTop: =SaveFilterComponent.StylingProperty.SaveFilter.PopupCard.PaddingTop
+        Width: =Parent.Width
+        ZIndex: =2
+
+    lblHeadingSF As label:
+        Align: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Align
+        AutoHeight: =SaveFilterComponent.StylingProperty.SaveFilter.Label.AutoHeight
+        BorderColor: =SaveFilterComponent.StylingProperty.SaveFilter.Label.BorderColor
+        BorderStyle: =SaveFilterComponent.StylingProperty.SaveFilter.Label.BorderStyle
+        BorderThickness: =SaveFilterComponent.StylingProperty.SaveFilter.Label.BorderThickness
+        Color: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Color
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =SaveFilterComponent.StylingProperty.SaveFilter.Label.DisplayMode
+        Fill: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Font: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Font
+        FontWeight: =SaveFilterComponent.StylingProperty.SaveFilter.Label.FontWeight
+        Height: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Height * SaveFilterComponent.ScaleFactor
+        Italic: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Italic
+        LineHeight: =SaveFilterComponent.StylingProperty.SaveFilter.Label.LineHeight
+        OnSelect: =Select(rctResetSF)
+        Overflow: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Overflow
+        PaddingBottom: =SaveFilterComponent.StylingProperty.SaveFilter.Label.PaddingBottom
+        PaddingLeft: =SaveFilterComponent.StylingProperty.SaveFilter.Label.PaddingLeft
+        PaddingRight: =SaveFilterComponent.StylingProperty.SaveFilter.Label.PaddingRight
+        PaddingTop: =SaveFilterComponent.StylingProperty.SaveFilter.Label.PaddingTop
+        Size: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Size * SaveFilterComponent.ScaleFactor
+        Strikethrough: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Strikethrough
+        Text: ="Please name your view"
+        Underline: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Underline
+        VerticalAlign: =SaveFilterComponent.StylingProperty.SaveFilter.Label.VerticalAlign
+        Width: =(Len(Self.Text) * Self.Size ) * SaveFilterComponent.ScaleFactor
+        Wrap: =SaveFilterComponent.StylingProperty.SaveFilter.Label.Wrap
+        X: =txtFilterNameInputSF.X * SaveFilterComponent.ScaleFactor
+        Y: =(Parent.Height - Self.Height)/2 - txtFilterNameInputSF.Height/2
+        ZIndex: =3
+
+    txtFilterNameInputSF As text:
+        Align: =SaveFilterComponent.StylingProperty.TextInput.Align
+        BorderColor: =SaveFilterComponent.StylingProperty.TextInput.BorderColor
+        BorderStyle: =SaveFilterComponent.StylingProperty.TextInput.BorderStyle
+        BorderThickness: =SaveFilterComponent.StylingProperty.TextInput.BorderThickness
+        Clear: =SaveFilterComponent.StylingProperty.TextInput.Clear
+        Color: =SaveFilterComponent.StylingProperty.TextInput.Color
+        Default: =""
+        DisabledBorderColor: =SaveFilterComponent.StylingProperty.TextInput.DisabledBorderColor
+        DisabledColor: =SaveFilterComponent.StylingProperty.TextInput.DisabledColor
+        DisabledFill: =SaveFilterComponent.StylingProperty.TextInput.DisabledFill
+        DisplayMode: =SaveFilterComponent.StylingProperty.TextInput.DisplayMode
+        EnableSpellCheck: =SaveFilterComponent.StylingProperty.TextInput.EnableSpellCheck
+        Fill: =SaveFilterComponent.StylingProperty.TextInput.Fill
+        FocusedBorderColor: =SaveFilterComponent.StylingProperty.TextInput.FocusedBorderColor
+        FocusedBorderThickness: =SaveFilterComponent.StylingProperty.TextInput.FocusedBorderThickness
+        Font: =SaveFilterComponent.StylingProperty.TextInput.Font
+        FontWeight: =SaveFilterComponent.StylingProperty.TextInput.FontWeight
+        Format: =SaveFilterComponent.StylingProperty.TextInput.TextFormat
+        Height: =SaveFilterComponent.StylingProperty.TextInput.Height * SaveFilterComponent.ScaleFactor
+        HintText: ="Place holder content"
+        HoverBorderColor: =SaveFilterComponent.StylingProperty.TextInput.HoverBorderColor
+        HoverColor: =SaveFilterComponent.StylingProperty.TextInput.HoverColor
+        HoverFill: =SaveFilterComponent.StylingProperty.TextInput.HoverFill
+        Italic: =SaveFilterComponent.StylingProperty.TextInput.Italic
+        LineHeight: =SaveFilterComponent.StylingProperty.TextInput.LineHeight
+        MaxLength: =SaveFilterComponent.StylingProperty.TextInput.MaxLength
+        Mode: =SaveFilterComponent.StylingProperty.TextInput.TextMode
+        OnSelect: =Select(rctResetSF)
+        PaddingBottom: =SaveFilterComponent.StylingProperty.TextInput.PaddingBottom
+        PaddingLeft: =SaveFilterComponent.StylingProperty.TextInput.PaddingLeft
+        PaddingRight: =SaveFilterComponent.StylingProperty.TextInput.PaddingRight
+        PaddingTop: =SaveFilterComponent.StylingProperty.TextInput.PaddingTop
+        PressedBorderColor: =SaveFilterComponent.StylingProperty.TextInput.PressedBorderColor
+        PressedColor: =SaveFilterComponent.StylingProperty.TextInput.PressedColor
+        PressedFill: =SaveFilterComponent.StylingProperty.TextInput.PressedFill
+        RadiusBottomLeft: =SaveFilterComponent.StylingProperty.TextInput.RadiusBottomLeft
+        RadiusBottomRight: =SaveFilterComponent.StylingProperty.TextInput.RadiusBottomRight
+        RadiusTopLeft: =SaveFilterComponent.StylingProperty.TextInput.RadiusTopLeft
+        RadiusTopRight: =SaveFilterComponent.StylingProperty.TextInput.RadiusTopRight
+        Size: =SaveFilterComponent.StylingProperty.TextInput.Size * SaveFilterComponent.ScaleFactor
+        Strikethrough: =SaveFilterComponent.StylingProperty.TextInput.Strikethrough
+        TabIndex: =SaveFilterComponent.TabIndex
+        Underline: =SaveFilterComponent.StylingProperty.TextInput.Underline
+        Width: =364 * SaveFilterComponent.ScaleFactor
+        X: =(Parent.Width - Self.Width)/2
+        Y: =lblHeadingSF.Y + lblHeadingSF.Height
+        ZIndex: =4
+
+    imgLogoSF As image:
+        Height: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.Height * SaveFilterComponent.ScaleFactor
+        Image: |-
+            ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path d='M14 0H2C1.46957 0 0.960859 0.210714 0.585786 0.585786C0.210714 0.960859 0 1.46957 0 2V16C0 16.5304 0.210714 17.0391 0.585786 17.4142C0.960859 17.7893 1.46957 18 2 18H16C16.5299 17.9984 17.0377 17.7872 17.4125 17.4125C17.7872 17.0377 17.9984 16.5299 18 16V4L14 0ZM16 16H2V2H13.17L16 4.83V16ZM9 9C8.40666 9 7.82664 9.17595 7.33329 9.50559C6.83994 9.83524 6.45542 10.3038 6.22836 10.8519C6.0013 11.4001 5.94189 12.0033 6.05764 12.5853C6.1734 13.1672 6.45912 13.7018 6.87868 14.1213C7.29824 14.5409 7.83279 14.8266 8.41473 14.9424C8.99667 15.0581 9.59987 14.9987 10.1481 14.7716C10.6962 14.5446 11.1648 14.1601 11.4944 13.6667C11.8241 13.1734 12 12.5933 12 12C12 11.2044 11.6839 10.4413 11.1213 9.87868C10.5587 9.31607 9.79565 9 9 9ZM3 3H12V7H3V3Z' fill='"& SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.Fill &"'/>
+            </svg>
+            ")
+        OnSelect: =Select(rctResetSF)
+        PaddingBottom: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.PaddingBottom
+        PaddingLeft: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.PaddingLeft
+        PaddingRight: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.PaddingRight
+        PaddingTop: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.PaddingTop
+        Width: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.Width * SaveFilterComponent.ScaleFactor
+        X: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.MarginLeft
+        Y: =SaveFilterComponent.StylingProperty.SaveFilter.SaveLogo.MarginTop
+        ZIndex: =5
+
+    lblSavedFilterSF As label:
+        Align: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Align
+        AutoHeight: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.AutoHeight
+        BorderColor: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.BorderColor
+        BorderStyle: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.BorderStyle
+        BorderThickness: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.BorderThickness
+        Color: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Color
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.DisplayMode
+        Fill: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Font: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Font
+        FontWeight: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.FontWeight
+        Height: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Height * SaveFilterComponent.ScaleFactor
+        Italic: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Italic
+        LineHeight: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.LineHeight
+        OnSelect: =Select(rctResetSF)
+        Overflow: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Overflow
+        PaddingBottom: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingBottom
+        PaddingLeft: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingLeft
+        PaddingRight: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingRight
+        PaddingTop: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingTop
+        Size: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Size * SaveFilterComponent.ScaleFactor
+        Strikethrough: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Strikethrough
+        Text: ="Saved filter"
+        Underline: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Underline
+        VerticalAlign: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.VerticalAlign
+        Width: =(Len(Self.Text) * Self.Size ) * SaveFilterComponent.ScaleFactor
+        Wrap: =SaveFilterComponent.StylingProperty.SaveFilter.HeadingLabel.Wrap
+        X: =imgLogoSF.X + imgLogoSF.Width
+        Y: =imgLogoSF.Height/2 + imgLogoSF.Y/2
+        ZIndex: =6
+

@@ -1,0 +1,542 @@
+NotesComponentwithExpandButton As CanvasComponent:
+    CharacterCount: =270
+    ComponentHeight: =124
+    CustomHeight: |-
+        =With(
+            {Height: txtTextInputNC.Height + lblTitleTextNC.Height + Self.StylingProperty.TextInput.Margin},
+            If(
+                gblShowErrorPopup,
+                Height + NotesComponentwithExpandButton.ErrorExtention,
+                Height
+            )
+        )
+    CustomY: |-
+        =If(
+            gblShowErrorPopup,
+            Self.YAxis - (txtErrorMessageNC.Height + imgTriangleArrowIconNC.Height - ( lblTitleTextNC.Height / 2 - imgTriangleArrowIconNC.Height/ 2 )),
+            Self.YAxis
+        )
+    Default: =""
+    DisplayMode: =gblState.Enabled
+    ErrorExtention: |-
+        =If(
+            gblShowErrorPopup,
+            txtErrorMessageNC.Height + imgTriangleArrowIconNC.Height - ( lblTitleTextNC.Height / 2 - imgTriangleArrowIconNC.Height/ 2 )
+        )
+    ErrorMessage: ="Error Message"
+    ErrorVisible: =gblShowErrorPopup
+    Expanded: =gblExpanded
+    Fill: =RGBA(0, 0, 0, 0)
+    Focus: =false
+    Height: =124
+    HintText: ="Place holder Content"
+    OnReset: |-
+        =Set(gblExpanded, false);
+        Set(gblText, NotesComponentwithExpandButton.Default);
+        Reset(txtTextInputNC);
+    Reset: =false
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    StylingProperty: |-
+        =With(
+            {NotesComponent: gblControlStyles.NotesComponent},
+            {
+                ExpandIcon: gblControlStyles.ExpandIcon,
+                CloseIcon : gblControlStyles.CloseIcon,
+                ErrorIcon: gblControlStyles.ErrorIcon,
+                ErrorMessagePopup: gblControlStyles.ErrorMessagePopup,
+                TextInput: NotesComponent.TextBox,
+                TitleLabel: gblControlStyles.ControlLabel
+            }
+        )
+    TabIndex: =0
+    Text: =txtTextInputNC.Text
+    TitleText: ="Label"
+    Width: =368
+    X: =0
+    Y: =0
+    YAxis: =100
+    ZIndex: =16
+
+    rctResetNC As rectangle:
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =Parent.Height
+        OnSelect: |-
+            =Set(
+                gblResetComponents,
+                true
+            );
+            Set(
+                gblResetComponents,
+                false
+            )
+        Width: =Parent.Width
+        ZIndex: =1
+
+    txtTextInputNC As text:
+        Align: =NotesComponentwithExpandButton.StylingProperty.TextInput.Align
+        BorderColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorBorderColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.BorderColor
+            )
+        BorderStyle: =NotesComponentwithExpandButton.StylingProperty.TextInput.BorderStyle
+        BorderThickness: =NotesComponentwithExpandButton.StylingProperty.TextInput.BorderThickness * NotesComponentwithExpandButton.ScaleFactor
+        Clear: =NotesComponentwithExpandButton.StylingProperty.TextInput.Clear
+        Color: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.Color
+            )
+        Default: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Disabled",
+                Blank(),
+                NotesComponentwithExpandButton.DisplayMode = "View",
+                NotesComponentwithExpandButton.Default,
+                gblText
+            )
+        DisabledBorderColor: =NotesComponentwithExpandButton.StylingProperty.TextInput.DisabledBorderColor
+        DisabledColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "View",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ViewColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.DisabledColor
+            )
+        DisabledFill: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "View",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ViewFill,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.DisabledFill
+            )
+        DisplayMode: |-
+            =If(
+                Or(
+                    NotesComponentwithExpandButton.DisplayMode = "Enabled",
+                    NotesComponentwithExpandButton.DisplayMode = "Error"
+                ),
+                DisplayMode.Edit,
+                DisplayMode.Disabled
+            )
+        EnableSpellCheck: =NotesComponentwithExpandButton.StylingProperty.TextInput.EnableSpellCheck
+        Fill: =NotesComponentwithExpandButton.StylingProperty.TextInput.Fill
+        FocusedBorderColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorBorderColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.FocusedBorderColor
+            )
+        FocusedBorderThickness: =NotesComponentwithExpandButton.StylingProperty.TextInput.FocusedBorderThickness
+        Font: =NotesComponentwithExpandButton.StylingProperty.TextInput.Font
+        FontWeight: =NotesComponentwithExpandButton.StylingProperty.TextInput.FontWeight
+        Format: =NotesComponentwithExpandButton.StylingProperty.TextInput.TextFormat
+        Height: |-
+            =Max(
+                NotesComponentwithExpandButton.StylingProperty.TextInput.Height,
+                Parent.ComponentHeight - Self.Y - NotesComponentwithExpandButton.StylingProperty.TextInput.Margin + Parent.ErrorExtention
+            )
+        HintText: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Disabled",
+                Blank(),
+                NotesComponentwithExpandButton.HintText
+            )
+        HoverBorderColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorBorderColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.HoverBorderColor
+            )
+        HoverColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.HoverColor
+            )
+        HoverFill: =NotesComponentwithExpandButton.StylingProperty.TextInput.HoverFill
+        Italic: =NotesComponentwithExpandButton.StylingProperty.TextInput.Italic
+        LineHeight: =NotesComponentwithExpandButton.StylingProperty.TextInput.LineHeight
+        MaxLength: =NotesComponentwithExpandButton.CharacterCount
+        Mode: =NotesComponentwithExpandButton.StylingProperty.TextInput.TextMode
+        OnChange: |-
+            =Set(gblFocusOn, false );
+            Set(gblText,Self.Text);
+        OnSelect: |-
+            =Select(rctResetNC);
+            Set(gblFocusOn, true);
+        PaddingBottom: =NotesComponentwithExpandButton.StylingProperty.TextInput.PaddingBottom * NotesComponentwithExpandButton.ScaleFactor
+        PaddingLeft: =NotesComponentwithExpandButton.StylingProperty.TextInput.PaddingLeft * NotesComponentwithExpandButton.ScaleFactor
+        PaddingRight: =(NotesComponentwithExpandButton.StylingProperty.TextInput.PaddingRight * NotesComponentwithExpandButton.ScaleFactor) + imgExpandIconNC.Width
+        PaddingTop: =NotesComponentwithExpandButton.StylingProperty.TextInput.PaddingTop * NotesComponentwithExpandButton.ScaleFactor
+        PressedBorderColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorBorderColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.PressedBorderColor
+            )
+        PressedColor: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Error",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ErrorColor,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.PressedColor
+            )
+        PressedFill: =NotesComponentwithExpandButton.StylingProperty.TextInput.PressedFill
+        RadiusBottomLeft: =NotesComponentwithExpandButton.StylingProperty.TextInput.RadiusBottomLeft
+        RadiusBottomRight: =NotesComponentwithExpandButton.StylingProperty.TextInput.RadiusBottomRight
+        RadiusTopLeft: =NotesComponentwithExpandButton.StylingProperty.TextInput.RadiusTopLeft
+        RadiusTopRight: =NotesComponentwithExpandButton.StylingProperty.TextInput.RadiusTopRight
+        Size: =NotesComponentwithExpandButton.StylingProperty.TextInput.Size * NotesComponentwithExpandButton.ScaleFactor
+        Strikethrough: =NotesComponentwithExpandButton.StylingProperty.TextInput.Strikethrough
+        TabIndex: =NotesComponentwithExpandButton.TabIndex
+        Underline: =NotesComponentwithExpandButton.StylingProperty.TextInput.Underline
+        Width: =Parent.Width - NotesComponentwithExpandButton.StylingProperty.TextInput.Margin * 2
+        X: =NotesComponentwithExpandButton.StylingProperty.TextInput.Margin
+        Y: =lblTitleTextNC.Y + lblTitleTextNC.Height
+        ZIndex: =2
+
+    txtHideScrollNC As text:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        Default: ="Text input"
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: |-
+            =Switch(
+                NotesComponentwithExpandButton.DisplayMode,
+                "Disabled",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.DisabledFill,
+                "View",
+                NotesComponentwithExpandButton.StylingProperty.TextInput.ViewFill,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.Fill
+            )
+        FocusedBorderThickness: =0
+        Height: =txtTextInputNC.Height - (txtTextInputNC.BorderThickness * 2)
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =txtTextInputNC.RadiusBottomRight
+        RadiusTopLeft: =0
+        RadiusTopRight: =txtTextInputNC.RadiusBottomRight
+        Size: =0
+        Width: =imgCloseIconNC.Width
+        X: =txtTextInputNC.X + txtTextInputNC.Width - Self.Width - txtTextInputNC.BorderThickness
+        Y: =txtTextInputNC.Y + txtTextInputNC.BorderThickness
+        ZIndex: =3
+
+    lblTitleTextNC As label:
+        Align: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Align
+        AutoHeight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.AutoHeight
+        BorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.BorderColor
+        BorderStyle: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.BorderStyle
+        BorderThickness: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.BorderThickness * NotesComponentwithExpandButton.ScaleFactor
+        Color: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Color
+        DisabledBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.DisabledBorderColor
+        DisabledColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.DisabledColor
+        DisabledFill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.DisabledFill
+        DisplayMode: |-
+            =If(
+                NotesComponentwithExpandButton.DisplayMode = "Disabled",
+                Disabled,
+                NotesComponentwithExpandButton.StylingProperty.TextInput.DisplayMode
+            )
+        Fill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Fill
+        FocusedBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.FocusedBorderColor
+        FocusedBorderThickness: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.FocusedBorderThickness
+        Font: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Font
+        FontWeight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.FontWeight
+        Height: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Height * NotesComponentwithExpandButton.ScaleFactor
+        HoverBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.HoverBorderColor
+        HoverColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.HoverColor
+        HoverFill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.HoverFill
+        Italic: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Italic
+        LineHeight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.LineHeight
+        OnSelect: =Select(rctResetNC)
+        Overflow: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Overflow
+        PaddingBottom: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingBottom
+        PaddingLeft: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingLeft
+        PaddingRight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingRight
+        PaddingTop: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingTop
+        PressedBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PressedBorderColor
+        PressedColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PressedColor
+        PressedFill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PressedFill
+        Size: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Size * NotesComponentwithExpandButton.ScaleFactor
+        Strikethrough: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Strikethrough
+        Text: =NotesComponentwithExpandButton.TitleText
+        Underline: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Underline
+        VerticalAlign: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.VerticalAlign
+        Width: =Len(Self.Text) * (8 * NotesComponentwithExpandButton.ScaleFactor)
+        Wrap: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Wrap
+        X: =NotesComponentwithExpandButton.StylingProperty.TextInput.Margin + txtTextInputNC.BorderThickness
+        Y: |-
+            =If(
+                gblShowErrorPopup,
+                txtErrorMessageNC.Height + imgTriangleArrowIconNC.Height - ( lblTitleTextNC.Height / 2 - imgTriangleArrowIconNC.Height/ 2 )
+            )
+        ZIndex: =4
+
+    lblCharacterCountNC As label:
+        Align: =Align.Right
+        AutoHeight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.AutoHeight
+        BorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.BorderColor
+        BorderStyle: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.BorderStyle
+        BorderThickness: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.BorderThickness * NotesComponentwithExpandButton.ScaleFactor
+        Color: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Color
+        DisabledBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.DisabledBorderColor
+        DisabledColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.DisabledColor
+        DisabledFill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.DisabledFill
+        Fill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Fill
+        FocusedBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.FocusedBorderColor
+        FocusedBorderThickness: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.FocusedBorderThickness
+        Font: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Font
+        FontWeight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.FontWeight
+        Height: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Height * NotesComponentwithExpandButton.ScaleFactor
+        HoverBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.HoverBorderColor
+        HoverColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.HoverColor
+        HoverFill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.HoverFill
+        Italic: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Italic
+        LineHeight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.LineHeight
+        Overflow: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Overflow
+        PaddingBottom: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingBottom
+        PaddingLeft: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingLeft
+        PaddingRight: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingRight
+        PaddingTop: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PaddingTop
+        PressedBorderColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PressedBorderColor
+        PressedColor: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PressedColor
+        PressedFill: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.PressedFill
+        Size: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Size * NotesComponentwithExpandButton.ScaleFactor
+        Strikethrough: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Strikethrough
+        Text: =NotesComponentwithExpandButton.CharacterCount - Len(txtTextInputNC) & " characters"
+        Underline: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Underline
+        VerticalAlign: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.VerticalAlign
+        Visible: =NotesComponentwithExpandButton.DisplayMode = "Enabled"
+        Width: =txtTextInputNC.Width / 3
+        Wrap: =NotesComponentwithExpandButton.StylingProperty.TitleLabel.Wrap
+        X: =Parent.Width - Self.Width - lblTitleTextNC.X
+        Y: =
+        ZIndex: =5
+
+    imgExpandIconNC As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextInputNC.FocusedBorderColor
+        FocusedBorderThickness: =txtTextInputNC.FocusedBorderThickness
+        Height: =NotesComponentwithExpandButton.StylingProperty.ExpandIcon.Height * NotesComponentwithExpandButton.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <g clip-path='url(#clip0_480_2)'>
+            <path d='M19 11.2222V5H12.7778L15.3367 7.55889L7.55889 15.3367L5 12.7778V19H11.2222L8.66333 16.4411L16.4411 8.66333L19 11.2222Z' fill='" & If(
+                    NotesComponentwithExpandButton.DisplayMode = "Error",
+                    NotesComponentwithExpandButton.StylingProperty.ExpandIcon.ErrorColor,
+                    imgCloseIconNC.Visible,
+                    NotesComponentwithExpandButton.StylingProperty.ExpandIcon.FocusColor,
+                    NotesComponentwithExpandButton.StylingProperty.ExpandIcon.Color
+                ) & " '/>
+            </g>
+            <defs>
+            <clipPath id='clip0_480_2'>
+            <rect width='24' height='24' fill='white'/>
+            </clipPath>
+            </defs>
+            </svg>
+            "
+            )
+        OnSelect: |-
+            =Set(gblExpanded, true);
+            Select(rctResetNC)
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =NotesComponentwithExpandButton.TabIndex
+        Visible: =Not(NotesComponentwithExpandButton.DisplayMode = "Disabled")
+        Width: =NotesComponentwithExpandButton.StylingProperty.ExpandIcon.Width * NotesComponentwithExpandButton.ScaleFactor
+        X: =(txtTextInputNC.Width + txtTextInputNC.X) - Self.Width - NotesComponentwithExpandButton.StylingProperty.ExpandIcon.Margin
+        Y: =(txtTextInputNC.Y + txtTextInputNC.Height - Self.Width) - NotesComponentwithExpandButton.StylingProperty.ExpandIcon.Margin * NotesComponentwithExpandButton.ScaleFactor
+        ZIndex: =6
+
+    imgCloseIconNC As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        BorderThickness: =txtTextInputNC.BorderThickness
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextInputNC.FocusedBorderColor
+        FocusedBorderThickness: =txtTextInputNC.FocusedBorderThickness
+        Height: =NotesComponentwithExpandButton.StylingProperty.CloseIcon.Height * NotesComponentwithExpandButton.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='
+              " & If(
+                    NotesComponentwithExpandButton.DisplayMode = "Error",
+                    NotesComponentwithExpandButton.StylingProperty.CloseIcon.ErrorColor,
+                    NotesComponentwithExpandButton.StylingProperty.CloseIcon.Color
+                ) & "  
+              '/>
+            </svg>
+            "
+            )
+        OnSelect: |-
+            =Set(
+                gblText,
+                Blank()
+            );
+            SetFocus(txtTextInputNC);
+            Reset(txtTextInputNC);
+            Select(rctResetNC)
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =NotesComponentwithExpandButton.TabIndex
+        Visible: |-
+            =And(
+                Or(
+                    NotesComponentwithExpandButton.DisplayMode = "Enabled",
+                    NotesComponentwithExpandButton.DisplayMode = "Error"
+                ),
+                !IsBlank(txtTextInputNC.Text)
+            )
+        Width: =NotesComponentwithExpandButton.StylingProperty.CloseIcon.Width * NotesComponentwithExpandButton.ScaleFactor
+        X: =(txtTextInputNC.X + txtTextInputNC.Width - Self.Width) - (NotesComponentwithExpandButton.StylingProperty.CloseIcon.RightMargin * NotesComponentwithExpandButton.ScaleFactor)
+        Y: =txtTextInputNC.Y + (NotesComponentwithExpandButton.StylingProperty.ExpandIcon.Margin * NotesComponentwithExpandButton.ScaleFactor)
+        ZIndex: =7
+
+    imgErrorIconNC As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextInputNC.FocusedBorderColor
+        FocusedBorderThickness: =txtTextInputNC.FocusedBorderThickness
+        Height: =NotesComponentwithExpandButton.StylingProperty.ErrorIcon.Height * NotesComponentwithExpandButton.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg id='Error' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <rect id='Rectangle_3831' data-name='Rectangle 3831' width='24' height='24' fill='none'/>
+              <path id='error_outline_black_24dp' d='M11,15h2v2H11Zm0-8h2v6H11Zm.99-5A10,10,0,1,0,22,12,10,10,0,0,0,11.99,2Z' fill='"& NotesComponentwithExpandButton.StylingProperty.ErrorIcon.Color &"'/>
+              <path id='error_outline_black_24dp-2' data-name='error_outline_black_24dp' d='M11,15h2v2H11Zm0-8h2v6H11Z' fill='#fff'/>
+            </svg>
+            
+            "
+            )
+        OnSelect: |-
+            =Set(gblShowErrorPopup, !gblShowErrorPopup);
+            Select(rctResetNC);
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =NotesComponentwithExpandButton.TabIndex
+        Visible: =NotesComponentwithExpandButton.DisplayMode = "Error"
+        Width: =NotesComponentwithExpandButton.StylingProperty.ErrorIcon.Width * NotesComponentwithExpandButton.ScaleFactor
+        X: =(lblTitleTextNC.Width + lblTitleTextNC.X)
+        Y: =lblTitleTextNC.Y + lblTitleTextNC.Height / 2 - Self.Height/ 2
+        ZIndex: =8
+
+    grpErrorMessagePopupNC As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =9
+
+        txtErrorMessageNC As text:
+            Align: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Align
+            BorderColor: =Transparent
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =0
+            Color: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Color
+            Default: =NotesComponentwithExpandButton.ErrorMessage
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Fill
+            FocusedBorderThickness: =Self.BorderThickness
+            Font: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Font
+            FontWeight: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.FontWeight
+            Height: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Height
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: =Select(rctResetNC)
+            PaddingBottom: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.PaddingBottom
+            PaddingLeft: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.PaddingLeft
+            PaddingRight: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.PaddingRight
+            PaddingTop: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.PaddingTop
+            PressedBorderColor: =Self.BorderColor
+            RadiusBottomLeft: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Radius
+            RadiusBottomRight: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Radius
+            RadiusTopLeft: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Radius
+            RadiusTopRight: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Radius
+            Size: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.Size
+            Visible: |-
+                =If(
+                    IsBlank(gblShowErrorPopup),
+                    false,
+                    gblShowErrorPopup
+                )
+            Width: =Len(Self.Text) * 10
+            X: =imgTriangleArrowIconNC.X - imgTriangleArrowIconNC .Width
+            ZIndex: =9
+
+        imgTriangleArrowIconNC As image:
+            BorderColor: =Transparent
+            DisabledBorderColor: =Self.BorderColor
+            DisabledFill: =Self.Fill
+            Fill: =Transparent
+            FocusedBorderThickness: =Self.BorderThickness
+            Height: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.TriangleIconHeight
+            HoverBorderColor: =Self.BorderColor
+            HoverFill: =Self.Fill
+            Image: |-
+                ="data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg width='13' height='9' viewBox='0 0 13 9' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                <path d='M6.5 9L0.00480938 0L12.9952 0L6.5 9Z' fill='#BA2D32'/>
+                </svg>
+                "
+                )
+            OnSelect: =Select(rctResetNC)
+            PressedBorderColor: =Self.BorderColor
+            PressedFill: =Self.Fill
+            Visible: |-
+                =If(
+                    IsBlank(gblShowErrorPopup),
+                    false,
+                    gblShowErrorPopup
+                )
+            Width: =NotesComponentwithExpandButton.StylingProperty.ErrorMessagePopup.TriangleIconWidth
+            X: =imgErrorIconNC.X + imgErrorIconNC.Width / 2 - Self.Width / 2
+            Y: =txtErrorMessageNC.Y + txtErrorMessageNC.Height - lblTitleTextNC.X
+            ZIndex: =10
+
+    tmrSetFocusNC As timer:
+        Duration: =0
+        Height: =0
+        OnTimerStart: |-
+            =SetFocus(txtTextInputNC);
+            Reset(Self);
+        Start: =NotesComponentwithExpandButton.Focus
+        Visible: =false
+        Width: =0
+        ZIndex: =11
+
