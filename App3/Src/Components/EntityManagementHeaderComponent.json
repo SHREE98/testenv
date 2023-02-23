@@ -52,7 +52,7 @@
         "Name": "rctResetEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 562,
+        "PublishOrderIndex": 566,
         "Rules": [
           {
             "Category": "Design",
@@ -405,7 +405,7 @@
         "Name": "imgLoginUserEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 563,
+        "PublishOrderIndex": 567,
         "Rules": [
           {
             "Category": "Data",
@@ -894,7 +894,7 @@
         "Name": "lblUsernameEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 564,
+        "PublishOrderIndex": 568,
         "Rules": [
           {
             "Category": "Data",
@@ -1290,7 +1290,7 @@
         "Name": "HomeIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 565,
+        "PublishOrderIndex": 569,
         "Rules": [
           {
             "Category": "Data",
@@ -1642,7 +1642,7 @@
         "Name": "icnHomeTransparentIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 566,
+        "PublishOrderIndex": 570,
         "Rules": [
           {
             "Category": "Design",
@@ -1966,7 +1966,7 @@
         "Name": "BackIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 567,
+        "PublishOrderIndex": 571,
         "Rules": [
           {
             "Category": "Data",
@@ -2318,7 +2318,7 @@
         "Name": "icnBackTransparentIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 568,
+        "PublishOrderIndex": 572,
         "Rules": [
           {
             "Category": "Design",
@@ -2650,7 +2650,7 @@
         "Name": "NextIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 569,
+        "PublishOrderIndex": 573,
         "Rules": [
           {
             "Category": "Data",
@@ -3016,7 +3016,7 @@
         "Name": "icnNextTransparentIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 570,
+        "PublishOrderIndex": 574,
         "Rules": [
           {
             "Category": "Design",
@@ -3513,7 +3513,7 @@
         "Name": "lblBackEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 571,
+        "PublishOrderIndex": 575,
         "Rules": [
           {
             "Category": "Data",
@@ -4074,7 +4074,7 @@
         "Name": "lblTitleEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 572,
+        "PublishOrderIndex": 576,
         "Rules": [
           {
             "Category": "Data",
@@ -4470,7 +4470,7 @@
         "Name": "MoreVertIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 573,
+        "PublishOrderIndex": 577,
         "Rules": [
           {
             "Category": "Data",
@@ -4822,7 +4822,7 @@
         "Name": "icnMoreVertTransparentIconEMH",
         "Parent": "EntityManagementHeaderComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 574,
+        "PublishOrderIndex": 578,
         "Rules": [
           {
             "Category": "Design",
