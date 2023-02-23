@@ -1,0 +1,587 @@
+TemplateDesignScreen As screen:
+
+    lblScaleFactorTDS As label:
+        Height: =0
+        Text: =TemplateDesignScreen.Height / gblLayout.ScreenHeight
+        Visible: =false
+        Width: =0
+        ZIndex: =1
+
+    cntMain As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Visible: =false
+        Width: =Parent.Width
+        ZIndex: =2
+
+        cntHeader As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =EntityManagementHeaderComponent_2.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            EntityManagementHeaderComponent_2 As EntityManagementHeaderComponent:
+                Fill: =EntityManagementHeaderComponent_2.StylingProperty.Fill
+                Height: =EntityManagementHeaderComponent_2.StylingProperty.Height * lblScaleFactorTDS
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                NextIconVisible: =true
+                ScaleFactor: =lblScaleFactorTDS
+                Width: =Parent.Width
+                X: =EntityManagementHeaderComponent_2.StylingProperty.Icon.HomeIconMargin
+                ZIndex: =1
+
+        cntBody As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowX: =LayoutOverflow.Scroll
+            ZIndex: =3
+
+            cntNavigation As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: |-
+                    =Max(
+                        gblLayout.LeftNavigationWidth * lblScaleFactorTDS,
+                        (gblLayout.LeftNavigationWidth * lblScaleFactorTDS) * 70%
+                    )
+                X: =40
+                Y: =40
+                ZIndex: =1
+
+                cntLogo As groupContainer.manualLayoutContainer:
+                    FillPortions: =0
+                    Height: =132 * lblScaleFactorTDS
+                    LayoutMinWidth: =250
+                    ZIndex: =1
+
+                    LogoComponent_2 As LogoComponent:
+                        Height: =Self.Width
+                        Width: =80 * lblScaleFactorTDS
+                        X: =(Parent.Width - Self.Width) / 2
+                        Y: =(Parent.Height - Self.Height) / 2
+                        ZIndex: =1
+
+                LeftNavigationEntityMangementComponent_3 As EntityManagementLeftNavigationComponent:
+                    FillPortions: =1
+                    LayoutMinHeight: =640
+                    LayoutMinWidth: =640
+                    ScaleFactor: =lblScaleFactorTDS
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+            cntScreen As groupContainer.manualLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =gblColors.GrayLight
+                Height: =Parent.Height
+                LayoutMinHeight: =100
+                LayoutMinWidth: =gblLayout.MainScreenWidth * 70%
+                Width: =
+                ZIndex: =2
+
+                btnInsuredViewBackground As button:
+                    BorderColor: =Transparent
+                    BorderThickness: =0
+                    Color: =Transparent
+                    DisabledBorderColor: =Transparent
+                    DisabledColor: =Self.Color
+                    DisabledFill: =Self.Fill
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =Transparent
+                    FocusedBorderThickness: =0
+                    Height: =GridRows10.Y + GridRows10.Height
+                    HoverBorderColor: =Transparent
+                    HoverColor: =Self.Color
+                    HoverFill: =Self.Fill
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =Transparent
+                    PressedColor: =Self.Color
+                    PressedFill: =Self.Fill
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Text: ="Button"
+                    Width: =Parent.Width - (Self.X * 2)
+                    X: =gblLayout.GutterWidth * lblScaleFactorTDS
+                    Y: =gblLayout.GutterWidth * lblScaleFactorTDS
+                    ZIndex: =1
+
+                grpGridColumns As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =14
+
+                    GridColumn1 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorTDS) * 15)) / 12
+                        X: =btnInsuredViewBackground.X + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =2
+
+                    GridColumn2 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn1.X + GridColumn1.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =3
+
+                    GridColumn3 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn2.X + GridColumn2.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =4
+
+                    GridColumn4 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn3.X + GridColumn3.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =5
+
+                    GridColumn5 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn4.X + GridColumn4.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =6
+
+                    GridColumn6 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn5.X + GridColumn5.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =7
+
+                    GridColumn7 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn6.X + GridColumn6.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =8
+
+                    GridColumn8 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn7.X + GridColumn7.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =9
+
+                    GridColumn9 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn8.X + GridColumn8.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =10
+
+                    GridColumn10 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn9.X + GridColumn9.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =11
+
+                    GridColumn11 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn10.X + GridColumn10.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =12
+
+                    GridColumn12 As rectangle:
+                        Fill: =RGBA(127, 178, 57, 1)
+                        Height: =btnInsuredViewBackground.Height
+                        Width: =GridColumn1.Width
+                        X: =GridColumn11.X + GridColumn11.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        Y: =btnInsuredViewBackground.Y
+                        ZIndex: =13
+
+                grpGridRows As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =25
+
+                    GridRows1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorTDS
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =btnInsuredViewBackground.Y + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =15
+
+                    GridRows2 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows1.Y + GridRows1.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =16
+
+                    GridRows3 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows2.Y + GridRows2.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =17
+
+                    GridRows4 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows3.Y + GridRows3.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =18
+
+                    GridRows5 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows4.Y + GridRows4.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =19
+
+                    GridRows6 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows5.Y + GridRows5.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =20
+
+                    GridRows7 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows6.Y + GridRows6.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =21
+
+                    GridRows8 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows7.Y + GridRows7.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =22
+
+                    GridRows9 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows8.Y + GridRows8.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =23
+
+                    GridRows10 As rectangle:
+                        Height: =GridRows1.Height
+                        Width: =btnInsuredViewBackground.Width
+                        X: =btnInsuredViewBackground.X
+                        Y: =GridRows9.Y + GridRows9.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                        ZIndex: =24
+
+        cntFooter As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Visible: =false
+            ZIndex: =4
+
+    cntPopupMain As groupContainer.manualLayoutContainer:
+        Fill: =RGBA(0, 0, 0, 0.60)
+        Height: =Parent.Height
+        Width: |-
+            =
+            Parent.Width
+        ZIndex: =3
+
+        cntPopupSub As groupContainer.manualLayoutContainer:
+            Height: =820
+            Width: =gblLayout.MainScreenWidth
+            X: =(Parent.Width - Self.Width) / 2
+            Y: =(Parent.Height - Self.Height) / 2
+            ZIndex: =1
+
+            btnPopupBackground As button:
+                BorderColor: =Transparent
+                BorderThickness: =0
+                Color: =Transparent
+                DisabledBorderColor: =Transparent
+                DisabledColor: =Self.Color
+                DisabledFill: =Self.Fill
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =Transparent
+                FocusedBorderThickness: =0
+                Height: =Parent.Height
+                HoverBorderColor: =Transparent
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Transparent
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Text: ="Button"
+                Width: =Parent.Width
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =(Parent.Height - Self.Height) / 2
+                ZIndex: =1
+
+            grpGridColumnsPopup As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =14
+
+                GridColumnPopup1 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorTDS) * 13)) / 12
+                    X: =gblLayout.GutterWidth * lblScaleFactorTDS
+                    ZIndex: =2
+
+                GridColumnPopup2 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup1.X + GridColumnPopup1.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =3
+
+                GridColumnPopup3 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup2.X + GridColumnPopup2.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =4
+
+                GridColumnPopup4 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup3.X + GridColumnPopup3.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =5
+
+                GridColumnPopup5 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup4.X + GridColumnPopup4.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =6
+
+                GridColumnPopup6 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup5.X + GridColumnPopup5.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =7
+
+                GridColumnPopup7 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup6.X + GridColumnPopup6.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =8
+
+                GridColumnPopup8 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup7.X + GridColumnPopup7.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =9
+
+                GridColumnPopup9 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup8.X + GridColumnPopup8.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =10
+
+                GridColumnPopup10 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup9.X + GridColumnPopup9.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =11
+
+                GridColumnPopup11 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup10.X + GridColumnPopup10.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =12
+
+                GridColumnPopup12 As rectangle:
+                    Fill: =RGBA(127, 178, 57, 1)
+                    Height: =Parent.Height
+                    Visible: =false
+                    Width: =GridColumnPopup1.Width
+                    X: =GridColumnPopup11.X + GridColumnPopup11.Width + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =13
+
+            cntPopup As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =25
+
+                cntPopupHeader As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =GridRowsPopup1.X + GridRowsPopup1.Height
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                cntPopupBody As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    Fill: =gblColors.GrayLight
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                cntPopupFooter As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =cntPopupHeader.Height
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =4
+
+            grpGridRowsPopup As group:
+                Height: =5
+                Width: =5
+                X: =40
+                Y: =40
+                ZIndex: =25
+
+                GridRowsPopup1 As rectangle:
+                    Height: =gblLayout.GridRowHeight * lblScaleFactorTDS
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =gblLayout.GutterWidth * lblScaleFactorTDS
+                    ZIndex: =15
+
+                GridRowsPopup2 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup1.Y + GridRowsPopup1.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =16
+
+                GridRowsPopup3 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup2.Y + GridRowsPopup2.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =17
+
+                GridRowsPopup4 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup3.Y + GridRowsPopup3.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =18
+
+                GridRowsPopup5 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup4.Y + GridRowsPopup4.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =19
+
+                GridRowsPopup6 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup5.Y + GridRowsPopup5.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =20
+
+                GridRowsPopup7 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup6.Y + GridRowsPopup6.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =21
+
+                GridRowsPopup8 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup7.Y + GridRowsPopup7.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =22
+
+                GridRowsPopup9 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup8.Y + GridRowsPopup8.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =23
+
+                GridRowsPopup10 As rectangle:
+                    Height: =GridRowsPopup1.Height
+                    Visible: =false
+                    Width: =btnInsuredViewBackground.Width
+                    X: =btnInsuredViewBackground.X
+                    Y: =GridRowsPopup9.Y + GridRowsPopup9.Height + (gblLayout.GutterWidth * lblScaleFactorTDS)
+                    ZIndex: =24
+

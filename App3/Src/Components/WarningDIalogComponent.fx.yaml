@@ -1,0 +1,128 @@
+WarningDIalogComponent As CanvasComponent:
+    DescriptionText: ="You are about to remove the filter from the list."& Char(10) &  Char(10) & "Do you want to continue?"
+    Fill: =RGBA(0, 0, 0, 0)
+    HeadingText: ="Warning"
+    Height: =WarningDIalogComponent.StylingProperty.SaveFilter.PopupCard.Height
+    Image: |-
+        ="data:image/svg+xml; utf-8 , " & EncodeUrl("<svg width='20' height='18' viewBox='0 0 20 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M10 0L0 17.273H20L10 0ZM10.909 12.727H9.091V14.545H10.909V12.727ZM10.909 7.272H9.091V10.908H10.909V7.272Z' fill='"& WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.Fill&"'/>
+        <path d='M11 15H9V13H11V15ZM11 11H9V7H11V11Z' fill='white'/>
+        </svg>
+        ")
+    StylingProperty: |-
+        ={
+            
+         SaveFilter: gblControlStyles.WarningDialog
+        
+        
+        }
+    Width: =WarningDIalogComponent.StylingProperty.SaveFilter.PopupCard.Width
+    X: =0
+    Y: =0
+    ZIndex: =8
+
+    imgPopUpCardWD As image:
+        Height: =Parent.Height
+        Image: |-
+            ="data:image/svg+xml; utf-8, " & EncodeUrl("<svg width='369' height='220' viewBox='0 0 369 220' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <g filter='url(#filter0_d_281_7)'>
+            <path d='M15 8.00001C15 5.79087 16.7909 4 19 4H350C352.209 4 354 5.79086 354 8V194H15V8.00001Z' fill='"&WarningDIalogComponent.StylingProperty.SaveFilter.PopupCard.Fill &"'/>
+            </g>
+            <path d='M15 149H354V200C354 202.209 352.209 204 350 204H19C16.7909 204 15 202.209 15 200V149Z' fill='"&WarningDIalogComponent.StylingProperty.SaveFilter.PopupCard.BottomSepratorFill &"'/>
+            <defs>
+            <filter id='filter0_d_281_7' x='0' y='0' width='369' height='220' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+            <feOffset dy='11'/>
+            <feGaussianBlur stdDeviation='7.5'/>
+            <feComposite in2='hardAlpha' operator='out'/>
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'/>
+            <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_281_7'/>
+            <feBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow_281_7' result='shape'/>
+            </filter>
+            </defs>
+            </svg>
+            
+            ")
+        Width: =Parent.Width
+        ZIndex: =1
+
+    lblDescriptionWD As label:
+        Align: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Align
+        AutoHeight: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.AutoHeight
+        BorderColor: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.BorderColor
+        BorderStyle: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.BorderStyle
+        BorderThickness: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.BorderThickness
+        Color: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Color
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.DisplayMode
+        Fill: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Fill
+        FocusedBorderThickness: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.BorderThickness
+        Font: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Font
+        FontWeight: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.FontWeight
+        Height: =113
+        Italic: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Italic
+        LineHeight: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.LineHeight
+        Overflow: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Overflow
+        PaddingBottom: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.PaddingBottom
+        PaddingLeft: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.PaddingLeft
+        PaddingRight: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.PaddingRight
+        PaddingTop: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.PaddingTop
+        Size: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Size
+        Strikethrough: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Strikethrough
+        Text: =WarningDIalogComponent.DescriptionText
+        Underline: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Underline
+        VerticalAlign: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.VerticalAlign
+        Width: =363
+        Wrap: =WarningDIalogComponent.StylingProperty.SaveFilter.Label.Wrap
+        X: =Parent.Width/2 - Self.Width/2
+        Y: =Parent.Height/2 - Self.Height/2
+        ZIndex: =2
+
+    imgLogoWD As image:
+        Height: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.Height
+        Image: =WarningDIalogComponent.Image
+        PaddingBottom: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.PaddingBottom
+        PaddingLeft: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.PaddingLeft
+        PaddingRight: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.PaddingRight
+        PaddingTop: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.PaddingTop
+        Width: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.Width
+        X: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.MarginLeft
+        Y: =WarningDIalogComponent.StylingProperty.SaveFilter.SaveLogo.MarginTop
+        ZIndex: =3
+
+    lblHeadingWD As label:
+        Align: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Align
+        AutoHeight: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.AutoHeight
+        BorderColor: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.BorderColor
+        BorderStyle: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.BorderStyle
+        BorderThickness: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.BorderThickness
+        Color: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Color
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        Fill: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Font: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Font
+        FontWeight: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.FontWeight
+        Height: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Height
+        Italic: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Italic
+        LineHeight: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.LineHeight
+        Overflow: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Overflow
+        PaddingBottom: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingBottom
+        PaddingLeft: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingLeft
+        PaddingRight: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingRight
+        PaddingTop: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.PaddingTop
+        Size: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Size
+        Strikethrough: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Strikethrough
+        Text: =WarningDIalogComponent.HeadingText
+        Underline: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Underline
+        VerticalAlign: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.VerticalAlign
+        Width: =(Len(Self.Text) * Self.Size )
+        Wrap: =WarningDIalogComponent.StylingProperty.SaveFilter.HeadingLabel.Wrap
+        X: =imgLogoWD.X + imgLogoWD.Width
+        Y: =imgLogoWD.Height/2 + imgLogoWD.Y/2
+        ZIndex: =4
+

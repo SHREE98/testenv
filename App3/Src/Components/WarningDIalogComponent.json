@@ -1,0 +1,64 @@
+{
+  "ComponentAllowCustomization": true,
+  "ComponentChangedSinceFileImport": false,
+  "ComponentManifest": {
+    "AllowAccessToGlobals": false,
+    "AllowCustomization": true,
+    "Description": "",
+    "Name": "WarningDIalogComponent",
+    "TemplateGuid": "3dd4945020f0443cb3d49abd4765b1bd"
+  },
+  "ComponentType": "CanvasComponent",
+  "CustomGroupControlTemplateName": "",
+  "CustomProperties": [
+    {
+      "Category": 0,
+      "DisplayName": "StylingProperty",
+      "Hidden": false,
+      "Name": "StylingProperty",
+      "PropertyDataTypeKey": "Record",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.328\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"SaveFilter\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"HeadingLabel\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Align\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"AutoHeight\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"BorderColor\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"BorderStyle\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"BorderThickness\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Color\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"DisplayMode\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Fill\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Font\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"FontWeight\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Height\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Italic\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"LineHeight\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Overflow\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingBottom\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingLeft\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingRight\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingTop\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Size\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Strikethrough\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Underline\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"VerticalAlign\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Wrap\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"Label\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Align\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"AutoHeight\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"BorderColor\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"BorderStyle\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"BorderThickness\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Color\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"DisplayMode\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Fill\",\"Kind\":\"Color\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Font\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"FontWeight\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Italic\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"LineHeight\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Overflow\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingBottom\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingLeft\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingRight\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingTop\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Size\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Strikethrough\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Underline\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"VerticalAlign\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Wrap\",\"Kind\":\"_MinPrimitive\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"PopupCard\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"BottomSepratorFill\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Fill\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Height\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingBottom\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingLeft\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingRight\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingTop\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Width\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]},{\"Name\":\"SaveLogo\",\"Kind\":\"Record\",\"EnumString\":\"\",\"Type\":[{\"Name\":\"Fill\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Height\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"MarginLeft\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"MarginTop\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingBottom\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingLeft\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingRight\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"PaddingTop\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]},{\"Name\":\"Width\",\"Kind\":\"Number\",\"EnumString\":\"\",\"Type\":[]}]}]}]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "DescriptionText",
+      "Hidden": false,
+      "Name": "DescriptionText",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.328\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "HeadingText",
+      "Hidden": false,
+      "Name": "HeadingText",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.328\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    },
+    {
+      "Category": 0,
+      "DisplayName": "Image",
+      "Hidden": false,
+      "Name": "Image",
+      "PropertyDataTypeKey": "String",
+      "Tooltip": "A custom property",
+      "Type": "{\"Version\":\"1.328\",\"Type\":{\"Name\":\"Root\",\"Kind\":\"String\",\"EnumString\":\"\",\"Type\":[]}}"
+    }
+  ],
+  "FirstParty": true,
+  "Id": "http://microsoft.com/appmagic/Component",
+  "IsComponentLocked": false,
+  "IsComponentTemplate": true,
+  "IsCustomGroupControlTemplate": false,
+  "IsPcfControl": false,
+  "IsPremiumPcfControl": false,
+  "IsWidgetTemplate": false,
+  "LastModifiedTimestamp": "638127387043060948",
+  "Name": "3dd4945020f0443cb3d49abd4765b1bd",
+  "OverridableProperties": {},
+  "TemplateOriginalName": "26d7c70c9a1a4bb2b6d1534813c58f8c",
+  "Version": "638016751407250772"
+}

@@ -1,0 +1,971 @@
+SearchandSelectComponent As CanvasComponent:
+    Clear: =true
+    CustomHeight: |-
+        =txtTextInputSS.Height + galComboboxVauesSS.Height + If(
+            lblTitleTextSS.Visible,
+            lblTitleTextSS.Height,
+            SearchandSelectComponent.StylingProperty.TextInput.Margin
+        ) + SearchandSelectComponent.StylingProperty.TextInput.Margin + If(
+            btnNavigationBackgoundSS.Visible,
+            btnNavigationBackgoundSS.Height
+        )
+    Default: |-
+        =[
+            "Midlands and South West",
+            "South East"
+        ]
+    DisplayMode: =gblState.Enabled
+    Fill: =RGBA(0, 0, 0, 0)
+    Focus: =false
+    Height: =Self.CustomHeight
+    HideLabel: =false
+    HintText: ="Authority Status"
+    Items: |-
+        =[
+            "Midlands and South West",
+            "South East",
+            "ERM",
+            "Techinial Team",
+            "Ireland",
+            "Other"
+        ]
+    OnReset: |-
+        =Set(
+            gblComponentGalVisibility,
+            false
+        );
+        Set(
+            gblTabIndex,
+            0
+        );
+        If(
+            Self.DisplayMode = "View",
+            Set(
+                gblComboBoxText,
+                If(
+                    CountRows(Self.Default) <= 1,
+                    First(Self.Default).Value,
+                    CountRows(Self.Default) & " values selected"
+                )
+            ),
+            With(
+                {
+                    SelectedItems: Filter(
+                        colDropdownValue,
+                        IsSelectedValue = true
+                    )
+                },
+                Set(
+                    gblComboBoxText,
+                    Switch(
+                        CountRows(SelectedItems),
+                        0,
+                        "",
+                        1,
+                        First(SelectedItems).Value,
+                        CountRows(SelectedItems) & " values selected"
+                    )
+                )
+            )
+        );
+        If(
+            Self.Clear,
+            ClearCollect(
+                colDropdownValue,
+                AddColumns(
+                    SearchandSelectComponent.Items,
+                    "IsSelectedValue",
+                    false
+                )
+            )
+        )
+    Reset: =true
+    ResetComponents: =gblResetComponents
+    ScaleFactor: =1
+    SelectedItems: =Filter(colDropdownValue, IsSelectedValue = true)
+    SetFocusNext: =gblSetFocusNext
+    SetFocusPrev: =gblSetFocusPrev
+    StylingProperty: |-
+        =With(
+            {DropDownComponent: gblControlStyles.SearchandSelect},
+            {
+                Label: gblControlStyles.ControlLabel,
+                TextInput: DropDownComponent,
+                CloseIcon: gblControlStyles.CloseIcon,
+                SearchIcon: gblControlStyles.SearchIcon,
+                Items: DropDownComponent.ItemLabel,
+                Separator: DropDownComponent.Separator,
+                Checkbox: DropDownComponent.Checkbox,
+                NavigationButton: DropDownComponent.NavigationButton,
+                NavigationIcon: DropDownComponent.NavigationIcon
+            }
+        )
+    TabIndex: =0
+    TitleText: ="Label"
+    Width: =368
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    rctResetSS As rectangle:
+        BorderColor: =Transparent
+        Fill: =Transparent
+        FocusedBorderThickness: =0
+        Height: =Parent.Height
+        OnSelect: |-
+            =Set(
+                gblResetComponents,
+                true
+            );
+            Set(
+                gblResetComponents,
+                false
+            )
+        Width: =Parent.Width
+        ZIndex: =1
+
+    btnNavigationBackgoundSS As button:
+        Align: =Align.Left
+        AutoDisableOnSelect: =SearchandSelectComponent.StylingProperty.NavigationButton.AutoDisableOnSelect
+        BorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderColor
+        BorderStyle: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderStyle
+        BorderThickness: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderThickness
+        Color: =SearchandSelectComponent.StylingProperty.NavigationButton.Color
+        DisabledBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledBorderColor
+        DisabledColor: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledColor
+        DisabledFill: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledFill
+        DisplayMode: =SearchandSelectComponent.StylingProperty.NavigationButton.DisplayMode
+        Fill: =SearchandSelectComponent.StylingProperty.NavigationButton.Fill
+        FocusedBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.FocusedBorderColor
+        FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.NavigationButton.FocusedBorderThickness
+        Font: =SearchandSelectComponent.StylingProperty.NavigationButton.Font
+        FontWeight: =SearchandSelectComponent.StylingProperty.NavigationButton.FontWeight
+        Height: =SearchandSelectComponent.StylingProperty.NavigationButton.Height + txtItemsBorderSS.RadiusBottomLeft
+        HoverBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderColor
+        HoverColor: =SearchandSelectComponent.StylingProperty.NavigationButton.HoverColor
+        HoverFill: =SearchandSelectComponent.StylingProperty.NavigationButton.HoverFill
+        Italic: =SearchandSelectComponent.StylingProperty.NavigationButton.Italic
+        PaddingBottom: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingBottom
+        PaddingLeft: =imgPrevIconSS.Width + SearchandSelectComponent.StylingProperty.NavigationIcon.Margin
+        PaddingRight: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingRight
+        PaddingTop: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingTop + txtItemsBorderSS.RadiusBottomLeft
+        PressedBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedBorderColor
+        PressedColor: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedColor
+        PressedFill: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedFill
+        RadiusBottomLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusBottomLeft
+        RadiusBottomRight: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusBottomRight
+        RadiusTopLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusTopLeft
+        RadiusTopRight: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusTopRight
+        Size: =SearchandSelectComponent.StylingProperty.NavigationButton.Size
+        Strikethrough: =SearchandSelectComponent.StylingProperty.NavigationButton.Strikethrough
+        TabIndex: =-1
+        Text: ="Prev"
+        Underline: =SearchandSelectComponent.StylingProperty.NavigationButton.Underline
+        VerticalAlign: =SearchandSelectComponent.StylingProperty.NavigationButton.VerticalAlign
+        Visible: =galComboboxVauesSS.Visible
+        Width: =txtTextInputSS.Width
+        X: =txtTextInputSS.X
+        Y: =txtItemsBorderSS.Y + txtItemsBorderSS.Height - txtItemsBorderSS.RadiusBottomLeft + (Self.BorderThickness / 2)
+        ZIndex: =2
+
+    txtItemsBorderSS As text:
+        BorderColor: =txtTextInputSS.BorderColor
+        BorderStyle: =txtTextInputSS.BorderStyle
+        BorderThickness: =txtTextInputSS.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor
+        Color: =Transparent
+        Default: =""
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =btnFocusSS.Fill
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: |-
+            =With(
+                {Difference: galComboboxVauesSS.Y - Self.Y},
+                galComboboxVauesSS.Height + Difference
+            )
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        RadiusBottomLeft: =txtTextInputSS.RadiusBottomLeft
+        RadiusBottomRight: =txtTextInputSS.RadiusBottomRight
+        RadiusTopLeft: =txtTextInputSS.RadiusBottomLeft
+        RadiusTopRight: =txtTextInputSS.RadiusTopRight
+        Size: =0
+        Visible: =galComboboxVauesSS.Visible
+        Width: =txtTextInputSS.Width
+        X: =txtTextInputSS.X
+        Y: =txtTextInputSS.Y + txtTextInputSS.Height - ((txtTextInputSS.BorderThickness  * SearchandSelectComponent.ScaleFactor)* 2) 
+        ZIndex: =3
+
+    btnPreviousSS As button:
+        Align: =Align.Left
+        AutoDisableOnSelect: =SearchandSelectComponent.StylingProperty.NavigationButton.AutoDisableOnSelect
+        BorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderColor
+        BorderStyle: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderStyle
+        BorderThickness: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderThickness * SearchandSelectComponent.ScaleFactor
+        Color: =SearchandSelectComponent.StylingProperty.NavigationButton.Color
+        DisabledBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledBorderColor
+        DisabledColor: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledColor
+        DisabledFill: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledFill
+        DisplayMode: =SearchandSelectComponent.StylingProperty.NavigationButton.DisplayMode
+        Fill: =SearchandSelectComponent.StylingProperty.NavigationButton.Fill
+        FocusedBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.FocusedBorderColor
+        FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.NavigationButton.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor
+        Font: =SearchandSelectComponent.StylingProperty.NavigationButton.Font
+        FontWeight: =SearchandSelectComponent.StylingProperty.NavigationButton.FontWeight
+        Height: =SearchandSelectComponent.StylingProperty.NavigationButton.Height * SearchandSelectComponent.ScaleFactor
+        HoverBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderColor
+        HoverColor: =SearchandSelectComponent.StylingProperty.NavigationButton.HoverColor
+        HoverFill: =SearchandSelectComponent.StylingProperty.NavigationButton.HoverFill
+        Italic: =SearchandSelectComponent.StylingProperty.NavigationButton.Italic
+        OnSelect: |-
+            =Set(gblSetFocusPrev, true);
+            Set(gblSetFocusPrev, false);
+            Reset(SearchandSelectComponent)
+        PaddingBottom: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingBottom * SearchandSelectComponent.ScaleFactor
+        PaddingLeft: =imgPrevIconSS.Width + (SearchandSelectComponent.StylingProperty.NavigationIcon.Margin * SearchandSelectComponent.ScaleFactor)
+        PaddingRight: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingRight * SearchandSelectComponent.ScaleFactor
+        PaddingTop: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingTop * SearchandSelectComponent.ScaleFactor
+        PressedBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedBorderColor
+        PressedColor: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedColor
+        PressedFill: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedFill
+        RadiusBottomLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusBottomLeft * SearchandSelectComponent.ScaleFactor
+        RadiusBottomRight: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusBottomRight * SearchandSelectComponent.ScaleFactor
+        RadiusTopLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusTopLeft * SearchandSelectComponent.ScaleFactor
+        RadiusTopRight: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusTopRight * SearchandSelectComponent.ScaleFactor
+        Size: =SearchandSelectComponent.StylingProperty.NavigationButton.Size * SearchandSelectComponent.ScaleFactor
+        Strikethrough: =SearchandSelectComponent.StylingProperty.NavigationButton.Strikethrough
+        Text: ="Prev"
+        Underline: =SearchandSelectComponent.StylingProperty.NavigationButton.Underline
+        VerticalAlign: =SearchandSelectComponent.StylingProperty.NavigationButton.VerticalAlign
+        Visible: =galComboboxVauesSS.Visible
+        Width: =(Parent.Width / 2) - (Self.X *2)
+        X: =txtTextInputSS.X
+        Y: =txtItemsBorderSS.Y + txtItemsBorderSS.Height + (Self.BorderThickness / 2)
+        ZIndex: =4
+
+    btnNextSS As button:
+        Align: =Align.Right
+        AutoDisableOnSelect: =SearchandSelectComponent.StylingProperty.NavigationButton.AutoDisableOnSelect
+        BorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderColor
+        BorderStyle: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderStyle
+        BorderThickness: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderThickness * SearchandSelectComponent.ScaleFactor
+        Color: =SearchandSelectComponent.StylingProperty.NavigationButton.Color
+        DisabledBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledBorderColor
+        DisabledColor: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledColor
+        DisabledFill: =SearchandSelectComponent.StylingProperty.NavigationButton.DisabledFill
+        DisplayMode: =SearchandSelectComponent.StylingProperty.NavigationButton.DisplayMode
+        Fill: =SearchandSelectComponent.StylingProperty.NavigationButton.Fill
+        FocusedBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.FocusedBorderColor
+        FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.NavigationButton.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor
+        Font: =SearchandSelectComponent.StylingProperty.NavigationButton.Font
+        FontWeight: =SearchandSelectComponent.StylingProperty.NavigationButton.FontWeight
+        Height: =SearchandSelectComponent.StylingProperty.NavigationButton.Height * SearchandSelectComponent.ScaleFactor
+        HoverBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.BorderColor
+        HoverColor: =SearchandSelectComponent.StylingProperty.NavigationButton.HoverColor
+        HoverFill: =SearchandSelectComponent.StylingProperty.NavigationButton.HoverFill
+        Italic: =SearchandSelectComponent.StylingProperty.NavigationButton.Italic
+        OnSelect: |-
+            =Set(gblSetFocusNext, true);
+            Set(gblSetFocusNext, false);
+            Reset(SearchandSelectComponent)
+        PaddingBottom: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingBottom * SearchandSelectComponent.ScaleFactor
+        PaddingLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingLeft * SearchandSelectComponent.ScaleFactor
+        PaddingRight: =imgNextIconSS.Width + (SearchandSelectComponent.StylingProperty.NavigationIcon.Margin * SearchandSelectComponent.ScaleFactor)
+        PaddingTop: =SearchandSelectComponent.StylingProperty.NavigationButton.PaddingTop * SearchandSelectComponent.ScaleFactor
+        PressedBorderColor: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedBorderColor
+        PressedColor: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedColor
+        PressedFill: =SearchandSelectComponent.StylingProperty.NavigationButton.PressedFill
+        RadiusBottomLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusBottomLeft * SearchandSelectComponent.ScaleFactor
+        RadiusBottomRight: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusBottomRight * SearchandSelectComponent.ScaleFactor
+        RadiusTopLeft: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusTopLeft * SearchandSelectComponent.ScaleFactor
+        RadiusTopRight: =SearchandSelectComponent.StylingProperty.NavigationButton.RadiusTopRight * SearchandSelectComponent.ScaleFactor
+        Size: =SearchandSelectComponent.StylingProperty.NavigationButton.Size * SearchandSelectComponent.ScaleFactor
+        Strikethrough: =SearchandSelectComponent.StylingProperty.NavigationButton.Strikethrough
+        Text: ="Next"
+        Underline: =SearchandSelectComponent.StylingProperty.NavigationButton.Underline
+        VerticalAlign: =SearchandSelectComponent.StylingProperty.NavigationButton.VerticalAlign
+        Visible: =galComboboxVauesSS.Visible
+        Width: =btnPreviousSS.Width
+        X: =txtItemsBorderSS.X + txtItemsBorderSS.Width - Self.Width
+        Y: =txtItemsBorderSS.Y + txtItemsBorderSS.Height + (Self.BorderThickness / 2)
+        ZIndex: =5
+
+    btnFocusSS As button:
+        BorderColor: =SearchandSelectComponent.StylingProperty.TextInput.BorderColor
+        BorderThickness: =txtTextInputSS.BorderThickness
+        Color: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        Fill: =SearchandSelectComponent.StylingProperty.TextInput.Fill
+        FocusedBorderColor: =SearchandSelectComponent.StylingProperty.TextInput.FocusedBorderColor
+        FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.TextInput.FocusedBorderThickness
+        Height: =txtTextInputSS.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =SetFocus(txtTextInputSS);
+            Select(txtTextInputSS);
+            Set(
+                gblTabIndex,
+                -1
+            );
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =txtTextInputSS.RadiusBottomLeft
+        RadiusBottomRight: =txtTextInputSS.RadiusTopRight
+        RadiusTopLeft: =txtTextInputSS.RadiusTopLeft
+        RadiusTopRight: =txtTextInputSS.RadiusTopRight
+        Size: =0
+        TabIndex: |-
+            =If(
+                gblComponentGalVisibility || SearchandSelectComponent.DisplayMode = "View",
+                -1,
+                SearchandSelectComponent.TabIndex
+            )
+            //If(IsBlank(gblTabIndex),0,gblTabIndex)
+        Text: =""
+        Width: =txtTextInputSS.Width
+        X: =txtTextInputSS.X
+        Y: =txtTextInputSS.Y
+        ZIndex: =6
+
+    txtTextInputSS As text:
+        Align: =SearchandSelectComponent.StylingProperty.TextInput.Align
+        BorderColor: |-
+            =If(
+                galComboboxVauesSS.Visible,
+                SearchandSelectComponent.StylingProperty.TextInput.FocusedBorderColor,
+                Transparent
+            )
+        BorderStyle: =SearchandSelectComponent.StylingProperty.TextInput.BorderStyle
+        BorderThickness: |-
+            =If(
+                galComboboxVauesSS.Visible,
+                SearchandSelectComponent.StylingProperty.TextInput.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor,
+                SearchandSelectComponent.StylingProperty.TextInput.BorderThickness * SearchandSelectComponent.ScaleFactor
+            )
+        Clear: =SearchandSelectComponent.StylingProperty.TextInput.Clear
+        Color: =SearchandSelectComponent.StylingProperty.TextInput.Color
+        Default: =gblComboBoxText
+        DisabledBorderColor: =SearchandSelectComponent.StylingProperty.TextInput.DisabledBorderColor
+        DisabledColor: |-
+            =If(
+                SearchandSelectComponent.DisplayMode = "View",
+                SearchandSelectComponent.StylingProperty.TextInput.ViewColor,
+                SearchandSelectComponent.StylingProperty.TextInput.DisabledColor
+            )
+        DisabledFill: |-
+            =If(
+                SearchandSelectComponent.DisplayMode = "View",
+                SearchandSelectComponent.StylingProperty.TextInput.ViewFill,
+                SearchandSelectComponent.StylingProperty.TextInput.DisabledFill
+            )
+        DisplayMode: =If(SearchandSelectComponent.DisplayMode = "Enabled", SearchandSelectComponent.StylingProperty.TextInput.DisplayMode, DisplayMode.Disabled)
+        EnableSpellCheck: =SearchandSelectComponent.StylingProperty.TextInput.EnableSpellCheck
+        Fill: =Transparent
+        FocusedBorderColor: =SearchandSelectComponent.StylingProperty.TextInput.FocusedBorderColor
+        FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.TextInput.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor
+        FontWeight: =SearchandSelectComponent.StylingProperty.TextInput.FontWeight
+        Format: =SearchandSelectComponent.StylingProperty.TextInput.TextFormat
+        Height: =SearchandSelectComponent.StylingProperty.TextInput.Height * SearchandSelectComponent.ScaleFactor
+        HintText: =SearchandSelectComponent.HintText
+        HoverBorderColor: =SearchandSelectComponent.StylingProperty.TextInput.HoverBorderColor
+        HoverColor: =SearchandSelectComponent.StylingProperty.TextInput.HoverColor
+        HoverFill: =SearchandSelectComponent.StylingProperty.TextInput.HoverFill
+        Italic: =SearchandSelectComponent.StylingProperty.TextInput.Italic
+        LineHeight: =SearchandSelectComponent.StylingProperty.TextInput.LineHeight
+        Mode: =SearchandSelectComponent.StylingProperty.TextInput.TextMode
+        OnChange: |-
+            =If(
+                IsEmpty(colDropdownValue),
+                ClearCollect(
+                    colDropdownValue,
+                    AddColumns(
+                        SearchandSelectComponent.Items,
+                        "IsSelectedValue",
+                        false
+                    )
+                )
+            );
+        OnSelect: |-
+            =Set(
+                gblComponentGalVisibility,
+                true
+            );
+            If(
+                IsEmpty(colDropdownValue),
+                ClearCollect(
+                    colDropdownValue,
+                    AddColumns(
+                        SearchandSelectComponent.Items,
+                        "IsSelectedValue",
+                        false
+                    )
+                )
+            );
+            Set(
+                gblComboBoxText,
+                Blank()
+            );
+            Select(rctResetSS)
+        PaddingBottom: =SearchandSelectComponent.StylingProperty.TextInput.PaddingBottom * SearchandSelectComponent.ScaleFactor
+        PaddingLeft: |-
+            =If(
+                imgCloseSS.Visible,
+                imgSearchSS.Width
+            ) + SearchandSelectComponent.StylingProperty.TextInput.PaddingLeft * SearchandSelectComponent.ScaleFactor
+        PaddingRight: =imgCloseSS.Width + (SearchandSelectComponent.StylingProperty.TextInput.PaddingRight * 2) * SearchandSelectComponent.ScaleFactor
+        PaddingTop: =SearchandSelectComponent.StylingProperty.TextInput.PaddingTop * SearchandSelectComponent.ScaleFactor
+        PressedBorderColor: =SearchandSelectComponent.StylingProperty.TextInput.PressedBorderColor
+        PressedColor: =SearchandSelectComponent.StylingProperty.TextInput.PressedColor
+        PressedFill: =SearchandSelectComponent.StylingProperty.TextInput.PressedFill
+        RadiusBottomLeft: =SearchandSelectComponent.StylingProperty.TextInput.RadiusBottomLeft * SearchandSelectComponent.ScaleFactor
+        RadiusBottomRight: =SearchandSelectComponent.StylingProperty.TextInput.RadiusBottomRight * SearchandSelectComponent.ScaleFactor
+        RadiusTopLeft: =SearchandSelectComponent.StylingProperty.TextInput.RadiusTopLeft * SearchandSelectComponent.ScaleFactor
+        RadiusTopRight: =SearchandSelectComponent.StylingProperty.TextInput.RadiusTopRight * SearchandSelectComponent.ScaleFactor
+        Size: =SearchandSelectComponent.StylingProperty.TextInput.Size * SearchandSelectComponent.ScaleFactor
+        Strikethrough: =SearchandSelectComponent.StylingProperty.TextInput.Strikethrough
+        TabIndex: |-
+            =If(gblComponentGalVisibility, 0, -1)
+            //If(gblTabIndex=-1,0,-1)
+        Underline: =SearchandSelectComponent.StylingProperty.TextInput.Underline
+        Width: =Parent.Width - (SearchandSelectComponent.StylingProperty.TextInput.Margin * 2) * SearchandSelectComponent.ScaleFactor
+        X: =SearchandSelectComponent.StylingProperty.TextInput.Margin * SearchandSelectComponent.ScaleFactor
+        Y: =22
+        ZIndex: =7
+
+    imgSearchSS As image:
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =SearchandSelectComponent.StylingProperty.SearchIcon.Height * SearchandSelectComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg id='Search' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_223' data-name='Path 223' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_224' data-name='Path 224' d='M15.5,14h-.79l-.28-.27a6.51,6.51,0,1,0-.7.7l.27.28v.79l5,4.99L20.49,19Zm-6,0A4.5,4.5,0,1,1,14,9.5,4.494,4.494,0,0,1,9.5,14Z' fill='" & If(
+                    galComboboxVauesSS.Visible,
+                    SearchandSelectComponent.StylingProperty.SearchIcon.FocusColor,
+                    SearchandSelectComponent.StylingProperty.SearchIcon.Color
+                ) & "'/>
+            </svg>
+            "
+            )
+        OnSelect: =Select(rctResetSS);
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        Visible: =SearchandSelectComponent.DisplayMode = "Enabled"
+        Width: =SearchandSelectComponent.StylingProperty.SearchIcon.Width * SearchandSelectComponent.ScaleFactor
+        X: =txtTextInputSS.X + (SearchandSelectComponent.StylingProperty.SearchIcon.LeftMargin * SearchandSelectComponent.ScaleFactor)
+        Y: =txtTextInputSS.Y + txtTextInputSS.Height / 2 - Self.Height / 2
+        ZIndex: =8
+
+    imgCloseSS As image:
+        ApplyEXIFOrientation: =false
+        BorderColor: =Transparent
+        BorderThickness: =txtTextInputSS.BorderThickness
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =txtTextInputSS.FocusedBorderColor
+        FocusedBorderThickness: =txtTextInputSS.FocusedBorderThickness
+        Height: =SearchandSelectComponent.StylingProperty.CloseIcon.Width * SearchandSelectComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            =If(
+                gblComponentGalVisibility,
+                "data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Close' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_65' data-name='Path 65' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_66' data-name='Path 66' d='M19,6.41,17.59,5,12,10.59,6.41,5,5,6.41,10.59,12,5,17.59,6.41,19,12,13.41,17.59,19,19,17.59,13.41,12Z' fill='
+              " & SearchandSelectComponent.StylingProperty.CloseIcon.Color & "'/>
+            </svg>
+            "
+                ),
+                "data:image/svg+xml;utf8, " & EncodeUrl(
+                    "<svg id='Down_Arrow' data-name='Down Arrow' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <path id='Path_18' data-name='Path 18' d='M0,0H24V24H0Z' fill='none'/>
+              <path id='Path_19' data-name='Path 19' d='M7,10l7,7,7-7Z' transform='translate(-2 -1.5)' fill='
+              " & SearchandSelectComponent.StylingProperty.SearchIcon.Color & "'/>
+            </svg>
+            "
+                )
+            )
+        OnSelect: |-
+            =If(
+                !gblComponentGalVisibility,
+                //DropDown Icon Functionality
+                Set(
+                    gblComponentGalVisibility,
+                    true
+                );
+                SetFocus(txtTextInputSS);
+                Select(txtTextInputSS);
+                ,
+                //Close Icon Functionality
+                If(
+                    IsEmpty(SearchandSelectComponent.SelectedItems),
+                    If(
+                        IsBlank(txtTextInputSS.Text),
+                        Reset(SearchandSelectComponent),
+                        Reset(txtTextInputSS);
+                        SetFocus(txtTextInputSS)
+                    ),
+                    ClearCollect(
+                        colDropdownValue,
+                        AddColumns(
+                            SearchandSelectComponent.Items,
+                            "IsSelectedValue",
+                            false
+                        )
+                    );
+                    Reset(txtTextInputSS);
+                    SetFocus(txtTextInputSS)
+                )
+            )
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        TabIndex: =SearchandSelectComponent.TabIndex
+        Visible: =SearchandSelectComponent.DisplayMode = "Enabled"
+        Width: =SearchandSelectComponent.StylingProperty.CloseIcon.Width * SearchandSelectComponent.ScaleFactor
+        X: =(txtTextInputSS.X + txtTextInputSS.Width - Self.Width) - (SearchandSelectComponent.StylingProperty.CloseIcon.RightMargin * SearchandSelectComponent.ScaleFactor)
+        Y: =txtTextInputSS.Y + txtTextInputSS.Height / 2 - Self.Height / 2
+        ZIndex: =9
+
+    lblTitleTextSS As label:
+        Align: =SearchandSelectComponent.StylingProperty.Label.Align
+        AutoHeight: =SearchandSelectComponent.StylingProperty.Label.AutoHeight
+        BorderColor: =SearchandSelectComponent.StylingProperty.Label.BorderColor
+        BorderStyle: =SearchandSelectComponent.StylingProperty.Label.BorderStyle
+        BorderThickness: =SearchandSelectComponent.StylingProperty.Label.BorderThickness * SearchandSelectComponent.ScaleFactor
+        Color: =SearchandSelectComponent.StylingProperty.Label.Color
+        DisabledBorderColor: =SearchandSelectComponent.StylingProperty.Label.DisabledBorderColor
+        DisabledColor: =SearchandSelectComponent.StylingProperty.Label.DisabledColor
+        DisabledFill: =SearchandSelectComponent.StylingProperty.Label.DisabledFill
+        DisplayMode: |-
+            =If(
+                SearchandSelectComponent.DisplayMode = "Disabled",
+                DisplayMode.Disabled,
+                SearchandSelectComponent.StylingProperty.Label.DisplayMode
+            )
+        Fill: =SearchandSelectComponent.StylingProperty.Label.Fill
+        FocusedBorderColor: =SearchandSelectComponent.StylingProperty.Label.FocusedBorderColor
+        FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.Label.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor
+        Font: =SearchandSelectComponent.StylingProperty.Label.Font
+        FontWeight: =SearchandSelectComponent.StylingProperty.Label.FontWeight
+        Height: =SearchandSelectComponent.StylingProperty.Label.Height * SearchandSelectComponent.ScaleFactor
+        HoverBorderColor: =SearchandSelectComponent.StylingProperty.Label.HoverBorderColor
+        HoverColor: =SearchandSelectComponent.StylingProperty.Label.HoverColor
+        HoverFill: =SearchandSelectComponent.StylingProperty.Label.HoverFill
+        Italic: =SearchandSelectComponent.StylingProperty.Label.Italic
+        LineHeight: =SearchandSelectComponent.StylingProperty.Label.LineHeight
+        OnSelect: |-
+            =Select(rctResetSS);
+            Reset(SearchandSelectComponent);
+        Overflow: =SearchandSelectComponent.StylingProperty.Label.Overflow
+        PaddingBottom: =SearchandSelectComponent.StylingProperty.Label.PaddingBottom
+        PaddingLeft: =SearchandSelectComponent.StylingProperty.Label.PaddingLeft
+        PaddingRight: =SearchandSelectComponent.StylingProperty.Label.PaddingRight
+        PaddingTop: =SearchandSelectComponent.StylingProperty.Label.PaddingTop
+        PressedBorderColor: =SearchandSelectComponent.StylingProperty.Label.PressedBorderColor
+        PressedColor: =SearchandSelectComponent.StylingProperty.Label.PressedColor
+        PressedFill: =SearchandSelectComponent.StylingProperty.Label.PressedFill
+        Size: =SearchandSelectComponent.StylingProperty.Label.Size * SearchandSelectComponent.ScaleFactor
+        Strikethrough: =SearchandSelectComponent.StylingProperty.Label.Strikethrough
+        Text: =SearchandSelectComponent.TitleText
+        Underline: =SearchandSelectComponent.StylingProperty.Label.Underline
+        VerticalAlign: =SearchandSelectComponent.StylingProperty.Label.VerticalAlign
+        Visible: =!SearchandSelectComponent.HideLabel
+        Width: =Len(Self.Text) * (8 * SearchandSelectComponent.ScaleFactor)
+        Wrap: =SearchandSelectComponent.StylingProperty.Label.Wrap
+        X: =txtTextInputSS.X * SearchandSelectComponent.ScaleFactor
+        ZIndex: =10
+
+    tmrSetFocusSS As timer:
+        Duration: =0
+        Height: =0
+        OnTimerStart: |-
+            =SetFocus(btnFocusSS);
+            Reset(Self);
+        Start: =SearchandSelectComponent.Focus
+        Visible: =false
+        Width: =0
+        ZIndex: =11
+
+    imgPrevIconSS As image:
+        BorderColor: =Transparent
+        DisabledBorderColor: =Transparent
+        DisabledFill: =Transparent
+        Fill: =Transparent
+        Height: =SearchandSelectComponent.StylingProperty.NavigationIcon.Height
+        HoverBorderColor: =Transparent
+        HoverFill: =Transparent
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <g id='Up_Stroke_outline' data-name='Up Stroke outline' transform='translate(24) rotate(90)'>
+                <path id='Path_95' data-name='Path 95' d='M0,24H24V0H0Z' transform='translate(0 0)' fill='none'/>
+                <path id='Path_96' data-name='Path 96' d='M6,7.41l-6-6L1.41,0,6,4.58,10.59,0,12,1.41Z' transform='translate(6 8.59)' fill='" & If(
+                    btnPrevIconHoverSS.Pressed || btnPreviousSS.Pressed,
+                    "#fff",
+                    "#fff"
+                ) & "'
+                />
+              </g>
+            </svg>
+            "
+            )
+        PressedBorderColor: =Transparent
+        PressedFill: =Transparent
+        Visible: =galComboboxVauesSS.Visible
+        Width: =SearchandSelectComponent.StylingProperty.NavigationIcon.Width
+        X: =SearchandSelectComponent.StylingProperty.NavigationIcon.Margin + btnPreviousSS.X
+        Y: =btnPreviousSS.Y +  (btnPreviousSS.Height / 2 - Self.Height/ 2)
+        ZIndex: =12
+
+    btnPrevIconHoverSS As button:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Transparent
+        DisabledColor: =Transparent
+        DisabledFill: =Transparent
+        Fill: =Transparent
+        FocusedBorderColor: =Transparent
+        FocusedBorderThickness: =0
+        Height: =imgPrevIconSS.Height * SearchandSelectComponent.ScaleFactor
+        HoverBorderColor: =Transparent
+        HoverColor: =Transparent
+        HoverFill: =Transparent
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Transparent
+        PressedColor: =Transparent
+        PressedFill: =Transparent
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =0
+        TabIndex: =-1
+        Text: ="Button"
+        Visible: =galComboboxVauesSS.Visible
+        Width: =imgPrevIconSS.Width * SearchandSelectComponent.ScaleFactor
+        X: =imgPrevIconSS.X
+        Y: =imgPrevIconSS.Y
+        ZIndex: =13
+
+    imgNextIconSS As image:
+        BorderColor: =Transparent
+        DisabledBorderColor: =Transparent
+        DisabledFill: =Transparent
+        Fill: =Transparent
+        Height: =SearchandSelectComponent.StylingProperty.NavigationIcon.Height
+        HoverBorderColor: =Transparent
+        HoverFill: =Transparent
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                "<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+              <g id='Up_Stroke_outline' data-name='Up Stroke outline' transform='translate(24) rotate(90)'>
+                <path id='Path_95' data-name='Path 95' d='M0,0H24V24H0Z' transform='translate(0)' fill='none'/>
+                <path id='Path_96' data-name='Path 96' d='M6,0,0,6,1.41,7.41,6,2.83l4.59,4.58L12,6Z' transform='translate(6 8)' fill='" & If(
+                    btnNextIconHoverSS.Pressed || btnNextSS.Pressed,
+                    "#fff",
+                    "#fff"
+                ) & "'/>
+              </g>
+            </svg>
+            "
+            )
+        PressedBorderColor: =Transparent
+        PressedFill: =Transparent
+        Visible: =galComboboxVauesSS.Visible
+        Width: =SearchandSelectComponent.StylingProperty.NavigationIcon.Width
+        X: =btnNextSS.X + btnNextSS.Width - SearchandSelectComponent.StylingProperty.NavigationIcon.Margin - Self.Width 
+        Y: =btnPreviousSS.Y +  (btnPreviousSS.Height / 2 - Self.Height/ 2)
+        ZIndex: =14
+
+    btnNextIconHoverSS As button:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Transparent
+        DisabledColor: =Transparent
+        DisabledFill: =Transparent
+        Fill: =Transparent
+        FocusedBorderColor: =Transparent
+        FocusedBorderThickness: =0
+        Height: =imgNextIconSS.Height
+        HoverBorderColor: =Transparent
+        HoverColor: =Transparent
+        HoverFill: =Transparent
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Transparent
+        PressedColor: =Transparent
+        PressedFill: =Transparent
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =0
+        TabIndex: =-1
+        Text: ="Button"
+        Visible: =galComboboxVauesSS.Visible
+        Width: =imgNextIconSS.Width
+        X: =imgNextIconSS.X
+        Y: =imgNextIconSS.Y
+        ZIndex: =15
+
+    galComboboxVauesSS As gallery.galleryVertical:
+        BorderColor: =Transparent
+        BorderStyle: =txtTextInputSS.BorderStyle
+        Fill: =Transparent
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: |-
+            =If(
+                Self.Visible,
+                Min(
+                    5 * (Self.TemplateHeight + Self.TemplatePadding) + (Self.TemplatePadding * 2),
+                    CountRows(Self.AllItems) * (Self.TemplateHeight + Self.TemplatePadding) + (Self.TemplatePadding * 2)
+                )
+            )
+        Items: |-
+            =Search(
+                colDropdownValue,
+                txtTextInputSS.Text,
+                "Value"
+            )
+        Layout: =Layout.Vertical
+        TemplateFill: =txtTextInputSS.Fill
+        TemplatePadding: =rctSepratorGalComboboxVauesSS.Height
+        TemplateSize: =SearchandSelectComponent.StylingProperty.Items.Height * SearchandSelectComponent.ScaleFactor
+        Visible: |-
+            =gblComponentGalVisibility && !IsEmpty(
+                Search(
+                    colDropdownValue,
+                    txtTextInputSS.Text,
+                    "Value"
+                )
+            )
+        Width: =txtTextInputSS.Width
+        X: =txtTextInputSS.X
+        Y: =txtTextInputSS.Y + txtTextInputSS.Height
+        ZIndex: =16
+
+        rctSepratorGalComboboxVauesSS As rectangle:
+            BorderColor: =Transparent
+            Fill: =SearchandSelectComponent.StylingProperty.Separator.Fill
+            FocusedBorderThickness: =Self.BorderThickness
+            Height: =SearchandSelectComponent.StylingProperty.Separator.Height * SearchandSelectComponent.ScaleFactor
+            OnSelect: =Select(Parent)
+            Visible: |-
+                =Not(
+                    ThisItem.Value = Last(
+                        Search(
+                            colDropdownValue,
+                            txtTextInputSS.Text,
+                            "Value"
+                        )
+                    ).Value
+                )
+            Width: =Parent.Width - (Self.X * 2)
+            X: =SearchandSelectComponent.StylingProperty.Separator.LeftMargin * SearchandSelectComponent.ScaleFactor
+            Y: =btnDropdownValueGalComboboxVauesSS.Height
+            ZIndex: =1
+
+        btnDropdownValueGalComboboxVauesSS As button:
+            Align: =SearchandSelectComponent.StylingProperty.Items.Align
+            BorderColor: =SearchandSelectComponent.StylingProperty.Items.BorderColor
+            BorderStyle: =SearchandSelectComponent.StylingProperty.Items.BorderStyle
+            BorderThickness: =SearchandSelectComponent.StylingProperty.Items.BorderThickness * SearchandSelectComponent.ScaleFactor
+            Color: |-
+                =If(
+                    ThisItem.IsSelectedValue = true,
+                    SearchandSelectComponent.StylingProperty.Items.SelectedColor,
+                    SearchandSelectComponent.StylingProperty.Items.Color
+                )
+            DisabledBorderColor: =SearchandSelectComponent.StylingProperty.Items.DisabledBorderColor
+            DisabledColor: =SearchandSelectComponent.StylingProperty.Items.DisabledColor
+            DisabledFill: =SearchandSelectComponent.StylingProperty.Items.DisabledFill
+            Fill: |-
+                =If(
+                    ThisItem.IsSelectedValue = true,
+                    SearchandSelectComponent.StylingProperty.Items.SelectedFill,
+                    SearchandSelectComponent.StylingProperty.Items.Fill
+                )
+            FocusedBorderColor: =SearchandSelectComponent.StylingProperty.Items.FocusedBorderColor
+            FocusedBorderThickness: =SearchandSelectComponent.StylingProperty.Items.FocusedBorderThickness * SearchandSelectComponent.ScaleFactor
+            Font: =SearchandSelectComponent.StylingProperty.Items.Font
+            FontWeight: =SearchandSelectComponent.StylingProperty.Items.FontWeight
+            Height: =Parent.TemplateHeight
+            HoverBorderColor: =SearchandSelectComponent.StylingProperty.Items.HoverBorderColor
+            HoverColor: |-
+                =If(
+                    ThisItem.IsSelectedValue = true,
+                    SearchandSelectComponent.StylingProperty.Items.SelectedColor,
+                    SearchandSelectComponent.StylingProperty.Items.HoverColor
+                )
+            HoverFill: |-
+                =If(
+                    ThisItem.IsSelectedValue = true,
+                    SearchandSelectComponent.StylingProperty.Items.SelectedFill,
+                    SearchandSelectComponent.StylingProperty.Items.HoverFill
+                )
+            Italic: =SearchandSelectComponent.StylingProperty.Items.Italic
+            OnSelect: |-
+                =Patch(
+                    colDropdownValue,
+                    ThisItem,
+                    {IsSelectedValue: !ThisItem.IsSelectedValue}
+                );
+            PaddingBottom: =SearchandSelectComponent.StylingProperty.Items.PaddingBottom * SearchandSelectComponent.ScaleFactor
+            PaddingLeft: =SearchandSelectComponent.StylingProperty.Items.PaddingLeft * SearchandSelectComponent.ScaleFactor
+            PaddingRight: =btnCheckBoxBackgroundGalComboboxVauesSS.Width + (SearchandSelectComponent.StylingProperty.Items.PaddingRight * 2) * SearchandSelectComponent.ScaleFactor
+            PaddingTop: =SearchandSelectComponent.StylingProperty.Items.PaddingTop * SearchandSelectComponent.ScaleFactor
+            PressedBorderColor: =SearchandSelectComponent.StylingProperty.Items.PressedBorderColor
+            PressedColor: =SearchandSelectComponent.StylingProperty.Items.PressedColor
+            PressedFill: =SearchandSelectComponent.StylingProperty.Items.PressedFill
+            RadiusBottomLeft: =SearchandSelectComponent.StylingProperty.Items.RadiusBottomLeft
+            RadiusBottomRight: =SearchandSelectComponent.StylingProperty.Items.RadiusBottomRight
+            RadiusTopLeft: =SearchandSelectComponent.StylingProperty.Items.RadiusTopLeft
+            RadiusTopRight: =SearchandSelectComponent.StylingProperty.Items.RadiusTopRight
+            Size: =SearchandSelectComponent.StylingProperty.Items.Size * SearchandSelectComponent.ScaleFactor
+            Strikethrough: =SearchandSelectComponent.StylingProperty.Items.Strikethrough
+            TabIndex: =-1
+            Text: =ThisItem.Value
+            Underline: =SearchandSelectComponent.StylingProperty.Items.Underline
+            VerticalAlign: =SearchandSelectComponent.StylingProperty.Items.VerticalAlign
+            Width: =Parent.TemplateWidth
+            ZIndex: =2
+
+        btnCheckBoxBackgroundGalComboboxVauesSS As button:
+            BorderColor: |-
+                =If(
+                    chkCheckBoxGalComboboxVauesSS.Value,
+                    Self.Fill,
+                    SearchandSelectComponent.StylingProperty.Checkbox.CheckboxBorderColor
+                )
+            BorderThickness: =SearchandSelectComponent.StylingProperty.Checkbox.CheckboxBorderThickness * SearchandSelectComponent.ScaleFactor
+            Color: =Transparent
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            Fill: |-
+                =If(
+                    chkCheckBoxGalComboboxVauesSS.Value && !btnDropdownValueGalComboboxVauesSS.Pressed,
+                    SearchandSelectComponent.StylingProperty.Checkbox.SelectedCheckboxFill,
+                    SearchandSelectComponent.StylingProperty.Checkbox.CheckboxFill
+                )
+            FocusedBorderColor: |-
+                =If(
+                    chkCheckBoxGalComboboxVauesSS.Value,
+                    SearchandSelectComponent.StylingProperty.Checkbox.CheckboxBorderColor,
+                    SearchandSelectComponent.StylingProperty.Checkbox.SelectedCheckboxBorderColor
+                )
+            FocusedBorderThickness: =Self.BorderThickness
+            Height: =SearchandSelectComponent.StylingProperty.Checkbox.BoxHeight * SearchandSelectComponent.ScaleFactor
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =Patch(
+                    colDropdownValue,
+                    ThisItem,
+                    {IsSelectedValue: !ThisItem.IsSelectedValue}
+                );
+                SetFocus(Self);
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: |
+                =0
+            PressedBorderColor: =Self.BorderColor
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            RadiusBottomLeft: =SearchandSelectComponent.StylingProperty.Checkbox.RadiusBottomLeft * SearchandSelectComponent.ScaleFactor
+            RadiusBottomRight: =SearchandSelectComponent.StylingProperty.Checkbox.RadiusBottomRight * SearchandSelectComponent.ScaleFactor
+            RadiusTopLeft: =SearchandSelectComponent.StylingProperty.Checkbox.RadiusTopLeft * SearchandSelectComponent.ScaleFactor
+            RadiusTopRight: =SearchandSelectComponent.StylingProperty.Checkbox.RadiusTopRight * SearchandSelectComponent.ScaleFactor
+            Size: =0
+            Text: ="Button"
+            Width: =SearchandSelectComponent.StylingProperty.Checkbox.BoxWidth * SearchandSelectComponent.ScaleFactor
+            X: |-
+                =Parent.Width - (SearchandSelectComponent.StylingProperty.Checkbox.RightMargin * SearchandSelectComponent.ScaleFactor) - If(
+                    CountRows(
+                        Search(
+                            colDropdownValue,
+                            txtTextInputSS.Text,
+                            "Value"
+                        )
+                    ) > 5,
+                    SearchandSelectComponent.StylingProperty.TextInput.ScrollWith
+                )
+            Y: =Parent.TemplateHeight / 2 - Self.Height / 2
+            ZIndex: =4
+
+        chkCheckBoxGalComboboxVauesSS As checkbox:
+            BorderColor: =Transparent
+            CheckboxBackgroundFill: =Transparent
+            CheckboxBorderColor: =Transparent
+            CheckboxSize: =SearchandSelectComponent.StylingProperty.Checkbox.CheckboxSize
+            CheckmarkFill: =SearchandSelectComponent.StylingProperty.Checkbox.CheckmarkFill
+            Color: =Transparent
+            Default: =ThisItem.IsSelectedValue
+            DisabledBorderColor: =Self.BorderColor
+            DisabledColor: =Self.Color
+            DisabledFill: =Self.Fill
+            Fill: =Transparent
+            FocusedBorderThickness: =Self.BorderThickness
+            FontWeight: =FontWeight.Semibold
+            Height: =SearchandSelectComponent.StylingProperty.Checkbox.CheckBoxHeight * SearchandSelectComponent.ScaleFactor
+            HoverBorderColor: =Self.BorderColor
+            HoverColor: =Self.Color
+            HoverFill: =Self.Fill
+            OnCheck: |-
+                =Patch(
+                    colDropdownValue,
+                    ThisItem,
+                    {IsSelectedValue: true}
+                );
+            OnSelect: =
+            OnUncheck: |
+                =Patch(
+                    colDropdownValue,
+                    ThisItem,
+                    {IsSelectedValue: false}
+                );
+            PressedBorderColor: =Self.BorderColor
+            PressedColor: =Self.Color
+            PressedFill: =Self.Fill
+            Size: =0
+            TabIndex: =-1
+            Text: =
+            Width: =SearchandSelectComponent.StylingProperty.Checkbox.CheckBoxHeight * SearchandSelectComponent.ScaleFactor
+            X: =btnCheckBoxBackgroundGalComboboxVauesSS.X - (SearchandSelectComponent.StylingProperty.Checkbox.Marign * SearchandSelectComponent.ScaleFactor)
+            Y: =btnCheckBoxBackgroundGalComboboxVauesSS.Y - (SearchandSelectComponent.StylingProperty.Checkbox.Marign * SearchandSelectComponent.ScaleFactor)
+            ZIndex: =5
+

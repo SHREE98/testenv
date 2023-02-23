@@ -1,0 +1,378 @@
+ToggleComponent As CanvasComponent:
+    Default: =true
+    DisplayMode: =gblState.Enabled
+    FalseText: ="No"
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =62
+    OnReset: |-
+        =Set(
+            gblToggleValue,
+            ToggleComponent.Default
+        )
+    ScaleFactor: =1
+    StylingProperty: |-
+        =With(
+            {ToggleComponent: gblControlStyles.Toggle},
+            {
+                Bar: ToggleComponent.Bar,
+                Handle: ToggleComponent.Handle,
+                Toggle: ToggleComponent,
+                TitleLabel: gblControlStyles.ControlLabel
+            }
+        )
+    TabIndex: =0
+    TitleAtTop: =true
+    TitleText: ="Safe guarding statement of fact"
+    TrueText: ="Yes"
+    Value: =gblToggleValue
+    Width: =300
+    X: =0
+    Y: =0
+    ZIndex: =11
+
+    tmrRippleEffectTC As timer:
+        Duration: =300 * ToggleComponent.ScaleFactor
+        Height: =0
+        OnTimerEnd: |-
+            =Set(gblRipple, false);
+            Set(gblToggleValue, !gblToggleValue);
+            Reset(tmrRippleEffectTC);
+            SetFocus(btnHandIconTC);
+        OnTimerStart: =Set(gblRipple, true);
+        Start: =gblTimerStart
+        TabIndex: =-1
+        Visible: =false
+        Width: =0
+        ZIndex: =1
+
+    btnRippleEffectTC As button:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: |-
+            =If(
+                gblToggleValue,
+                ToggleComponent.StylingProperty.Handle.RippleTrueFill,
+                ToggleComponent.StylingProperty.Handle.RippleFalseFill
+            )
+        FocusedBorderThickness: =Self.BorderThickness
+        FontWeight: =FontWeight.Normal
+        Height: =Self.Width
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =1000
+        RadiusBottomRight: =1000
+        RadiusTopLeft: =1000
+        RadiusTopRight: =1000
+        Size: =0
+        TabIndex: =-1
+        Text: =""
+        Visible: =gblRipple
+        Width: =tmrRippleEffectTC.Value / 6
+        X: =(imgToggleCircleTC.X + imgToggleCircleTC.Width/2) - (Self.Width / 2)
+        Y: =(txtToggleBarTC.Y + txtToggleBarTC.Height/2) - (Self.Height / 2)
+        ZIndex: =2
+
+    txtToggleBarTC As text:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Clear: =true
+        Color: =Transparent
+        Default: =""
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: |-
+            =If(
+                ToggleComponent.Value,
+                If(
+                    ToggleComponent.DisplayMode = "Enabled",
+                    ToggleComponent.StylingProperty.Bar.TrueFill,
+                    ToggleComponent.StylingProperty.Bar.DisableTrueFill
+                ),
+                If(
+                    ToggleComponent.DisplayMode = "Enabled",
+                    ToggleComponent.StylingProperty.Bar.FalseFill,
+                    ToggleComponent.StylingProperty.Bar.DisableFalseFill
+                )
+            )
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =ToggleComponent.StylingProperty.Bar.Height * ToggleComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        RadiusBottomLeft: =Self.Width
+        RadiusBottomRight: =Self.Width
+        RadiusTopLeft: =Self.Width
+        RadiusTopRight: =Self.Width
+        Size: =0
+        TabIndex: =-1
+        Width: =ToggleComponent.StylingProperty.Bar.Width * ToggleComponent.ScaleFactor
+        X: =lblTextNoTC.X + lblTextNoTC.Width + (ToggleComponent.StylingProperty.Toggle.MarginRight * ToggleComponent.ScaleFactor)
+        Y: |-
+            =If(
+                ToggleComponent.TitleAtTop,
+                (ToggleComponent.StylingProperty.TitleLabel.Height * ToggleComponent.ScaleFactor) + ToggleComponent.StylingProperty.Bar.MarginTop,
+                Parent.Height / 2 - Self.Height / 2
+            )
+        ZIndex: =3
+
+    imgToggleCircleTC As image:
+        BorderColor: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =(ToggleComponent.StylingProperty.Handle.Height + (ToggleComponent.StylingProperty.Handle.ShadowPadding.Left * 2)) * ToggleComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: |-
+            =If(
+                ToggleComponent.Value,
+                If(
+                    ToggleComponent.DisplayMode = "Enabled",
+                    ToggleComponent.StylingProperty.Handle.TrueFill,
+                    ToggleComponent.StylingProperty.Handle.DisableTrueFill
+                ),
+                If(
+                    ToggleComponent.DisplayMode = "Enabled",
+                    ToggleComponent.StylingProperty.Handle.FalseFill,
+                    ToggleComponent.StylingProperty.Handle.DisableFalseFill
+                )
+            )
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        Width: =(ToggleComponent.StylingProperty.Handle.Width + (ToggleComponent.StylingProperty.Handle.ShadowPadding.Left * 2)) * ToggleComponent.ScaleFactor
+        X: |-
+            =If(
+                gblToggleValue,
+                txtToggleBarTC.X + txtToggleBarTC.Width - ((ToggleComponent.StylingProperty.Handle.Width + ToggleComponent.StylingProperty.Handle.ShadowPadding.Left)*ToggleComponent.ScaleFactor),
+                txtToggleBarTC.X - ToggleComponent.StylingProperty.Handle.ShadowPadding.Left*ToggleComponent.ScaleFactor
+            )
+        Y: =txtToggleBarTC.Y + (txtToggleBarTC.Height / 2 - (ToggleComponent.StylingProperty.Handle.Height * ToggleComponent.ScaleFactor) / 2) - (ToggleComponent.StylingProperty.Handle.ShadowPadding.Top * ToggleComponent.ScaleFactor)
+        ZIndex: =4
+
+    btnHandIconTC As button:
+        BorderColor: =Transparent
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Self.BorderColor
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderColor: =ToggleComponent.StylingProperty.Toggle.FocusedBorderColor
+        FocusedBorderThickness: =ToggleComponent.StylingProperty.Toggle.FocusedBorderThickness * ToggleComponent.ScaleFactor
+        FontWeight: =FontWeight.Normal
+        Height: =imgToggleCircleTC.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        OnSelect: |-
+            =Set(gblTimerStart, false);
+            Set(gblTimerStart, true);
+            //Set(gblToggleValue, !gblToggleValue);
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =Self.BorderColor
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =0
+        RadiusTopLeft: =0
+        RadiusTopRight: =0
+        Size: =0
+        TabIndex: =ToggleComponent.TabIndex
+        Text: =""
+        Visible: =ToggleComponent.DisplayMode = "Enabled"
+        Width: =txtToggleBarTC.Width + (ToggleComponent.StylingProperty.Handle.ShadowPadding.Left) * ToggleComponent.ScaleFactor
+        X: =txtToggleBarTC.X + (txtToggleBarTC.Width / 2 - Self.Width/2)
+        Y: =txtToggleBarTC.Y + (txtToggleBarTC.Height / 2 - Self.Height/2)
+        ZIndex: =5
+
+    cirHoverEffectTC As circle:
+        Fill: =Transparent
+        Height: =ToggleComponent.StylingProperty.Handle.HoverCircleHeight * ToggleComponent.ScaleFactor
+        HoverFill: |-
+            =If(
+                tmrRippleEffectTC.Value > 0,
+                Transparent,
+                gblToggleValue,
+                ToggleComponent.StylingProperty.Handle.RippleTrueFill,
+                ToggleComponent.StylingProperty.Handle.RippleFalseFill
+            )
+        OnSelect: |-
+            =Reset(tmrRippleEffectTC);
+            Set(gblTimerStart, false);
+            Set(gblTimerStart, true);
+        PressedFill: =If(gblToggleValue, RGBA(25, 68, 106, 0.12), RGBA(0, 0, 0, 0.04))
+        Visible: =ToggleComponent.DisplayMode = "Enabled"
+        Width: =ToggleComponent.StylingProperty.Handle.HoverCircleWidth * ToggleComponent.ScaleFactor
+        X: =(imgToggleCircleTC.X + imgToggleCircleTC.Width / 2 - Self.Width / 2)
+        Y: =(txtToggleBarTC.Y + txtToggleBarTC.Height / 2 - Self.Height / 2)
+        ZIndex: =7
+
+    lblTitleTextTC As label:
+        Align: =ToggleComponent.StylingProperty.TitleLabel.Align
+        AutoHeight: =false //Len(Trim(Self.Text)) * (8 * ToggleComponent.ScaleFactor) > Parent.Width
+        BorderColor: =ToggleComponent.StylingProperty.TitleLabel.BorderColor
+        BorderStyle: =ToggleComponent.StylingProperty.TitleLabel.BorderStyle
+        BorderThickness: =ToggleComponent.StylingProperty.TitleLabel.BorderThickness
+        Color: =ToggleComponent.StylingProperty.TitleLabel.Color
+        DisabledBorderColor: =ToggleComponent.StylingProperty.TitleLabel.DisabledBorderColor
+        DisabledColor: =ToggleComponent.StylingProperty.TitleLabel.DisabledColor
+        DisabledFill: =ToggleComponent.StylingProperty.TitleLabel.DisabledFill
+        DisplayMode: |-
+            =If(
+                ToggleComponent.DisplayMode = "Disabled",
+                DisplayMode.Disabled,
+                ToggleComponent.StylingProperty.TitleLabel.DisplayMode
+            )
+        Fill: =ToggleComponent.StylingProperty.TitleLabel.Fill
+        FocusedBorderColor: =ToggleComponent.StylingProperty.TitleLabel.FocusedBorderColor
+        FocusedBorderThickness: =ToggleComponent.StylingProperty.TitleLabel.FocusedBorderThickness
+        FontWeight: =ToggleComponent.StylingProperty.TitleLabel.FontWeight
+        Height: =ToggleComponent.StylingProperty.TitleLabel.Height * ToggleComponent.ScaleFactor
+        HoverBorderColor: =ToggleComponent.StylingProperty.TitleLabel.HoverBorderColor
+        HoverColor: =ToggleComponent.StylingProperty.TitleLabel.HoverColor
+        HoverFill: =ToggleComponent.StylingProperty.TitleLabel.HoverFill
+        Italic: =ToggleComponent.StylingProperty.TitleLabel.Italic
+        LineHeight: =ToggleComponent.StylingProperty.TitleLabel.LineHeight
+        Overflow: =ToggleComponent.StylingProperty.TitleLabel.Overflow
+        PaddingBottom: =ToggleComponent.StylingProperty.TitleLabel.PaddingBottom
+        PaddingLeft: =ToggleComponent.StylingProperty.TitleLabel.PaddingLeft
+        PaddingRight: =ToggleComponent.StylingProperty.TitleLabel.PaddingRight
+        PaddingTop: =ToggleComponent.StylingProperty.TitleLabel.PaddingTop
+        PressedBorderColor: =ToggleComponent.StylingProperty.TitleLabel.PressedBorderColor
+        PressedColor: =ToggleComponent.StylingProperty.TitleLabel.PressedColor
+        PressedFill: =ToggleComponent.StylingProperty.TitleLabel.PressedFill
+        Size: =ToggleComponent.StylingProperty.TitleLabel.Size * ToggleComponent.ScaleFactor
+        Strikethrough: =ToggleComponent.StylingProperty.TitleLabel.Strikethrough
+        Text: =ToggleComponent.TitleText
+        Underline: =ToggleComponent.StylingProperty.TitleLabel.Underline
+        VerticalAlign: =ToggleComponent.StylingProperty.TitleLabel.VerticalAlign
+        Width: =Min(Len(Trim(Self.Text)) * (8 * ToggleComponent.ScaleFactor), Parent.Width - 24)
+        Wrap: =ToggleComponent.StylingProperty.TitleLabel.Wrap
+        X: =ToggleComponent.StylingProperty.TitleLabel.Margin
+        Y: =If(!ToggleComponent.TitleAtTop, (txtToggleBarTC.Y + txtToggleBarTC.Height/2) - (Self.Height / 2))
+        ZIndex: =8
+
+    lblTextNoTC As label:
+        Align: =ToggleComponent.StylingProperty.TitleLabel.Align
+        AutoHeight: =ToggleComponent.StylingProperty.TitleLabel.AutoHeight
+        BorderColor: =ToggleComponent.StylingProperty.TitleLabel.BorderColor
+        BorderStyle: =ToggleComponent.StylingProperty.TitleLabel.BorderStyle
+        BorderThickness: =ToggleComponent.StylingProperty.TitleLabel.BorderThickness
+        Color: |-
+            =If(
+                ToggleComponent.DisplayMode = "Enabled",
+                ToggleComponent.StylingProperty.TitleLabel.Color,
+                ToggleComponent.StylingProperty.Toggle.LabelDisableColor
+            )
+        DisabledBorderColor: =ToggleComponent.StylingProperty.TitleLabel.DisabledBorderColor
+        DisabledColor: =ToggleComponent.StylingProperty.TitleLabel.DisabledColor
+        DisabledFill: =ToggleComponent.StylingProperty.TitleLabel.DisabledFill
+        DisplayMode: =If(gblToggleValue, DisplayMode.Disabled, DisplayMode.Edit)
+        Fill: =ToggleComponent.StylingProperty.TitleLabel.Fill
+        FocusedBorderColor: =ToggleComponent.StylingProperty.TitleLabel.FocusedBorderColor
+        FocusedBorderThickness: =ToggleComponent.StylingProperty.TitleLabel.FocusedBorderThickness
+        Font: =ToggleComponent.StylingProperty.TitleLabel.Font
+        FontWeight: =ToggleComponent.StylingProperty.TitleLabel.FontWeight
+        Height: =ToggleComponent.StylingProperty.TitleLabel.Height * ToggleComponent.ScaleFactor
+        HoverBorderColor: =ToggleComponent.StylingProperty.TitleLabel.HoverBorderColor
+        HoverColor: |-
+            =If(
+                ToggleComponent.DisplayMode = "Enabled",
+                ToggleComponent.StylingProperty.TitleLabel.HoverColor,
+                ToggleComponent.StylingProperty.Toggle.LabelDisableColor
+            )
+        HoverFill: =ToggleComponent.StylingProperty.TitleLabel.HoverFill
+        Italic: =ToggleComponent.StylingProperty.TitleLabel.Italic
+        LineHeight: =ToggleComponent.StylingProperty.TitleLabel.LineHeight
+        Overflow: =ToggleComponent.StylingProperty.TitleLabel.Overflow
+        PaddingBottom: =ToggleComponent.StylingProperty.TitleLabel.PaddingBottom
+        PaddingLeft: =ToggleComponent.StylingProperty.TitleLabel.PaddingLeft
+        PaddingRight: =ToggleComponent.StylingProperty.TitleLabel.PaddingRight
+        PaddingTop: =ToggleComponent.StylingProperty.TitleLabel.PaddingTop
+        PressedBorderColor: =ToggleComponent.StylingProperty.TitleLabel.PressedBorderColor
+        PressedColor: =ToggleComponent.StylingProperty.TitleLabel.PressedColor
+        PressedFill: =ToggleComponent.StylingProperty.TitleLabel.PressedFill
+        Size: =ToggleComponent.StylingProperty.TitleLabel.Size * ToggleComponent.ScaleFactor
+        Strikethrough: =ToggleComponent.StylingProperty.TitleLabel.Strikethrough
+        Text: =ToggleComponent.FalseText
+        Underline: =ToggleComponent.StylingProperty.TitleLabel.Underline
+        VerticalAlign: =ToggleComponent.StylingProperty.TitleLabel.VerticalAlign
+        Width: =Len(Trim(Self.Text)) * (9 * ToggleComponent.ScaleFactor)
+        Wrap: =ToggleComponent.StylingProperty.TitleLabel.Wrap
+        X: |-
+            =With(
+                {ToggleWidth: lblTextNoTC.Width + lblTextYesTC.Width + txtToggleBarTC.Width + ToggleComponent.StylingProperty.Toggle.MarginRight * 2},
+                If(
+                    ToggleComponent.TitleAtTop,
+                    lblTitleTextTC.X,
+                    Parent.Width - ToggleWidth
+                )
+            )
+        Y: =(txtToggleBarTC.Y + txtToggleBarTC.Height/2) - (Self.Height / 2)
+        ZIndex: =9
+
+    lblTextYesTC As label:
+        Align: =ToggleComponent.StylingProperty.TitleLabel.Align
+        AutoHeight: =ToggleComponent.StylingProperty.TitleLabel.AutoHeight
+        BorderColor: =ToggleComponent.StylingProperty.TitleLabel.BorderColor
+        BorderStyle: =ToggleComponent.StylingProperty.TitleLabel.BorderStyle
+        BorderThickness: =ToggleComponent.StylingProperty.TitleLabel.BorderThickness
+        Color: =If(ToggleComponent.DisplayMode = "Enabled", ToggleComponent.StylingProperty.TitleLabel.Color, ToggleComponent.StylingProperty.Toggle.LabelDisableColor)
+        DisabledBorderColor: =ToggleComponent.StylingProperty.TitleLabel.DisabledBorderColor
+        DisabledColor: =ToggleComponent.StylingProperty.TitleLabel.DisabledColor
+        DisabledFill: =ToggleComponent.StylingProperty.TitleLabel.DisabledFill
+        DisplayMode: =If(gblToggleValue, DisplayMode.Edit, DisplayMode.Disabled)
+        Fill: =ToggleComponent.StylingProperty.TitleLabel.Fill
+        FocusedBorderColor: =ToggleComponent.StylingProperty.TitleLabel.FocusedBorderColor
+        FocusedBorderThickness: =ToggleComponent.StylingProperty.TitleLabel.FocusedBorderThickness
+        Font: =ToggleComponent.StylingProperty.TitleLabel.Font
+        FontWeight: =ToggleComponent.StylingProperty.TitleLabel.FontWeight
+        Height: =ToggleComponent.StylingProperty.TitleLabel.Height * ToggleComponent.ScaleFactor
+        HoverBorderColor: =ToggleComponent.StylingProperty.TitleLabel.HoverBorderColor
+        HoverColor: =ToggleComponent.StylingProperty.TitleLabel.HoverColor
+        HoverFill: =ToggleComponent.StylingProperty.TitleLabel.HoverFill
+        Italic: =ToggleComponent.StylingProperty.TitleLabel.Italic
+        LineHeight: =ToggleComponent.StylingProperty.TitleLabel.LineHeight
+        Overflow: =ToggleComponent.StylingProperty.TitleLabel.Overflow
+        PaddingBottom: =ToggleComponent.StylingProperty.TitleLabel.PaddingBottom
+        PaddingLeft: =ToggleComponent.StylingProperty.TitleLabel.PaddingLeft
+        PaddingRight: =ToggleComponent.StylingProperty.TitleLabel.PaddingRight
+        PaddingTop: =ToggleComponent.StylingProperty.TitleLabel.PaddingTop
+        PressedBorderColor: =ToggleComponent.StylingProperty.TitleLabel.PressedBorderColor
+        PressedColor: =ToggleComponent.StylingProperty.TitleLabel.PressedColor
+        PressedFill: =ToggleComponent.StylingProperty.TitleLabel.PressedFill
+        Size: =ToggleComponent.StylingProperty.TitleLabel.Size * ToggleComponent.ScaleFactor
+        Strikethrough: =ToggleComponent.StylingProperty.TitleLabel.Strikethrough
+        Text: =ToggleComponent.TrueText
+        Underline: =ToggleComponent.StylingProperty.TitleLabel.Underline
+        VerticalAlign: =ToggleComponent.StylingProperty.TitleLabel.VerticalAlign
+        Width: =Len(Trim(Self.Text)) * (8 * ToggleComponent.ScaleFactor)
+        Wrap: =ToggleComponent.StylingProperty.TitleLabel.Wrap
+        X: =txtToggleBarTC.X + txtToggleBarTC.Width + (ToggleComponent.StylingProperty.Toggle.MarginRight * ToggleComponent.ScaleFactor)
+        Y: =(txtToggleBarTC.Y + txtToggleBarTC.Height/2) - (Self.Height / 2)
+        ZIndex: =10
+

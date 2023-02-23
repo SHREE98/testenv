@@ -1,0 +1,187 @@
+SecondaryButtonComponent As CanvasComponent:
+    ButtonPressed: =false
+    ButtonSelected: =gblButtonSelected
+    DisplayMode: =DisplayMode.Edit
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =44
+    Image: |-
+        ="data:image/svg+xml;utf8, " & EncodeUrl(
+            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M13 0C5.83203 0 0 5.83203 0 13C0 20.168 5.83203 26 13 26C20.168 26 26 20.168 26 13C26 5.83203 20.168 0 13 0ZM13 2C19.0859 2 24 6.91406 24 13C24 19.0859 19.0859 24 13 24C6.91406 24 2 19.0859 2 13C2 6.91406 6.91406 2 13 2ZM12 7V9H14V7H12ZM12 11V19H14V11H12Z' fill='"&  If(
+            SecondaryButtonComponent.DisplayMode = DisplayMode.Disabled,
+            SecondaryButtonComponent.StylingProperty.Image.DisabledFill,
+            SecondaryButtonComponent.Ripple,
+            SecondaryButtonComponent.StylingProperty.Image.PressedFill,
+            SecondaryButtonComponent.ButtonSelected,
+            SecondaryButtonComponent.StylingProperty.Image.PressedFill,
+            SecondaryButtonComponent.StylingProperty.Image.Fill
+        ) &"'/>
+        </svg>
+        "
+        )
+    OnReset: |-
+        =
+        Set(gblButtonSelected, false)
+    Ripple: =gblRipple
+    ScaleFactor: =1
+    ShowImage: =true
+    StylingProperty: =gblControlStyles.SecondaryButton
+    Text: ="Info"
+    Width: =96
+    X: =SecondaryButtonComponent.Width/2
+    Y: =0
+    ZIndex: =20
+
+    tmrRippleSB As timer:
+        AutoStart: =If(SecondaryButtonComponent.DisplayMode = DisplayMode.Edit,SecondaryButtonComponent.ButtonPressed)
+        Duration: =300 * SecondaryButtonComponent.ScaleFactor
+        Font: =Font.Arial
+        Height: =0
+        OnTimerEnd: |-
+            =Reset(tmrRippleSB);
+            Set(gblRipple, false);
+            Set(gblButtonSelected,true)
+        OnTimerStart: =Set(gblRipple, true);
+        TabIndex: =-1
+        Visible: =false
+        Width: =0
+        ZIndex: =1
+
+    btnMainSB As button:
+        Align: =SecondaryButtonComponent.StylingProperty.Align
+        AutoDisableOnSelect: =SecondaryButtonComponent.StylingProperty.AutoDisableOnSelect
+        BorderColor: =SecondaryButtonComponent.StylingProperty.BorderColor
+        BorderStyle: =SecondaryButtonComponent.StylingProperty.BorderStyle
+        BorderThickness: =SecondaryButtonComponent.StylingProperty.BorderThickness * SecondaryButtonComponent.ScaleFactor
+        Color: |-
+            =If(
+                gblRipple,
+                SecondaryButtonComponent.StylingProperty.PressedColor,
+                gblButtonSelected,
+                SecondaryButtonComponent.StylingProperty.PressedColor,
+                SecondaryButtonComponent.StylingProperty.Color
+            )
+        DisabledBorderColor: =SecondaryButtonComponent.StylingProperty.DisabledBorderColor
+        DisabledColor: =SecondaryButtonComponent.StylingProperty.DisabledColor
+        DisabledFill: =SecondaryButtonComponent.StylingProperty.DisabledFill
+        DisplayMode: =SecondaryButtonComponent.DisplayMode
+        Fill: |-
+            =If(
+                gblRipple,
+                SecondaryButtonComponent.StylingProperty.PressedFill,
+                gblButtonSelected,
+                SecondaryButtonComponent.StylingProperty.RippleFill,
+                SecondaryButtonComponent.StylingProperty.Fill
+            )
+        FocusedBorderColor: =SecondaryButtonComponent.StylingProperty.FocusedBorderColor
+        FocusedBorderThickness: =SecondaryButtonComponent.StylingProperty.FocusedBorderThickness
+        Font: =SecondaryButtonComponent.StylingProperty.Font
+        FontWeight: =SecondaryButtonComponent.StylingProperty.FontWeight
+        Height: =SecondaryButtonComponent.Height - SecondaryButtonComponent.StylingProperty.Margin * 2
+        HoverBorderColor: =SecondaryButtonComponent.StylingProperty.HoverBorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        Italic: =SecondaryButtonComponent.StylingProperty.Italic
+        PaddingBottom: =SecondaryButtonComponent.StylingProperty.PaddingBottom * SecondaryButtonComponent.ScaleFactor
+        PaddingLeft: =SecondaryButtonComponent.StylingProperty.PaddingLeft * SecondaryButtonComponent.ScaleFactor
+        PaddingRight: |-
+            =If(
+                SecondaryButtonComponent.ShowImage,
+                SecondaryButtonComponent.StylingProperty.PaddingRight,
+                Self.PaddingLeft
+            ) * SecondaryButtonComponent.ScaleFactor
+        PaddingTop: =SecondaryButtonComponent.StylingProperty.PaddingTop * SecondaryButtonComponent.ScaleFactor
+        PressedBorderColor: =SecondaryButtonComponent.StylingProperty.PressedBorderColor
+        RadiusBottomLeft: =SecondaryButtonComponent.StylingProperty.RadiusBottomLeft * SecondaryButtonComponent.ScaleFactor
+        RadiusBottomRight: =SecondaryButtonComponent.StylingProperty.RadiusBottomRight * SecondaryButtonComponent.ScaleFactor
+        RadiusTopLeft: =SecondaryButtonComponent.StylingProperty.RadiusTopLeft * SecondaryButtonComponent.ScaleFactor
+        RadiusTopRight: =SecondaryButtonComponent.StylingProperty.RadiusTopRight * SecondaryButtonComponent.ScaleFactor
+        Size: =SecondaryButtonComponent.StylingProperty.Size * SecondaryButtonComponent.ScaleFactor
+        Strikethrough: =SecondaryButtonComponent.StylingProperty.Strikethrough
+        TabIndex: =-1
+        Text: =SecondaryButtonComponent.Text
+        Underline: =SecondaryButtonComponent.StylingProperty.Underline
+        VerticalAlign: =SecondaryButtonComponent.StylingProperty.VerticalAlign
+        Width: =SecondaryButtonComponent.Width - SecondaryButtonComponent.StylingProperty.Margin * 2
+        X: =SecondaryButtonComponent.StylingProperty.Margin
+        Y: =SecondaryButtonComponent.StylingProperty.Margin
+        ZIndex: =2
+
+    btnRippleEffectSB As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =Self.Color
+        BorderThickness: =0
+        Color: =Transparent
+        DisabledBorderColor: =Self.Color
+        DisabledColor: =Self.Color
+        DisabledFill: =Self.Fill
+        DisplayMode: =DisplayMode.Disabled
+        Fill: =SecondaryButtonComponent.StylingProperty.RippleFill
+        FocusedBorderThickness: =0
+        FontWeight: =FontWeight.Normal
+        Height: =btnMainSB.Height
+        HoverBorderColor: =Self.BorderColor
+        HoverColor: =Self.Color
+        HoverFill: =Self.Fill
+        PressedBorderColor: =Self.Color
+        PressedColor: =Self.Color
+        PressedFill: =Self.Fill
+        RadiusBottomLeft: =1000
+        RadiusBottomRight: =1000
+        RadiusTopLeft: =1000
+        RadiusTopRight: =1000
+        Size: =12
+        TabIndex: =-1
+        Text: =""
+        Visible: =gblRipple
+        Width: =tmrRippleSB.Value / 2
+        X: =btnMainSB.X + (btnMainSB.Width / 2 - Self.Width / 2)
+        Y: =btnMainSB.Y
+        ZIndex: =3
+
+    imgMainSB As image:
+        BorderColor: =Self.Fill
+        DisabledBorderColor: =Self.BorderColor
+        DisabledFill: =Self.Fill
+        Fill: =Transparent
+        FocusedBorderThickness: =Self.BorderThickness
+        Height: =SecondaryButtonComponent.StylingProperty.Image.Height * SecondaryButtonComponent.ScaleFactor
+        HoverBorderColor: =Self.BorderColor
+        HoverFill: =Self.Fill
+        Image: =SecondaryButtonComponent.Image
+        PressedBorderColor: =Self.BorderColor
+        PressedFill: =Self.Fill
+        Visible: =SecondaryButtonComponent.ShowImage
+        Width: =SecondaryButtonComponent.StylingProperty.Image.Width * SecondaryButtonComponent.ScaleFactor
+        X: =(Parent.Width - Self.Width - (SecondaryButtonComponent.StylingProperty.Image.RightMargin  * SecondaryButtonComponent.ScaleFactor))
+        Y: =Parent.Height / 2 - Self.Height /2
+        ZIndex: =4
+
+    lblPressedLabelSB As label:
+        Align: =btnMainSB.Align
+        AutoHeight: =
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Color: =SecondaryButtonComponent.StylingProperty.PressedColor
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =Self.Color
+        Font: =btnMainSB.Font
+        FontWeight: =btnMainSB.FontWeight
+        Height: =btnMainSB.Height
+        Italic: =btnMainSB.Italic
+        PaddingBottom: =btnMainSB.PaddingBottom
+        PaddingLeft: =btnMainSB.PaddingLeft
+        PaddingRight: =btnMainSB.PaddingRight
+        PaddingTop: =btnMainSB.PaddingTop
+        Size: =btnMainSB.Size
+        Strikethrough: =btnMainSB.Strikethrough
+        Text: =btnMainSB.Text
+        Underline: =btnMainSB.Underline
+        VerticalAlign: =btnMainSB.VerticalAlign
+        Visible: =If(IsBlank(gblRipple),false, gblRipple)
+        Width: =btnMainSB.Width
+        Wrap: =false
+        X: =btnMainSB.X
+        Y: =btnMainSB.Y
+        ZIndex: =5
+
