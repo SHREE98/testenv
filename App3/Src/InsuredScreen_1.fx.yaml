@@ -1,0 +1,2060 @@
+InsuredScreen_1 As screen:
+    OnVisible: |-
+        =UpdateContext({lclcntInsuredSearchPopupVisibility: true, lclcntInsuredSearchPopupRecordsISVisibility: false, lclcntInsuredViewVisibility: false});
+
+    lblComponentMargin_1 As label:
+        Height: =36
+        Text: =gblDefaults.Margin * lblScaleFactorIS_1
+        Visible: =false
+        Width: =196
+        X: =20
+        Y: =20
+        ZIndex: =1
+
+    lblScaleFactorIS_1 As label:
+        Color: =RGBA(255, 255, 255, 1)
+        Height: =36
+        Text: |-
+            =With({ScaleFactor : InsuredScreen_1.Height / gblLayout.ScreenHeight}, If(ScaleFactor <= 0, 1, ScaleFactor))
+        Visible: =false
+        Width: =196
+        ZIndex: =2
+
+    cntMainInsuredViewIS_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height - Self.Y
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        Width: =Parent.Width
+        Y: =cmpDashboardHeaderComponentIS_1.Height
+        ZIndex: =3
+
+        cntInsuredViewIS_1 As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Max(App.Width, (1920%) * 70)
+            ZIndex: =1
+
+            cntNavContainerIS_1 As groupContainer.manualLayoutContainer:
+                Height: =Parent.Height
+                Width: =324 * lblScaleFactorIS_1.Text
+                ZIndex: =1
+
+                cmpLogoIVIS_1 As LogoComponent:
+                    Height: =80 * lblScaleFactorIS_1
+                    Width: =80 * lblScaleFactorIS_1
+                    X: =(Parent.Width - Self.Width) / 2
+                    Y: =26 * lblScaleFactorIS_1
+                    ZIndex: =1
+
+                LeftNavigationEntityMangementComponent_5 As EntityManagementLeftNavigationComponent:
+                    Height: =Parent.Height - Self.Y
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =Parent.Width
+                    Y: =130 * lblScaleFactorIS_1
+                    ZIndex: =2
+
+            cntMainContainerIS_1 As groupContainer.manualLayoutContainer:
+                Fill: =gblColors.GrayLight
+                Height: =Parent.Height
+                Width: =Parent.Width - cntNavContainerIS_1.Width
+                X: =cntNavContainerIS_1.Width
+                ZIndex: =2
+
+                btnInsuredViewBackgroundIS_1 As button:
+                    BorderColor: =Transparent
+                    BorderThickness: =0
+                    Color: =Transparent
+                    DisabledBorderColor: =Transparent
+                    DisabledColor: =Self.Color
+                    DisabledFill: =Self.Fill
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FocusedBorderColor: =Transparent
+                    FocusedBorderThickness: =0
+                    Height: =GridRows10IVIS_1.Y + GridRows10IVIS_1.Height
+                    HoverBorderColor: =Transparent
+                    HoverColor: =Self.Color
+                    HoverFill: =Self.Fill
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    PressedBorderColor: =Transparent
+                    PressedColor: =Self.Color
+                    PressedFill: =Self.Fill
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Text: ="Button"
+                    Width: =Parent.Width - (Self.X * 2)
+                    X: =gblLayout.Controlspacer * lblScaleFactorIS_1
+                    ZIndex: =1
+
+                grpGridColumnsIVIS_1 As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =14
+
+                    GridColumn1IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =btnInsuredViewBackgroundIS_1.X + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =2
+
+                    GridColumn2IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn1IVIS_1.X + GridColumn1IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =3
+
+                    GridColumn3IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn2IVIS_1.X + GridColumn2IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =4
+
+                    GridColumn4IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn3IVIS_1.X + GridColumn3IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =5
+
+                    GridColumn5IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn4IVIS_1.X + GridColumn4IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =6
+
+                    GridColumn6IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn5IVIS_1.X + GridColumn5IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =7
+
+                    GridColumn7IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =8
+
+                    GridColumn8IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn7IVIS_1.X + GridColumn7IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =9
+
+                    GridColumn9IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn8IVIS_1.X + GridColumn8IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =10
+
+                    GridColumn10IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn9IVIS_1.X + GridColumn9IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =11
+
+                    GridColumn11IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn10IVIS_1.X + GridColumn10IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =12
+
+                    GridColumn12IVIS_1 As rectangle:
+                        Height: =200
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 15)) / 12
+                        X: =GridColumn11IVIS_1.X + GridColumn11IVIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        Y: =btnInsuredViewBackgroundIS_1.Y
+                        ZIndex: =13
+
+                lblinsuredDetailsHeadingIVIS_1 As label:
+                    Align: =gblControlStyles.ControlLabel.Align
+                    AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                    BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                    BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                    BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                    Color: =gblColors.Primary1Dark
+                    DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                    DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                    DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                    DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                    Fill: =gblControlStyles.ControlLabel.Fill
+                    FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                    FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                    Font: =gblControlStyles.ControlLabel.Font
+                    FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                    Height: =gblControlStyles.ControlLabel.Height
+                    HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                    HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                    HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                    Italic: =gblControlStyles.ControlLabel.Italic
+                    LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                    Overflow: =gblControlStyles.ControlLabel.Overflow
+                    PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                    PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                    PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                    PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                    PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                    PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                    PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                    Size: =gblFonts.Size.Heading
+                    Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                    Text: ="Insured details"
+                    Underline: =gblControlStyles.ControlLabel.Underline
+                    VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                    Width: =300
+                    Wrap: =gblControlStyles.ControlLabel.Wrap
+                    X: =GridColumn1IVIS_1.X
+                    Y: =GridRows1IVIS_1.Y + (GridRows1IVIS_1.Height / 2 - Self.Height / 2)
+                    ZIndex: =24
+
+                grpGridRowsIVIS_1 As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =24
+
+                    GridRows1IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =btnInsuredViewBackgroundIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =14
+
+                    GridRows2IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =GridRows1IVIS_1.Y + GridRows1IVIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =15
+
+                    GridRows3IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =16
+
+                    GridRows4IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =17
+
+                    GridRows5IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =18
+
+                    GridRows6IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =19
+
+                    GridRows7IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =20
+
+                    GridRows8IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =21
+
+                    GridRows9IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =22
+
+                    GridRows10IVIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =btnInsuredViewBackgroundIS_1.Width
+                        X: =btnInsuredViewBackgroundIS_1.X
+                        Y: =140
+                        ZIndex: =23
+
+                cmpInsuredNameIVIS_1 As TextBoxComponent:
+                    Default: ="Pevgate Properties Ltd t/as The Old Vicarage School"
+                    DisplayMode: =gblState.View
+                    HintText: ="Insured name"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Insured name"
+                    Width: =(GridColumn5IVIS_1.X + GridColumn5IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows2IVIS_1.Y
+                    ZIndex: =25
+
+                cmpIDIVIS_1 As TextBoxComponent:
+                    Default: ="A000001"
+                    DisplayMode: =gblState.View
+                    HintText: ="ID "
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="ID"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn6IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows2IVIS_1.Y
+                    ZIndex: =26
+
+                cmpInsuredAddressIVIS_1 As TextBoxComponent:
+                    AsteriskAdjustment: =24
+                    DisplayMode: =gblState.View
+                    HintText: ="Insured address"
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Insured address"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =27
+
+                cmpCityIVIS_1 As TextBoxComponent:
+                    Default: =""
+                    DisplayMode: =gblState.View
+                    HintText: ="City"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="City"
+                    Width: =(GridColumn2IVIS_1.X + GridColumn2IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =28
+
+                cmpPostcodeIVIS_1 As TextBoxComponent:
+                    Default: =""
+                    DisplayMode: =gblState.View
+                    HintText: ="Postcode"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Postcode"
+                    Width: =(GridColumn4IVIS_1.X + GridColumn4IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn3IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =29
+
+                cmpCountryIVIS_1 As TextBoxComponent:
+                    DisplayMode: =gblState.View
+                    HintText: ="Country"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Country"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn5IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =30
+
+                cmpBrokerIVIS_1 As TextBoxComponent:
+                    Default: ="Hint Text"
+                    DisplayMode: =gblState.View
+                    HintText: ="Broker"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Broker"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =31
+
+                cmpNamedSurveyorIVIS_1 As TextBoxComponent:
+                    Default: ="Darley Abby"
+                    DisplayMode: =gblState.View
+                    HintText: ="Named Surveyor"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Named Surveyor"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn3IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    YAxis: =(GridRows10IVIS_1.Y + GridRows10IVIS_1.Height + lblComponentMargin_1) - Self.Y
+                    ZIndex: =32
+
+                cmpPSAClassificationIVIS_1 As TextBoxComponent:
+                    Default: ="Manager"
+                    DisplayMode: =gblState.View
+                    HintText: ="PSA classification"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="PSA classification"
+                    Width: =(GridColumn2IVIS_1.X + GridColumn2IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =33
+
+                cmpNicheIVIS_1 As TextBoxComponent:
+                    Default: ="Charity"
+                    DisplayMode: =gblState.View
+                    HintText: ="Niche"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Niche"
+                    Width: =(GridColumn2IVIS_1.X + GridColumn2IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =34
+
+                cmpCompanyIVIS_1 As TextBoxComponent:
+                    Default: ="EIG"
+                    DisplayMode: =gblState.View
+                    HintText: ="Company"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: =" Companym"
+                    Width: =(GridColumn4IVIS_1.X + GridColumn4IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn3IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =35
+
+                cmpParishIVIS_1 As TextBoxComponent:
+                    Default: ="Lorem ipsum dolor"
+                    DisplayMode: =gblState.View
+                    HintText: ="Parish"
+                    Required: =false
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Parish"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn5IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =36
+
+                cmpNotesIVIS_1 As NotesComponentwithExpandButton:
+                    ComponentHeight: =(GridRows10IVIS_1.Y + GridRows10IVIS_1.Height + lblComponentMargin_1) - Self.Y
+                    Default: ="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis molestie massa, eget tempus magna. Aenean mauris massa, suscipit at quam id, interdum suscipit lacus. Vivamus sed mattis augue. Morbi pharetra leo lobortis rhoncus faucibus. Sed auctor ultrices fermentum. Nunc rutrum neque augue. Vestibulum congue, ante eget feugiat interdum, ante mauris venenatis diam, imperdiet dignissim sapien ligula eget massa."
+                    DisplayMode: =gblState.View
+                    Height: =Self.CustomHeight
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Notes"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =58
+                    YAxis: =GridRows9IVIS_1.Y
+                    ZIndex: =37
+
+                cmpInsuredKeyAccountCustomerIVIS_1 As ToggleComponent:
+                    Default: =false
+                    DisplayMode: =gblState.View
+                    Height: =62 * lblScaleFactorIS_1
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Is the insured a key account customer"
+                    Width: =(GridColumn2IVIS_1.X + GridColumn2IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn1IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =38
+
+                cmpSafeGuardingStatementToggleIVIS_1 As ToggleComponent:
+                    Default: =false
+                    DisplayMode: =gblState.View
+                    Height: =62 * lblScaleFactorIS_1
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn4IVIS_1.X + GridColumn4IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn3IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =39
+
+                cmpSaveGuardingQuestionaireToggleIVIS_1 As ToggleComponent:
+                    Default: =false
+                    DisplayMode: =gblState.View
+                    Height: =62 * lblScaleFactorIS_1
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Questionnaire completed"
+                    Width: =(GridColumn6IVIS_1.X + GridColumn6IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn5IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =138
+                    ZIndex: =40
+
+                cmpInfoIconIVIS_1 As InfoIconComponent:
+                    Height: =cmpInfoIconIVIS_1.StylingProperty.Height * lblScaleFactorIS_1
+                    Width: =cmpInfoIconIVIS_1.StylingProperty.Width * lblScaleFactorIS_1
+                    X: =GridColumn12IVIS_1.X + GridColumn12IVIS_1.Width - Self.Width
+                    Y: =GridRows1IVIS_1.Y + (GridRows1IVIS_1.Height / 2 - Self.Height / 2)
+                    ZIndex: =41
+
+                cmpDocumentTEMP_1 As NotesComponentwithExpandButton:
+                    ComponentHeight: =(GridRows10IVIS_1.Y + GridRows10IVIS_1.Height + lblComponentMargin_1) - Self.Y
+                    Default: ="Development on this will be taken later."
+                    DisplayMode: =gblState.View
+                    Height: =Self.CustomHeight
+                    HintText: =""
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Documents"
+                    Width: =(GridColumn12IVIS_1.X + GridColumn12IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn7IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =58
+                    YAxis: =GridRows9IVIS_1.Y
+                    ZIndex: =42
+
+                cmpLinkedWorkRequestTEMP_1 As NotesComponentwithExpandButton:
+                    ComponentHeight: =(GridRows8IVIS_1.Y + GridRows8IVIS_1.Height + lblComponentMargin_1) - Self.Y
+                    Default: ="Development on this will be taken later."
+                    DisplayMode: =gblState.View
+                    Height: =Self.CustomHeight
+                    HintText: =""
+                    ScaleFactor: =lblScaleFactorIS_1
+                    TitleText: ="Linked Work requests"
+                    Width: =(GridColumn12IVIS_1.X + GridColumn12IVIS_1.Width + lblComponentMargin_1) - Self.X 
+                    X: =GridColumn7IVIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    YAxis: =Self.Y
+                    ZIndex: =43
+
+    cntMainInsuredSearchPoupIS_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        Width: =Parent.Width
+        ZIndex: =4
+
+        cntInsuredSearchPoupIS_1 As groupContainer.manualLayoutContainer:
+            Fill: =RGBA(0, 0, 0, 0.14)
+            FillPortions: =0
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Max(App.Width, (1920%) * 70)
+            ZIndex: =1
+
+            btnInsuredSearchPoupBackgroundIS_1 As button:
+                BorderColor: =Transparent
+                BorderThickness: =0
+                Color: =Transparent
+                DisabledBorderColor: =Transparent
+                DisabledColor: =Self.Color
+                DisabledFill: =Self.Fill
+                DisplayMode: =DisplayMode.View
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =Transparent
+                FocusedBorderThickness: =0
+                Height: =860 * lblScaleFactorIS_1
+                HoverBorderColor: =Transparent
+                HoverColor: =Self.Color
+                HoverFill: =Self.Fill
+                PaddingBottom: =0
+                PaddingLeft: =0
+                PaddingRight: =0
+                PaddingTop: =0
+                PressedBorderColor: =Transparent
+                PressedColor: =Self.Color
+                PressedFill: =Self.Fill
+                RadiusBottomLeft: =5
+                RadiusBottomRight: =5
+                RadiusTopLeft: =5
+                RadiusTopRight: =5
+                Text: ="Button"
+                Width: =1556 * lblScaleFactorIS_1
+                X: =(Parent.Width - Self.Width) / 2
+                Y: =(Parent.Height - Self.Height) / 2
+                ZIndex: =1
+
+            cntInsuredSearchPopupHeaderIS_1 As groupContainer.manualLayoutContainer:
+                Height: =80 * lblScaleFactorIS_1
+                Width: =btnInsuredSearchPoupBackgroundIS_1.Width
+                X: =btnInsuredSearchPoupBackgroundIS_1.X
+                Y: =btnInsuredSearchPoupBackgroundIS_1.Y
+                ZIndex: =2
+
+                rectResetISHIS_1 As rectangle:
+                    BorderColor: =Transparent
+                    Fill: =Transparent
+                    FocusedBorderThickness: =0
+                    Height: =Parent.Height
+                    OnSelect: =Select(rectResetISRIS_1)
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                lblHeadingISHIS_1 As label:
+                    Align: =Align.Center
+                    AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                    BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                    BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                    BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                    Color: =gblControlStyles.ControlLabel.Color
+                    DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                    DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                    DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                    DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                    Fill: =gblControlStyles.ControlLabel.Fill
+                    FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                    FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                    Font: =gblControlStyles.ControlLabel.Font
+                    FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                    Height: =22 * lblScaleFactorIS_1
+                    HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                    HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                    HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                    Italic: =gblControlStyles.ControlLabel.Italic
+                    LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                    OnSelect: =Select(rectResetISRIS_1)
+                    Overflow: =gblControlStyles.ControlLabel.Overflow
+                    PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                    PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                    PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                    PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                    PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                    PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                    PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                    Size: =gblFonts.Size.Heading * lblScaleFactorIS_1
+                    Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                    Text: ="Hello ‘Anthony’ please select or create an insured record"
+                    Underline: =gblControlStyles.ControlLabel.Underline
+                    VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                    Width: =500 * lblScaleFactorIS_1
+                    Wrap: =gblControlStyles.ControlLabel.Wrap
+                    X: =(Parent.Width - Self.Width) / 2
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =2
+
+                cmpInfoISHIS_1 As InfoIconComponent:
+                    Height: =cmpInfoISHIS_1.StylingProperty.Height * lblScaleFactorIS_1
+                    Width: =cmpInfoISHIS_1.StylingProperty.Width * lblScaleFactorIS_1
+                    X: =Parent.Width - Self.Width - (gblLayout.BoarderSpacer * lblScaleFactorIS_1)
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =3
+
+            cntInsuredSearchPopupBodyIS_1 As groupContainer.manualLayoutContainer:
+                Height: =720 * lblScaleFactorIS_1
+                Width: =btnInsuredSearchPoupBackgroundIS_1.Width
+                X: =btnInsuredSearchPoupBackgroundIS_1.X
+                Y: =btnInsuredSearchPoupBackgroundIS_1.Y + cntInsuredSearchPopupHeaderIS_1.Height
+                ZIndex: =4
+
+                rctInsuredSearchPopupFieldBackgroundIS_1 As rectangle:
+                    Fill: =gblColors.GrayLight
+                    Height: =140 * lblScaleFactorIS_1
+                    OnSelect: =Select(rectResetISRIS_1)
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                grpGridColumnsISFIS_1 As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =18
+
+                    GridColumn1ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =(gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =12
+
+                    GridColumn2ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn1ISFIS_1.X + GridColumn1ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =13
+
+                    GridColumn3ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn2ISFIS_1.X + GridColumn2ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =14
+
+                    GridColumn4ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn3ISFIS_1.X + GridColumn3ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =15
+
+                    GridColumn5ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn4ISFIS_1.X + GridColumn4ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =16
+
+                    GridColumn6ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn5ISFIS_1.X + GridColumn5ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =17
+
+                    GridColumn7ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn6ISFIS_1.X + GridColumn6ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =18
+
+                    GridColumn8ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn7ISFIS_1.X + GridColumn7ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =19
+
+                    GridColumn9ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn8ISFIS_1.X + GridColumn8ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =20
+
+                    GridColumn10ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn9ISFIS_1.X + GridColumn9ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =21
+
+                    GridColumn11ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn10ISFIS_1.X + GridColumn10ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =22
+
+                    GridColumn12ISFIS_1 As rectangle:
+                        Height: =Parent.Height
+                        Visible: =false
+                        Width: =(Parent.Width - ((gblLayout.GutterWidth * lblScaleFactorIS_1) * 13)) / 12
+                        X: =GridColumn11ISFIS_1.X + GridColumn11ISFIS_1.Width + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =23
+
+                cntInsuredSearchPopupEmptyStateIS_1 As groupContainer.manualLayoutContainer:
+                    Height: =Parent.Height - Self.Y
+                    Visible: =false
+                    Width: =btnInsuredSearchPoupBackgroundIS_1.Width
+                    Y: =rctInsuredSearchPopupFieldBackgroundIS_1.Height
+                    ZIndex: =24
+
+                    rectResetISEIS_1 As rectangle:
+                        BorderColor: =Transparent
+                        Fill: =Transparent
+                        FocusedBorderThickness: =0
+                        Height: =Parent.Height
+                        OnSelect: =Select(rectResetISRIS_1)
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                    cmpEmptyStateISEIS_1 As EmptyStateComponent:
+                        ErrorImage: |-
+                            ="data:image/svg+xml;utf8, " & EncodeUrl(
+                                "<svg id='icons_for_popup-02' data-name='icons for popup-02' xmlns='http://www.w3.org/2000/svg' width='256' height='221' viewBox='0 0 256 221'>
+                              <rect id='Rectangle_4238' data-name='Rectangle 4238' width='255.827' height='51.724' rx='14.37' transform='translate(0 80.072)' fill='#d1d1d1'/>
+                              <path id='Path_36794' data-name='Path 36794' d='M336.88,190.72h41.793a9.944,9.944,0,0,1,9.938,9.938v31.855a9.944,9.944,0,0,1-9.938,9.938H336.88V190.727h0Z' transform='translate(-132.611 -110.821)' fill='#32a7fa'/>
+                              <path id='Path_36795' data-name='Path 36795' d='M142.874,131.339c30.555-7.193,62.34,9.205,74.838,38.6.2.477.415.941.622,1.418q9.772,26.173-1.556,51.717a68.1,68.1,0,0,1-6.6,10.969c-.885,1.134-.7,1.833.284,2.78,3.755,3.638,7.435,7.352,11.107,11.072.567.574,1.494.968,1.3,2.047-4.378,3.887-8.417,8.112-12.463,12.338-4.523-3.624-8.327-7.988-12.4-12.061-1.48-1.48-2.358-1.7-4.2-.436-13.085,8.984-27.754,12.8-43.4,10.934-23.341-2.78-40.853-14.7-52-35.555-.408-.761-.823-1.515-1.231-2.268a67.347,67.347,0,0,1-5.934-29.759,69.432,69.432,0,0,1,4.385-21.578,80.47,80.47,0,0,1,19.579-25.34A76.179,76.179,0,0,1,142.86,131.36Z' transform='translate(-50.357 -91.978)' fill='#32a7fa'/>
+                              <path id='Path_36796' data-name='Path 36796' d='M262.637,314.958c4.046-4.219,8.085-8.444,12.463-12.338,1.086.035,1.639.878,2.3,1.535q23.279,23.217,46.537,46.448a9.166,9.166,0,1,1-12.954,12.961q-23.372-23.3-46.724-46.634c-.6-.6-1.093-1.314-1.632-1.971Z' transform='translate(-104.712 -145.448)' fill='#d1d1d1'/>
+                              <path id='Path_36797' data-name='Path 36797' d='M253.788,105.782C254,99.2,259.4,93.8,265.676,93.88c6.494.09,12.089,5.858,11.875,12.234a11.883,11.883,0,1,1-23.763-.339Z' transform='translate(-103.574 -80.85)' fill='#32a7fa'/>
+                              <path id='Path_36798' data-name='Path 36798' d='M81.3,137.736a5.848,5.848,0,0,1-2.213,4.094c-2.006,1.473-1.8,2.746.048,4.17a4.382,4.382,0,0,1,1.881,3.257c.1,1.736-.152,3.34-1.95,4.122-1.687.733-3.347.761-4.744-.712a17.174,17.174,0,0,1-1.273-1.286c-1.2-1.528-2.282-1.487-3.534,0-1,1.176-2.089,2.317-3.818,2.414s-3.34-.187-4.115-1.971a3.993,3.993,0,0,1,.733-4.744c2.988-3.174,2.946-3.209.1-6.287a4.3,4.3,0,0,1-.387-5.609c1.286-1.487,4.087-1.611,5.927-.3,1.169.83,1.867,2.815,3.32,2.531,1.266-.249,2.289-1.708,3.416-2.635a4.063,4.063,0,0,1,4.378-.387c1.452.574,2,1.805,2.234,3.361Z' transform='translate(-37.911 -93.248)' fill='#d1d1d1'/>
+                              <path id='Path_36799' data-name='Path 36799' d='M295.655,162.524a4.113,4.113,0,0,1-3.921-5.567,6.047,6.047,0,0,1,1.134-1.7q2.51-2.829.041-5.533c-1.84-2.019-1.93-4.648-.2-6.211,1.805-1.632,3.818-1.439,5.934.588a17.169,17.169,0,0,1,1.459,1.466c.885,1.079,1.646.927,2.524-.042a11.886,11.886,0,0,1,2.946-2.483c2.068-1.169,3.686-.526,5,1.113a3.562,3.562,0,0,1-.166,4.91c-.166.2-.36.373-.539.553-3.091,3.057-3.071,2.607.028,5.719,2.026,2.033,2.089,4.074.3,5.851-1.826,1.812-3.838,1.77-5.92-.124-.125-.118-.242-.242-.367-.36q-2.559-2.476-5.235.1a4.89,4.89,0,0,1-3.015,1.722Z' transform='translate(-116.119 -95.871)' fill='#d1d1d1'/>
+                              <path id='Path_36800' data-name='Path 36800' d='M101.09,76.638c5.056-2.5,9.917-2.089,14.323,1.376a12.374,12.374,0,0,1,4.53,13.4c-1.238,5.1-4.717,8.327-9.834,9.592a12.375,12.375,0,0,1-9.018-1.217,9.3,9.3,0,0,1,1.3-.788c7.31-2.9,9.4-12.31,4.364-18.459-1.535-1.867-3.776-2.587-5.65-3.894Z' transform='translate(-52.23 -75.04)' fill='#32a7fa'/>
+                              <path id='Path_36801' data-name='Path 36801' d='M97.91,77.347c1.874,1.307,4.115,2.026,5.65,3.894C108.6,87.389,106.514,96.795,99.2,99.7a9.72,9.72,0,0,0-1.3.788A12.964,12.964,0,0,1,97.91,77.34Z' transform='translate(-48.745 -75.749)' fill='#d1d1d1'/>
+                              <path id='Path_36802' data-name='Path 36802' d='M383.53,219.766c.1,7.02-6.2,12.276-12.691,10.879a3.17,3.17,0,0,0-3.423,1.093,19.761,19.761,0,0,1-2.8,2.683,4.117,4.117,0,0,1-5.809-.373,4.329,4.329,0,0,1,.394-5.837,28.6,28.6,0,0,1,2.386-2.372,2.877,2.877,0,0,0,1.044-3.333c-1.079-4.274.443-7.87,3.762-10.54a9.928,9.928,0,0,1,11.4-1.01,10.336,10.336,0,0,1,5.733,8.8ZM372.8,218.051a2.119,2.119,0,0,0-2.116,2.393,1.978,1.978,0,0,0,2.179,2.033,2.025,2.025,0,0,0,2.262-2.213c-.007-1.473-.934-2.1-2.324-2.206Z' transform='translate(-139.079 -116.651)' fill='#fff'/>
+                              <path id='Path_36803' data-name='Path 36803' d='M378.524,221.807c1.383.111,2.317.733,2.324,2.206a2.025,2.025,0,0,1-2.262,2.213,1.978,1.978,0,0,1-2.179-2.033,2.119,2.119,0,0,1,2.116-2.393Z' transform='translate(-144.8 -120.405)' fill='#32a7fa'/>
+                              <path id='Path_36804' data-name='Path 36804' d='M246.458,107.662c.207-6.577,5.616-11.985,11.889-11.9,6.494.09,12.089,5.858,11.875,12.234a11.883,11.883,0,1,1-23.763-.339Z' transform='translate(-101.111 -81.43)' fill='#32a7fa'/>
+                              <circle id='Ellipse_681' data-name='Ellipse 681' cx='44.082' cy='44.082' r='44.082' transform='translate(62.206 59.896)' fill='#fff'/>
+                              <path id='Path_36806' data-name='Path 36806' d='M220.216,210.591a4.139,4.139,0,0,1-4.177,4.025,4.088,4.088,0,0,1-4.129-4.032,4.031,4.031,0,0,1,4.129-4,4.122,4.122,0,0,1,4.17,4.011Z' transform='translate(-89.198 -115.702)' fill='#32a7fa'/>
+                              <path id='Path_36807' data-name='Path 36807' d='M153.046,214.613a4.055,4.055,0,0,1-4.136-4.011A4,4,0,0,1,153,206.57a4.021,4.021,0,1,1,.048,8.036Z' transform='translate(-68.133 -115.699)' fill='#32a7fa'/>
+                              <rect id='Rectangle_4243' data-name='Rectangle 4243' width='27' height='9' rx='4.5' transform='translate(92.116 114.102)' fill='#32a7fa'/>
+                            </svg>
+                            "
+                            )
+                        Height: =460 * lblScaleFactorIS_1
+                        ScaleFactor: =lblScaleFactorIS_1
+                        TitleSummaryText: ="Please refine your search or create a new insured record"
+                        TitleText: ="No insured records found"
+                        Visible: =true
+                        Width: =GridColumn10ISFIS_1.X + GridColumn10ISFIS_1.Width - Self.X 
+                        X: =GridColumn3ISFIS_1.X
+                        Y: =(Parent.Height - Self.Height) / 2
+                        ZIndex: =3
+
+                    cmpCreateNewRecordISEIS_1 As PrimaryButtonComponent:
+                        Height: =cmpCreateNewRecordISEIS_1.StylingProperty.Height * lblScaleFactorIS_1
+                        Pressed: =btnCreateNewRecordISEIS_1.Pressed
+                        ScaleFactor: =lblScaleFactorIS_1
+                        Text: ="Create a new record"
+                        Visible: =true
+                        Width: =182 * lblScaleFactorIS_1
+                        X: =(Parent.Width - Self.Width) / 2
+                        Y: =cmpEmptyStateISEIS_1.Y + cmpEmptyStateISEIS_1.Height - (Self.Height + (gblLayout.Controlspacer * lblScaleFactorIS_1))
+                        ZIndex: =4
+
+                    btnCreateNewRecordISEIS_1 As button:
+                        AutoDisableOnSelect: =false
+                        BorderColor: =gblControlStyles.TransparentButton.BorderColor
+                        BorderThickness: =gblControlStyles.TransparentButton.BorderThickness 
+                        Color: =gblControlStyles.TransparentButton.Color
+                        DisabledBorderColor: =Self.BorderColor
+                        DisabledColor: =Self.Color
+                        DisabledFill: =Self.Fill
+                        Fill: =gblControlStyles.TransparentButton.Fill
+                        FocusedBorderColor: =gblControlStyles.PrimaryButton.FocusedBorderColor
+                        FocusedBorderThickness: =gblControlStyles.PrimaryButton.FocusedBorderThickness
+                        FontWeight: =FontWeight.Normal
+                        Height: =cmpCreateNewRecordISEIS_1.Height
+                        HoverBorderColor: =Self.BorderColor
+                        HoverColor: =Self.Color
+                        HoverFill: =Self.Fill
+                        OnSelect: |-
+                            =Select(rectResetISRIS_1);
+                            UpdateContext({lclcntInsuredSearchPopupRecordsISVisibility: true});
+                        PaddingBottom: =gblControlStyles.TransparentButton.Padding
+                        PaddingLeft: =gblControlStyles.TransparentButton.Padding
+                        PaddingRight: =gblControlStyles.TransparentButton.Padding
+                        PaddingTop: =gblControlStyles.TransparentButton.Padding
+                        PressedColor: =Self.Color
+                        PressedFill: =Self.Fill
+                        RadiusBottomLeft: =gblControlStyles.TransparentButton.Radius
+                        RadiusBottomRight: =gblControlStyles.TransparentButton.Radius
+                        RadiusTopLeft: =gblControlStyles.TransparentButton.Radius
+                        RadiusTopRight: =gblControlStyles.TransparentButton.Radius
+                        Size: =gblControlStyles.TransparentButton.Size
+                        Text: =""
+                        Width: =cmpCreateNewRecordISEIS_1.Width
+                        X: =cmpCreateNewRecordISEIS_1.X
+                        Y: =cmpCreateNewRecordISEIS_1.Y
+                        ZIndex: =5
+
+                cntInsuredSearchPopupRecordsIS_1 As groupContainer.manualLayoutContainer:
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =Parent.Height - Self.Y
+                    Width: =btnInsuredSearchPoupBackgroundIS_1.Width
+                    Y: =rctInsuredSearchPopupFieldBackgroundIS_1.Height
+                    ZIndex: =25
+
+                    rectResetISRIS_1 As rectangle:
+                        Fill: =RGBA(0, 0, 0, 0)
+                        Height: =Parent.Height
+                        OnSelect: |
+                            =Reset(cmpCompanyISFISw_1);
+                            Reset(cmpNicheISFISw_1);
+                            Reset(cmpPolicyNumberISFISw_1);
+                            Reset(cmpPostcodeISFISw_1);
+                            Reset(cmpParishISFISw_1);
+                            Reset(cmpSearchInsuredNameISFISw_1);
+                            Reset(cmpInsuredIDNumberISFISw_1);
+                            
+                            Reset(cmpCompanyISFIS_1);
+                            Reset(cmpNicheISFIS_1);
+                            Reset(cmpPolicyNumberISFIS_1);
+                            Reset(cmpPostcodeISFIS_1);
+                            Reset(cmpParishISFIS_1);
+                            Reset(cmpSearchInsuredNameISFIS_1);
+                            Reset(cmpInsuredIDNumberISFIS_1);
+                            
+                            Reset(cmpCreateNewRecordISEIS_1);
+                            Reset(cmpCreateNewRecordISFIS_1);
+                            Reset(cmpCancelButtonISFIS_1);
+                            Reset(cmpBulkCreationISFIS_1);
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                    galInsuredRecordsISRIS_1 As gallery.galleryVertical:
+                        Height: =Min(CountRows(Self.AllItems) * Self.TemplateHeight ,   Parent.Height - (Self.Y  + gblLayout.Controlspacer))
+                        Items: |-
+                            =Table(
+                                {
+                                    Title: "Pevgate Properties Ltd t/as The Old Vicarage School - (A000001)",
+                                    Subtitle1: "The Old Vicarage School",
+                                    Subtitle2: "11 Church Lane, Darley Abbey, Derbyshire, DE22 1EW",
+                                    Status: "Live",
+                                    OpenWorkRequests: "02",
+                                    ClosedWorkRequest: "03"
+                                },
+                                {
+                                    Title: "Pevgate Properties Ltd t/as The Old Vicarage School - (A000001)",
+                                    Subtitle1: "The Old Vicarage School",
+                                    Subtitle2: "11 Church Lane, Darley Abbey, Derbyshire, DE22 1EW",
+                                    Status: "Live",
+                                    OpenWorkRequests: "02",
+                                    ClosedWorkRequest: "03"
+                                },
+                                {
+                                    Title: "Pevgate Properties Ltd t/as The Old Vicarage School - (A000001)",
+                                    Subtitle1: "The Old Vicarage School",
+                                    Subtitle2: "11 Church Lane, Darley Abbey, Derbyshire, DE22 1EW",
+                                    Status: "Live",
+                                    OpenWorkRequests: "02",
+                                    ClosedWorkRequest: "03"
+                                },
+                                {
+                                    Title: "Pevgate Properties Ltd t/as The Old Vicarage School - (A000001)",
+                                    Subtitle1: "The Old Vicarage School",
+                                    Subtitle2: "11 Church Lane, Darley Abbey, Derbyshire, DE22 1EW",
+                                    Status: "Live",
+                                    OpenWorkRequests: "02",
+                                    ClosedWorkRequest: "03"
+                                }
+                            )
+                        Layout: =Layout.Vertical
+                        OnSelect: |-
+                            =Select(rectResetISRIS_1);
+                            UpdateContext({lclcntInsuredViewVisibility: true});
+                            UpdateContext({lclcntInsuredSearchPopupVisibility: false});
+                        TemplatePadding: =0
+                        TemplateSize: =80 * lblScaleFactorIS_1 
+                        Width: =Parent.Width - (Self.X + gblLayout.Controlspacer)
+                        X: =32 * lblScaleFactorIS_1
+                        Y: =64 * lblScaleFactorIS_1
+                        ZIndex: =5
+
+                        lblTitle_1 As label:
+                            Align: =gblControlStyles.ControlLabel.Align
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =gblControlStyles.ControlLabel.Color
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                            Height: =gblControlStyles.ControlLabel.Height * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Body1 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: =ThisItem.Title
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =1145 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            ZIndex: =1
+
+                        lblSubtitle1_1 As label:
+                            Align: =gblControlStyles.ControlLabel.Align
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =gblColors.GrayDark
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                            Height: =18 * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Subtitle2 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: =ThisItem.Subtitle1
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =1145 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            Y: =lblTitle_1.Y + lblTitle_1.Height + (4 * lblScaleFactorIS_1)
+                            ZIndex: =2
+
+                        lblSubtitle2_1 As label:
+                            Align: =gblControlStyles.ControlLabel.Align
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =gblColors.GrayDark
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                            Height: =16 * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Subtitle1 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: =ThisItem.Subtitle2
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =1145 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            Y: =lblSubtitle1_1.Y + lblSubtitle1_1.Height
+                            ZIndex: =3
+
+                        "'Size :_18' As label":
+                            Align: =Align.Center
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =gblColors.GrayDark
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                            Height: =gblControlStyles.ControlLabel.Height * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Subtitle2 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: ="Closed"
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =54 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            X: =1358 * lblScaleFactorIS_1
+                            Y: =42 * lblScaleFactorIS_1
+                            ZIndex: =4
+
+                        "'Size :_17' As label":
+                            Align: =Align.Center
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =gblColors.GrayDark
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                            Height: =gblControlStyles.ControlLabel.Height * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Subtitle2 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: ="Open"
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =54 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            X: =1304 * lblScaleFactorIS_1
+                            Y: =42 * lblScaleFactorIS_1
+                            ZIndex: =5
+
+                        lblOpen_1 As label:
+                            Align: =Align.Center
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =gblControlStyles.ControlLabel.Color
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =FontWeight.Bold
+                            Height: =gblControlStyles.ControlLabel.Height * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Body1 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: =ThisItem.OpenWorkRequests
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =54 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            X: =1304 * lblScaleFactorIS_1
+                            Y: =20 * lblScaleFactorIS_1
+                            ZIndex: =6
+
+                        opeb_1 As label:
+                            Align: =Align.Center
+                            AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                            BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                            BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                            BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                            Color: =RGBA(91, 160, 42, 1)
+                            DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                            DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                            DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                            DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                            Fill: =gblControlStyles.ControlLabel.Fill
+                            FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                            FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                            Font: =gblControlStyles.ControlLabel.Font
+                            FontWeight: =FontWeight.Bold
+                            Height: =gblControlStyles.ControlLabel.Height * lblScaleFactorIS_1
+                            HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                            HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                            HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                            Italic: =gblControlStyles.ControlLabel.Italic
+                            LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                            OnSelect: =Select(Parent)
+                            Overflow: =gblControlStyles.ControlLabel.Overflow
+                            PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                            PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                            PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                            PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                            PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                            PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                            PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                            Size: =gblFonts.Size.Body1 * lblScaleFactorIS_1
+                            Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                            Text: =ThisItem.ClosedWorkRequest
+                            Underline: =gblControlStyles.ControlLabel.Underline
+                            VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                            Width: =54 * lblScaleFactorIS_1
+                            Wrap: =gblControlStyles.ControlLabel.Wrap
+                            X: =1358 * lblScaleFactorIS_1
+                            Y: =20 * lblScaleFactorIS_1
+                            ZIndex: =7
+
+                        Rectangle1_1 As rectangle:
+                            Fill: =gblColors.GrayDark
+                            Height: =opeb_1.Height + lblOpen_1.Height
+                            OnSelect: =Select(Parent)
+                            Width: =1 * lblScaleFactorIS_1
+                            X: =1358 * lblScaleFactorIS_1
+                            Y: =opeb_1.Y
+                            ZIndex: =8
+
+                        TextInput1_3 As text:
+                            Align: =Align.Center
+                            BorderColor: =If(Self.Text = "Live",  gblColors.Primary1, gblColors.Error)
+                            BorderThickness: =1 * lblScaleFactorIS_1
+                            Color: |-
+                                =If(
+                                    Self.Text = "Live",
+                                    gblColors.Primary1Dark,
+                                    gblColors.Error
+                                )
+                            Default: ="Live"
+                            DisabledBorderColor: =Self.BorderColor
+                            DisabledColor: =Self.Color
+                            DisabledFill: =Self.Fill
+                            DisplayMode: =DisplayMode.Disabled
+                            Fill: |-
+                                =If(Self.Text = "Live", gblColors.Primary5, ColorValue("#EB5E501F"))
+                            FocusedBorderThickness: =0
+                            Font: =gblDefaults.Font
+                            Height: =20 * lblScaleFactorIS_1
+                            HoverBorderColor: =Self.BorderColor
+                            HoverColor: =Self.Color
+                            HoverFill: =Self.Fill
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            PressedBorderColor: =Self.BorderColor
+                            RadiusBottomLeft: =15 * lblScaleFactorIS_1
+                            RadiusBottomRight: =15 * lblScaleFactorIS_1
+                            RadiusTopLeft: =15 * lblScaleFactorIS_1
+                            RadiusTopRight: =15 * lblScaleFactorIS_1
+                            Size: =gblFonts.Size.Subtitle2 * lblScaleFactorIS_1
+                            Width: =80 * lblScaleFactorIS_1
+                            X: =1138 * lblScaleFactorIS_1
+                            Y: =(Parent.TemplateHeight - Self.Height) / 2
+                            ZIndex: =9
+
+                    lblRaisedWorkRequestISRIS_1 As label:
+                        Align: =Align.Center
+                        AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                        BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                        BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                        BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                        Color: =gblColors.GrayDark
+                        DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                        DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                        DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                        DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                        Fill: =gblControlStyles.ControlLabel.Fill
+                        FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                        FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                        Font: =gblControlStyles.ControlLabel.Font
+                        FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                        Height: =gblControlStyles.ControlLabel.Height
+                        HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                        HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                        HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                        Italic: =gblControlStyles.ControlLabel.Italic
+                        LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                        Overflow: =gblControlStyles.ControlLabel.Overflow
+                        PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                        PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                        PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                        PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                        PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                        PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                        PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                        Size: =gblFonts.Size.Body2 * lblScaleFactorIS_1
+                        Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                        Text: ="Raised work requests"
+                        Underline: =gblControlStyles.ControlLabel.Underline
+                        VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                        Width: =220 * lblScaleFactorIS_1
+                        Wrap: =gblControlStyles.ControlLabel.Wrap
+                        X: =lblListofInsuredDetailsISRIS_1.X + 1358 * lblScaleFactorIS_1 + (Rectangle1_1.Width - Self.Width) / 2
+                        Y: =gblLayout.Controlspacer
+                        ZIndex: =6
+
+                    lblStatusISRIS_1 As label:
+                        Align: =Align.Center
+                        AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                        BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                        BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                        BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                        Color: =gblColors.GrayDark
+                        DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                        DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                        DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                        DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                        Fill: =gblControlStyles.ControlLabel.Fill
+                        FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                        FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                        Font: =gblControlStyles.ControlLabel.Font
+                        FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                        Height: =gblControlStyles.ControlLabel.Height
+                        HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                        HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                        HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                        Italic: =gblControlStyles.ControlLabel.Italic
+                        LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                        Overflow: =gblControlStyles.ControlLabel.Overflow
+                        PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                        PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                        PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                        PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                        PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                        PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                        PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                        Size: =gblFonts.Size.Body2 * lblScaleFactorIS_1
+                        Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                        Text: ="Status"
+                        Underline: =gblControlStyles.ControlLabel.Underline
+                        VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                        Width: =80 * lblScaleFactorIS_1
+                        Wrap: =gblControlStyles.ControlLabel.Wrap
+                        X: =lblListofInsuredDetailsISRIS_1.X + 1138 * lblScaleFactorIS_1
+                        Y: =gblLayout.Controlspacer
+                        ZIndex: =7
+
+                    lblListofInsuredDetailsISRIS_1 As label:
+                        Align: =gblControlStyles.ControlLabel.Align
+                        AutoHeight: =gblControlStyles.ControlLabel.AutoHeight
+                        BorderColor: =gblControlStyles.ControlLabel.BorderColor
+                        BorderStyle: =gblControlStyles.ControlLabel.BorderStyle
+                        BorderThickness: =gblControlStyles.ControlLabel.BorderThickness
+                        Color: =gblColors.GrayDark
+                        DisabledBorderColor: =gblControlStyles.ControlLabel.DisabledBorderColor
+                        DisabledColor: =gblControlStyles.ControlLabel.DisabledColor
+                        DisabledFill: =gblControlStyles.ControlLabel.DisabledFill
+                        DisplayMode: =gblControlStyles.ControlLabel.DisplayMode
+                        Fill: =gblControlStyles.ControlLabel.Fill
+                        FocusedBorderColor: =gblControlStyles.ControlLabel.FocusedBorderColor
+                        FocusedBorderThickness: =gblControlStyles.ControlLabel.FocusedBorderThickness
+                        Font: =gblControlStyles.ControlLabel.Font
+                        FontWeight: =gblControlStyles.ControlLabel.FontWeight
+                        Height: =gblControlStyles.ControlLabel.Height * lblScaleFactorIS_1
+                        HoverBorderColor: =gblControlStyles.ControlLabel.HoverBorderColor
+                        HoverColor: =gblControlStyles.ControlLabel.HoverColor
+                        HoverFill: =gblControlStyles.ControlLabel.HoverFill
+                        Italic: =gblControlStyles.ControlLabel.Italic
+                        LineHeight: =gblControlStyles.ControlLabel.LineHeight
+                        Overflow: =gblControlStyles.ControlLabel.Overflow
+                        PaddingBottom: =gblControlStyles.ControlLabel.PaddingBottom
+                        PaddingLeft: =gblControlStyles.ControlLabel.PaddingLeft
+                        PaddingRight: =gblControlStyles.ControlLabel.PaddingRight
+                        PaddingTop: =gblControlStyles.ControlLabel.PaddingTop
+                        PressedBorderColor: =gblControlStyles.ControlLabel.PressedBorderColor
+                        PressedColor: =gblControlStyles.ControlLabel.PressedColor
+                        PressedFill: =gblControlStyles.ControlLabel.PressedFill
+                        Size: =gblFonts.Size.Body2 * lblScaleFactorIS_1
+                        Strikethrough: =gblControlStyles.ControlLabel.Strikethrough
+                        Text: |-
+                            ="List of Insured details :"
+                        Underline: =gblControlStyles.ControlLabel.Underline
+                        VerticalAlign: =gblControlStyles.ControlLabel.VerticalAlign
+                        Width: =300 * lblScaleFactorIS_1
+                        Wrap: =gblControlStyles.ControlLabel.Wrap
+                        X: =32 * lblScaleFactorIS_1
+                        Y: =gblLayout.Controlspacer * lblScaleFactorIS_1
+                        ZIndex: =8
+
+                cmpSearchInsuredNameISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpParishISFISw_1.SetFocusNext || cmpInsuredIDNumberISFISw_1.SetFocusPrev
+                    HideLabel: =true
+                    HintText: ="Search insured name"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFISw_1.ResetComponents,
+                            cmpNicheISFISw_1.ResetComponents,
+                            cmpPolicyNumberISFISw_1.ResetComponents,
+                            cmpPostcodeISFISw_1.ResetComponents,
+                            cmpParishISFISw_1.ResetComponents,
+                            cmpInsuredIDNumberISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn9ISFIS_1.X + GridColumn9ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn1ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows2ISFIS_1.Y - lblComponentMargin_1
+                    ZIndex: =26
+
+                cmpInsuredIDNumberISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpSearchInsuredNameISFISw_1.SetFocusNext
+                    HideLabel: =true
+                    HintText: ="Insured id number"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFISw_1.ResetComponents,
+                            cmpNicheISFISw_1.ResetComponents,
+                            cmpPolicyNumberISFISw_1.ResetComponents,
+                            cmpPostcodeISFISw_1.ResetComponents,
+                            cmpParishISFISw_1.ResetComponents,
+                            cmpSearchInsuredNameISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn12ISFIS_1.X + GridColumn12ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn10ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows2ISFIS_1.Y - lblComponentMargin_1
+                    ZIndex: =27
+
+                cmpCompanyISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpNicheISFISw_1.SetFocusPrev
+                    HideLabel: =true
+                    HintText: ="Company"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpNicheISFISw_1.ResetComponents,
+                            cmpPolicyNumberISFISw_1.ResetComponents,
+                            cmpPostcodeISFISw_1.ResetComponents,
+                            cmpParishISFISw_1.ResetComponents,
+                            cmpSearchInsuredNameISFISw_1.ResetComponents,
+                            cmpInsuredIDNumberISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn3ISFIS_1.X + GridColumn3ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn1ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =28
+
+                cmpNicheISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpCompanyISFISw_1.SetFocusNext || cmpPolicyNumberISFISw_1.SetFocusPrev
+                    HideLabel: =true
+                    HintText: ="Niche"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFISw_1.ResetComponents,
+                            cmpPolicyNumberISFISw_1.ResetComponents,
+                            cmpPostcodeISFISw_1.ResetComponents,
+                            cmpParishISFISw_1.ResetComponents,
+                            cmpSearchInsuredNameISFISw_1.ResetComponents,
+                            cmpInsuredIDNumberISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn5ISFIS_1.X + GridColumn5ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn4ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =29
+
+                cmpPolicyNumberISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpNicheISFISw_1.SetFocusNext || cmpPostcodeISFISw_1.SetFocusPrev
+                    HideLabel: =true
+                    HintText: ="Policy number"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFISw_1.ResetComponents,
+                            cmpNicheISFISw_1.ResetComponents,
+                            cmpPostcodeISFISw_1.ResetComponents,
+                            cmpParishISFISw_1.ResetComponents,
+                            cmpSearchInsuredNameISFISw_1.ResetComponents,
+                            cmpInsuredIDNumberISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn8ISFIS_1.X + GridColumn8ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn6ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =30
+
+                cmpPostcodeISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpPolicyNumberISFISw_1.SetFocusNext || cmpParishISFISw_1.SetFocusPrev
+                    HideLabel: =true
+                    HintText: ="Postcode"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFISw_1.ResetComponents,
+                            cmpNicheISFISw_1.ResetComponents,
+                            cmpPolicyNumberISFISw_1.ResetComponents,
+                            cmpParishISFISw_1.ResetComponents,
+                            cmpSearchInsuredNameISFISw_1.ResetComponents,
+                            cmpInsuredIDNumberISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn10ISFIS_1.X + GridColumn10ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn9ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =31
+
+                cmpParishISFISw_1 As SearchandSelectComponent:
+                    Clear: =false
+                    Focus: =cmpPostcodeISFISw_1.SetFocusNext || cmpSearchInsuredNameISFISw_1.SetFocusPrev
+                    HideLabel: =true
+                    HintText: ="Parish"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFISw_1.ResetComponents,
+                            cmpNicheISFISw_1.ResetComponents,
+                            cmpPolicyNumberISFISw_1.ResetComponents,
+                            cmpPostcodeISFISw_1.ResetComponents,
+                            cmpSearchInsuredNameISFISw_1.ResetComponents,
+                            cmpInsuredIDNumberISFISw_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =false
+                    Width: =(GridColumn12ISFIS_1.X + GridColumn12ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn11ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =32
+
+                cmpInsuredIDNumberISFIS_1 As DropDownComponent:
+                    Focus: =cmpSearchInsuredNameISFIS_1.SetFocus
+                    HideLabel: =true
+                    HintText: ="Insured id number"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFIS_1.ResetComponents,
+                            cmpNicheISFIS_1.ResetComponents,
+                            cmpPolicyNumberISFIS_1.ResetComponents,
+                            cmpPostcodeISFIS_1.ResetComponents,
+                            cmpParishISFIS_1.ResetComponents,
+                            cmpSearchInsuredNameISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn12ISFIS_1.X + GridColumn12ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn10ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows2ISFIS_1.Y - lblComponentMargin_1
+                    ZIndex: =33
+
+                grpGridRowsISFIS_1 As group:
+                    Height: =5
+                    Width: =5
+                    X: =40
+                    Y: =40
+                    ZIndex: =33
+
+                    GridRows10ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =660
+                        ZIndex: =2
+
+                    GridRows9ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows8ISFIS_1.Y + GridRows8ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =3
+
+                    GridRows1ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        ZIndex: =4
+
+                    GridRows2ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows1ISFIS_1.Y + GridRows1ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =5
+
+                    GridRows3ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows2ISFIS_1.Y + GridRows2ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =6
+
+                    GridRows4ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows3ISFIS_1.Y + GridRows3ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =7
+
+                    GridRows5ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows4ISFIS_1.Y + GridRows4ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =8
+
+                    GridRows6ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows5ISFIS_1.Y + GridRows5ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =9
+
+                    GridRows7ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows6ISFIS_1.Y + GridRows6ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =10
+
+                    GridRows8ISFIS_1 As rectangle:
+                        Height: =gblLayout.GridRowHeight * lblScaleFactorIS_1
+                        Visible: =false
+                        Width: =Parent.Width
+                        X: =GridRows1ISFIS_1.X
+                        Y: =GridRows7ISFIS_1.Y + GridRows7ISFIS_1.Height + (gblLayout.GutterWidth * lblScaleFactorIS_1)
+                        ZIndex: =11
+
+                cmpSearchInsuredNameISFIS_1 As DropDownComponent:
+                    Focus: =cmpParishISFIS_1.SetFocus
+                    HideLabel: =true
+                    HintText: ="Search insured name"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFIS_1.ResetComponents,
+                            cmpNicheISFIS_1.ResetComponents,
+                            cmpPolicyNumberISFIS_1.ResetComponents,
+                            cmpPostcodeISFIS_1.ResetComponents,
+                            cmpParishISFIS_1.ResetComponents,
+                            
+                            cmpInsuredIDNumberISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn9ISFIS_1.X + GridColumn9ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn1ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows2ISFIS_1.Y - lblComponentMargin_1
+                    ZIndex: =34
+
+                cmpParishISFIS_1 As DropDownComponent:
+                    Focus: =cmpPostcodeISFIS_1.SetFocus
+                    HideLabel: =true
+                    HintText: ="Parish"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFIS_1.ResetComponents,
+                            cmpNicheISFIS_1.ResetComponents,
+                            cmpPolicyNumberISFIS_1.ResetComponents,
+                            cmpPostcodeISFIS_1.ResetComponents,
+                            cmpSearchInsuredNameISFIS_1.ResetComponents,
+                            cmpInsuredIDNumberISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn12ISFIS_1.X + GridColumn12ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn11ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =35
+
+                cmpPostcodeISFIS_1 As DropDownComponent:
+                    Focus: =cmpPolicyNumberISFIS_1.SetFocus
+                    HideLabel: =true
+                    HintText: ="Postcode"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFIS_1.ResetComponents,
+                            cmpNicheISFIS_1.ResetComponents,
+                            cmpPolicyNumberISFIS_1.ResetComponents,
+                            cmpParishISFIS_1.ResetComponents,
+                            cmpSearchInsuredNameISFIS_1.ResetComponents,
+                            cmpInsuredIDNumberISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn10ISFIS_1.X + GridColumn10ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn9ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =36
+
+                cmpPolicyNumberISFIS_1 As DropDownComponent:
+                    Focus: =cmpNicheISFIS_1.SetFocus
+                    HideLabel: =true
+                    HintText: ="Policy number"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFIS_1.ResetComponents,
+                            cmpNicheISFIS_1.ResetComponents,
+                            cmpPostcodeISFIS_1.ResetComponents,
+                            cmpParishISFIS_1.ResetComponents,
+                            cmpSearchInsuredNameISFIS_1.ResetComponents,
+                            cmpInsuredIDNumberISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn8ISFIS_1.X + GridColumn8ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn6ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =37
+
+                cmpNicheISFIS_1 As DropDownComponent:
+                    Focus: =cmpCompanyISFIS_1.SetFocus
+                    HideLabel: =true
+                    HintText: ="Niche"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpCompanyISFIS_1.ResetComponents,
+                            cmpPolicyNumberISFIS_1.ResetComponents,
+                            cmpPostcodeISFIS_1.ResetComponents,
+                            cmpParishISFIS_1.ResetComponents,
+                            cmpSearchInsuredNameISFIS_1.ResetComponents,
+                            cmpInsuredIDNumberISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Width: =(GridColumn5ISFIS_1.X + GridColumn5ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn4ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =38
+
+                cmpCompanyISFIS_1 As DropDownComponent:
+                    HideLabel: =true
+                    HintText: ="Company"
+                    Items: |-
+                        =[
+                            ""
+                        ]
+                    Reset: |-
+                        =Or(
+                            cmpNicheISFIS_1.ResetComponents,
+                            cmpPolicyNumberISFIS_1.ResetComponents,
+                            cmpPostcodeISFIS_1.ResetComponents,
+                            cmpParishISFIS_1.ResetComponents,
+                            cmpSearchInsuredNameISFIS_1.ResetComponents,
+                            cmpInsuredIDNumberISFIS_1.ResetComponents,
+                            cmpEmptyStateISEIS_1.ResetComponents
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Visible: =true
+                    Width: =(GridColumn3ISFIS_1.X + GridColumn3ISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1)) - Self.X 
+                    X: =GridColumn1ISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =GridRows1ISFIS_1.Y + (gblLayout.GutterWidth * lblScaleFactorIS_1) - lblComponentMargin_1
+                    ZIndex: =39
+
+                NotesComponentwithExpandButton_2 As NotesComponentwithExpandButton:
+                    Height: =60*lblScaleFactorIS_1
+                    Width: =368*lblScaleFactorIS_1
+                    X: =GridColumn7ISFIS_1.X
+                    Y: =GridRows8ISFIS_1.Y
+                    ZIndex: =40
+
+                DateRangeComponent_6 As DateRangeComponent:
+                    Height: =If(DateRangeComponent_6.Opened,If(DateRangeComponent_6.ErrorOpened,DateRangeComponent_6.StylingProperty.DatePicker.Height+ 40,DateRangeComponent_6.StylingProperty.DatePicker.Height),If(DateRangeComponent_6.ErrorOpened,102,62))
+                    Width: =DateRangeComponent_6.StylingProperty.DatePicker.Width
+                    X: =GridColumn3ISFIS_1.X
+                    Y: =GridRows8ISFIS_1.Y
+                    ZIndex: =41
+
+                ToggleComponent_5 As ToggleComponent:
+                    Height: =62*lblScaleFactorIS_1
+                    Width: =300*lblScaleFactorIS_1
+                    X: =GridColumn1ISFIS_1.X
+                    Y: =GridRows8ISFIS_1.Y
+                    ZIndex: =42
+
+            cntInsuredSearchPopupFooterIS_1 As groupContainer.manualLayoutContainer:
+                Fill: =Transparent
+                Height: =60 * lblScaleFactorIS_1
+                Width: =btnInsuredSearchPoupBackgroundIS_1.Width
+                X: =btnInsuredSearchPoupBackgroundIS_1.X
+                Y: =btnInsuredSearchPoupBackgroundIS_1.Y + cntInsuredSearchPopupHeaderIS_1.Height + cntInsuredSearchPopupBodyIS_1.Height
+                ZIndex: =5
+
+                rctInsuredSearchPopupFooterBackgroundIS_1 As rectangle:
+                    BorderColor: =Transparent
+                    Fill: =gblColors.GrayLighter
+                    FocusedBorderThickness: =0
+                    Height: =Parent.Height
+                    OnSelect: =Select(rectResetISRIS_1)
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                cmpCancelButtonISFIS_1 As SecondaryButtonComponent:
+                    ButtonPressed: =btnCancelISFIS_1.Pressed
+                    Height: =btnCancelISFIS_1.Height + (gblDefaults.Margin * lblScaleFactorIS_1) * 2
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M13 0C5.83203 0 0 5.83203 0 13C0 20.168 5.83203 26 13 26C20.168 26 26 20.168 26 13C26 5.83203 20.168 0 13 0ZM13 2C19.0859 2 24 6.91406 24 13C24 19.0859 19.0859 24 13 24C6.91406 24 2 19.0859 2 13C2 6.91406 6.91406 2 13 2ZM12 7V9H14V7H12ZM12 11V19H14V11H12Z' fill='"&  If(
+                            cmpCancelButtonISFIS_1.DisplayMode = DisplayMode.Disabled,
+                            cmpCancelButtonISFIS_1.StylingProperty.Image.DisabledFill,
+                            cmpCancelButtonISFIS_1.Ripple,
+                            cmpCancelButtonISFIS_1.StylingProperty.Image.PressedFill,
+                            cmpCancelButtonISFIS_1.ButtonSelected,
+                            cmpCancelButtonISFIS_1.StylingProperty.Image.PressedFill,
+                            cmpCancelButtonISFIS_1.StylingProperty.Image.Fill
+                        ) &"'/>
+                        </svg>
+                        "
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    ShowImage: =false
+                    Text: ="Cancel"
+                    Width: =btnCancelISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1) * 2
+                    X: =btnCancelISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =btnCancelISFIS_1.Y - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    ZIndex: =2
+
+                btnCancelISFIS_1 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderThickness: =3
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =gblControlStyles.SecondaryButton.FocusedBorderColor
+                    FocusedBorderThickness: =gblControlStyles.SecondaryButton.FocusedBorderThickness
+                    FontWeight: =FontWeight.Normal
+                    Height: =gblControlStyles.SecondaryButton.Height * lblScaleFactorIS_1
+                    HoverColor: =Self.Color
+                    HoverFill: =Self.Fill
+                    OnSelect: |-
+                        =Select(rectResetISRIS_1);
+                        UpdateContext({lclcntInsuredSearchPopupRecordsISVisibility : false});
+                        UpdateContext({lclClearFields : false});
+                        UpdateContext({lclClearFields : true});
+                    PressedColor: =Self.Color
+                    PressedFill: =Self.Fill
+                    RadiusBottomLeft: =6
+                    RadiusBottomRight: =6
+                    RadiusTopLeft: =6
+                    RadiusTopRight: =6
+                    Size: =12
+                    Text: =""
+                    Width: =88 * lblScaleFactorIS_1
+                    X: =GridColumn1ISFIS_1.X
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =3
+
+                cmpBulkCreationISFIS_1 As SecondaryButtonComponent:
+                    ButtonPressed: =btnBulkCreationISFIS_1.Pressed
+                    Height: =btnBulkCreationISFIS_1.Height + (gblDefaults.Margin * lblScaleFactorIS_1) * 2
+                    Image: |-
+                        ="data:image/svg+xml;utf8, " & EncodeUrl(
+                            "<svg width='26' height='26' viewBox='0 0 26 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                        <path d='M13 0C5.83203 0 0 5.83203 0 13C0 20.168 5.83203 26 13 26C20.168 26 26 20.168 26 13C26 5.83203 20.168 0 13 0ZM13 2C19.0859 2 24 6.91406 24 13C24 19.0859 19.0859 24 13 24C6.91406 24 2 19.0859 2 13C2 6.91406 6.91406 2 13 2ZM12 7V9H14V7H12ZM12 11V19H14V11H12Z' fill='"&  If(
+                            cmpBulkCreationISFIS_1.DisplayMode = DisplayMode.Disabled,
+                            cmpBulkCreationISFIS_1.StylingProperty.Image.DisabledFill,
+                            cmpBulkCreationISFIS_1.Ripple,
+                            cmpBulkCreationISFIS_1.StylingProperty.Image.PressedFill,
+                            cmpBulkCreationISFIS_1.ButtonSelected,
+                            cmpBulkCreationISFIS_1.StylingProperty.Image.PressedFill,
+                            cmpBulkCreationISFIS_1.StylingProperty.Image.Fill
+                        ) &"'/>
+                        </svg>
+                        "
+                        )
+                    ScaleFactor: =lblScaleFactorIS_1
+                    ShowImage: =false
+                    Text: ="Bulk creation"
+                    Width: =btnBulkCreationISFIS_1.Width + (gblDefaults.Margin * lblScaleFactorIS_1) * 2
+                    X: =btnBulkCreationISFIS_1.X - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    Y: =btnBulkCreationISFIS_1.Y - (gblDefaults.Margin * lblScaleFactorIS_1)
+                    ZIndex: =4
+
+                btnBulkCreationISFIS_1 As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderThickness: =3
+                    Fill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderColor: =gblControlStyles.SecondaryButton.FocusedBorderColor
+                    FocusedBorderThickness: =gblControlStyles.SecondaryButton.FocusedBorderThickness
+                    FontWeight: =FontWeight.Normal
+                    Height: =gblControlStyles.SecondaryButton.Height * lblScaleFactorIS_1
+                    HoverColor: =Self.Color
+                    HoverFill: =Self.Fill
+                    OnSelect: =Select(rectResetISRIS_1)
+                    PressedColor: =Self.Color
+                    PressedFill: =Self.Fill
+                    RadiusBottomLeft: =6
+                    RadiusBottomRight: =6
+                    RadiusTopLeft: =6
+                    RadiusTopRight: =6
+                    Size: =12
+                    Text: =""
+                    Width: =132 * lblScaleFactorIS_1
+                    X: =(btnCancelISFIS_1.X + btnCancelISFIS_1.Width) + (gblLayout.Controlspacer * lblScaleFactorIS_1)
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =5
+
+                cmpCreateNewRecordISFIS_1 As PrimaryButtonComponent:
+                    Height: =cmpCreateNewRecordISFIS_1.StylingProperty.Height * lblScaleFactorIS_1
+                    Pressed: =btnCreateNewRecordISFIS_1.Pressed
+                    ScaleFactor: =lblScaleFactorIS_1
+                    Text: ="Create a new record"
+                    Width: =182 * lblScaleFactorIS_1
+                    X: =GridColumn12ISFIS_1.X + GridColumn12ISFIS_1.Width - Self.Width
+                    Y: =(Parent.Height - Self.Height) / 2
+                    ZIndex: =6
+
+                btnCreateNewRecordISFIS_1 As button:
+                    AutoDisableOnSelect: =false
+                    BorderColor: =gblControlStyles.TransparentButton.BorderColor
+                    BorderThickness: =gblControlStyles.TransparentButton.BorderThickness
+                    Color: =gblControlStyles.TransparentButton.Color
+                    DisabledBorderColor: =Self.BorderColor
+                    DisabledColor: =Self.Color
+                    DisabledFill: =Self.Fill
+                    Fill: =gblControlStyles.TransparentButton.Fill
+                    FocusedBorderColor: =gblControlStyles.PrimaryButton.FocusedBorderColor
+                    FocusedBorderThickness: =gblControlStyles.PrimaryButton.FocusedBorderThickness
+                    FontWeight: =FontWeight.Normal
+                    Height: =cmpCreateNewRecordISFIS_1.Height
+                    HoverBorderColor: =Self.BorderColor
+                    HoverColor: =Self.Color
+                    HoverFill: =Self.Fill
+                    OnSelect: =Select(rectResetISRIS_1)
+                    PaddingBottom: =gblControlStyles.TransparentButton.Padding
+                    PaddingLeft: =gblControlStyles.TransparentButton.Padding
+                    PaddingRight: =gblControlStyles.TransparentButton.Padding
+                    PaddingTop: =gblControlStyles.TransparentButton.Padding
+                    PressedColor: =Self.Color
+                    PressedFill: =Self.Fill
+                    RadiusBottomLeft: =gblControlStyles.TransparentButton.Radius
+                    RadiusBottomRight: =gblControlStyles.TransparentButton.Radius
+                    RadiusTopLeft: =gblControlStyles.TransparentButton.Radius
+                    RadiusTopRight: =gblControlStyles.TransparentButton.Radius
+                    Size: =gblControlStyles.TransparentButton.Size
+                    Text: =""
+                    Width: =cmpCreateNewRecordISFIS_1.Width
+                    X: =cmpCreateNewRecordISFIS_1.X
+                    Y: =cmpCreateNewRecordISFIS_1.Y
+                    ZIndex: =7
+
+    cntInsuredHeaderIS_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =50 * lblScaleFactorIS_1
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =5
+
+        cmpDashboardHeaderComponentIS_1 As EntityManagementHeaderComponent:
+            Fill: =cmpDashboardHeaderComponentIS_1.StylingProperty.Fill
+            Height: =cmpDashboardHeaderComponentIS_1.StylingProperty.Height * lblScaleFactorIS_1
+            LayoutMinHeight: =640
+            LayoutMinWidth: =640
+            ScaleFactor: =lblScaleFactorIS_1
+            TempWidth: =Parent.Width
+            Visible: =true
+            Width: =cmpDashboardHeaderComponentIS_1.TempWidth
+            X: =cmpDashboardHeaderComponentIS_1.StylingProperty.Icon.HomeIconMargin
+            ZIndex: =1
+
+    grpInsuredSearchFieldWasteIS_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =40
+
+    grpInsuredSearchFieldsIS_1 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =40
+        ZIndex: =40
+

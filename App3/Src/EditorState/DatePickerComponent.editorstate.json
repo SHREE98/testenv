@@ -6668,7 +6668,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSepratorDayMonthDP",
-      "ParentIndex": 9,
+      "ParentIndex": 11,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7041,7 +7041,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "lblSepratorMonthYearDP",
-      "ParentIndex": 11,
+      "ParentIndex": 9,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -9253,7 +9253,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtMonthInputDP",
-      "ParentIndex": 10,
+      "ParentIndex": 12,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10735,7 +10735,7 @@
       "LayoutName": "",
       "MetaDataIDKey": "",
       "Name": "txtYearInputDP",
-      "ParentIndex": 12,
+      "ParentIndex": 10,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
