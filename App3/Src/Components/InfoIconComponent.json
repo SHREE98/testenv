@@ -137,7 +137,7 @@
         "Name": "imgInfoIconImageIC",
         "Parent": "InfoIconComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 675,
+        "PublishOrderIndex": 684,
         "Rules": [
           {
             "Category": "Data",
@@ -531,7 +531,7 @@
         "Name": "icnInfoIconOnSelectIC",
         "Parent": "InfoIconComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 676,
+        "PublishOrderIndex": 685,
         "Rules": [
           {
             "Category": "Data",

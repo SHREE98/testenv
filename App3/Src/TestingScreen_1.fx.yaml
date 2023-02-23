@@ -1,0 +1,56 @@
+TestingScreen_1 As screen:
+
+    Main_1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container2_1 As groupContainer.manualLayoutContainer:
+            FillPortions: =0
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            Width: =Max(App.Width, (1920%) * 70)
+            ZIndex: =1
+
+            Toggle1_2 As toggleSwitch:
+                Color: =RGBA(25, 68, 106, 1)
+                FontWeight: =FontWeight.Lighter
+                X: =508
+                Y: =92
+                ZIndex: =1
+
+            Toggle1_3 As toggleSwitch:
+                Color: =RGBA(139, 160, 179, 1)
+                X: =790
+                Y: =92
+                ZIndex: =2
+
+            LeftNavigationEntityMangementComponent_6 As EntityManagementLeftNavigationComponent:
+                Height: =493
+                Y: =92
+                ZIndex: =3
+
+            TextInput2_2 As text:
+                Default: ="Text input"
+                ZIndex: =4
+
+            TextInput2_3 As text:
+                Default: ="Text input"
+                Y: =545
+                ZIndex: =5
+
+    Label2_1 As label:
+        Color: =RGBA(139, 160, 179, 1)
+        Text: ="Yes"
+        Width: =61
+        X: =875
+        Y: =230
+        ZIndex: =2
+
+    Button1_1 As button:
+        OnSelect: =
+        Text: ="Button"
+        X: =909
+        ZIndex: =3
+
