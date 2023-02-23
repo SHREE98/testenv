@@ -49,11 +49,5 @@ TestGit As screen:
         ZIndex: =6
 
     ExpandedNotesPopUpComponent_1 As ExpandedNotesPopUpComponent:
-        OnReset: |
-            =Set(
-                gblText,
-                ExpandedNotesPopUpComponent_1.Default
-            );
-            Reset(txtNotesEN);
         ZIndex: =7
 
