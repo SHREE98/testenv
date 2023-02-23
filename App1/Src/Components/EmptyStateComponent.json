@@ -236,7 +236,7 @@
         "Name": "btnBackgroundESC",
         "Parent": "EmptyStateComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 109,
+        "PublishOrderIndex": 524,
         "Rules": [
           {
             "Category": "Data",
@@ -565,7 +565,7 @@
         "Name": "rctResetESC",
         "Parent": "EmptyStateComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 110,
+        "PublishOrderIndex": 525,
         "Rules": [
           {
             "Category": "Design",
@@ -785,7 +785,7 @@
         "Name": "imgSearchResultESC",
         "Parent": "EmptyStateComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 111,
+        "PublishOrderIndex": 526,
         "Rules": [
           {
             "Category": "Data",
@@ -1168,7 +1168,7 @@
         "Name": "lblTitleESC",
         "Parent": "EmptyStateComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 112,
+        "PublishOrderIndex": 527,
         "Rules": [
           {
             "Category": "Data",
@@ -1611,7 +1611,7 @@
         "Name": "lblTitleSummaryESC",
         "Parent": "EmptyStateComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 113,
+        "PublishOrderIndex": 528,
         "Rules": [
           {
             "Category": "Data",

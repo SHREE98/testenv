@@ -96,7 +96,7 @@
         "Name": "tmrSetFocusTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 259,
+        "PublishOrderIndex": 664,
         "Rules": [
           {
             "Category": "Data",
@@ -383,7 +383,7 @@
         "Name": "rctResetTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 260,
+        "PublishOrderIndex": 665,
         "Rules": [
           {
             "Category": "Design",
@@ -682,7 +682,7 @@
         "Name": "sdrMaskingTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 261,
+        "PublishOrderIndex": 666,
         "Rules": [
           {
             "Category": "Data",
@@ -959,7 +959,7 @@
         "Name": "tmrMaskingTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 262,
+        "PublishOrderIndex": 667,
         "Rules": [
           {
             "Category": "Data",
@@ -1529,7 +1529,7 @@
         "Name": "lblTitleTextTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 263,
+        "PublishOrderIndex": 668,
         "Rules": [
           {
             "Category": "Data",
@@ -2092,7 +2092,7 @@
         "Name": "txtErrorMessageTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 264,
+        "PublishOrderIndex": 669,
         "Rules": [
           {
             "Category": "Data",
@@ -2716,7 +2716,7 @@
         "Name": "lblRequiredAsteriskTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 265,
+        "PublishOrderIndex": 670,
         "Rules": [
           {
             "Category": "Data",
@@ -3334,7 +3334,7 @@
         "Name": "lblCountTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 266,
+        "PublishOrderIndex": 671,
         "Rules": [
           {
             "Category": "Data",
@@ -3854,7 +3854,7 @@
         "Name": "imgErrorIconTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 267,
+        "PublishOrderIndex": 672,
         "Rules": [
           {
             "Category": "Data",
@@ -4478,7 +4478,7 @@
         "Name": "txtTextControlTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 268,
+        "PublishOrderIndex": 673,
         "Rules": [
           {
             "Category": "Data",
@@ -5042,7 +5042,7 @@
         "Name": "imgCloseIconTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 269,
+        "PublishOrderIndex": 674,
         "Rules": [
           {
             "Category": "Data",
@@ -5436,7 +5436,7 @@
         "Name": "imgTriangleArrowIconTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 270,
+        "PublishOrderIndex": 675,
         "Rules": [
           {
             "Category": "Data",
@@ -5662,7 +5662,7 @@
         "Name": "grpErrorMessagePopupTB",
         "Parent": "TextBoxComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 271,
+        "PublishOrderIndex": 663,
         "Rules": [
           {
             "Category": "Design",

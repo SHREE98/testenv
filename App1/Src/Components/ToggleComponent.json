@@ -134,7 +134,7 @@
         "Name": "tmrRippleEffectTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 288,
+        "PublishOrderIndex": 690,
         "Rules": [
           {
             "Category": "Data",
@@ -689,7 +689,7 @@
         "Name": "lblTitleTextTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 289,
+        "PublishOrderIndex": 691,
         "Rules": [
           {
             "Category": "Data",
@@ -1057,7 +1057,7 @@
         "Name": "cirHoverEffectTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 290,
+        "PublishOrderIndex": 692,
         "Rules": [
           {
             "Category": "Design",
@@ -1463,7 +1463,7 @@
         "Name": "btnHandIconTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 291,
+        "PublishOrderIndex": 693,
         "Rules": [
           {
             "Category": "Data",
@@ -1915,7 +1915,7 @@
         "Name": "imgToggleCircleTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 292,
+        "PublishOrderIndex": 694,
         "Rules": [
           {
             "Category": "Data",
@@ -2440,7 +2440,7 @@
         "Name": "lblTextNoTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 293,
+        "PublishOrderIndex": 695,
         "Rules": [
           {
             "Category": "Data",
@@ -3037,7 +3037,7 @@
         "Name": "lblTextYesTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 294,
+        "PublishOrderIndex": 696,
         "Rules": [
           {
             "Category": "Data",
@@ -3573,7 +3573,7 @@
         "Name": "txtToggleBarTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 295,
+        "PublishOrderIndex": 697,
         "Rules": [
           {
             "Category": "Data",
@@ -4139,7 +4139,7 @@
         "Name": "btnRippleEffectTC",
         "Parent": "ToggleComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 296,
+        "PublishOrderIndex": 698,
         "Rules": [
           {
             "Category": "Data",

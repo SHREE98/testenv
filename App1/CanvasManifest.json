@@ -20,7 +20,7 @@
       "cdsdataformatting": false,
       "classiccontrols": false,
       "consistentreturnschemafortabularfunctions": false,
-      "copyandmerge": true,
+      "copyandmerge": false,
       "datatablev2control": true,
       "dataverseactionsenabled": false,
       "delaycontrolrendering": true,
@@ -102,11 +102,11 @@
     "Id": "b63a99d0-1ea9-4566-a9b4-b4e1ad7d99e2",
     "InstrumentationKey": "",
     "LocalDatabaseReferences": "{}",
-    "Name": "TESTDEV1",
+    "Name": "TESTDEV1-Cloned",
     "OriginatingVersion": "1.326"
   },
   "PublishInfo": {
-    "AppName": "TESTDEV1",
+    "AppName": "TESTDEV1-Cloned",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",

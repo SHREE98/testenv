@@ -81,7 +81,7 @@
         "Name": "rctBackgroundCloseEN",
         "Parent": "ExpandedNotesPopUpComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 134,
+        "PublishOrderIndex": 546,
         "Rules": [
           {
             "Category": "Design",
@@ -289,7 +289,7 @@
         "Name": "tmrSetFocusEN",
         "Parent": "ExpandedNotesPopUpComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 135,
+        "PublishOrderIndex": 547,
         "Rules": [
           {
             "Category": "Data",
@@ -671,7 +671,7 @@
         "Name": "imgBackgroundEN",
         "Parent": "ExpandedNotesPopUpComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 136,
+        "PublishOrderIndex": 548,
         "Rules": [
           {
             "Category": "Data",
@@ -1192,7 +1192,7 @@
             "Name": "lblHeaderEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 138,
+            "PublishOrderIndex": 550,
             "Rules": [
               {
                 "Category": "Data",
@@ -1547,7 +1547,7 @@
             "Name": "rctBackgroundEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 139,
+            "PublishOrderIndex": 551,
             "Rules": [
               {
                 "Category": "Design",
@@ -1987,7 +1987,7 @@
             "Name": "lblCharacterCountEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 140,
+            "PublishOrderIndex": 552,
             "Rules": [
               {
                 "Category": "Data",
@@ -2619,7 +2619,7 @@
             "Name": "txtNotesEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 141,
+            "PublishOrderIndex": 553,
             "Rules": [
               {
                 "Category": "Data",
@@ -3168,7 +3168,7 @@
             "Name": "txtHideScrollNCEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 142,
+            "PublishOrderIndex": 554,
             "Rules": [
               {
                 "Category": "Data",
@@ -3683,7 +3683,7 @@
             "Name": "imgCloseIconEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 143,
+            "PublishOrderIndex": 555,
             "Rules": [
               {
                 "Category": "Data",
@@ -4160,7 +4160,7 @@
             "Name": "imgExpandIconEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 144,
+            "PublishOrderIndex": 556,
             "Rules": [
               {
                 "Category": "Data",
@@ -4638,7 +4638,7 @@
             "Name": "imgErrorIconEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 145,
+            "PublishOrderIndex": 557,
             "Rules": [
               {
                 "Category": "Data",
@@ -5199,7 +5199,7 @@
             "Name": "lblWarningEN",
             "Parent": "cntMainEN",
             "PersistMetaDataIDKey": false,
-            "PublishOrderIndex": 146,
+            "PublishOrderIndex": 558,
             "Rules": [
               {
                 "Category": "Data",
@@ -5545,7 +5545,7 @@
         "Name": "cntMainEN",
         "Parent": "ExpandedNotesPopUpComponent",
         "PersistMetaDataIDKey": false,
-        "PublishOrderIndex": 137,
+        "PublishOrderIndex": 549,
         "Rules": [
           {
             "Category": "Design",
