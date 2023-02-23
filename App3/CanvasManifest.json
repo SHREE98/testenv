@@ -117,7 +117,6 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "TemplateScreen",
     "TemplateDesignScreen",
     "TemplateDesignScreen_1",
     "DashboardScreen",
